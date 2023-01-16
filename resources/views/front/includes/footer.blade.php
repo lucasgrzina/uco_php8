@@ -14,7 +14,7 @@
                         </button>
                   </div>
                   <div class="form-check w-100">
-                    <label class="form-check-label" for="acepto">
+                    <label class="form-check-label" for="acepto" style="z-index:999;">
                       <input class="form-check-input" v-model="newsletter.form.acepto" type="checkbox" name="acepto" id="acepto" :value="true">
                       <span class="checkmark"></span>
                         &nbsp;
