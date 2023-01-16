@@ -1,0 +1,87 @@
+.box-page-list .td-id {
+	text-align: left;
+	max-width: 20px;
+}
+.box-page-list .td-enabled {
+	text-align: center;
+	max-width: 70px;
+}
+.box-page-list .td-actions {
+	text-align: right;
+	width: 150px;
+}
+.box-page-list .btn-flag {
+	/*width: 25px;
+	height: 20px;
+	display: inline-block;*/
+
+}
+.box-page-list .btn-flag img {
+	max-width: 20px;
+}
+
+img.img-list {
+	max-width: 50px;
+}
+.box-page-list .box-filter {
+	text-align: right;
+}
+
+.box-page-list .sort-by {
+	padding-right: 18px;
+	position: relative;	
+	cursor: pointer;
+}
+
+.box-page-list .sort-by.asc,.box-page-list .sort-by.desc {
+	text-decoration: underline;
+}	
+
+.box-page-list .sort-by:before,.box-page-list .sort-by:after {
+	border: 4px solid transparent;
+	content: "";
+	display: block;
+	height: 0;
+	right: 5px;
+	top: 50%;
+	position: absolute;
+	width: 0;
+}
+
+.box-page-list .sort-by:before {
+	border-bottom-color: #666;
+	margin-top: -9px;
+}
+.box-page-list .sort-by:after {
+	border-top-color: #666;
+	margin-top: 1px;
+}
+.box-page-list .sort-by.asc:before {
+	border-bottom-color: #000;
+}
+.box-page-list .sort-by.asc:after {
+	opacity: 0;
+}
+.box-page-list .sort-by.desc:before {
+	opacity: 0;
+}
+.box-page-list .sort-by.desc:after {
+	border-top-color: #000;
+}
+
+.box-page-list .box-footer .left{
+	text-align: left;
+}
+.box-page-list .box-footer .right{
+	text-align: right;
+}
+@media (max-width:780px) {
+.box-page-list .box-footer .left{
+	text-align: center;
+	margin-bottom: 10px;
+}
+.box-page-list .box-footer .right{
+	text-align: center;
+}
+
+}

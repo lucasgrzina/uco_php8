@@ -1,0 +1,264 @@
+.cart{
+	padding-top: 25px;
+	.list-cart{
+		.item{
+			display: flex;
+			gap: 10px;
+			border-width: 0 0 0;
+			border-style: solid;
+			border-color: #e2e2e2;
+			padding: 15px 0;
+			.image{
+				width: 100%;
+				max-width: 40px;
+				img{
+					width: 100%;
+				}
+			}
+
+			.info{
+				width: 100%;
+				position: relative;
+				h1{
+					font-family: $f-bold;
+					font-size: 35px;
+					margin-bottom: 5px;
+					line-height: normal;
+				}
+			}
+
+			.remove{
+				position: absolute;
+				right: 10px;
+				width: 31px;
+				height: 31px;
+				border-width: 1px;
+				border-style: solid;
+				border-radius: 50%;
+				border-color: #363126;
+				top: calc(50% - 43px);
+
+				&:before, &:after {
+					position: absolute;
+					left: 14px;
+					top: 5px;
+					content: ' ';
+					height: 19px;
+					width: 1px;
+					background-color: #363126;
+				}
+				&:before {
+					transform: rotate(45deg);
+				}
+
+				&:after{
+					transform: rotate(-45deg);
+
+				}
+			}
+		}
+	}
+
+	.total{
+		position: relative;
+		float: left;
+		width: 100%;
+		padding: 20px 0;
+		border-width: 1px 0 ;
+		border-style: solid;
+		border-color: #e2e2e2;
+
+		span{
+			font-weight: bold;
+			font-size: 25px;
+			text-align: center;
+			width: 100%;
+			display: block;
+		}
+	}
+
+	.actions{
+		display: grid;
+		/* position: relative; */
+		float: left;
+		width: 100%;
+
+		padding: 20px 30px;
+		gap: 10px
+	}
+}
+
+.section-table{
+    background: #F4F2E9;
+    padding: 80px 0px;
+
+    .btn-finalizar{
+    	float: right;
+    	color: #fff;
+    	background-color: #8e8063;
+    }
+
+    .table{
+    	thead{
+    		border-width: 1px 1px 1px;
+    		border-style: solid;
+    		border-color: #CCD3B9 #CCD3B9 #363126;
+    	}
+    	tbody{
+    		border-width: 1px;
+    		border-style: solid;
+    		border-color: #363126;
+    	}
+
+    }
+}
+.table{
+	background-color: #fff;
+	>thead{
+		background-color: #CCD3B9;
+
+		tr{
+			th{
+				padding: 15px 0;
+			}
+		}
+	}
+	.item{
+		display: flex;
+		gap: 10px;
+		border-width: 0 0 0;
+		border-style: solid;
+		border-color: #e2e2e2;
+		padding: 15px 0;
+		.image{
+			width: 100%;
+			max-width: 40px;
+			img{
+				width: 100%;
+			}
+		}
+
+		.info{
+			width: 100%;
+			position: relative;
+			display: grid;
+			align-content: center;
+			h1{
+				font-family: $f-bold;
+				font-size: 30px;
+				margin: 10px 0 0;
+
+				line-height: normal;
+			}
+			span {
+				font-size: 12px;
+				padding-left: 5px;
+			}
+
+
+		}
+
+
+	}
+
+	.remove{
+		position: absolute;
+		left: 20px;
+		width: 30px;
+		height: 30px;
+		border-width: 1px;
+		border-style: solid;
+		border-radius: 50%;
+		border-color: #363126;
+		top: calc(50% - 15px);
+
+		&:before, &:after {
+			position: absolute;
+			left: 14px;
+			top: 5px;
+			content: ' ';
+			height: 19px;
+			width: 1px;
+			background-color: #363126;
+		}
+		&:before {
+			transform: rotate(45deg);
+		}
+
+		&:after{
+			transform: rotate(-45deg);
+
+		}
+	}
+
+
+	&.table-light{
+		background-color: transparent;
+		>thead{
+			background-color: transparent;
+			border-width: 0 0 1px 0;
+			tr{
+				th{
+					padding: 15px 0;
+					background-color: transparent;
+					font-weight: normal;
+				}
+			}
+		}
+		tfoot{
+			background-color: transparent;
+			border-width: 1px 0 0 0;
+            border-color: #363126;
+			tr{
+				th{
+					padding: 15px 0;
+					background-color: transparent;
+					font-weight: normal;
+				}
+			}
+		}
+		tbody{
+			border-width: 0;
+			background-color: transparent;
+
+			td, th{
+				background-color: transparent;
+				color: #8e8063;
+				:hover,:visited,:active {
+					color: #8e8063!important;
+				}
+			}
+		}
+
+		.btn-dropdown{
+			background-color: transparent;
+			color: #8e8063;
+			border-width: 1px;
+			border-style: solid;
+			border-color: #8e8063;
+			font-family: $f-book;
+			font-weight: bold;
+
+			.arrow-down{
+				border-width: 1px;
+				border-style: solid;
+				border-color: #8e8063;
+				background-color: transparent;
+
+				background-image: url(../img/arrow-down-brown.svg);
+
+			}
+		}
+	}
+}
+
+
+.table-responsive-custom{
+	@include under($b-md){
+		overflow-x: auto;
+
+		table{
+			min-width: 800px;
+		}
+	}
+}

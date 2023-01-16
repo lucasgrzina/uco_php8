@@ -1,0 +1,141 @@
+.modal{
+    backdrop-filter: blur(0px);
+
+	&#edadModal {
+        .modal-dialog{
+            max-width: 1170px;
+
+            transform: translate(0, 0px) !important;
+            .modal-content{
+                border-radius: 0;
+                border-width: 0;
+                background-color: #ffffff70;
+                padding: 75px;
+                @include under($b-lg) {
+                    padding: 35px;
+                }
+                .modal-header, .modal-body, .modal-footer{
+                    border-width: 0;
+                }
+                .brand{
+                    width: 230px;
+                    margin: 0 auto;
+                    display: block;
+
+                    img{
+                        width: 100%;
+                        filter: brightness(0);
+                    }
+                }
+
+                .select-btns{
+                    gap: 15px;
+                    .btn{
+                        min-width: 150px;
+
+                    }
+
+                }
+
+                h3{
+                    font-family: $f-bold;
+                    text-align: center;
+                    font-size: 44px;
+                    line-height: normal;
+                    letter-spacing: 0;
+                }
+
+                p{
+                    font-family: $f-book;
+                    text-align: center;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: normal;
+                    letter-spacing: 0;
+                    max-width: 400px;
+                    margin: 0 auto;
+                }
+
+                .form-check .container{
+                    color: #000;
+                    margin: 0;
+                }
+
+                .form-check .container input:checked~.checkmark {
+                    background-color: #dbdbdb;
+                }
+                .form-check .container .checkmark:after{
+                        border: solid #bcc4a8;
+                        border-width: 0 3px 3px 0;
+                }
+            }
+        }
+    }
+
+    &.modal-generico {
+        .modal-dialog{
+            max-width: 1170px;
+
+            transform: translate(0, 0px) !important;
+            .modal-content{
+                border-radius: 0;
+                border-width: 0;
+                background-color: rgb(255 255 255 / 74%);
+                padding: 75px;
+                @include under($b-lg) {
+                    padding: 35px;
+                }
+                .modal-header, .modal-body, .modal-footer{
+                    border-width: 0;
+                }
+                .modal-header {
+                    .btn-close {
+                        position: absolute;
+                        right: 35px;
+                        top: 30px;
+                    }
+                }
+                .brand{
+                    width: 230px;
+                    margin: 0 auto;
+                    display: block;
+
+                    img{
+                        width: 100%;
+                        filter: brightness(0);
+                    }
+                }
+
+
+                h3{
+                    font-family: $f-bold;
+                    text-align: center;
+                    font-size: 44px;
+                    line-height: normal;
+                    letter-spacing: 0;
+                }
+
+                p{
+                    font-family: $f-book;
+                    text-align: left;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: normal;
+                    letter-spacing: 0;
+                    margin: 0 auto;
+                }
+
+            }
+        }
+    }
+}
+
+    .modal-backdrop {
+        &.show{
+            opacity: 1;
+            background-position: center;
+            background-size: cover;
+            background-image: url(../img/background-modal.jpg);
+        }
+    }
+

@@ -1,0 +1,148 @@
+.component-fullscreen{
+	background-color: $c-brown-lighter;
+	padding: 0;
+	@include under($b-md){
+		padding: 0;
+	}
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	position: relative;
+	float: left;
+	width: 100%;
+
+
+	.title-slider{
+		position: absolute;
+		z-index: 1001;
+		width: 100%;
+		top: 125px;
+		h5{
+			text-align: center;
+			color: #fff;
+		}
+
+		@include under($b-md){
+		    top: 125px;
+    		left: 50px;
+        	width: calc(100% - 100px);
+		}
+
+		@media(max-width: 400px){
+			top: 85px;
+		}
+	}
+
+	.slider-fullscreen{
+		.slick-dots{
+			bottom: 60px;		
+		}
+	}
+	
+
+	.slide {
+		height: 100vh;
+		width:  100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+		display: flex;
+		align-items: center;
+		background-image: var(--background-desktop);
+		@include under($b-md) {
+			background-image: var(--background-mobile);
+		}
+	}
+
+
+	.slick-prev, .slick-next {
+		z-index: 1000;
+		top: 50%;
+		&:before{
+			content: ' ';
+		}
+
+		@include under($b-md){
+			top: 137px;
+			filter: brightness(0) invert(1);
+		}
+
+		@media(max-width: 400px){
+			top: 98px;
+		}
+	}
+
+	.slick-prev{
+		left: 25px;
+
+		
+	}
+
+	.slick-next{
+		right: 25px;
+
+
+	}
+
+	.slick-arrow{
+		&.slick-prev {
+			height: 30px;
+			width: 30px;
+			background: url(../img/arrow-left.svg) no-repeat;
+			cursor: pointer;
+		}
+
+		&.slick-next {
+			height: 30px;
+			width: 30px;
+			background: url(../img/arrow-right.svg) no-repeat;
+			cursor: pointer;
+		}
+	}
+
+	.content{
+		margin: 0 auto;
+	    padding-top: 100px;
+		h5{        
+			@extend %ttlh5;
+			color: #fff;
+			line-height: normal;
+			margin-bottom: 80px;
+			text-align: center;
+		}
+
+		h4{
+			color: #fff;
+			text-align: center;
+			@extend %ttlh4;
+			letter-spacing: 8.8px;
+			line-height: 53px;
+		}
+
+		h6{
+			color: #fff;
+			text-align: center;
+			font-size: 18px;  
+			line-height: 22px;        
+			letter-spacing: 2.25px;
+		}
+
+		p{
+			font-family: $f-spezia;
+			font-size: 20px;
+			line-height: 29px;        
+			letter-spacing: 0.6px;
+			max-width: 703px;
+			margin: 0 auto;
+			text-align: center;
+
+			@include under($b-md){
+				font-size: 20px;
+				line-height: 24px;
+				letter-spacing: 0.5px;
+				padding: 0 15px;
+			}
+			
+		}
+	}
+}

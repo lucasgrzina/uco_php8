@@ -1,0 +1,99 @@
+@font-face {
+    font-family: 'Goudy-BoldItalicOsF';
+    src: url('Goudy-BoldItalicOsF.woff2') format('woff2'),
+        url('Goudy-BoldItalicOsF.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy-BoldOsF';
+    src: url('Goudy-BoldOsF.woff2') format('woff2'),
+        url('Goudy-BoldOsF.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy';
+    src: url('Goudy-Italic.woff2') format('woff2'),
+        url('Goudy-Italic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy';
+    src: url('Goudy-Bold.woff2') format('woff2'),
+        url('Goudy-Bold.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy';
+    src: url('Goudy-BoldItalic.woff2') format('woff2'),
+        url('Goudy-BoldItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy-HeavyfaceItalic';
+    src: url('Goudy-HeavyfaceItalic.woff2') format('woff2'),
+        url('Goudy-HeavyfaceItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy-SC';
+    src: url('Goudy-SC.woff2') format('woff2'),
+        url('Goudy-SC.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy-ItalicOsF';
+    src: url('Goudy-ItalicOsF.woff2') format('woff2'),
+        url('Goudy-ItalicOsF.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy-Heavyface';
+    src: url('Goudy-Heavyface.woff2') format('woff2'),
+        url('Goudy-Heavyface.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy';
+    src: url('Goudy.woff2') format('woff2'),
+        url('Goudy.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Goudy';
+    src: url('Goudy-ExtraBold.woff2') format('woff2'),
+        url('Goudy-ExtraBold.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+

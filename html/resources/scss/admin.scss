@@ -1,0 +1,106 @@
+.basic {
+	[aria-label="Fullscreen"],
+	[aria-label="Blockquote (⌃⌥Q)"],
+	[aria-label="Strikethrough (⌃⌥D)"],
+	[aria-label="Italic (⌘I)"],
+	[aria-label="Underline (⌘U)"],
+	[aria-label="Undo (⌘Z)"],
+	[aria-label="Redo (⌘Y)"],
+	[aria-label="Align left (⌃⌥L)"],
+	[aria-label="Align center (⌃⌥C)"],
+	[aria-label="Align right (⌃⌥R)"],
+	[aria-label="Bulleted list (⌃⌥U)"],
+	[aria-label="Numbered list (⌃⌥O)"],
+	[aria-label="Toolbar Toggle (⌃⌥Z)"],
+	[aria-label="Insert Read More tag (⌃⌥T)"] {
+		display: none;
+	}
+}
+
+.md {
+	iframe {
+		height: 250px !important;
+		min-height: 0 !important;
+	}
+}
+.sm {
+	iframe {
+		height: 180px !important;
+		min-height: 0 !important;
+	}
+}
+.xs {
+	iframe {
+		height: 90px !important;
+		min-height: 0 !important;
+	}
+}
+.xxs {
+	iframe {
+		height: 75px !important;
+		min-height: 0 !important;
+	}
+	.mce-statusbar,
+	.mce-toolbar-grp {
+		display: none !important;
+	}
+}
+
+.h1 input,
+.h1 textarea {
+	height: auto !important;
+	padding: 5px !important;
+	font-size: 22px !important;
+	font-weight: bold;
+}
+.h2 input,
+.h2 textarea {
+	padding: 15px !important;
+	font-size: 20px !important;
+}
+.center {
+	padding-bottom: 0 !important;
+}
+.center input,
+.center textarea { text-align: center !important; }
+
+.acf-switch {
+	white-space: nowrap;
+	span {
+		float: none !important;
+	}
+}
+
+.hide {
+	border: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	& * { display: none !important; border: none !important; }
+}
+
+.acf-oembed iframe { height: 260px !important; }
+.acf-gallery {
+	height: 215px !important;
+	.acf-fr { display: none !important; }
+}
+
+.acf-fields > .acf-field { overflow: hidden !important; min-height: 0 !important; }
+.acf-field .acf-label label { white-space: nowrap; }
+
+// [data-layout="video-blocks"]:not(.-collapsed) {
+[data-layout]:not(.-collapsed) {
+	.acf-fields {
+		display: flex !important;
+		flex-wrap: wrap;
+		& > .acf-field { width: 100%; }
+	}
+	.acf-oembed .canvas iframe { height: 190px !important; }
+	.acf-oembed.has-value .canvas { min-height: 50px !important; }
+}
+
+.acf-switch span { padding: 4px 6px !important; }
+.acf-image-uploader .image-wrap img { min-height: initial !important; }
+
+#types-adder { display: none !important; }
+
+.acf-hndle-cog { display: none !important; }

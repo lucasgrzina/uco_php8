@@ -1,0 +1,223 @@
+/* LATEST NEWS */
+
+.latest-news {
+	position: relative;
+	float: left;
+	width: 100%;
+	.content-slide{
+		position: relative;
+		float: left;
+		width: 100%;
+
+		@media screen and (min-width: 992px) {
+			margin-top: 110px;	
+			margin-bottom: 110px;	
+		}
+	}
+	background-color: $c-lighter;
+	min-height: 100vh;
+	padding: 80px 30px 50px;
+	@media screen and (min-width: 992px) {
+		padding: 125px 140px 45px;
+	}
+	.home__hero--ttl {
+		@extend %ttl;
+	}
+
+	.slider-news {
+		.slick-track{
+			.slick-slide {
+				
+					height: auto;
+				
+				&.slick-current{
+					.slide{
+						border-left: solid 0.5px #645147;
+
+						@include under($b-md){
+							border-left: solid 0px #645147;
+							height: auto;
+						}	
+					}
+					
+				}
+			}
+		}
+
+	.slide {
+		padding: 125px 15px 0;
+	    min-height: 460px;
+		@media screen and (min-width: 992px) {
+			padding: 0 15px 60px;
+			overflow: hidden;
+    		/*border-left: solid 0.5px #645147;*/
+    		border-right: solid 0.5px #645147;
+    	}
+		img {
+
+			object-fit: cover;
+		    object-position: center;
+		    width: 100%;
+		    max-height: 168px;
+		    height: 260px;
+			  margin-bottom: 1rem;
+			@media screen and (min-width: 1600px) {
+				max-height: 260px;
+				width: 100%;
+    			margin: 0 auto;
+			}
+		}
+		.resume {
+			padding-top: 35px;
+			h6 {
+				font-size: 12px;
+				color: #645147;
+				text-transform: uppercase;
+				margin: 0 0 20px 0;
+				@media screen and (min-width: 992px) {
+					font-size: 10px;
+				}
+			}
+			h4 {
+			    font-size: 16px;
+			    font-weight: normal;
+			    line-height: 22px;
+			    letter-spacing: 1.25px;
+				color: #645147;
+				text-transform: uppercase;
+				margin: 0 0 20px 0;
+				@media screen and (min-width: 1600px) {
+					font-size: 18px;
+					letter-spacing: 2.25px;
+				}
+			}
+			a {
+				font-size: 12px;
+				color: #645147;
+				text-transform: uppercase;
+				letter-spacing: 1.5px;
+
+				&:hover{
+					text-decoration: underline;
+				}
+				
+			}
+		}
+
+		&:hover{
+			img{
+				opacity: .5;
+			}
+		}
+	}
+}
+		.slider-arrows {
+			position: absolute;
+			width: 100%;
+			margin-top: 0;
+			@include over($b-md){
+		    	top: -138px;
+
+		    	li{
+		    		&.prev{
+		    			margin-top: 0 !important;
+		    		}
+
+		    		&.next{
+		    			margin-top: 0 !important;
+		    		}
+		    	}
+			}
+				li {
+		    		margin-top: 20px;
+		    		position: relative;
+					margin-right: 20px;
+				    &.prev{
+				      	display: block;
+				      	height: 30px;
+				      	width: 30px;
+				      	background: url('../img/arrow-left.svg') no-repeat;
+				      	cursor: pointer;
+				      	float: left;
+				      	margin-top: -570px;
+		    			margin-left: -20px;
+		    			@media screen and (min-width: 992px) {
+				        	/*margin-top: -145px;*/
+				        	margin-right: 50px;
+				        }
+				    }
+				    &.next{
+				      	display: block;
+				      	height: 30px;
+				      	width: 30px;
+				      	background: url('../img/arrow-right.svg') no-repeat;
+				      	cursor: pointer;
+				      	float: right;
+				        margin-top: -570px;
+		    			margin-right: 10px;
+				        @media screen and (min-width: 992px) {
+				        	/*margin-top: -145px;*/
+				        	margin-right: 50px;
+				        }
+				    }
+				}
+				@include under($b-md){
+					margin-top: 0;
+				    float: left;
+				    position: absolute;
+				    width: calc(100% + 50px);
+				    top: 200px;
+				    height: 37px;
+				    left: -25px;
+
+				    ul{
+				    	height: 46px;
+					    padding: 0;
+					    margin: 0;
+
+					    li{
+					    	&.prev{
+				    		    margin-top: 0;
+	    						margin-left: 0;
+					    	}
+
+					    	&.next{
+					    		margin-top: 0;
+	    						margin-right: 0;
+					    	}
+					    }
+				    }
+				    
+				}
+
+				@media(max-width: 1050px) and (min-width: 992px){
+					ul{
+
+					    li{
+					    	&.prev{
+				    		    margin-left: -15px;
+					    	}
+
+					    	&.next{
+					    		margin-right: -15px;
+					    	}
+					    }
+				    }
+				}
+		}
+
+	@include under($b-md){
+		#dots-container{
+		    position: absolute;
+		    width: 100%;
+		    bottom: 20px;
+		    left: 0;
+		    height: 20px;			
+
+		    .slick-dots{
+		    	bottom:  0;
+		    }
+		}
+	}
+	
+}

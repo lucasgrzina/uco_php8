@@ -1,0 +1,31 @@
+.accordion-ytech{
+	.accordion-button{
+		font-size: 20px;
+		letter-spacing: 2.5px;
+		line-height: 24px;
+		color: #645147;
+		font-family: $f-book;
+		text-transform: uppercase;
+		background-color: #fff;
+	    display: block;
+	    h6{
+	    	width: 100%;
+	    	font-size: 12px;
+	    	letter-spacing: 1.5px;
+	    	line-height: 14px;
+	    }
+		&.collapsed{
+			background-color: #F4F3EF;
+		}
+
+		&:focus{
+			border-width: 0;
+		    outline: none;
+    		box-shadow: none;
+		}
+
+		&:after{
+			opacity: 0;
+		}
+	}
+}

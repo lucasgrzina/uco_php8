@@ -1,0 +1,89 @@
+.component-instagram{
+	position: relative;
+    float: left;
+    width: 100%;
+    padding-top: 80px;
+    background-color: #BDA387;
+
+    .container{
+	    padding: 12px 24px;
+    }
+
+	.instagram-block{
+		width: 100%;
+	    height: calc(25vw - 28.25px);
+
+	    
+
+	    
+
+	    @include under($b-lg){
+	    	height: calc(25vw - 28.25px);
+	    }
+
+	    @media(max-width: 768px){
+	    	height: calc(50vw - 28.25px);
+	    }
+
+
+	    max-height: 359px;
+	    max-width: 359px;
+		
+		margin: 12px 0;
+		position: relative;
+    	display: block;
+    	overflow: hidden;
+		img{
+			 object-fit: cover;  
+			  object-position: center; /* Center the image within the element */
+			  width: 100%;
+			  max-height: calc(25vw - 28.25px);
+			  height: calc(25vw - 28.25px);
+
+			  @include under($b-lg){
+			  	    object-fit: contain;
+    			object-position: top;
+			  }
+
+			   @media(max-width: 768px){
+			  	max-height: calc(50vw - 28.25px);
+				height: calc(50vw - 28.25px);			  
+			  }
+
+			  
+		}
+
+		.hover{
+			position: absolute;
+		    width: 100%;
+		    z-index: 2;
+		    height: 100%;
+			opacity: 0;
+			align-items: center;
+    		display: flex;
+    		padding: 10px;
+			p{
+				font-family: $f-book;
+			    text-align: center;
+			    width: 100%;
+			    text-transform: uppercase;
+		        letter-spacing: 4px;
+    			font-size: 34px;
+			}
+		}
+
+		&:hover{
+			img{
+				opacity: .5;
+			}
+			@include over($b-lg){
+				background-color:#fff;
+			}
+		}
+	}	
+
+	.btn{
+	    margin: 30px auto;
+    	display: block;
+	}
+}

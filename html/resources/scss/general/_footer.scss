@@ -1,0 +1,110 @@
+footer {
+	background-color: #BCC4A8;
+
+	.logo{
+	    max-width: 258px;
+	    margin: 74px auto 10px;
+	    display: table;
+		img{
+			filter: brightness(0);
+			width: 100%;
+		}
+
+		@include under($b-lg) {
+			max-width: 223px;
+		}
+	}
+
+	.social-links{
+		margin: 6px auto;
+		display: flex;
+		justify-content: space-between;
+		max-width: 274px;
+
+		a{
+			font-size: 46px;
+			padding: 10px;
+			color:#363126;
+            &:hover {
+                text-decoration: underline;
+            }
+
+		}
+
+		@include under($b-lg) {
+			max-width: 223px;
+
+			a{
+				font-size: 35px;
+			}
+		}
+	}
+
+	.site-links{
+		margin: 12px auto;
+		display: flex;
+		justify-content: space-between;
+		max-width: 590px;
+		a{
+			font-family: $f-book;
+			font-size: 12px;
+			padding: 5px;
+			color:#363126;
+            &:hover {
+                text-decoration: underline;
+            }
+		}
+
+		@include under($b-lg) {
+			display: block;
+
+			a{
+				width: 100%;
+				text-align: center;
+			    position: relative;
+    			display: table;
+			}
+		}
+	}
+
+	.firulete{
+		display: table;
+	    max-width: 350px;
+		margin: 50px auto;
+	}
+
+	.legales{
+		color: #fff;
+		text-align: center;
+		margin: 5px auto;
+		font-size: 13px;
+		font-family: $f-book;
+	}
+	.legales-links{
+		margin: 40px auto;
+		display: flex;
+		justify-content: space-between;
+		max-width: 600px;
+		a{
+			font-family: $f-book;
+			font-size: 11px;
+			color: #fff;
+			padding: 5px;
+            &:hover {
+                text-decoration: underline;
+            }
+
+		}
+
+		@include under($b-lg) {
+			display: grid;
+    		grid-template-columns: repeat(2, 1fr);
+    		justify-content: center;
+
+    		a{
+    			text-align: center;
+    		}
+		}
+	}
+
+}

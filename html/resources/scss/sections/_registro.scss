@@ -1,0 +1,149 @@
+body[data-section="registro"] {
+	footer, header{
+		display: none;
+	}
+
+	.section-subscribirse{
+		display: none;
+	}
+
+
+	.registro{
+        a {
+            &:hover,&:active {
+                text-decoration: underline!important;
+            }
+        }
+		.col-image{
+			height: 100vh;
+			padding-left: 0;
+			padding-right: 0;
+
+			img{
+				object-fit: cover;
+				object-position: center;
+				width: 100%;
+				height: 100vh;
+			}
+
+			@include under($b-md) {
+				position: absolute;
+				z-index: -1;
+			}
+		}
+		.col-form{
+			@include over($b-md) {
+				background-color: #f2f1df;
+			}
+			height: 100vh;
+			align-items: center;
+			display: flex;
+			.wraper{
+				margin: 0 auto;
+				width: 100%;
+				max-width: 374px;
+				@include under($b-md) {
+					background-color: #33333340;
+				    padding: 55px 30px;
+				}
+			}
+
+			.brand{
+				width: 100%;
+				margin-bottom: 60px;
+				padding: 0 20px;
+				@include under($b-lg) {
+					margin-bottom: 30px;
+				}
+				display: block;
+				img{
+					width: 100%;
+					@include over($b-md) {
+						filter: invert(54%) sepia(26%) saturate(398%) hue-rotate(2deg) brightness(88%) contrast(83%);
+					}
+				}
+			}
+
+            .titulo {
+                color: #8e8063;
+                font-size: 30px;
+                line-height: normal;
+                @include under($b-md) {
+                    color: #fff;
+                }
+            }
+
+
+			form{
+				.form-floating{
+					margin-bottom: 10px;
+				}
+				input{
+					background-color: transparent !important;
+					border-width: 1px;
+					border-radius: 0;
+					border-color: #8e8063;
+					font-size: 14px;
+					font-family: $f-book;
+					color: #8e8063;
+					background-clip: text;
+					-webkit-background-clip: text;
+
+					@include under($b-md) {
+						border-color: #fff;
+					}
+
+				}
+
+				.form-floating>.form-control, .form-floating>.form-select{
+					height: 45px;
+				}
+				.form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label{
+					font-size: 12px;
+				}
+
+
+
+				.form-floating>.form-control:-webkit-autofill{
+					background-color: transparent !important;
+				}
+
+				.form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown) {
+				    padding-top: 18px;
+				    padding-bottom: 9px;
+				}
+
+				.form-floating>label{
+					color: #8e8063;
+				    padding: 11px 14px;
+    				font-size: 14px;
+
+    				@include under($b-md) {
+						color: #fff;
+					}
+				}
+
+				.mb-form{
+					margin-bottom: 25px;
+				}
+
+				.small{
+					font-size: 16px;
+					font-family: $f-book;
+					font-weight: normal;
+					color: #fff;
+					a{
+						color: #8e8063;
+						text-decoration: none;
+
+
+						@include under($b-md) {
+							color: #fff;
+						}
+					}
+				}
+
+			}
+		}
+	}
+}

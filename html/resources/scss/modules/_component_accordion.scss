@@ -1,0 +1,106 @@
+.component-accordion {
+	background-color: $c-lighter;
+	background-color: #fff;
+	padding: 50px 0;
+    position: relative;
+    float: left;
+    width: 100%;
+
+	@media screen and (min-width: 1500px) {
+		padding: 95px 0;
+	}
+	.accordion-button {
+		background-color: $c-lighter;
+		background-color: #fff;
+    	border-bottom: solid 1px #645147;
+    	text-transform: uppercase;
+    	letter-spacing: 1.75px;
+    	color: #645147;
+    	&:first-child {
+    		border-top: solid 1px #645147;
+    		@include under($b-md){
+    			border-top: solid 0 #645147;
+    		}
+    	}
+
+    	&:hover{
+    		@include over($b-md){
+    			background-color: #DED1C4;
+    			background-color: $c-lighter;
+    		}
+    	}
+	}
+	.accordion-button{
+		&:after {
+			height: auto;
+			content: '+';
+    		font-size: 30px;
+    		background-image: none;
+		}&:not(.collapsed)::after {
+			content: '-';
+			transform: none;
+		}
+
+		&:not(.collapsed) {
+			@include over($b-md){
+				background-color: #DED1C4;
+				background-color: $c-lighter;
+			}
+			@include under($b-md){
+				box-shadow: none;
+				border-width: 0;
+			}
+		}
+
+		&:focus{
+			box-shadow: none;			
+    		border-color: #645147;
+		}
+	}
+	.accordion-item {
+		border-width: 0;
+		background-color: transparent;
+		.accordion-body {
+			padding: 25px 0;
+			background-color: $c-lighter;
+			background-color: #fff;
+			border: 0;
+		    max-width: 900px;
+		    float: left;
+
+		    @include under($b-md){
+				padding: 0 0 25px;
+			}
+
+
+			@media screen and (min-width: 992px) {
+				padding: 0 0 0 75px;
+			}
+
+			p{
+				color: #645147;
+				font-family: $f-spezia;
+				font-size: 18px;
+				@media screen and (min-width: 1500px) {
+			    	padding-right: 100px;
+			    }
+			}
+
+			img{
+				margin-bottom: 25px;
+				width: 100%;
+				object-fit: cover;
+    			object-position: center;
+    			max-height: 345px;
+    			@media screen and (min-width: 1500px) {
+    				max-height: 545px;
+    			}
+			}
+		}
+
+		.accordion-collapse{
+			-webkit-transition: none;
+    		transition: none;
+		}
+	}
+}

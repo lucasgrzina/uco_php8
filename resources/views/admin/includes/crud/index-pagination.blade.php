@@ -1,0 +1,1 @@
+<paginate v-model="paging.current_page" :page-count="paging.last_page" :container-class="'pagination pagination-sm no-margin'" :click-handler="onChangePage" v-show="paging.total > 0"></paginate>

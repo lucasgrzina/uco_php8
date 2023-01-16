@@ -1,0 +1,234 @@
+body[data-section="checkout"] {
+    .lnk-agregar {
+        margin-right: 30px;
+    }
+	.f-right{
+		float: right;
+	}
+
+	.block-content{
+		position: relative;
+    	float: left;
+		width: 100%;
+		margin-bottom: 50px;
+	}
+
+	.section-checkout{
+        a {
+            font-size: 12px;
+        }
+
+        @include over($b-md){
+		    min-height: 600px;
+		}
+	}
+	form{
+		.form-floating{
+			margin-bottom: 10px;
+		}
+		input, textarea{
+			background-color: transparent !important;
+			border-width: 1px;
+			border-radius: 0;
+			font-size: 14px;
+			font-family: $f-book;
+			color: #363126;
+			background-clip: text;
+			-webkit-background-clip: text;
+		}
+
+		textarea{
+			resize: none;
+		}
+
+		.form-floating>.form-control, .form-floating>.form-select{
+			height: 45px;
+		}
+		.form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label{
+			font-size: 12px;
+		}
+
+
+
+		.form-floating>.form-control:-webkit-autofill{
+			background-color: transparent !important;
+		}
+
+		.form-floating>.form-control:focus, .form-floating>.form-control:not(:placeholder-shown) {
+			padding-top: 18px;
+			padding-bottom: 9px;
+		}
+
+		.form-floating>label{
+			color: #363126;
+			padding: 11px 14px;
+			font-size: 14px;
+		}
+
+		.mb-form{
+			margin-bottom: 25px;
+		}
+
+		.small{
+			font-size: 16px;
+			font-family: $f-book;
+			font-weight: normal;
+			color: #363126;
+			a{
+				color: $c-green;
+			}
+		}
+	}
+
+
+	.direccion{
+		display: flex;
+		width: 100%;
+		position: relative;
+		float: left;
+		margin: 0 0 25px;
+		padding: 37px;
+		background-color: #fff;
+
+		@media(max-width: 500px){
+			display: block;
+
+		}
+
+		.info{
+			display: flex;
+			align-items: center;
+
+			i{
+				font-size: 50px;
+				color: $c-green;
+				margin-right: 15px;
+			}
+
+			p{
+				font-family: $f-book;
+				font-size: 14px;
+				line-height: normal;
+				span{
+					display: block;
+					float: left;
+					width: 100%;
+				}
+			}
+		}
+		.actions{
+			@media(min-width: 500px){
+			    max-width: 370px;
+   			    width: 50%;
+   			    margin-right: 0;
+			    margin-left: auto;
+
+			}
+		    align-items: center;
+		    display: flex;
+		    justify-content: end;
+
+		    @media(max-width: 500px){
+				.btn{
+					margin:30px auto 0;
+				}
+			}
+		}
+	}
+
+	.message{
+		font-size: 14px;
+	}
+
+	.checkout-detail{
+		background-color: #fff;
+		position: relative;
+		float: left;
+		width: 100%;
+		.image-product{
+		    width: 41px;
+		    height: auto;
+		    margin: 0 auto;
+		    display: table;
+		}
+
+		.info{
+			position: relative;
+			float: left;
+			width: 100%;
+			display: block;
+			padding: 10px 15px 0;
+
+			.table{
+				.price{
+					width: 100%;
+					text-align: right;
+					display: block;
+
+					b{
+						font-weight: bold;
+					}
+				}
+
+				b{
+					font-weight: bold;
+				}
+				.subtotal {
+					border-top-width: 1px;
+					border-top-style: solid;
+					border-color: #e2e2e2;
+				}
+				.envio {
+					border-bottom-width: 1px!important;
+					border-bottom-style: solid;
+					border-color: #e2e2e2;
+				}
+			}
+		}
+
+		@include under($b-md){
+			margin-bottom: 50px;
+		}
+	}
+
+	@media(max-width: 768px){
+     	.col-checkout-1{
+     		order: 2;
+     	}
+
+     	.col-checkout-2{
+     		order: 1;
+     	}
+    }
+
+
+    .titulo{
+    	.dropdown{
+    		.btn-dropdown{
+    			span{
+    				@extend %ttlh2;
+    				color: #fff;
+				    font-size: 25px;
+    				padding: 2px 10px;
+                    line-height: 30px;
+    			}
+    		}
+    	}
+    	margin-bottom: 40px;
+    }
+
+    #seccionFacturacion .dropdown {
+        max-width: 300px;
+        .btn-dropdown {
+            width: 100%;
+        }
+        .dropdown-menu {
+            width: 340px;
+        }
+    }
+    #seccionEnvio {
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}

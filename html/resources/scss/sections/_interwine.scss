@@ -1,0 +1,84 @@
+body[data-section="interwine"] {
+	.section-colecciones{
+		background-color: #2C2B2B;
+
+		.producto {
+			background-color: #9C9C9B;
+		}
+	}
+
+	.section-subscribirse{
+		background-color: #9C9C9B;
+		form {
+			input[type=submit]{
+				background-color: #2C2B2B;
+				color: #fff;	
+			}
+
+			input[type=text]{
+				&::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+						color: #fff;
+						opacity: .65;
+						font-size: 15px;
+					}
+
+					&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+						color: #fff;
+						opacity: .65;
+						font-size: 15px;
+					}
+
+					&::-ms-input-placeholder { /* Microsoft Edge */
+						color: #fff;
+						opacity: .65;
+						font-size: 15px;
+					}
+			}
+
+			.form-check {
+				.form-check-label{
+					color: #fff;
+				}
+			}
+		}
+
+		
+		
+	}
+
+	footer{
+		background-color: #2C2B2B;
+
+		.social-links{
+			a{
+				color: #fff;
+			}
+		}
+		.site-links {
+			a{
+				color: #fff;
+			}
+		}
+
+		.logo {
+			img{
+				filter: brightness(1);
+			}
+		}
+
+		.firulete{
+			filter: brightness(5);
+		}
+	}
+
+	.navbar-colecciones{
+		.navbar-nav{
+			    justify-content: space-around;
+			.nav-item {
+				.nav-link{
+					color: #fff;
+				}
+			}
+		} 
+	} 
+}

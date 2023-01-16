@@ -1,0 +1,96 @@
+.component-columns{
+	background-color: $c-lighter;	
+	position: relative;
+	float: left;
+	width: 100%;
+
+	.body-columns{
+		width: 100%;
+		padding: 0 25px;
+		max-width: 681px;
+    	margin: 0 auto;
+
+    	.link{
+    		color: #645147;
+    		text-transform: uppercase;
+		    display: block;
+		    width: auto;
+		    float: none;
+		    bottom: 27px;
+		    position: absolute;
+		    left: calc(50% - 125px);
+		    width: 250px;
+		    text-align: center;
+
+		    @include under($b-md) {
+	    		position: relative;
+	    		bottom: auto;
+	    		margin-top: 25px;
+	    	}
+    	}
+	}
+
+	img{
+		object-fit: cover;
+	    object-position: center;
+	    width: 100%;
+	    max-height: 100vh;
+	    height: 100vh;
+
+	    @include under($b-md) {
+	    	max-height: 50vh;
+	    }
+	}
+	.column-text{
+		display: flex;
+		align-items: center;
+		background-color: #DFD3C6;
+		background-color: $c-lighter;
+		position: relative;
+		h4{
+			@extend %ttlh4;
+			text-align: center;
+		}
+
+		h5{
+			@extend %ttlh5;
+			text-align: center;
+		}
+
+
+
+		.logo-scultura{
+			max-width: 343px;
+    		margin: 0 auto 27px;
+    		display: table;
+    		height: auto;
+    		object-fit: unset;
+		}
+
+		.logo-custom{
+			max-width: 520px;
+    		margin: 0 auto 27px;
+    		display: table;
+    		height: auto;
+    		object-fit: unset;
+		}
+
+		p{
+			font-size: 20px;
+			text-align: center;
+			font-family: $f-spezia;
+			color: #645147;
+	        line-height: 29px;        
+	        letter-spacing: 0.6px;
+	        margin: 0 auto;
+	        text-align: center;
+		}
+
+		@include under($b-md) {
+	    	min-height: 50vh;
+	    	padding-top: 25px;
+	    	padding-bottom: 50px;
+	    }
+	}
+	
+}

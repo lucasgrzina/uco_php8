@@ -1,0 +1,9 @@
+.table-view-info td:first-child{
+	width: 30%;
+	font-weight: bold;
+	text-align: right;
+	background-color: #f4f4f4;
+}
+.table-view-info tr:first-child td{
+	border-top: none;
+}

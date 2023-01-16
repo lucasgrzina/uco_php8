@@ -1,0 +1,29 @@
+/* 
+	sass --watch html/resources/scss/style.scss public/css/style.css --style compressed
+*/
+/* CONFIG */
+@import '_config';
+@import '_helpers';
+@import '_webfont';
+
+
+/*ELEMENTS*/
+@import 'elements/_buttons';
+@import 'elements/_modals';
+@import 'elements/_cart';
+
+/* GENERAL */
+@import 'general/_layout';
+@import 'general/_header';
+@import 'general/_footer';
+
+/* MODULES */
+@import 'modules/_module-full-slider';
+
+/* SECTIONS */
+
+@import 'sections/_home';
+@import 'sections/_francesca_tucci';
+@import 'sections/_interwine';
+@import 'sections/_registro';
+@import 'sections/_checkout';

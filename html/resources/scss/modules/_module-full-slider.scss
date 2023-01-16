@@ -1,0 +1,88 @@
+.module-full-slider{
+	width: 100%;
+	position: relative;
+    
+
+    .slider{
+        @include over($b-md) {
+            max-height: 100vh;
+            min-height: 868px;
+        }
+        .slide{
+            position: relative;
+            background-color: #c4c4c4;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            max-height: 100vh;
+            min-height: 868px;
+            height: 500px;
+            background-image: var(--background-desktop);
+            @include under($b-md) {
+                background-image: var(--background-mobile);
+                min-height: 500px;
+                max-height: 545px;
+                height: 100vh;
+            }
+
+            display: flex;
+            align-items: center;
+
+
+            .container{
+                @include under($b-md) {
+                    padding: 0 42px;
+                }
+            }
+            
+
+            &:before{
+                content: ' ';
+                position: absolute;
+                z-index: 2;
+                height: 100%;
+                width: 100%;
+                background: rgb(0,0,0);
+                background: linear-gradient(180deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 40%);
+            }
+            .wrap{
+                z-index: 3;
+                position: relative;
+                @include under($b-md) {
+                    padding: 60px 30px 10px;
+                }
+            }
+
+            h2{
+                text-align: left;
+                font-family: $f-bold;
+                font-size: 70px;
+                line-height: 50px;
+                letter-spacing: 0px;
+                color: #FFFFFF;
+                opacity:1;
+                margin-bottom: 41px;
+                @include under($b-md) {
+                    font-size: 50px;
+                    line-height: 45px;
+                    margin-bottom: 25px;
+                }
+            }
+
+            p{
+                color: #fff;
+                font-family: $f-book;
+                font-size: 20px;
+                line-height: normal;
+                line-height: normal;
+                letter-spacing: -0.75px;
+                margin-bottom: 62px;
+                @include under($b-md) {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+    
+}

@@ -1,0 +1,121 @@
+.component-intro {
+	width: 100%;
+	position: relative;
+    min-height: calc(100vh - 64px);
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding-top: 64px;
+    @include under($b-md){
+        padding-bottom: 64px;
+    }
+    .text{
+        
+        width: 100%;
+        padding: 0 50px;
+    	margin: 0 auto;
+
+        @include under($b-md){
+            padding: 40px 15px;
+        }
+    }
+
+    h1{    	
+    	@extend %ttl;
+    	color: #fff;
+    	text-align: center;
+    }
+
+    h5{        
+        @extend %ttlh5;
+        color: #fff;
+        line-height: normal;
+        margin-bottom: 80px;
+        text-align: center;
+    }
+
+    h4{
+        color: #fff;
+        text-align: center;
+        @extend %ttlh4;
+        letter-spacing: 8.8px;
+        line-height: 53px;
+    }
+
+    h6{
+        color: #fff;
+        text-align: center;
+        font-size: 18px;  
+        line-height: 22px;        
+        letter-spacing: 2.25px;
+    }
+
+    p{
+        font-family: $f-spezia;
+        font-size: 20px;
+        line-height: 29px;       
+        letter-spacing: 0.6px;
+        max-width: 703px;
+        margin: 0 auto;
+        text-align: center;
+
+        @include under($b-md){
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: 0.5px;
+        }
+        
+        
+    }
+
+    .logo-scultura{
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 50px;
+        display: block;
+    }
+
+    &.culumns-2{
+        .column-1{
+            position: relative;
+            &:after{
+                content: ' ';
+                position: absolute;
+                width: 1px;
+                height: 200px;
+                background: #fff;
+                top: calc(50% - 100px);
+                right: 0;
+
+                @include under($b-md){
+                    width: 200px;
+                    height: 1px;
+                    bottom: 0;
+                    top: auto;
+                    left: calc(50% - 100px);
+                }
+            }
+        }
+
+        .text{
+            @include under($b-md){
+                padding: 30px 15px;
+            }
+        }
+    }
+
+    .link{
+        color: #fff;
+        text-transform: uppercase;
+        display: block;
+        width: auto;
+        float: none;
+        bottom: 27px;
+        position: absolute;
+        left: calc(50% - 125px);
+        width: 250px;
+        text-align: center;
+    }
+}
