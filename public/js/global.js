@@ -1,3 +1,4 @@
+var edadRecordarme = false;
 $(document).ready(function(){
 	var myModal = new bootstrap.Modal(document.getElementById('edadModal'), {
 		keyboard: false
@@ -113,14 +114,16 @@ $(document).ready(function(){
 
 	fadeChildren();
 
+    $('#checkmarkEdad').trigger('click');
+
 	$('#btnSiEdad').click(function() {
-		if ($('#recordarme-mayor').attr('checked')) {
+		if (document.getElementById('recordarme-mayor').checked) {
 			Cookies.set('ag_uco' , '1', { expires: 365 });
 		} else {
-			Cookies.set('ag_uco' , '1', { expires: -1 });
+			Cookies.set('ag_uco' , '1', { expires: 1 });
 		}
-		console.log($('#recordarme-mayor').attr('checked'));
-		myModal.hide();
+		console.log(document.getElementById('recordarme-mayor').checked);
+		//myModal.hide();
 	});
 
 	$(".producto-item .dropdown-menu li a, .table .dropdown-menu li a").click(function(e){

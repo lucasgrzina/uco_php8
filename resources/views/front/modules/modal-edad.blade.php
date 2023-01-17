@@ -17,9 +17,9 @@
 				<div class="d-flex justify-content-center w-100">
 				<div class="form-check ">
 					<label class="container">{!! trans('front.modulos.ageGate.recordarme') !!}
-						<input type="checkbox" checked="checked" name="recordarme-mayor"  id="recordarme-mayor">
-						<span class="checkmark"></span>
-					</label>						
+						<input type="checkbox" name="recordarme-mayor"  id="recordarme-mayor">
+						<span class="checkmark" id="checkmarkEdad"></span>
+					</label>
 				</div>
 				</div>
 			</div>
