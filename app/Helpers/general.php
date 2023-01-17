@@ -45,7 +45,7 @@ function obtenerDolarOficial() {
 
     $uri = new Uri("https://api.estadisticasbcra.com/usd_of");
 
-    $request = new Psr7\Request('GET', $uri->withQuery(\GuzzleHttp\Psr7\build_query(['d' => $fecha])), [
+    $request = new Psr7\Request('GET', $uri->withQuery(\GuzzleHttp\Psr7\build(['d' => $fecha])), [
         'Content-Type' => 'application/json',
         'Authorization' => 'Bearer '.env('BCRA_TOKEN')
     ]);
