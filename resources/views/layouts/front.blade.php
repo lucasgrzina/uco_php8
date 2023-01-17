@@ -141,7 +141,7 @@
       </div>
 
       <script type="module" src="{{asset('js/js.cookie.js')}}"></script>
-      <script src="{{asset('js/jquery-1.12.4.js')}}"></script>
+      <script src="{{asset('js/jquery-3.5.1.min.js')}}"></script>
       <script src="{{asset('js/jquery-ui.js')}}"></script>
       <script src="{{asset('js/jquery.ui.touch-punch.min.js')}}"></script>
 

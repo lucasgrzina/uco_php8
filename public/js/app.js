@@ -207,7 +207,8 @@ _methods.toastError = function(mensaje,titulo) {
 
 var bsMenuCart;
 var menuCart;
-$(window).load(function() {
+
+$(function() {
   menuCart = document.getElementById('offcanvasRight');
   bsMenuCart = new bootstrap.Offcanvas(menuCart);
 });

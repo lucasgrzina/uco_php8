@@ -180,7 +180,3 @@ $( window ).resize(function() {
 	fadeChildren();
 });
 
-$(window).load(function() {
-
-});
-
