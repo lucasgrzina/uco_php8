@@ -123,7 +123,7 @@ $(document).ready(function(){
 			Cookies.set('ag_uco' , '1', { expires: 1 });
 		}
 		console.log(document.getElementById('recordarme-mayor').checked);
-		//myModal.hide();
+		myModal.hide();
 	});
 
 	$(".producto-item .dropdown-menu li a, .table .dropdown-menu li a").click(function(e){
