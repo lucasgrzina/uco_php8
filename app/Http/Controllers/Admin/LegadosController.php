@@ -94,4 +94,28 @@ class LegadosController extends CrudAdminController
         $model = $this->_update($id, $request);
         return $this->sendResponse($model,trans('admin.success'));
     }
+
+    public function editLang($id, $lang)
+    {
+        \App::setLocale($lang);
+
+        $model = $this->repository->findWithoutFail($id);
+
+        if (empty($model)) {
+            return redirect()->back();
+        }
+
+        $this->data = [
+            'selectedItem' => array_merge($model->toArray(),['lang' => $lang]),
+            'url_save' => route($this->routePrefix.'.update',[$model->id]),
+            'url_index' => route($this->routePrefix.'.index',[$model->vino_id])
+        ];
+
+
+        $this->data['selectedItem']['cuerpo'] = $this->data['selectedItem']['cuerpo'] !== null ? $this->data['selectedItem']['cuerpo'] : '';
+
+        $this->clearCache();
+
+        return view($this->viewPrefix.'cu')->with('data',$this->data);
+    }
 }

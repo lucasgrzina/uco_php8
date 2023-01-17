@@ -92,6 +92,7 @@ class HomeSliderController extends CrudAdminController
         return view($this->viewPrefix.'cu')->with('data',$this->data);
     }
 
+
     public function update($id, CUHomeSliderRequest $request)
     {
         $model = $this->_update($id, $request);
