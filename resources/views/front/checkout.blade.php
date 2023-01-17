@@ -151,7 +151,7 @@
             _seccion.enviando = true;
             _this._call(_seccion.url_guardar,'POST',_seccion.itemSeleccionado).then(function(data) {
                 console.debug(data);
-
+                _seccion.itemSeleccionado.id = data.id;
                 //Si es una edicion, reemplazo la primera posicion
                 if (_esEdicion) {
                     Vue.set(_seccion.listado,0,_.cloneDeep(_seccion.itemSeleccionado));
