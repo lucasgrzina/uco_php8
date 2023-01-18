@@ -5,13 +5,13 @@ return [
         'legado' => 'legado',
         'nuestroCompromiso' => 'nosso-compromisso',
         'colecciones' => [
-            'root' => 'colecciones',
-            'tucci' => 'colecciones/francesca-tucci',
-            'interwine' => 'colecciones/intertwine',
+            'root' => 'colecoes',
+            'tucci' => 'colecoes/francesca-tucci',
+            'interwine' => 'colecoes/intertwine',
         ],
         'francescaTucci' => 'francesca-tucci',
-        'novedades' => 'novedades',
-        'contacto' => 'contacto',
+        'novedades' => 'novidades',
+        'contacto' => 'contato',
         'miCuenta' => [
             'root' => 'mi-cuenta',
             'misDatos' => 'mis-datos',
@@ -40,12 +40,12 @@ return [
         'links' => [
             'home' => 'Inicio',
             'legado' => 'Legado',
-            'nuestroCompromiso' => 'Nuestro Compromiso',
+            'nuestroCompromiso' => 'Nosso compromisso',
             'colecciones' => 'Colecciones',
             'francescaTucci' => 'Francesca Tucci',
             'interwine' => 'Intertwine',
-            'novedades' => 'Novedades',
-            'contacto' => 'Contacto',
+            'novedades' => 'Novidades',
+            'contacto' => 'Contato',
             'ingresar' => 'INGRESAR',
             'salir' => 'SALIR',
             'comprar' => 'COMPRAR',
@@ -54,10 +54,10 @@ return [
             'lcr' => 'Ley de consumo responsable',
             'dc' => 'Defensa del Consumidor',
             'menuUsuario' => [
-                'bienvenidos' => '¡Bienvenidos!',
-                'miCuenta' => 'Mi cuenta',
+                'bienvenidos' => 'Bem-vindos',
+                'miCuenta' => 'Minha conta',
                 'cambiarPassword' => 'Cambiar contraseña',
-                'misPedidos' => 'Mis pedidos',
+                'misPedidos' => 'Meus pedidos',
                 'salir' => 'Salir'
             ]
         ],
@@ -77,8 +77,8 @@ return [
             ]
         ],
         'ageGate' => [
-            'bienvenido' => '¡Bienvenido!',
-            'cumple' => '¿Cumple usted con la edad legal del país desde donde nos visita?',
+            'bienvenido' => 'Bem-vindos!',
+            'cumple' => 'Você tem a idade legal no país do qual você nos visita?',
             'recordarme' => 'Recordarme',
             'btnSi' => 'Sí',
             'btnNo' => 'No',
@@ -244,29 +244,29 @@ return [
             'titulo' => 'Legado'
         ],
         'nuestroCompromiso' => [
-            'titulo' => 'Nuestro Compromiso ',
-            'subtitulo' => 'Nuevo paradigma en el manejo vitícola y la elaboración de vinos',
+            'titulo' => 'Nosso compromisso',
+            'subtitulo' => 'Novo paradigma na gestão vitícola e na elaboração de vinhos',
             'modulo1' => [
-                'titulo' => 'Entre tradición y pasiones',
-                'subtitulo' => 'El equilibrio entre nuestra tradición ancestral, la naturaleza y la calidad de nuestros vinos es el sello que nos distingue. La simbiosis entre la vid y nuestra gente es la unión que hace que nuestro producto sea único. La calidad no es una simple técnica o destreza, es una pasión y se expresa en toda dimensión y en todo momento. La excelencia en la calidad de nuestras uvas y vinos es la pasión que nos mueve y nos enorgullece.',
+                'titulo' => 'Entre tradição e paixões',
+                'subtitulo' => 'O equilíbrio entre a nossa tradição ancestral, a natureza e a qualidade dos nossos vinhos é o selo que nos distingue. A simbiose entre a vinha e a nossa gente é a união que faz com que o nosso produto seja único. A qualidade não é uma simples técnica ou destreza. É uma paixão e se expressa em toda a dimensão e em todo momento. A excelência na qualidade das nossas uvas e vinhos é a paixão que nos move e nos enche de orgulho.',
             ],
             'modulo2' => [
                 'slider' => [
-                    '1' => ['imagen' => 'img/nuestro-compromiso/nuestra-gente.jpg','titulo' => 'Nuestra Gente','subtitulo' => 'Desde el inicio trabajamos con la convicción de llevar el vino argentino a una nueva escala a nivel mundial. Este cambio de paradigma es posible gracias al esfuerzo, el estudio y la pasión de un equipo de personas idóneas y comprometidas.<br>En Magia del Uco no hay una única estrella, nos definimos como una constelación que, en su diario quehacer, se vuelve experta creciendo a la par de las viñas.<br>Todos y cada uno nos integramos para crear vinos extraordinarios, únicos. Nuestra gente, con un protagonismo indiscutible, es custodia de la calidad y se vuelve indispensable en todas y cada una de nuestras acciones.'],
-                    '2' => ['imagen' => 'img/nuestro-compromiso/viticultora-regenerativa.jpg','titulo' => 'Viticultura regenerativa','subtitulo' => 'Entendemos que somos parte de un ecosistema. Que la huella que dejamos modifica e impacta; y por ello, intentamos que sea mínima. También nos desvela el desafío continuo de devolverle vida al suelo, y fomentar así la biodiversidad. En Magia del Uco, conservamos 5.6 hectáreas en su estado natural, albergando la flora y fauna autóctonas. Practicar en ella una viticultura regenerativa es parte de nuestro espíritu. Somos pioneros en contar con la certificación Global Gap en “Buenas Prácticas Agrícolas”, desde la primera cosecha, y sin interrupciones hasta el día de hoy.<br>Acompañamos la natural nobleza de la vid con una gestión planificada y eficiente. Convicción y compromiso que nos impulsaron a formar parte de la <a target="_blank" href="https://www.viticulturaregenerativa.org/">Asociación de Viticultura Regenerativa</a>, siendo pioneros en sumarnos a esta institución que impulsa una nueva forma en el manejo de la vid.'],
-                    '3' => ['imagen' => 'img/nuestro-compromiso/calidad.jpg','titulo' => 'Calidad','subtitulo' => 'En Magia del Uco dividimos nuestro viñedo en 6 células, fraccionadas a su vez en 74 microparcelas, definidas por su homogeneidad y también por su singularidad. Desde su génesis, cada célula tiene su viticultor responsable; el referente que garantiza la máxima calidad de las uvas que se transformaran luego en nuestros vinos. Para seguir garantizando calidad extrema, realizamos vendimia nocturna y nuestros vinos son elaborados con uvas propias en nuestra bodega. Esto permite iniciar la vinificación en apenas 30 minutos, supervisada en todo momento por la mirada atenta de nuestra gente.<br>Creamos la bodega con equipamiento de última generación, acorde a los más altos estándares de innovación tecnológica, y a partir de un desarrollo único en Latinoamérica. Asimismo, hemos diseñado el programa VINARIUN, que brinda las condiciones necesarias para la producción de vinos naturales y únicos; los cuales son sometidos a un estricto proceso de degustación y selección, a fin de que el Consejo de Autoridad determine el potencial y la nobleza de cada línea de vino que sale al mercado.'],
+                    '1' => ['imagen' => 'img/nuestro-compromiso/nuestra-gente.jpg','titulo' => 'Nossa gente','subtitulo' => 'Desde o início trabalhamos com a convicção de levar o vinho argentino a um novo nível mundial. Essa mudança de paradigma é possível graças ao esforço, ao estudo e à paixão de uma equipe de pessoas idôneas e comprometidas.<br>Em Magia del Uco não existe uma única estrela: somos uma constelação que, dia após dia, se especializa e cresce junto com as vinhas. Todos e cada um de nós nos dedicamos a criar vinhos extraordinários e únicos. A nossa gente, com um protagonismo indiscutível, zela pela qualidade e se torna indispensável em todas e cada uma das nossas ações.'],
+                    '2' => ['imagen' => 'img/nuestro-compromiso/viticultora-regenerativa.jpg','titulo' => 'Viticultura regenerativa','subtitulo' => 'Entendemos que somos parte de um ecossistema. Que a pegada que deixamos modificar e impacta. Por esse motivo, tentamos fazer com que seja mínima. Também nos move o desafio contínuo de devolver vida ao solo e fomentar, assim, a biodiversidade. Em Magia del Uco, conservamos 5,6 hectares no seu estado natural, abrigando flora e fauna nativas. Praticar uma viticultura regenerativa aí é parte do nosso espírito. Somos pioneiros em contar com a certificação Global Gap em “Boas Práticas Agrícolas”, desde a primeira safra e sem interrupções até o dia de hoje.<br>Acompanhamos a natural nobreza da vinha com uma gestão planejada e eficiente. A nossa convicção e o nosso compromisso nos impulsionam a ser parte da Associação de Viticultura Regenerativa o que nos leva a ser pioneiros em participar dessa instituição que promove uma nova forma de administrar a vinha.'],
+                    '3' => ['imagen' => 'img/nuestro-compromiso/calidad.jpg','titulo' => 'Qualidade','subtitulo' => 'Em Magia del Uco dividimos o nosso vinhedo em seis células que, por sua vez, são fracionadas em 74 microparcelas definidas pela sua homogeneidade e também pela sua singularidade. Desde a sua gênese, cada célula tem um viticultor responsável, quem garante a máxima qualidade das uvas que se transformarão depois nos nossos vinhos. Para continuar garantindo uma qualidade extrema, realizamos a vindima noturna e os nossos vinhos são elaborados com uvas próprias na nossa vinícola. Isso permite iniciar a vinificação em apenas 30 minutos, supervisionada durante todo momento pelo olhar atento da nossa gente.<br>Criamos a vinícola com equipamento de última geração, em conformidade com os mais altos padrões de inovação tecnológica e a partir de um único desenvolvimento na América Latina. Além disso, criamos o programa VINARIUN, que oferece as condições necessárias para a produção de vinhos naturais e únicos, que são submetidos a um estrito processo de degustação e seleção a fim de que o Conselho de Autoridade determine o potencial e a nobreza de cada linha de vinho que sai ao mercado.'],
                 ]
             ],
             'certificaciones' => [
-                'titulo' => 'Certificaciones',
+                'titulo' => 'Certificações',
                 'subtitulo' => 'No forzamos, acompañamos. Intervenimos cuando se necesita, sin alterar, sólo colaborando. Creemos que un cambio de paradigma en la gestión del trabajo en el viñedo y en la vinificación es posible y necesario.',
                 'items' => [
-                    '1' => ['icono' => 'img/icon1.svg','titulo' => 'BUENAS PRÁCTICAS AGRÍCOLAS','subtitulo' => 'Hemos estado certificando BPA (GLOBAL GAP), sin interrupciones, desde nuestra primera cosecha hasta el dia de hoy.'],
-                    '2' => ['icono' => 'img/icon2.svg','titulo' => 'BUENAS PRACTICAS DE MANUFACTURA','subtitulo' => 'Hemos estado certificando BPM desde nuestra primera elaboración hasta la actualidad sin interrupciones.'],
-                    '3' => ['icono' => 'img/icon3.svg','titulo' => 'MENCION ESPECIAL POR ARGENINTA','subtitulo' => '“Producción de uvas de alta calidad usando un proceso productivo sustentable cuidando el medio físico, biológico, socioeconómico y cultural.”'],
-                    '4' => ['icono' => 'img/icon7.svg','titulo' => 'CAMPOLIMPIO','subtitulo' => 'Compromiso con la gestión adecuada de envases de productos fitosanitarios que aseguran la no contaminación del ambiente a través del programa nacional CampoLimpio.'],
-                    '5' => ['icono' => 'img/icon5.svg','titulo' => 'COINCE','subtitulo' => 'Gestión adecuada de residuos y agentes contaminantes, reciclado y reutilización.'],
-                    '6' => ['icono' => 'img/icon4.svg','titulo' => 'AGUA MINERAL NATURAL DE MANANTIAL LIBRE DE SODIO','subtitulo' => 'Magia del Uco cuenta con fuente de agua mineral natural de manantial libre de sodio utilizada de manera eficiente para regar nuestras vides gota a gota. Factibilidad otorgada por la provincia de Mendoza, Abril 2008.'],
+                    '1' => ['icono' => 'img/icon1.svg','titulo' => 'BOAS PRÁTICAS AGRÍCOLAS','subtitulo' => 'Temos certificações BPA (GLOBAL GAP) desde a nossa primeira safra até a atualidade sem interrupções.'],
+                    '2' => ['icono' => 'img/icon2.svg','titulo' => 'BOAS PRÁTICAS DE FABRICAÇÃO','subtitulo' => 'Temos certificações BPM desde a nossa primeira elaboração até a atualidade sem interrupções.'],
+                    '3' => ['icono' => 'img/icon3.svg','titulo' => 'MENÇÃO ESPECIAL POR ARGENTINA','subtitulo' => '“Produção de uvas de alta qualidade usando um processo produtivo sustentável que cuida do meio físico, biológico, socioeconômico e cultural.”'],
+                    '4' => ['icono' => 'img/icon7.svg','titulo' => 'CAMPOLIMPIO','subtitulo' => 'Gestão adequada de embalagens de produtos fitosanitários que garantem a não contaminação do ambiente através do programa nacional CampoLimpio.'],
+                    '5' => ['icono' => 'img/icon5.svg','titulo' => 'COINCE','subtitulo' => 'Gestão adequada de resíduos e agentes contaminantes, reciclagem e reutilização.'],
+                    '6' => ['icono' => 'img/icon4.svg','titulo' => 'ÁGUA MINERAL NATURAL DE MANANCIAL LIVBRE DE SÓDIO:','subtitulo' => 'Magia del Uco conta com uma fonte de água mineral natural de manancial livre de sódio, utilizada de maneira eficiente para regar as nossas vinhas gota a gota. Factibilidade outorgada pela província de Mendoza (abril de 2008).'],
 
                 ]
             ]
@@ -287,9 +287,9 @@ return [
             ],
         ],
         'contacto' => [
-            'titulo' => 'Experiencia<br>Magia del Uco',
-            'subtitulo' => 'Estamos trabajando para que puedas disfrutar tu experiencia. Estaremos publicando novedades.',
-            'donde' => '¿Dónde nos encontramos?',
+            'titulo' => 'Contato',
+            'subtitulo' => 'Estamos trabalhando para que você possa desfrutar a sua experiência. Em breve publicaremos novidades.',
+            'donde' => 'Onde encontrar os nossos vinhos',
             'contactanos' => 'Contactanos',
             'form' => [
                 'nombre' => 'NOMBRE*',
@@ -300,8 +300,8 @@ return [
                 'placeholderEmail' => 'name@example.com',
                 'pais' => 'PAÍS*',
                 'placeholderPais' => 'Argentina',
-                'mensaje' => 'DEJANOS TU MENSAJE*',
-                'placeholderMensaje' => 'Ingrese un mensaje',
+                'mensaje' => 'CONSULTAR*',
+                'placeholderMensaje' => 'CONSULTAR',
                 'acepto' => 'Acepto los <a class="acepto" target="_blank" href="_link_tyc_">términos y condiciones</a> y <a class="acepto" target="_blank" href="_link_pp_">Política de privacidad</a>.',
                 'recibir' => 'Acepto recibir información promocional.'
             ],
@@ -331,29 +331,34 @@ return [
                 'btnAgregar' => 'Añadir al shop'
             ],
             'root' => [
-                'titulo' => 'Colecciones',
+                'titulo' => 'Coleções',
                 'subtitulo' => '',
                 'francescaTucci' => [
                     'titulo' => 'Francesca Tucci',
                     'subtitulo' => '“Wine poetry from afar, exploring all there is between earth and sky”',
-                    'btn' => 'DESCUBRÍ'
+                    'btn' => 'DESCUBRA'
                 ],
                 'interwine' => [
                     'titulo' => 'Intertwine',
-                    'subtitulo' => 'Creemos que el todo es una suma de sus partes, nada falta, cada parte es imprescindible. Porque encontrar el equilibrio adecuado no significa nada sin una correcta integración.',
-                    'btn' => 'DESCUBRÍ'
+                    'subtitulo' => 'Acreditamos que o todo é o somatório das suas partes, não falta nada e cada parte é imprescindível. Encontrar o equilíbrio adequado não significa nada sem uma integração correta.',
+                    'btn' => 'DESCUBRA'
                 ],
                 'almacenamiento' => [
-                    'titulo' => 'Almacenamiento de los vinos',
+                    'titulo' => 'Armazenamento dos vinhos',
                     'items' => [
-                        '1' => ['titulo' => 'Oscuridad', 'subtitulo' => 'Mantener los vinos lejos de la luz, ya que los rayos UV pueden afectar su correcta evolución.'],
-                        '2' => ['titulo' => 'Guarda', 'subtitulo' => 'Cada vino evoluciona de manera diferente; por lo que se recomienda seguir las instrucciones de su etiqueta.'],
-                        '3' => ['titulo' => 'Temperatura', 'subtitulo' => 'La temperatura para almacenar una colección variada de vinos debe ser constante entre 12° y 14°C.'],
-                        '4' => ['titulo' => 'Movimiento', 'subtitulo' => 'Se aconseja no mover el vino durante su guarda. Incluso pequeñas vibraciones pueden causar un impacto negativo en el vino. Identificar correctamente las botellas para evitar manipulaciones innecesarias.'],
-                        '5' => ['titulo' => 'Humedad', 'subtitulo' => 'La humedad de almacenamiento de los vinos debe permanecer alrededor del 70% para la correcta conservación del corcho.'],
-                        '6' => ['titulo' => 'Aislamiento', 'subtitulo' => 'El vino “respira” a través del corcho, y los aromas fuertes pueden filtrarse a través del mismo y alterar sus características. Un ambiente adecuado ayudará a prevenir los efectos de una posible contaminación aromática.'],
-                        '7' => ['titulo' => 'Horizontal', 'subtitulo' => 'De este modo permite que el corcho se mantenga en contacto con el vino, evitando el paso del oxígeno, y sus consecuencias negativas.'],
-                        '8' => ['titulo' => 'Servicio', 'subtitulo' => 'Los vinos expresan sus mejores atributos si son consumidos en condiciones óptimas de temperatura.<br> Rosados y blancos secos: entre 8° y 14°C<br> Espumosos y champañas: entre 6° y 8°C<br>Vinos dulces: entre 6° y 8°C<br>Vinos tintos ligeros: (13°C)<br>Vinos tintos de cuerpo medio y alto: (15-18°C)'],
+                        '1' => ['titulo' => 'Escuridão', 'subtitulo' => 'Manter os vinhos longe da luz, já que os raios UV podem afetar a sua correta evolução.'],
+                        '2' => ['titulo' => 'Horizontal', 'subtitulo' => 'Essa posição permite que a rolha se mantenha em contato com o vinho, evitando a passagem de oxigênio e as suas consequências negativas.'],
+                        '3' => ['titulo' => 'Temperatura', 'subtitulo' => 'A temperatura para armazenar uma coleção variada de vinhos deve ser constante entre 12° e 14° C.'],
+                        '4' => ['titulo' => 'Movimento', 'subtitulo' => 'Aconselha-se não mover o vinho durante o tempo em que é guardado. Até mesmo pequenas vibrações podem causar um impacto negativo no vinho. Identificar corretamente as garrafas para evitar manuseios desnecessários.'],
+                        '5' => ['titulo' => 'Umidade', 'subtitulo' => 'A umidade de armazenamento dos vinhos deve permanecer ao redor de 70% para a correta conservação da rolha.'],
+                        '6' => ['titulo' => 'Isolamento', 'subtitulo' => 'O vinho “respira” através da rolha e os aromas fortes podem se filtrar para o vinho e alterar as suas características. Um ambiente adequado ajudará a prevenir os efeitos de uma possível contaminação aromática.'],
+                        '7' => ['titulo' => 'Guardado', 'subtitulo' => 'Cada vinho evolui de maneira diferente, por isso recomenda-se seguir as instruções da sua etiqueta.'],
+                        '8' => ['titulo' => 'Forma de servir', 'subtitulo' => 'Os vinhos expressam os seus melhores atributos se são consumidos em ótimas condições de temperatura.<br>
+                        Rosés e brancos secos: entre 8° e 14° C<br>
+                        Espumantes: entre 6° e 8° C<br>
+                        Vinhos doces: entre 6° e 8° C<br>
+                        Vinhos tintos leves: 13° C<br>
+                        Vinhos tintos de corpo médio e alto: 15-18° C'],
                     ]
                 ]
             ],
@@ -485,8 +490,8 @@ return [
             ]
         ],
         'novedades' => [
-            'titulo' => 'Novedades',
-            'masRecientes' => 'Novedades más recientes'
+            'titulo' => 'Novidades',
+            'masRecientes' => 'Novidades más recientes'
         ],
         'carrito' => [
             'titulo' => 'Carrito'
