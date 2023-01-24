@@ -47,16 +47,36 @@
 			</div>
 			<div class="col-lg-7 content-slider " style="padding-right: 0;">
 				<div class="slider">
-					<div>
-						<div class="wrap-slide">
-							<a href="{{routeIdioma('nuestroCompromiso',['certificaciones'])}}">
-								<div class="image"><img src="{{asset('img/certificaciones.jpg')}}"></div>
-								<div class="text">{!! trans('front.paginas.home.compromiso.slider.1') !!}</div>
-							</a>
-						</div>
-					</div>
+                    @php
+                        $i = 1;
+                        $imgSlider = 'certificaciones.jpg';
+                    @endphp
+                    @foreach (trans('front.paginas.home.compromiso.slider') as $key => $item)
+                        <div>
+                            <div class="wrap-slide">
+                                <a href="{{routeIdioma('nuestroCompromiso',[$key])}}">
+                                    <div class="image"><img src="{{asset('img/'.$imgSlider)}}"></div>
+                                    <div class="text">{!! trans('front.paginas.home.compromiso.slider.'.$key) !!}</div>
+                                </a>
+                            </div>
+                        </div>
+                        @php
+                            $i = $i + 1;
+                            switch ($i) {
+                                case 2:
+                                    $imgSlider = 'calidad.jpg';
+                                    break;
+                                case 3:
+                                    $imgSlider = 'regen.jpg';
+                                    break;
+                                case 4:
+                                    $imgSlider = 'nuestra-gente.jpg';
+                                    break;
+                            }
+                        @endphp
+                    @endforeach
 
-					<div>
+					<!--div>
 						<div class="wrap-slide">
 							<a href="{{routeIdioma('nuestroCompromiso',['calidad'])}}/#calidad">
 								<div class="image"><img src="{{asset('img/calidad.jpg')}}"></div>
@@ -81,7 +101,7 @@
 								<div class="text">{!! trans('front.paginas.home.compromiso.slider.4') !!}</div>
 							</a>
 						</div>
-					</div>
+					</div-->
 				</div>
 			</div>
 		</div>

@@ -217,10 +217,10 @@ return [
                 'titulo' => 'Nuestro Compromiso',
                 'subtitulo' => 'En Magia del Uco, amamos y cuidamos nuestro entorno natural y estamos comprometidos a respetarlo profundamente, en cada una de nuestras acciones.',
                 'slider' => [
-                    '1' => 'CERTIFICACIONES',
-                    '2' => 'CALIDAD',
-                    '3' => 'VITICULTURA REGENERATIVA',
-                    '4' => 'NUESTRA GENTE',
+                    'certificaciones' => 'CERTIFICACIONES',
+                    'calidad' => 'CALIDAD',
+                    'viticultura' => 'VITICULTURA REGENERATIVA',
+                    'nuestra-gente' => 'NUESTRA GENTE',
                 ]
             ],
             'colecciones' => [

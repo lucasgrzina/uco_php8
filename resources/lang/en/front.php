@@ -92,10 +92,10 @@ return [
                 'titulo' => 'Our Commitment',
                 'subtitulo' => 'At Magia del Uco, we love and care for our natural environment and are committed to respecting it deeply, in every one of our actions.',
                 'slider' => [
-                    '1' => 'CERTIFICACIONES',
-                    '2' => 'CALIDAD',
-                    '3' => 'VITICULTURA REGENERATIVA',
-                    '4' => 'NUESTRA GENTE',
+                    'certifications' => 'CERTIFICATIONS',
+                    'quality' => 'QUALITY',
+                    'viticulture' => 'REGENERATIVE VITICULTURE',
+                    'our-people' => 'OUR PEOPLE',
                 ]
             ],
             'colecciones' => [
@@ -134,7 +134,7 @@ return [
             ],
             'certificaciones' => [
                 'titulo' => 'Certifications',
-                'subtitulo' => 'No forzamos, acompañamos. Intervenimos cuando se necesita, sin alterar, sólo colaborando. Creemos que un cambio de paradigma en la gestión del trabajo en el viñedo y en la vinificación es posible y necesario.',
+                'subtitulo' => 'We do not intrude, but rather support. We intervene when needed, without altering, just lending a hand. We believe that a paradigm shift in vineyard and winemaking management is possible and necessary.',
                 'items' => [
                     '1' => ['icono' => 'img/icon1.svg','titulo' => 'GOOD AGRICULTURAL PRACTICES','subtitulo' => 'We have been GAP (GLOBAL GAP) certified, with no interruptions, since our first vintage.'],
                     '2' => ['icono' => 'img/icon2.svg','titulo' => 'GOOD MANUFACTURING PRACTICES','subtitulo' => 'We have been GMP certified since our first production until today with no interruptions.'],
@@ -162,7 +162,7 @@ return [
             ],
         ],
         'contacto' => [
-            'titulo' => 'Contact Us',
+            'titulo' => 'Magia del Uco experience',
             'subtitulo' => 'We are working so that you can enjoy your experience. We will be posting updates soon. ',
             'donde' => 'Where to find us',
             'contactanos' => 'Contact Us',

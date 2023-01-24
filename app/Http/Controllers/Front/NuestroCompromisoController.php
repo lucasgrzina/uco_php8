@@ -27,20 +27,20 @@ class NuestroCompromisoController extends AppBaseController
         $itemsSlide = trans('front.paginas.nuestroCompromiso.modulo2.slider');
         $goTo = '';
         $offset = 0;
-        if ($slide == 'viticultura') {
+        if ($slide == 'viticultura' || $slide == 'viticulture') {
             $goTo = 'calidad';
             $itemsSlide = [
                 $itemsSlide[2],$itemsSlide[3],$itemsSlide[1]
             ];
-        } else if ($slide == 'calidad') {
+        } else if ($slide == 'calidad' || $slide == 'quality' || $slide == 'qualidade') {
             $goTo = 'calidad';
             $itemsSlide = [
                 $itemsSlide[3],$itemsSlide[1],$itemsSlide[2]
             ];
-        } else if ($slide == 'nuestra-gente') {
+        } else if ($slide == 'nuestra-gente' || $slide == 'our-people' || $slide == 'nossa-gente') {
             $goTo = 'calidad';
 
-        } else if ($slide == 'certificaciones') {
+        } else if ($slide == 'certificaciones' || $slide == 'certifications' || $slide == 'certificacoes') {
             $goTo = 'certificaciones';
             $offset = 0;
         }

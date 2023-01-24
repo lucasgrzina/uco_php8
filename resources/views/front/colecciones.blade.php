@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <nav class="navbar navbar-expand navbar-colecciones">
+                <nav class="navbar navbar-expand-lg navbar-colecciones">
                     <div class="container-fluid">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navColecciones" aria-controls="navColecciones" aria-expanded="false" aria-label="Toggle navigation">
                             {{ trans('front.paginas.colecciones.parcelas') }} +

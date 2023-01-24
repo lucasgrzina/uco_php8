@@ -217,10 +217,10 @@ return [
                 'titulo' => 'Nosso compromisso',
                 'subtitulo' => 'Em Magia del Uco, amamos e cuidamos do nosso entorno natural e temos o compromisso de respeitá-lo profundamente em cada uma das nossas ações.',
                 'slider' => [
-                    '1' => 'CERTIFICACIONES',
-                    '2' => 'CALIDAD',
-                    '3' => 'VITICULTURA REGENERATIVA',
-                    '4' => 'NUESTRA GENTE',
+                    'certificacoes' => 'Certificações',
+                    'qualidade' => 'QUALIDADE',
+                    'viticultura' => 'VITICULTURA REGENERATIVA',
+                    'nossa-gente' => 'NOSSA GENTE',
                 ]
             ],
             'colecciones' => [
@@ -259,7 +259,7 @@ return [
             ],
             'certificaciones' => [
                 'titulo' => 'Certificações',
-                'subtitulo' => 'No forzamos, acompañamos. Intervenimos cuando se necesita, sin alterar, sólo colaborando. Creemos que un cambio de paradigma en la gestión del trabajo en el viñedo y en la vinificación es posible y necesario.',
+                'subtitulo' => 'Não forçamos, acompanhamos. Intervimos quando é necessário, sem alterar, só colaborando. Acreditamos que uma mudança de paradigma na gestão do trabalho no vinhedo e na vinificação é possível e necessária.',
                 'items' => [
                     '1' => ['icono' => 'img/icon1.svg','titulo' => 'BOAS PRÁTICAS AGRÍCOLAS','subtitulo' => 'Temos certificações BPA (GLOBAL GAP) desde a nossa primeira safra até a atualidade sem interrupções.'],
                     '2' => ['icono' => 'img/icon2.svg','titulo' => 'BOAS PRÁTICAS DE FABRICAÇÃO','subtitulo' => 'Temos certificações BPM desde a nossa primeira elaboração até a atualidade sem interrupções.'],
@@ -287,7 +287,7 @@ return [
             ],
         ],
         'contacto' => [
-            'titulo' => 'Contato',
+            'titulo' => 'Experiência Mágica do Uco',
             'subtitulo' => 'Estamos trabalhando para que você possa desfrutar a sua experiência. Em breve publicaremos novidades.',
             'donde' => 'Onde encontrar os nossos vinhos',
             'contactanos' => 'Contactanos',
