@@ -30,7 +30,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{asset('vendor/iziToast/iziToast.min.css')}}" integrity="sha512-O03ntXoVqaGUTAeAmvQ2YSzkCvclZEcPQu1eqloPaHfJ5RuNGiS4l+3duaidD801P50J28EHyonCV06CUlTSag==" crossorigin="anonymous" />
+        <link rel="stylesheet" href="{{asset('vendor/iziToast/iziToast.min.css')}}" integrity="" crossorigin="anonymous" />
         <link rel="stylesheet" href="{{asset('vendor/intlTellnput/css/intlTelInput.css')}}">
         <!-- Custom styles for this template -->
         <link href="{{asset('css/style.css')}}?v=1.11{{uniqid()}}" rel="stylesheet">
