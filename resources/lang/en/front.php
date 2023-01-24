@@ -45,8 +45,8 @@ return [
             'ingresar' => 'INGRESAR',
             'salir' => 'SALIR',
             'comprar' => 'COMPRAR',
-            'pp' => 'Políticas de privacidad',
-            'tyc' => 'Términos y condiciones',
+            'pp' => 'Privacidad policies',
+            'tyc' => 'Terms & conditions',
             'lcr' => 'Ley de consumo responsable',
             'dc' => 'Defensa del Consumidor',
             'menuUsuario' => [
@@ -55,7 +55,11 @@ return [
                 'cambiarPassword' => 'Change password',
                 'misPedidos' => 'My orders',
                 'salir' => 'Log out'
-            ]
+            ],
+            'pp' => 'privacy-policies',
+            'tyc' => 'terms-conditions',
+            'lcr' => 'ley-consumo-responsable',
+            'dc' => 'defensa-consumidor',
         ],
         'legales' => '© 2022 Magia de Uco. Todos los derechos reservados. Beber con moderación. Prohibido la venta a menores de 18 años'
     ],
