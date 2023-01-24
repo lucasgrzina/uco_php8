@@ -10,6 +10,16 @@
     <script type="text/javascript">
         var _data = {!! json_encode($data) !!};
 
+        _methods.generarEnvio = function (item) {
+            var _this = this;
+            _this.loading = true;
+            _this.ajaxPost(_this.url_generar_envio.replace('_ID_',item.id),{}).then(function(data) {
+                _this.doFilter();
+            }, function(error) {
+                _this.loading = false;
+            });
+        };
+
         this._mounted.push(function(_this) {
             _this.doFilter();
         });
@@ -19,7 +29,7 @@
 @endsection
 
 @section('content-header')
-{!! AdminHelper::contentHeader('Pedidos',trans('admin.list'),'new','create()') !!}
+{!! AdminHelper::contentHeader('Pedidos',trans('admin.list'),false,'') !!}
 @endsection
 
 @section('content')
@@ -44,7 +54,7 @@
                     @include('admin.includes.crud.index-pagination')
                 </div>
             </div>
-            @include('admin.includes.crud.index-loading')            
+            @include('admin.includes.crud.index-loading')
         </div>
     </div>
 @endsection

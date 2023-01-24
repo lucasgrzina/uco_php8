@@ -25,20 +25,32 @@ class NuestroCompromisoController extends AppBaseController
         //dd(app()->getLocale());
 
         $itemsSlide = trans('front.paginas.nuestroCompromiso.modulo2.slider');
+        $goTo = '';
+        $offset = 0;
         if ($slide == 'viticultura') {
+            $goTo = 'calidad';
             $itemsSlide = [
                 $itemsSlide[2],$itemsSlide[3],$itemsSlide[1]
             ];
         } else if ($slide == 'calidad') {
+            $goTo = 'calidad';
             $itemsSlide = [
                 $itemsSlide[3],$itemsSlide[1],$itemsSlide[2]
             ];
+        } else if ($slide == 'nuestra-gente') {
+            $goTo = 'calidad';
+
+        } else if ($slide == 'certificaciones') {
+            $goTo = 'certificaciones';
+            $offset = 0;
         }
 
 
         $data = [
             'slides' => $sliderRepo->porSeccion('nuestroCompromiso'),
-            'items' => $itemsSlide
+            'items' => $itemsSlide,
+            'goToSeccion' => $goTo,
+            'offset' => $offset
 
         ];
 

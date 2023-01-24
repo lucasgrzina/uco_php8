@@ -20,7 +20,7 @@
 			<div class="col-md-12">
 				<h2>{!! trans('front.modulos.pp.titulo') !!}</h2>
 				<form>
-                    {!! trans('front.modulos.pp.contenido') !!}
+                    {!! str_replace('_link_tyc_',routeIdioma('terminosCondiciones'),trans('front.modulos.pp.contenido')) !!}
 				</form>
 			</div>
 

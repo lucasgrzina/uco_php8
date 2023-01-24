@@ -8,6 +8,11 @@
     <script type="text/javascript">
         var _data = {!! json_encode($data) !!};
         this._mounted.push(function(_this) {
+            if (_this.goToSeccion) {
+                $('html, body').animate({
+                    scrollTop: $("#"+_this.goToSeccion).offset().top
+                });
+            }
         });
     </script>
 @endsection

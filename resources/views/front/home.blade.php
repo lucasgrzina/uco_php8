@@ -49,7 +49,7 @@
 				<div class="slider">
 					<div>
 						<div class="wrap-slide">
-							<a href="{{routeIdioma('nuestroCompromiso')}}/#certificaciones">
+							<a href="{{routeIdioma('nuestroCompromiso',['certificaciones'])}}">
 								<div class="image"><img src="{{asset('img/certificaciones.jpg')}}"></div>
 								<div class="text">{!! trans('front.paginas.home.compromiso.slider.1') !!}</div>
 							</a>

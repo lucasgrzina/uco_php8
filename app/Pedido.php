@@ -77,7 +77,10 @@ class Pedido extends Model
         'total_usd',
         'cotizacion_usd',
         'comentarios',
-        'nombre_fc','apellido_fc','dni_fc','direccion_fc','ciudad_fc','cp_fc','provincia_fc','pais_id_fc'
+        'nombre_fc','apellido_fc','dni_fc','direccion_fc','ciudad_fc','cp_fc','provincia_fc','pais_id_fc',
+        'ups_etiqueta',
+        'ups_tracking_number',
+        'ups_info'
         //'enabled'
     ];
 
@@ -100,7 +103,8 @@ class Pedido extends Model
         'total_envio_usd' => 'float(15,2)',
         'total_usd' => 'float(15,2)',
         'cotizacion_usd' => 'float(7,2)',
-        'pais_id_fc' => 'integer'
+        'pais_id_fc' => 'integer',
+        'ups_info' => 'json'
         //'enabled' => 'boolean'
     ];
 
@@ -146,10 +150,10 @@ class Pedido extends Model
         return $this->belongsTo('App\Provincia', 'provincia_id');
     }*/
 
-    /*public function pais()
+    public function pais()
     {
         return $this->belongsTo('App\Pais', 'pais_id');
-    }*/
+    }
 
     public function items()
     {

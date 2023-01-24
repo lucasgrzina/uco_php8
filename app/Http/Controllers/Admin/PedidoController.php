@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Admin\CrudAdminController;
-use App\Http\Requests\Admin\CUPedidoRequest;
-use App\Repositories\PedidoRepository;
-use Illuminate\Http\Request;
-use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Services\UPSService;
+use Illuminate\Http\Request;
+use App\Repositories\PedidoRepository;
+use App\Http\Requests\Admin\CUPedidoRequest;
+use Prettus\Repository\Criteria\RequestCriteria;
+use App\Http\Controllers\Admin\CrudAdminController;
 
 class PedidoController extends CrudAdminController
 {
@@ -26,7 +27,8 @@ class PedidoController extends CrudAdminController
     public function index()
     {
         parent::index();
-
+        $this->data['url_generar_envio'] = route('pedidos.generar-envio',['_ID_']);
+        $this->data['url_ver_etiqueta'] = route('pedidos.ver-etiqueta',['_ID_']);
         return view($this->viewPrefix.'index')->with('data',$this->data);
     }
 
@@ -35,7 +37,7 @@ class PedidoController extends CrudAdminController
         try
         {
             $this->repository->pushCriteria(new RequestCriteria($request));
-            $collection = $this->repository->with('updater')->paginate($request->get('per_page'))->toArray();
+            $collection = $this->repository->with(['items.aniada.vino','registrado'])->paginate($request->get('per_page'))->toArray();
 
             $this->data = [
                 'list' => $collection['data'],
@@ -89,5 +91,50 @@ class PedidoController extends CrudAdminController
         $model = $this->_update($id, $request);
 
         return $this->sendResponse($model,trans('admin.success'));
+    }
+
+    public function generarEnvio($id, Request $request, UPSService $upsService)
+    {
+        try {
+            $model = $this->repository->with(['items.aniada.vino'])->findWithoutFail($id);
+
+            $respuesta = $upsService->generarEnvio($id
+                ,$model->items
+                ,$model->direccion
+                ,$model->ciudad
+                ,$model->pais->codigo
+                ,$model->cp
+                ,$model->nombre
+                ,$model->apellido
+                ,$model->email
+                ,''
+            );
+
+            $model->ups_tracking_number = $respuesta['tracking_number'];
+            $model->ups_etiqueta = $respuesta['etiqueta'];
+            $model->ups_info = \Arr::except($respuesta,['tracking_number','etiqueta']);
+            $model->save();
+
+            return $this->sendResponse($respuesta,trans('admin.success'));
+        } catch (\Exception $ex) {
+            return $this->sendError($ex->getMessage(),500);
+        }
+
+    }
+
+    public function verEtiqueta($id, Request $request)
+    {
+        try {
+            $model = $this->repository->find($id,['ups_etiqueta','estado_id','id']);
+            $raw_image_string = base64_decode($model->ups_etiqueta);
+            return response($raw_image_string)->header('Content-Type', 'image/jpg');
+
+
+
+            return $this->sendResponse($respuesta,trans('admin.success'));
+        } catch (\Exception $ex) {
+            return $this->sendError($ex->getMessage(),500);
+        }
+
     }
 }

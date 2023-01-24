@@ -103,6 +103,8 @@ Route::prefix('/admin')->group(function () {
         Route::post('aniadas/{parentId}/filter', 'Admin\AniadaController@filter')->name('aniadas.filter');
 
         Route::get('pedidos/edit/{id}/{lang}', 'Admin\PedidoController@editLang')->name('pedidos.edit-lang');
+        Route::get('pedidos/ver-etiqueta/{id}', 'Admin\PedidoController@verEtiqueta')->name('pedidos.ver-etiqueta');
+        Route::post('pedidos/generar-envio/{id}', 'Admin\PedidoController@generarEnvio')->name('pedidos.generar-envio');
         Route::post('pedidos/change-enabled', 'Admin\PedidoController@changeEnabled')->name('pedidos.change-enabled');
         Route::post('pedidos/filter', 'Admin\PedidoController@filter')->name('pedidos.filter');
         Route::resource('pedidos', 'Admin\PedidoController');
