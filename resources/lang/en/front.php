@@ -244,21 +244,21 @@ return [
                 'usuario' => 'Username',
                 'password' => 'Password',
             ],
-            'btnIngresar' => 'INGRESAR',
-            'olvidaste' => 'Olvidé mi contraseña',
-            'noTenes' => 'Registrarme',
-            'lnkRegistro' => 'Registrarme'
+            'btnIngresar' => 'LOGIN',
+            'olvidaste' => 'Forgot password',
+            'noTenes' => 'Register',
+            'lnkRegistro' => 'Register'
         ],
         'registro' => [
-            'titulo' => 'Registro',
+            'titulo' => 'Register',
             'form' => [
                 'usuario' => 'Username',
                 'email' => 'Email',
                 'password' => 'Password',
                 'confirmarPassword' => 'Confirm password',
             ],
-            'btnRegistrarse' => 'REGISTRARSE',
-            'yaTenes' => 'Iniciar sesión',
+            'btnRegistrarse' => 'Register',
+            'yaTenes' => 'Login',
             'lnkLogin' => 'Login'
         ],
         'checkout' => [
