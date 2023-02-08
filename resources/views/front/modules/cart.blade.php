@@ -27,7 +27,7 @@
         <div class="actions">
           <button class="btn-white inverse" v-if="carrito.cantidad > 0" @click="goTo('{{routeIdioma('checkout')}}')">Check-out</button>
           <!--button class="btn-white" data-bs-dismiss="offcanvas">Continuar comprando</button-->
-          <button class="btn-white" v-if="carrito.cantidad > 0" href="{{routeIdioma('carrito')}}" @click="goTo('{{routeIdioma('carrito')}}')">Editar carrito</button>
+          <button class="btn-white" v-if="carrito.cantidad > 0" href="{{routeIdioma('carrito')}}" @click="goTo('{{routeIdioma('carrito')}}')">{{trans('front.paginas.carrito.editarCarrito')}}</button>
         </div>
       </div>
 

@@ -64,7 +64,8 @@ class CarritoController extends AppBaseController
             //throw new \Exception("No hay suficiente stock para este producto", 1);
             if ($item && $item->enabled && $item->stock >= $request->cantidad) {
                 $nombreItem = $item->vino->titulo . ' (' . $item->anio .')';
-                $precio = $lang === 'es' ? $item->precio_pesos : $item->precio_usd;
+                //$precio = $lang === 'es' ? $item->precio_pesos : $item->precio_usd;
+                $precio = $lang === 'es' ? $item->precio_pesos : $item->precio_pesos;
 
                 if ($itemCarrito) {
                     \Cart::update($request->rowId,['quantity' => [

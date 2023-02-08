@@ -51,8 +51,8 @@ return [
             'comprar' => 'COMPRAR',
             'pp' => 'Políticas de privacidad',
             'tyc' => 'Términos y condiciones',
-            'lcr' => 'Ley de consumo responsable',
-            'dc' => 'Defensa del Consumidor',
+            'lcr' => 'Consumo responsable',
+            'dc' => 'Ley de defensa del consumidor',
             'menuUsuario' => [
                 'bienvenidos' => '¡Bienvenidos!',
                 'miCuenta' => 'Mi cuenta',
@@ -401,11 +401,50 @@ return [
                 ]
             ],
             'datosEnvio' => [
-                'titulo' => 'Datos de envío'
+                'titulo' => 'Datos de envío',
+                'domicilioDest' => 'Recipient’s Address',
+                'nombre' => 'First Name',
+                'apellido' => 'Last Name',
+                'calle' => 'Street and Number ',
+                'ciudad' => 'City',
+                'provincia' => 'Province ',
+                'cp' => 'Zip Code'
             ],
+            'datosDestinatario' => [
+                'titulo' => 'Datos del destinatario',
+                'form' => [
+                    'nombre' => 'Nombre',
+                    'apellido' => 'Apellido',
+                    'dni' => 'Dni',
+                ]
+            ],
+            'datosFacturacion' => [
+                'titulo' => 'Datos de facturacion',
+                'form' => [
+                    'tipoFactura' => 'Tipo de factura',
+                    'tipoFacturaCF' => 'Consumidor Final',
+                    'tipoFacturaA' => 'Factura A',
+                    'razon_social' => 'Razón Social',
+                    'cuit' => 'CUIT',
+                    'direccion' => 'Calle y número',
+                    'ciudad' => 'Ciudad',
+                    'provincia' => 'Provincia',
+                    'cp' => 'Código Postal',
+                ]
+            ],
+            'comentarios' => [
+                'titulo' => 'Comentarios',
+            ],
+            'cantidad' => 'Cantidad',
+            'subtotal' => 'Subtotal',
+            'costoEnvio' => 'Costo de envío',
+            'total' => 'Total',
             'btnConfirmar' => 'CONFIRMAR',
             'btnEditar' => 'EDITAR',
             'btnAgregar' => 'AGREGAR',
+            'btnSeleccionar' => 'SELECCIONAR',
+            'btnCancelar' => 'CANCELAR',
+            'btnGuardar' => 'GUARDAR',
             'gracias' => [
                 'titulo' => 'Gracias por tu compra',
                 'mensajesEstados' => [
@@ -466,6 +505,9 @@ return [
                 'comentarios' => [
                     'titulo' => 'Comentarios',
                 ],
+                'subtotal' => 'Subtotal',
+                'costoEnvio' => 'Costo de envío',
+                'total' => 'Total',
             ],
             'misDatos' => [
                 'titulo' => 'Mis datos',
@@ -489,7 +531,14 @@ return [
             'masRecientes' => 'Novedades más recientes'
         ],
         'carrito' => [
-            'titulo' => 'Carrito'
+            'titulo' => 'Carrito',
+            'producto' => 'Producto',
+            'precio' => 'Precio',
+            'cantidad' => 'Cantidad',
+            'subtotal' => 'Subtotal',
+            'eliminar' => 'Eliminar',
+            'finalizar' => 'Finalizar compra',
+            'editarCarrito' => 'Editar carrito'
         ]
     ],
     'colecciones' => [

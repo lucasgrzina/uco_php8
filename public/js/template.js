@@ -34,10 +34,10 @@ _methods.inputFile = function(newFile, oldFile,auto,onSuccess, onError,ref) {
     if (newFile.success) {
       this.$refs[_ref].clear();
       onSuccess(newFile);
-    }    
+    }
     if (newFile.error) {
         onError(newFile);
-    }                      
+    }
   }
 }
 
@@ -77,7 +77,7 @@ _methods.showAlertFreeShipping = function () {
 
     var _show_since = (typeof _this.configs['MONTO_AVISO_ENVIO_GRATIS'] !== 'undefined' ? Number(_this.configs['MONTO_AVISO_ENVIO_GRATIS']) : false);
     var _free_since = (typeof _this.configs['MONTO_MIN_ENVIO_GRATIS'] !== 'undefined' ? Number(_this.configs['MONTO_MIN_ENVIO_GRATIS']) : false);
-    
+
     if  (_this.customer_info['type'] === 'W' && _free_since) {
         if (this.cart.total < _free_since && this.cart.total >= _show_since) {
             return _free_since;
@@ -103,7 +103,7 @@ _methods.showCheckoutBtn = function () {
 }
 
 
-_methods.fnGreaterZero = function (input) 
+_methods.fnGreaterZero = function (input)
 {
     if (input < 0) {
         input = 0;
@@ -119,18 +119,18 @@ _methods.showErrors = function(errors,server){
                 for(var i in errors){
 
                     _errors.push(errors[i][0]);
-                };       
-                _msg = _errors.join('<br>');     
+                };
+                _msg = _errors.join('<br>');
                 break;
             case 'array':
-                _msg = errors.join('<br>');     
+                _msg = errors.join('<br>');
                 break;
             default:
                 _msg = errors;
                 break;
         }
-        
-        this.alertShow(_msg);    
+
+        this.alertShow(_msg);
 };
 
 _methods.toastShow = function(title,msg,type,classs) {
@@ -138,7 +138,7 @@ _methods.toastShow = function(title,msg,type,classs) {
     var _msg = (msg || '');
     var _class = (classs || 'success');
     var _type = (type || 'cart');
-    
+
     this.toast.title = _title;
     this.toast.msg = _msg;
     this.toast.type = _type;
@@ -177,20 +177,20 @@ _methods.newsletterSubmit = function (scope){
             for(var key in error.fields) {
                 alert(error.fields[key][0]);
                 break;
-            }                      
+            }
         } else {
             alert(error.message);
         }
         _this.newsletter.loading = false;
-    });          
-      
+    });
+
 }
 _methods._call = function (path,method,data) {
     var _this = this;
     var _fn = null;
     var _data = data || {};
     Vue.http.headers.common['X-CSRF-TOKEN'] = _csrfToken;
-    
+
 
     switch (method) {
         case 'GET':
@@ -208,23 +208,23 @@ _methods._call = function (path,method,data) {
     return new Promise(function(resolve, reject) {
         _fn.then(function(response){
             if (response.body.success) {
-                resolve(response.body.data);    
+                resolve(response.body.data);
             } else {
                 if (response.body.errors === 'LOGIN') {
                     document.location = _this.url_login;
                 } else {
-                    reject(response.body.errors);        
+                    reject(response.body.errors);
                 }
-                
+
             }
         }, function(response) {
             switch (response.status) {
                 case 422:
-                    //Validacion de laravel                   
+                    //Validacion de laravel
                     reject({
                         status: response.status,
                         fields: response.body.errors,
-                        message: response.body.message 
+                        message: response.body.message
                     });
                     break;
                 default:
@@ -237,16 +237,16 @@ _methods._call = function (path,method,data) {
 
 _methods.searchSubmit = function (item) {
     if (typeof item !== 'undefined') {
-        document.location = item.url;  
+        document.location = item.url;
     } else {
-        document.location = _data.search.url_get_articles.concat('?search_text=').concat(_data.search.search_text);  
+        document.location = _data.search.url_get_articles.concat('?search_text=').concat(_data.search.search_text);
     }
     //;
 }
 
 _methods.goTo = function (url) {
     if (url) {
-        document.location = url;    
+        document.location = url;
     }
 }
 
@@ -258,14 +258,14 @@ function positiveInt(evt) {
   if( !regex.test(key) ) {
     theEvent.returnValue = false;
     if(theEvent.preventDefault) theEvent.preventDefault();
-  }    
-} 
+  }
+}
 
 Vue.directive('positive-int', function (el, binding) {
     if (!(/[\d\.]+/i.test(el.value) && parseInt(el.value) > -1)) {
       var newValue = el.value.replace(/[a-zA-Z]+/ig, '');
       if (parseInt(el.value) < 0) {
-        newValue = 0;  
+        newValue = 0;
       }
       el.value = newValue;
       binding.value = el.value;
@@ -274,31 +274,32 @@ Vue.directive('positive-int', function (el, binding) {
 
 Vue.filter('currency', function(value, decimals, separators){
     var locale = typeof window._generalData !== 'undefined' ? window._generalData.locale : 'es';
-    
+
     if (typeof decimals === 'undefined') {
         decimals = 2;
     }
     if (typeof separators === 'undefined') {
         separators = ['.', "'", ','];
-    }    
+    }
     if (locale == 'es') {
         return '$ ' + currency(value,decimals, separators);
     } else {
-        return currency(value,decimals, separators) + ' USD';
+        return '$ ' + currency(value,decimals, separators);
+        // return currency(value,decimals, separators) + ' USD';
     }
 });
 Vue.filter('dateFormat', function (value,format_o,format_i) {
     var _format_o = format_o || 'DD/MM/YYYY';
     var _format_i = format_i || 'YYYY-MM-DD';
-  
+
     if (value) {
       return moment(value,_format_i).format(_format_o);
     } else {
       return null;
     }
-    
+
   });
-  
+
   Vue.filter('datetimeFormat', function (value,format_o,format_i) {
     var _format_o = format_o || 'DD/MM/YYYY HH:mm';
     var _format_i = format_i || 'YYYY-MM-DD HH:mm:ss';
@@ -308,7 +309,7 @@ Vue.filter('dateFormat', function (value,format_o,format_i) {
       return null;
     }
   });
-  
+
 
 var _fuHeader = {'X-CSRF-TOKEN': _csrfToken};
 var app = new Vue({
@@ -323,6 +324,6 @@ var app = new Vue({
         for(var i in _mounted) {
             _mounted[i](this);
         }
-       
+
     }
 });

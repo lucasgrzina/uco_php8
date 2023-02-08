@@ -37,7 +37,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <nav class="navbar navbar-expand-lg navbar-colecciones">
+                <nav class="navbar navbar-expand navbar-colecciones">
                     <div class="container-fluid">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navColecciones" aria-controls="navColecciones" aria-expanded="false" aria-label="Toggle navigation">
                             {{ trans('front.paginas.colecciones.parcelas') }} +
@@ -85,7 +85,7 @@
 
                                     <a :href="aniadaActual.ficha_url" target="_blank" class="btn btn-white" v-if="aniadaActual.ficha">{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</a>
                                     <div v-if="actual.vendible" class="btn btn-white total">
-                                        (% locale == 'es' ? '$ ' + aniadaActual.precio_pesos : aniadaActual.precio_usd + ' USD' %)
+                                        (% locale == 'es' ? '$ ' + aniadaActual.precio_pesos : '$ ' + aniadaActual.precio_pesos %)
                                     </div>
                                     <div v-if="actual.vendible" class="dropdown">
                                         <button class="btn btn-dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

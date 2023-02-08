@@ -49,7 +49,7 @@
               </div>
               <div class="menu">
                 <ul>
-                  <li><a href="{{routeIdioma('colecciones.tucci')}}">{{trans('front.navMenuFooter.links.francescaTucci')}}</a></li>
+                  <!--li><a href="{{routeIdioma('colecciones.tucci')}}">{{trans('front.navMenuFooter.links.francescaTucci')}}</a></li-->
                   <li><a href="{{routeIdioma('colecciones.interwine')}}">{{trans('front.navMenuFooter.links.interwine')}}</a></li>
                 </ul>
               </div>

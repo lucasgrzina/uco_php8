@@ -46,30 +46,30 @@ return [
             'interwine' => 'Intertwine',
             'novedades' => 'News',
             'contacto' => 'Contact Us',
-            'ingresar' => 'INGRESAR',
-            'salir' => 'SALIR',
+            'ingresar' => 'Log In',
+            'salir' => 'Close Session',
             'comprar' => 'COMPRAR',
             'pp' => 'Privacy policies',
             'tyc' => 'Terms & conditions',
-            'lcr' => 'Ley de consumo responsable',
-            'dc' => 'Defensa del Consumidor',
+            'lcr' => 'Consumo responsable',
+            'dc' => 'Ley de defensa del consumidor',
             'menuUsuario' => [
                 'bienvenidos' => 'Welcome!',
                 'miCuenta' => 'My account',
                 'cambiarPassword' => 'Change password',
                 'misPedidos' => 'My orders',
-                'salir' => 'Log out'
+                'salir' => 'Close Session'
             ]
         ],
         'legales' => '© 2022 Magia de Uco. Todos los derechos reservados. Beber con moderación. Prohibido la venta a menores de 18 años'
     ],
     'modulos' => [
         'suscripcion' => [
-            'titulo' => 'Suscribite para recibir las novedades',
-            'placeholderEmail' => 'ingrese su e-mail',
-            'btn' => 'ENVIAR',
-            'chk' => 'Al suscribirse, aceptas los términos y condiciones.',
-            'gracias' => 'Gracias por suscribirte',
+            'titulo' => 'Subscribe to receive news.',
+            'placeholderEmail' => 'Enter your e-mail',
+            'btn' => 'Send',
+            'chk' => 'By subscribing, you agree to the Terms and Conditions.',
+            'gracias' => 'Thanks for subscribe',
             'validacion' => [
                 'email.required' => 'Debe ingresar un email',
                 'acepto.accepted' => 'Debe aceptar las bases y condiciones',
@@ -82,7 +82,7 @@ return [
             'recordarme' => 'Remember me',
             'btnSi' => 'Yes',
             'btnNo' => 'No',
-            'disclaimer' => 'Al ingresar usted acepta los términos y condiciones. A favor del consumo responsable y moderado.Beber con moderación | Prohibida su venta a menores de 18 años.'
+            'disclaimer' => 'By subscribing, you agree to the Terms and Conditions. A favor del consumo responsable y moderado.Beber con moderación | Prohibida su venta a menores de 18 años.'
         ]
     ],
     'paginas' => [
@@ -173,21 +173,21 @@ return [
             'form' => [
                 'nombre' => 'Name*',
                 'placeholderNombre' => 'Name',
-                'apellido' => 'Surname*',
-                'placeholderApellido' => 'Surname',
+                'apellido' => 'Last Name*',
+                'placeholderApellido' => 'Last Name',
                 'email' => 'Email*',
                 'placeholderEmail' => 'name@example.com',
                 'pais' => 'Country*',
                 'placeholderPais' => 'Argentina',
-                'mensaje' => 'How can we help?*',
-                'placeholderMensaje' => 'How can we help?',
+                'mensaje' => 'How can we help you?*',
+                'placeholderMensaje' => 'How can we help you?',
                 'acepto' => 'I agree to <a class="acepto" target="_blank" href="_link_tyc_">terms & conditions</a>.',
                 'recibir' => 'I agree to receive promotional information.'
             ],
             'obligatorios' => '*Campos obligatorios.',
-            'disclaimer' => '*Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dui purus, gravida vitae luctus sit amet, vehicula vel dui. Quisque aliquet dignissim volutpat. Etiam quis lacus nec ex fermentum consequat non quis metus. Donec sit amet sagittis libero, a placerat nisl. Mauris varius lectus ac neque auctor cursus. Donec id tellus eleifend, consequat tortor sit amet, cursus augue. Vestibulum efficitur metus id turpis venenatis laoreet. Maecenas sed placerat ipsum, id bibendum lorem.',
+            'disclaimer' => '*The information or personal data provided by you may be used and processed by Neubell S.A. for the purposes set forth in the Privacy Statement. You can make use of your rights at any time, requesting access to your data, their rectification, update or deletion, or unsubscribe from our services by emailing us at info@magiadeluco.com , or by sending a letter to Av. Santa Fe 2888, San Miguel, Provincia de Buenos Aires.<br>“The Argentine Agency for Access to Public Information, in its capacity as Supervisory Body of Act of Law No. 25.326, has the power to deal with complaints and claims filed by those whose rights are affected by non-compliance with the regulations in force on the protection of personal data" (Section 3° of Resolution 14/2018 of the Agency of Access to Public Information).<br>Please read our Privacy Policy.',
             'btn' => 'Submit',
-            'gracias' => 'Gracias por suscribirte',
+            'gracias' => 'Thanks for subscribe',
             'validacion' => [
                 'email.required' => 'Debe ingresar un email',
                 'acepto.accepted' => 'Debe aceptar los términos y condiciones y Política de privacidad',
@@ -197,15 +197,15 @@ return [
         'colecciones' => [
             'parcelas' => 'Parcelas',
             'tucci' => [
-                'titulo' => 'Colecciones: Francesca Tucci'
+                'titulo' => 'Francesca Tucci'
             ],
             'interwine' => [
-                'titulo' => 'Colecciones: Interwine'
+                'titulo' => 'Intertwine'
             ],
             'interna' => [
-                'aniadas' => 'Vintages',
+                'aniadas' => 'Vintage',
                 'fichaTecnica' => 'Explore more',
-                'porCantidades' => '*Por cantidades mayores a 18 botellas, por favor contactarnos a <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
+                'porCantidades' => '*For orders over 18 bottles, please contact us at <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
                 'porCompras' => 'Por compras superiores a $35.000 el envío es gratis.',
                 'btnAgregar' => 'Add to bag'
             ],
@@ -219,7 +219,7 @@ return [
                 ],
                 'interwine' => [
                     'titulo' => 'Intertwine',
-                    'subtitulo' => 'We believe that the whole is the sum of its parts; nothing is missing, each part is essential. Because finding the right balance means nothing without the right integration.',
+                    'subtitulo' => 'We believe that the whole is the sum of its parts. Nothing is missing, each piece is essential, and everything comes together in perfect harmony. Because finding the right balance means nothing without proper integration.',
                     'btn' => 'DISCOVER MORE'
                 ],
                 'almacenamiento' => [
@@ -265,15 +265,57 @@ return [
             'titulo' => 'Checkout',
             'subtitulo' => '',
             'datosContacto' => [
-                'titulo' => 'Datos de contacto',
+                'titulo' => 'Contact Information',
                 'form' => [
                     'emailPlaceholder' => 'Email',
-                    'recibir' => 'Deseo recibir ofertas y novedades por e-mail.'
+                    'recibir' => 'I would like to receive special offers and news by email.'
                 ]
             ],
-            'btnConfirmar' => 'CONFIRMAR',
-            'btnEditar' => 'EDITAR',
-            'btnAgregar' => 'AGREGAR',
+            'datosEnvio' => [
+                'titulo' => 'Shipping Information',
+                'domicilioDest' => 'Recipient’s Address',
+                'nombre' => 'First Name',
+                'apellido' => 'Last Name',
+                'calle' => 'Street and Number ',
+                'ciudad' => 'City',
+                'provincia' => 'Province ',
+                'cp' => 'Zip Code'
+            ],
+            'datosDestinatario' => [
+                'titulo' => 'Recipient’s Address',
+                'form' => [
+                    'nombre' => 'First Name',
+                    'apellido' => 'Last Name',
+                    'dni' => 'National ID',
+                ]
+            ],
+            'datosFacturacion' => [
+                'titulo' => 'Datos de facturacion',
+                'form' => [
+                    'tipoFactura' => 'Tipo de factura',
+                    'tipoFacturaCF' => 'Consumidor Final',
+                    'tipoFacturaA' => 'Factura A',
+                    'razon_social' => 'Company Name',
+                    'cuit' => 'CUIT',
+                    'direccion' => 'Street and Number',
+                    'ciudad' => 'City',
+                    'provincia' => 'State',
+                    'cp' => 'Zip Code',
+                ]
+            ],
+            'comentarios' => [
+                'titulo' => 'Comments',
+            ],
+            'cantidad' => 'Quantity',
+            'subtotal' => 'Subtotal',
+            'costoEnvio' => 'Shipping Cost',
+            'total' => 'Total',
+            'btnConfirmar' => 'CONFIRM',
+            'btnEditar' => 'EDIT',
+            'btnAgregar' => 'ADD',
+            'btnSeleccionar' => 'SELECT',
+            'btnCancelar' => 'CANCEL',
+            'btnGuardar' => 'SAVE',
             'gracias' => [
                 'titulo' => 'Gracias por tu compra',
                 'mensajesEstados' => [
@@ -281,40 +323,40 @@ return [
                     '1' => 'Su pedido se encuentra aprobado.<br>Pronto lo enviaremos',
                     '-1' => 'Su pedido se encuentra rechazado'
                 ],
-                'btnMisPedidos' => 'Ver Mis Pedidos'
+                'btnMisPedidos' => 'My orders'
             ]
 
         ],
         'miCuenta' => [
             'pedidos' => [
-                'titulo' => 'Mis Pedidos',
+                'titulo' => 'My orders',
                 'tabla' => [
-                    'fecha' => 'Fecha',
-                    'estado' => 'Estado',
+                    'fecha' => 'Date',
+                    'estado' => 'Status',
                     'subtotal' => 'Subtotal',
-                    'envio' => 'Envio',
+                    'envio' => 'Shipping',
                     'total' => 'Total',
                 ],
-                'lnkVer' => 'Ver'
+                'lnkVer' => 'View'
             ],
             'detallePedido' => [
-                'titulo' => 'Detalle',
-                'btnVolver' => 'Volver',
+                'titulo' => 'Detail',
+                'btnVolver' => 'Back',
                 'datosContacto' => [
-                    'titulo' => 'Datos de contacto',
+                    'titulo' => 'Contact Information',
                     'form' => [
                         'email' => 'Email'
                     ]
                 ],
                 'envioRetiro' => [
-                    'titulo' => 'Datos de envío'
+                    'titulo' => 'Shipping Information'
                 ],
                 'datosDestinatario' => [
-                    'titulo' => 'Datos del destinatario',
+                    'titulo' => 'Recipient’s Address',
                     'form' => [
-                        'nombre' => 'Nombre',
-                        'apellido' => 'Apellido',
-                        'dni' => 'Dni',
+                        'nombre' => 'First Name',
+                        'apellido' => 'Last Name',
+                        'dni' => 'National ID',
                     ]
                 ],
                 'datosFacturacion' => [
@@ -323,18 +365,21 @@ return [
                         'tipoFactura' => 'Tipo de factura',
                         'tipoFacturaCF' => 'Monotributo',
                         'tipoFacturaA' => 'Factura A',
-                        'razon_social' => 'Razón Social',
+                        'razon_social' => 'Company Name',
                         'cuit' => 'CUIT',
                     ]
                 ],
                 'comentarios' => [
-                    'titulo' => 'Comentarios',
+                    'titulo' => 'Comments',
                 ],
+                'subtotal' => 'Subtotal',
+                'costoEnvio' => 'Shipping Cost',
+                'total' => 'Total',
             ],
             'misDatos' => [
-                'titulo' => 'Mis datos',
+                'titulo' => 'My Details',
                 'form' => [
-                    'usuario' => 'Username',
+                    'usuario' => 'User',
                     'email' => 'Email',
                 ],
                 'btnGuardar' => 'Save',
@@ -351,6 +396,16 @@ return [
         'novedades' => [
             'titulo' => 'News',
             'masRecientes' => 'Recents News'
+        ],
+        'carrito' => [
+            'titulo' => 'Cart',
+            'producto' => 'Product',
+            'precio' => 'Price',
+            'cantidad' => 'Quantity',
+            'subtotal' => 'Subtotal',
+            'eliminar' => 'Delete',
+            'finalizar' => 'Finish order',
+            'editarCarrito' => 'Edit Cart'
         ]
     ],
     'colecciones' => [

@@ -230,7 +230,8 @@
             if (this.locale == 'es') {
                 this.checkout.form.total = this.carrito.total + this.checkout.form.total_envio;
             } else {
-                this.checkout.form.total_usd = this.carrito.total + this.checkout.form.total_envio_usd;
+                this.checkout.form.total = this.carrito.total + this.checkout.form.total_envio;
+                // this.checkout.form.total_usd = this.carrito.total + this.checkout.form.total_envio_usd;
             }
 
 
@@ -297,7 +298,7 @@
                                                     <p><span>(% item.calle %)</span><span>(% item.cp %),(% item.ciudad %)</span><span>(% item.nombre.concat(' ').concat(item.apellido)%)</span></p>
                                                 </div>
                                                 <div class="actions" v-if="checkout.seccionActual == 'envioRetiro'">
-                                                    <a href="javascript:void(0)" v-show="index > 0" class="f-right" @click="seleccionarDireccion(index)">SELECCIONAR</a>
+                                                    <a href="javascript:void(0)" v-show="index > 0" class="f-right" @click="seleccionarDireccion(index)">{{trans('front.paginas.checkout.envioRetiro.btnSeleccionar')}}</a>
                                                     <a href="javascript:void(0)" v-show="index == 0" class="f-right" @click="editarDireccion(item,index)">{{trans('front.paginas.checkout.btnEditar')}}</a>
                                                     <!--button type="button" v-show="index > 0" class="btn btn-primary f-right" @click="seleccionarDireccion(index)">Seleccionar</button>
                                                     <button type="button" v-show="index == 0" class="btn btn-primary f-right" @click="editarDireccion(item,index)">Editar</button-->
@@ -327,33 +328,33 @@
 
                             <div id="formDomicilio" class="block-content" v-if="checkout.direcciones.itemSeleccionado">
 
-                                <h2>Domicilio del destinatario</h2>
+                                <h2>{{trans('front.paginas.checkout.datosEnvio.domicilioDest')}}</h2>
                                 <form>
                                     <!-- Email input -->
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.nombre" placeholder="Nombre*">
-                                        <label for="calleInput">Nombre*</label>
+                                        <label for="calleInput">{{trans('front.paginas.checkout.datosEnvio.nombre')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.apellido" placeholder="Apellido*">
-                                        <label for="calleInput">Apellido*</label>
+                                        <label for="calleInput">{{trans('front.paginas.checkout.datosEnvio.apellido')}}*</label>
                                     </div>
 
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.calle" placeholder="Calle y número*">
-                                        <label for="calleInput">Calle y número*</label>
+                                        <label for="calleInput">{{trans('front.paginas.checkout.datosEnvio.calle')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control"  v-model="checkout.direcciones.itemSeleccionado.ciudad" placeholder=">Ciudad*">
-                                        <label for="ciudadInput">Ciudad*</label>
+                                        <label for="ciudadInput">{{trans('front.paginas.checkout.datosEnvio.ciudad')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control"  v-model="checkout.direcciones.itemSeleccionado.provincia" placeholder=">Provincia*">
-                                        <label for="provinciaInput">Provincia*</label>
+                                        <label for="provinciaInput">{{trans('front.paginas.checkout.datosEnvio.provincia')}}*</label>
                                     </div>
 
                                     <!--div class="form-floating  mb-form">
@@ -366,12 +367,12 @@
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control"  v-model="checkout.direcciones.itemSeleccionado.cp" placeholder=">Código Postal*">
-                                        <label for="zipcodeInput">Código Postal*</label>
+                                        <label for="zipcodeInput">{{trans('front.paginas.checkout.datosEnvio.cp')}}*</label>
                                     </div>
 
 
-                                    <button type="button" class="btn btn-form f-right" @click="cerrarDireccion()">CANCELAR</button>
-                                    <button type="button" class="btn btn-form f-right" style="margin-right: 10px;" @click="guardarDireccion()">GUARDAR</button>
+                                    <button type="button" class="btn btn-form f-right" @click="cerrarDireccion()">{{trans('front.paginas.checkout.btnCancelar')}}</button>
+                                    <button type="button" class="btn btn-form f-right" style="margin-right: 10px;" @click="guardarDireccion()">{{trans('front.paginas.checkout.btnGuardar')}}</button>
 
 
                                 </form>
@@ -389,22 +390,22 @@
 
                             <div class="block-content">
 
-                                <h2>Datos del destinatario</h2>
+                                <h2>{{trans('front.paginas.checkout.datosDestinatario.titulo')}}</h2>
                                 <form>
                                     <fieldset :disabled="checkout.seccionActual !== 'datosDestinatario'">
                                         <div class="form-floating  mb-form">
                                             <input type="text" class="form-control" id="nombreInput" placeholder=">Nombre*" v-model="checkout.form.nombre">
-                                            <label for="nombreInput">Nombre*</label>
+                                            <label for="nombreInput">{{trans('front.paginas.checkout.datosDestinatario.form.nombre')}}*</label>
                                         </div>
 
                                         <div class="form-floating  mb-form">
                                             <input type="text" class="form-control" id="apellidoInput" placeholder=">Apellido*" v-model="checkout.form.apellido">
-                                            <label for="apellidoInput">Apellido*</label>
+                                            <label for="apellidoInput">{{trans('front.paginas.checkout.datosDestinatario.form.apellido')}}*</label>
                                         </div>
 
                                         <div class="form-floating  mb-form">
                                             <input type="text" class="form-control" id="dniInput" placeholder=">Dni*" v-model="checkout.form.dni">
-                                            <label for="dniInput">Dni*</label>
+                                            <label for="dniInput">{{trans('front.paginas.checkout.datosDestinatario.form.dni')}}*</label>
                                         </div>
 
                                         <button type="button" class="btn btn-primary f-right" @click="confirmarSeccion('datosDestinatario')" v-show="checkout.seccionActual === 'datosDestinatario'">{{trans('front.paginas.checkout.btnConfirmar')}}</button>
@@ -420,13 +421,13 @@
                         <div class="titulo">
                             <div class="dropdown">
                                 <button class="btn btn-dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span v-if="!checkout.form.tipo_factura">Datos de facturación</span>
+                                    <span v-if="!checkout.form.tipo_factura">{{trans('front.paginas.checkout.datosFacturacion.titulo')}}</span>
                                     <span v-else>(% checkout.form.tipo_factura_desc %)</span>
                                     <i class="arrow-down"></i>
                                 </button>
                                 <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="javascript:void(0);" @click="seleccionarTipoFactura('CF')">Consumidor Final</a></li>
-                                    <li><a class="dropdown-item" href="javascript:void(0);" @click="seleccionarTipoFactura('A')">Factura A</a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0);" @click="seleccionarTipoFactura('CF')">{{trans('front.paginas.checkout.datosFacturacion.form.tipoFacturaCF')}}</a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0);" @click="seleccionarTipoFactura('A')">{{trans('front.paginas.checkout.datosFacturacion.form.tipoFacturaA')}}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -437,28 +438,28 @@
                                 <template v-if="checkout.form.tipo_factura == 'CF'">
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" id="nombreInput" placeholder=">Nombre*" v-model="checkout.form.nombre_fc">
-                                        <label for="nombreInput">Nombre*</label>
+                                        <label for="nombreInput">{{trans('front.paginas.checkout.datosDestinatario.form.nombre')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" id="apellidoInput" placeholder=">Apellido*" v-model="checkout.form.apellido_fc">
-                                        <label for="apellidoInput">Apellido*</label>
+                                        <label for="apellidoInput">{{trans('front.paginas.checkout.datosDestinatario.form.apellido')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" id="dniInput" placeholder=">Dni*" v-model="checkout.form.dni_fc">
-                                        <label for="dniInput">Dni*</label>
+                                        <label for="dniInput">{{trans('front.paginas.checkout.datosDestinatario.form.dni')}}*</label>
                                     </div>
                                 </template>
                                 <template v-else>
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" id="razonSocialInput" placeholder=">Razón social*" v-model="checkout.form.razon_social">
-                                        <label for="razonSocialInput">Razón social*</label>
+                                        <label for="razonSocialInput">{{trans('front.paginas.checkout.datosFacturacion.form.razon_social')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" id="cuitInput" placeholder=">Cuit*" v-model="checkout.form.cuit">
-                                        <label for="cuitInput">Cuit*</label>
+                                        <label for="cuitInput">{{trans('front.paginas.checkout.datosFacturacion.form.cuit')}}*</label>
                                     </div>
 
 
@@ -466,22 +467,22 @@
                                 <template v-if="checkout.form.tipo_factura == 'A' || checkout.form.total >= checkout.info.montoDatosFC">
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" v-model="checkout.form.direccion_fc" placeholder="Calle y número*">
-                                        <label for="calleInput">Calle y número*</label>
+                                        <label for="calleInput">{{trans('front.paginas.checkout.datosFacturacion.form.direccion')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control"  v-model="checkout.form.ciudad_fc" placeholder=">Ciudad*">
-                                        <label for="ciudadInput">Ciudad*</label>
+                                        <label for="ciudadInput">{{trans('front.paginas.checkout.datosFacturacion.form.ciudad')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control"  v-model="checkout.form.provincia_fc" placeholder=">Provincia*">
-                                        <label for="provinciaInput">Provincia*</label>
+                                        <label for="provinciaInput">{{trans('front.paginas.checkout.datosFacturacion.form.provincia')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control"  v-model="checkout.form.cp_fc" placeholder=">Código Postal*">
-                                        <label for="zipcodeInput">Código Postal*</label>
+                                        <label for="zipcodeInput">{{trans('front.paginas.checkout.datosFacturacion.form.cp')}}*</label>
                                     </div>
 
                                     <p class="message">En caso de necesitar Factura A la percepción de Ingresos Brutos no está incluida en el precio.</p>
@@ -498,7 +499,7 @@
                 <!-- COMENTATARIOS -->
                 <div class="block-content" v-if="checkout.secciones.confirmarPedido">
 
-                                <h2>Comentarios</h2>
+                                <h2>{{trans('front.paginas.checkout.comentarios.titulo')}}</h2>
                                 <form>
                                     <!-- Email input -->
                                     <fieldset :disabled="checkout.seccionActual !== 'confirmarPedido'">
@@ -506,7 +507,7 @@
 
                                     <div class="form-floating  mb-form">
                                           <textarea class="form-control" placeholder="Leave a comment here" id="comentariosInput" style="height: 100px" v-model="checkout.form.comentarios"></textarea>
-                                            <label for="comentariosInput">Comentarios</label>
+                                            <label for="comentariosInput">{{trans('front.paginas.checkout.comentarios.titulo')}}</label>
                                     </div>
 
 
@@ -543,20 +544,20 @@
 						<table class="table table-borderless totals">
 							<tbody>
 								<tr>
-									<td class="subtotal">Subtotal</td>
+									<td class="subtotal">{{trans('front.paginas.checkout.cantidad')}}</td>
 									<td class="subtotal"><span class="price">(% carrito.total | currency %)</span></td>
 								</tr>
 								<tr>
-									<td class="envio">Costo de envío</td>
+									<td class="envio">{{trans('front.paginas.checkout.costoEnvio')}}</td>
 									<td class="envio">
-                                        <span v-show="!checkout.cotizando_envio" class="price">(% locale == 'es' ? checkout.form.total_envio : checkout.form.total_envio_usd | currency %)</span>
+                                        <span v-show="!checkout.cotizando_envio" class="price">(% locale == 'es' ? checkout.form.total_envio : checkout.form.total_envio | currency %)</span>
                                         <span v-show="checkout.cotizando_envio" class="price">--</span>
                                     </td>
 
 								</tr>
 								<tr>
-									<td><b>Total</b></td>
-									<td><span class="price"><b>(% locale == 'es' ? checkout.form.total : checkout.form.total_usd | currency %)</b></span></td>
+									<td><b>{{trans('front.paginas.checkout.total')}}</b></td>
+									<td><span class="price"><b>(% locale == 'es' ? checkout.form.total : checkout.form.total | currency %)</b></span></td>
 								</tr>
 							</tbody>
 						</table>

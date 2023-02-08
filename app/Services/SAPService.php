@@ -7,15 +7,15 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\Psr7\Uri;
 
-class SAPService extends AppBaseController 
+class SAPService extends AppBaseController
 {
     protected $repository;
     public function __construct()
     {
-        
-    }    
 
-    public function sincronizarProductos() 
+    }
+
+    public function sincronizarProductos()
     {
         $host = env("SAP_HOST");
         $port = env("SAP_POST");
@@ -77,12 +77,12 @@ class SAPService extends AppBaseController
 
         foreach($productos->value as $producto)
         {
-            if (($producto->PriceList == 2 || $producto->PriceList == 1) && $producto->ItemCode != "")  
+            if (($producto->PriceList == 2 || $producto->PriceList == 1) && $producto->ItemCode != "")
             {
                 $aniada = Aniada::where('sku', $producto->ItemCode)->first();
-                
+
                 if ($aniada != null) {
-                    logger($aniada);
+                    //logger($aniada);
                     $aniada->stock = $producto->StockAlmacen;
                     if($producto->PriceList == 2) {
                         $aniada->precio_usd = $producto->Price;

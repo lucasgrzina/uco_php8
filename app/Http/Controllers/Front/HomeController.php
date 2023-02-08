@@ -44,7 +44,7 @@ class HomeController extends AppBaseController
 
             $cookie = \Cookie::make('uco_idioma', $lang, 518400);
 
-            \Cart::clear();
+            // \Cart::clear();
             return redirect()->route('home',[$lang])->withCookie($cookie);
         } else {
             dd("3");

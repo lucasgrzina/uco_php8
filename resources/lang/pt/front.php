@@ -41,7 +41,7 @@ return [
             'home' => 'Inicio',
             'legado' => 'Legado',
             'nuestroCompromiso' => 'Nosso compromisso',
-            'colecciones' => 'Colecciones',
+            'colecciones' => 'Coleções',
             'francescaTucci' => 'Francesca Tucci',
             'interwine' => 'Intertwine',
             'novedades' => 'Novidades',
@@ -51,24 +51,24 @@ return [
             'comprar' => 'COMPRAR',
             'pp' => 'Políticas de privacidad',
             'tyc' => 'Términos y condiciones',
-            'lcr' => 'Ley de consumo responsable',
-            'dc' => 'Defensa del Consumidor',
+            'lcr' => 'Consumo responsable',
+            'dc' => 'Ley de defensa del consumidor',
             'menuUsuario' => [
                 'bienvenidos' => 'Bem-vindos',
                 'miCuenta' => 'Minha conta',
-                'cambiarPassword' => 'Cambiar contraseña',
+                'cambiarPassword' => 'Alterar senha',
                 'misPedidos' => 'Meus pedidos',
-                'salir' => 'Salir'
+                'salir' => 'Finalizar sessão'
             ]
         ],
         'legales' => '© 2022 Magia de Uco. Todos los derechos reservados. Beber con moderación. Prohibida la venta a menores de 18 años'
     ],
     'modulos' => [
         'suscripcion' => [
-            'titulo' => 'Suscribite para recibir las novedades',
-            'placeholderEmail' => 'ingrese su e-mail',
+            'titulo' => 'Assine para receber as novidades.',
+            'placeholderEmail' => 'Inserir e-mail',
             'btn' => 'ENVIAR',
-            'chk' => 'Al suscribirse, aceptas los <a class="acepto" target="_blank" href="_link_tyc_">términos y condiciones</a>.',
+            'chk' => 'Ao assinar, você está aceitando os <a class="acepto" target="_blank" href="_link_tyc_">termos e condições.</a>.',
             'gracias' => 'Gracias por suscribirte',
             'validacion' => [
                 'email.required' => 'Debe ingresar un email',
@@ -292,21 +292,21 @@ return [
             'donde' => 'Onde encontrar os nossos vinhos',
             'contactanos' => 'Contactanos',
             'form' => [
-                'nombre' => 'NOMBRE*',
-                'placeholderNombre' => 'Nombre (completo)',
-                'apellido' => 'APELLIDO*',
-                'placeholderApellido' => 'Apellido (completo)',
-                'email' => 'CORREO ELECTRÓNICO*',
+                'nombre' => 'Nome*',
+                'placeholderNombre' => 'Nome (completo)',
+                'apellido' => 'Sobrenome*',
+                'placeholderApellido' => 'Sobrenome (completo)',
+                'email' => 'Endereço de e-mail*',
                 'placeholderEmail' => 'name@example.com',
-                'pais' => 'PAÍS*',
+                'pais' => 'País*',
                 'placeholderPais' => 'Argentina',
-                'mensaje' => 'CONSULTAR*',
-                'placeholderMensaje' => 'CONSULTAR',
-                'acepto' => 'Acepto los <a class="acepto" target="_blank" href="_link_tyc_">términos y condiciones</a> y <a class="acepto" target="_blank" href="_link_pp_">Política de privacidad</a>.',
-                'recibir' => 'Acepto recibir información promocional.'
+                'mensaje' => 'Como podemos ajudar? *',
+                'placeholderMensaje' => 'Como podemos ajudar? ',
+                'acepto' => 'Aceito os <a class="acepto" target="_blank" href="_link_tyc_">termos e condições</a> e as <a class="acepto" target="_blank" href="_link_pp_">políticas de privacidade</a>.',
+                'recibir' => 'Aceito receber informações promocionais.'
             ],
             'obligatorios' => '*Campos obligatorios.',
-            'disclaimer' => 'La información o datos personales que Usted nos brinda puede ser usada y tratada por Neubell S.A. para los fines previstos en la Declaración de Privacidad. En cualquier momento Usted puede hacer uso de sus derechos, solicitando el acceso a sus datos, su rectificación, actualización o supresión, o desuscribirse de nuestros servicios a los que se hubiere suscripto, contactándose con nosotros al mail info@magiadeluco.com , o remitiendo una carta a Av. Santa Fe 2888, San Miguel, Provincia de Buenos Aires.<br>“LA AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de Control de la Ley N° 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de protección de datos personales” (Artículo 3° de la Resolución 14/2018 de la Agencia de Acceso a la Información Pública)<br>Por favor lea nuestras Políticas de Privacidad.',
+            'disclaimer' => 'As informações e os dados pessoais que você nos proporciona podem ser usados e tratados por Neubell S.A. para fins previstos na Declaração de Privacidade. Em qualquer momento, você pode fazer uso dos seus direitos, solicitando acessos aos seus dados, a retificação, atualização ou supressão dos mesmos, ou cancelar assinatura dos nossos serviços aos quais você tenha assinado, entrando em contato conosco através do e-mail info@magiadeluco.com ou enviando uma carta a Av. Santa Fe 2888, San Miguel, Provincia de Buenos Aires. “A AGÊNCIA DE ACESSO À INFORMAÇÃO PÚBLICA, na qualidade de Órgão de Controle da Lei 25.326, tem a atribuição de atender às denúncias e reclamações realizadas por quem resultar afetado nos seus direitos por incumprimento das normas vigentes em termos de proteção de dados pessoais” (Artigo 3° da Resolução 14/2018 da Agência de Acesso à Informação Pública). Por favor, leia as nossas Políticas de Privacidade.',
             'btn' => 'ENVIAR',
             'gracias' => 'Gracias por suscribirte',
             'validacion' => [
@@ -326,9 +326,9 @@ return [
             'interna' => [
                 'aniadas' => 'Añadas',
                 'fichaTecnica' => 'Ficha Técnica',
-                'porCantidades' => '*Por cantidades mayores a 18 botellas, por favor contactarnos a <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
+                'porCantidades' => '*Para quantidades superiores a 18 garrafas, por favor, entrar em contato conosco em: <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
                 'porCompras' => 'Por compras superiores a $35.000 el envío es gratis.',
-                'btnAgregar' => 'Añadir al shop'
+                'btnAgregar' => 'Adicionar ao carrinho'
             ],
             'root' => [
                 'titulo' => 'Coleções',
@@ -367,8 +367,8 @@ return [
         'login' => [
             'titulo' => 'Acceso',
             'form' => [
-                'usuario' => 'USUARIO',
-                'password' => 'CONTRASEÑA',
+                'usuario' => 'Usuário',
+                'password' => 'Senha',
             ],
             'btnIngresar' => 'INGRESAR',
             'olvidaste' => 'Olvidé mi contraseña',
@@ -377,19 +377,19 @@ return [
             'recuperar' => [
                 'titulo' => 'Olvidé mi contraseña',
                 'form' => [
-                    'email' => 'EMAIL'
+                    'email' => 'Endereço de e-mail'
                 ],
                 'btnIngresar' => 'RECUPERAR',
-                'acceso' => 'Acceso'
+                'acceso' => 'Aceso'
             ],
         ],
         'registro' => [
             'titulo' => 'Registro',
             'form' => [
-                'usuario' => 'USUARIO',
-                'email' => 'CORREO ELECTRÓNICO',
-                'password' => 'CONTRASEÑA',
-                'confirmarPassword' => 'CONFIRMAR CONTRASEÑA',
+                'usuario' => 'Usuário',
+                'email' => 'Endereço de e-mail',
+                'password' => 'Senha',
+                'confirmarPassword' => 'Confirmar Senha',
             ],
             'btnRegistrarse' => 'REGISTRARSE',
             'yaTenes' => 'Iniciar sesión',
@@ -399,18 +399,57 @@ return [
             'titulo' => 'Checkout',
             'subtitulo' => '',
             'datosContacto' => [
-                'titulo' => 'Datos de contacto',
+                'titulo' => 'Dados de contato',
                 'form' => [
-                    'emailPlaceholder' => 'Email',
-                    'recibir' => 'Deseo recibir ofertas y novedades por e-mail.'
+                    'emailPlaceholder' => 'Endereço de e-mail',
+                    'recibir' => 'Desejo receber ofertas e novidades por e-mail'
                 ]
             ],
             'datosEnvio' => [
-                'titulo' => 'Datos de envío'
+                'titulo' => 'Dados de envio',
+                'domicilioDest' => 'Endereço do destinatário',
+                'nombre' => 'Nome',
+                'apellido' => 'Sobrenome',
+                'calle' => 'Endereço completo',
+                'ciudad' => 'Cidade',
+                'provincia' => 'Estado',
+                'cp' => 'CEP'
             ],
+            'datosDestinatario' => [
+                'titulo' => 'Endereço do destinatário',
+                'form' => [
+                    'nombre' => 'Nome',
+                    'apellido' => 'Sobrenome',
+                    'dni' => 'RG',
+                ]
+            ],
+            'datosFacturacion' => [
+                'titulo' => 'Datos de facturacion',
+                'form' => [
+                    'tipoFactura' => 'Tipo de factura',
+                    'tipoFacturaCF' => 'Consumidor Final',
+                    'tipoFacturaA' => 'Nota fiscal',
+                    'razon_social' => 'Razão social',
+                    'cuit' => 'CNPJ',
+                    'direccion' => 'Endereço completo',
+                    'ciudad' => 'Cidade',
+                    'provincia' => 'Estado',
+                    'cp' => 'CEP',
+                ]
+            ],
+            'comentarios' => [
+                'titulo' => 'Comentários',
+            ],
+            'cantidad' => 'Quantidad',
+            'subtotal' => 'Subtotal',
+            'costoEnvio' => 'Custo de envio',
+            'total' => 'Total',
             'btnConfirmar' => 'CONFIRMAR',
             'btnEditar' => 'EDITAR',
-            'btnAgregar' => 'AGREGAR',
+            'btnAgregar' => 'ADICIONAR',
+            'btnSeleccionar' => 'SELECIONAR',
+            'btnCancel' => 'CANCELAR',
+            'btnGuardar' => 'SALVAR',
             'gracias' => [
                 'titulo' => 'Gracias por tu compra',
                 'mensajesEstados' => [
@@ -418,15 +457,15 @@ return [
                     '1' => 'Su pedido se encuentra aprobado.<br>Pronto lo enviaremos',
                     '-1' => 'Su pedido se encuentra rechazado'
                 ],
-                'btnMisPedidos' => 'Ver Mis Pedidos'
+                'btnMisPedidos' => 'Meus pedidos'
             ]
 
         ],
         'miCuenta' => [
             'pedidos' => [
-                'titulo' => 'Mis Pedidos',
+                'titulo' => 'Meus pedidos',
                 'tabla' => [
-                    'fecha' => 'Fecha',
+                    'fecha' => 'Data',
                     'estado' => 'Estado',
                     'subtotal' => 'Subtotal',
                     'envio' => 'Envio',
@@ -438,20 +477,20 @@ return [
                 'titulo' => 'Detalle',
                 'btnVolver' => 'Volver',
                 'datosContacto' => [
-                    'titulo' => 'Datos de contacto',
+                    'titulo' => 'Dados de contato',
                     'form' => [
-                        'email' => 'Email'
+                        'email' => 'Endereço de e-mail'
                     ]
                 ],
                 'envioRetiro' => [
-                    'titulo' => 'Datos de envío'
+                    'titulo' => 'Dados de envio'
                 ],
                 'datosDestinatario' => [
-                    'titulo' => 'Datos del destinatario',
+                    'titulo' => 'Endereço do destinatário',
                     'form' => [
-                        'nombre' => 'Nombre',
-                        'apellido' => 'Apellido',
-                        'dni' => 'Dni',
+                        'nombre' => 'Nome',
+                        'apellido' => 'Sobrenome',
+                        'dni' => 'RG',
                     ]
                 ],
                 'datosFacturacion' => [
@@ -459,34 +498,37 @@ return [
                     'form' => [
                         'tipoFactura' => 'Tipo de factura',
                         'tipoFacturaCF' => 'Consumidor Final',
-                        'tipoFacturaA' => 'Factura A',
-                        'razon_social' => 'Razón Social',
-                        'cuit' => 'CUIT',
-                        'direccion' => 'Calle y número',
-                        'ciudad' => 'Ciudad',
-                        'provincia' => 'Provincia',
-                        'cp' => 'Código Postal',
+                        'tipoFacturaA' => 'Nota fiscal',
+                        'razon_social' => 'Razão social',
+                        'cuit' => 'CNPJ',
+                        'direccion' => 'Endereço completo',
+                        'ciudad' => 'Cidade',
+                        'provincia' => 'Estado',
+                        'cp' => 'CEP',
                     ]
                 ],
                 'comentarios' => [
-                    'titulo' => 'Comentarios',
+                    'titulo' => 'Comentários',
                 ],
+                'subtotal' => 'Subtotal',
+                'costoEnvio' => 'Custo de envio',
+                'total' => 'Total',
             ],
             'misDatos' => [
-                'titulo' => 'Mis datos',
+                'titulo' => 'Meus dados',
                 'form' => [
-                    'usuario' => 'USUARIO',
-                    'email' => 'CORREO ELECTRÓNICO',
+                    'usuario' => 'Usuário',
+                    'email' => 'Endereço de e-mail',
                 ],
-                'btnGuardar' => 'GUARDAR',
+                'btnGuardar' => 'Salvar',
             ],
             'cambiarPassword' => [
-                'titulo' => 'Cambiar contraseña',
+                'titulo' => 'Alterar senha',
                 'form' => [
-                    'password' => 'CONTRASEÑA',
-                    'confirmarPassword' => 'CONFIRMAR CONTRASEÑA',
+                    'password' => 'senha',
+                    'confirmarPassword' => 'Confirmar senha',
                 ],
-                'btnGuardar' => 'GUARDAR',
+                'btnGuardar' => 'SALVAR',
             ]
         ],
         'novedades' => [
@@ -494,7 +536,14 @@ return [
             'masRecientes' => 'Novidades más recientes'
         ],
         'carrito' => [
-            'titulo' => 'Carrito'
+            'titulo' => 'Carrinho',
+            'producto' => 'Produto',
+            'precio' => 'Precio',
+            'cantidad' => 'Quantidad',
+            'subtotal' => 'Subtotal',
+            'eliminar' => 'Eliminar',
+            'finalizar' => 'Finalizar orden',
+            'editarCarrito' => 'Editar Carrinho'
         ]
     ],
     'colecciones' => [

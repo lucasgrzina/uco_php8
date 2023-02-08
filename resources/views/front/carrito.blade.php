@@ -20,10 +20,10 @@
                     <thead>
                         <tr>
                             <th scope="col" colspan="2"></th>
-                            <th scope="col">Producto</th>
-                            <th scope="col" style="text-align: right;">Precio</th>
-                            <th scope="col" style="text-align: right;">Cantidad</th>
-                            <th scope="col" style="text-align: right;">Subtotal</th>
+                            <th scope="col">{{trans('front.paginas.carrito.producto')}}</th>
+                            <th scope="col" style="text-align: right;">{{trans('front.paginas.carrito.precio')}}</th>
+                            <th scope="col" style="text-align: right;">{{trans('front.paginas.carrito.cantidad')}}</th>
+                            <th scope="col" style="text-align: right;">{{trans('front.paginas.carrito.subtotal')}}</th>
                             <th scope="col">&nbsp;</th>
                         </tr>
                     </thead>
@@ -54,7 +54,7 @@
                                 </div>
                             </td>
                             <td class="align-middle" style="text-align: right;"><span>(%(item.quantity * item.price) | currency%)</span></td>
-                            <td class="align-middle" style="text-align: right;"><a href="javascript:void(0)" style="color: #000;  position: relative; display: block;" @click="carritoQuitarItem(item,index)">Eliminar</a></td>
+                            <td class="align-middle" style="text-align: right;"><a href="javascript:void(0)" style="color: #000;  position: relative; display: block;" @click="carritoQuitarItem(item,index)">{{trans('front.paginas.carrito.eliminar')}}</a></td>
                         </tr>
                         <!--tr>
                             <td colspan="5"></td>
@@ -65,7 +65,7 @@
                     <tfoot>
                         <tr>
                             <th scope="col" colspan="4">&nbsp;</th>
-                            <th scope="col" style="text-align: right;font-weight:600;">Subtotal</th>
+                            <th scope="col" style="text-align: right;font-weight:600;">{{trans('front.paginas.carrito.subtotal')}}</th>
                             <th scope="col" style="text-align: right;font-weight:600;">(%carrito.total | currency%)</th>
                             <th scope="col">&nbsp;</th>
                         </tr>
@@ -73,7 +73,7 @@
                 </table>
             </div>
             <div class="col-12">
-                <button v-if="carrito.cantidad > 0" class="btn btn-primary btn-finalizar" @click="goTo('{{routeIdioma('checkout')}}')">Finalizar compra</button>
+                <button v-if="carrito.cantidad > 0" class="btn btn-primary btn-finalizar" @click="goTo('{{routeIdioma('checkout')}}')">{{trans('front.paginas.carrito.finalizar')}}</button>
             </div>
             <div class="col-12">
                 <div class="shop">

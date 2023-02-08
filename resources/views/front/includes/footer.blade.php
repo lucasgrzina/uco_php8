@@ -61,8 +61,8 @@
               <div class="legales-links">
                 <a target="_blank" href="{{routeIdioma('politicasPrivacidad')}}">{{trans('front.navMenuFooter.links.pp')}}</a>
                 <a target="_blank" href="{{routeIdioma('terminosCondiciones')}}">{{trans('front.navMenuFooter.links.tyc')}}</a>
-                <a href="{{routeIdioma('home')}}">{{trans('front.navMenuFooter.links.lcr')}}</a>
-                <a href="{{routeIdioma('home')}}">{{trans('front.navMenuFooter.links.dc')}}</a>
+                <a target="_blank" href="https://www.argentina.gob.ar/normativa/nacional/ley-24788-42480">{{trans('front.navMenuFooter.links.lcr')}}</a>
+                <a target="_blank" href="https://www.argentina.gob.ar/normativa/nacional/ley-24240-638/actualizacion">{{trans('front.navMenuFooter.links.dc')}}</a>
               </div>
           </div>
       </div>

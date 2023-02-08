@@ -150,7 +150,7 @@
                                     <tr>
                                         <td>(% item.aniada.vino.titulo + ' - ' + item.aniada.anio %) X (% item.cantidad %)</td>
 
-                                        <td><span class="price">(% locale == 'es' ? item.precio_pesos : item.precio_usd | currency %)</span></td>
+                                        <td><span class="price">(% locale == 'es' ? item.precio_pesos : item.precio_pesos | currency %)</span></td>
                                     </tr>
                                 </template>
 							</tbody>
@@ -160,19 +160,19 @@
 						<table class="table table-borderless totals">
 							<tbody>
 								<tr>
-									<td>Subtotal</td>
-									<td><span class="price">(% locale == 'es' ? pedidos.pedido.total_carrito : pedidos.pedido.total_carrito_usd | currency %)</span></td>
+									<td>{{trans('front.paginas.miCuenta.detallePedido.subtotal')}}</td>
+									<td><span class="price">(% locale == 'es' ? pedidos.pedido.total_carrito : pedidos.pedido.total_carrito | currency %)</span></td>
 								</tr>
 								<tr>
-									<td>Costo de envío</td>
+									<td>{{trans('front.paginas.miCuenta.detallePedido.costoEnvio')}}</td>
 									<td>
-                                        <span class="price">(% locale == 'es' ? pedidos.pedido.total_envio : pedidos.pedido.total_envio_usd | currency %)</span>
+                                        <span class="price">(% locale == 'es' ? pedidos.pedido.total_envio : pedidos.pedido.total_envio | currency %)</span>
                                     </td>
 
 								</tr>
 								<tr>
-									<td><b>Total</b></td>
-									<td><span class="price"><b>(% locale == 'es' ? pedidos.pedido.total : pedidos.pedido.total_usd | currency %)</b></span></td>
+									<td><b>{{trans('front.paginas.miCuenta.detallePedido.total')}}</b></td>
+									<td><span class="price"><b>(% locale == 'es' ? pedidos.pedido.total : pedidos.pedido.total | currency %)</b></span></td>
 								</tr>
 							</tbody>
 						</table>

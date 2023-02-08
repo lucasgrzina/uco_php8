@@ -10,7 +10,7 @@
 @section('scripts')
     @parent
     <script type="text/javascript">
-        var _data = {!! json_encode($data) !!};     
+        var _data = {!! json_encode($data) !!};
 
         _methods.verPedido = function(item) {
             window.location = this.pedidos.url_detalle.replace('_ID_',item.id);
@@ -32,11 +32,11 @@
                     <thead>
                         <tr>
                             <th scope="col" colspan="2"></th>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Estado</th>
-                            <th scope="col" class=" text-right">Subtotal</th>
-                            <th scope="col" class=" text-right">Envio</th>
-                            <th scope="col" class=" text-right">Total</th>
+                            <th scope="col">{{trans('front.paginas.miCuenta.pedidos.tabla.fecha')}}</th>
+                            <th scope="col">{{trans('front.paginas.miCuenta.pedidos.tabla.estado')}}</th>
+                            <th scope="col" class=" text-right">{{trans('front.paginas.miCuenta.pedidos.tabla.subtotal')}}</th>
+                            <th scope="col" class=" text-right">{{trans('front.paginas.miCuenta.pedidos.tabla.envio')}}</th>
+                            <th scope="col" class=" text-right">{{trans('front.paginas.miCuenta.pedidos.tabla.total')}}</th>
                         </tr>
                     </thead>
                     <tbody v-for="(item,index) in pedidos.listado">
@@ -48,12 +48,12 @@
                                 <span>(% item.created_at | datetimeFormat %)</span>
                             </td>
                             <td class="align-middle"><span>(% item.estado %)</span></td>
-                            <td class="align-middle text-right"><span>(% locale == 'es' ? item.total_carrito : item.total_carrito_usd | currency %)</span></td>
-                            <td class="align-middle text-right"><span>(% locale == 'es' ? item.total_envio : item.total_envio_usd | currency %)</span></td>
-                            <td class="align-middle text-right"><span>(% locale == 'es' ? item.total : item.total_usd | currency %)</span></td>
-                            
+                            <td class="align-middle text-right"><span>(% locale == 'es' ? item.total_carrito : item.total_carrito | currency %)</span></td>
+                            <td class="align-middle text-right"><span>(% locale == 'es' ? item.total_envio : item.total_envio | currency %)</span></td>
+                            <td class="align-middle text-right"><span>(% locale == 'es' ? item.total : item.total | currency %)</span></td>
+
                         </tr>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -65,4 +65,4 @@
 </section>
 
 
-@endsection  
+@endsection
