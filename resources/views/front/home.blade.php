@@ -170,7 +170,7 @@
                         @endif
                         @if(isset($data['novedades']['SI']))
                             @foreach (array_slice($data['novedades']['SI'],0,1) as $i => $item)
-                                <a href="{{routeIdioma('novedades')}}" class="item item-{{($i+1)}}">
+                                <a href="{{routeIdioma('novedades')}}" class="item item-3">
                                     <img src="{{$item['foto_url']}}">
                                     <div class="info fade_JS">
                                         <span class="date">{{$item['fecha_corta']}}</span>
