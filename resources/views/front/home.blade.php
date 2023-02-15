@@ -148,14 +148,44 @@
 	<section class="section-novedades " >
 		<div class="container">
 			<div class="row">
-			<div class="col-lg-4">
-				<div class="wrap-text fade_JS">
-						<h2>{!! trans('front.paginas.home.novedades.titulo') !!}</h2>
-						<a href="{{routeIdioma('novedades')}}" class="btn-primary">{!! trans('front.paginas.home.novedades.btn') !!}</a>
-				</div>
-			</div>
+                <div class="col-lg-4">
+                    <div class="wrap-text fade_JS">
+                            <h2>{!! trans('front.paginas.home.novedades.titulo') !!}</h2>
+                            <a href="{{routeIdioma('novedades')}}" class="btn-primary">{!! trans('front.paginas.home.novedades.btn') !!}</a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="grid-novedades">
+                        @if(isset($data['novedades']['SD']))
+                            @foreach (array_slice($data['novedades']['SD'],0,2) as $i => $item)
+                                <a href="{{routeIdioma('novedades')}}" class="item item-{{($i+1)}}">
+                                    <img src="{{$item['foto_url']}}">
+                                    <div class="info fade_JS">
+                                        <span class="date">{{$item['fecha_corta']}}</span>
+                                        <h3>{{$item['titulo']}}</h3>
+                                        <p>{!!$item['cuerpo']!!}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+                        @endif
+                        @if(isset($data['novedades']['SI']))
+                            @foreach (array_slice($data['novedades']['SI'],0,1) as $i => $item)
+                                <a href="{{routeIdioma('novedades')}}" class="item item-{{($i+1)}}">
+                                    <img src="{{$item['foto_url']}}">
+                                    <div class="info fade_JS">
+                                        <span class="date">{{$item['fecha_corta']}}</span>
+                                        <h3>{{$item['titulo']}}</h3>
+                                        <p>{!!$item['cuerpo']!!}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+                        @endif
 
-		</div>
+                    </div>
+
+                </div>
+
+		    </div>
 		</div>
 	</section>
 @endif
