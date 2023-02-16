@@ -1576,9 +1576,17 @@ p{
 				align-items: center;
 				justify-content: space-between;
 				padding: 0 0 20px;
+                @include under($b-sm) {
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
 
+                }
 				.btn{
 					font-family: $f-book;
+                    @include under($b-sm) {
+                        margin-bottom: 10px;
+                    }
 				}
 			}
 
