@@ -1503,7 +1503,7 @@ p{
 				}
 
 				@include under($b-lg) {
-					display: none;
+					/*display: none;*/
 				}
 			}
 
@@ -1526,9 +1526,9 @@ p{
 				justify-content: space-between;
 				.aniadas {
 					position: absolute;
-					top: -20px;
-					left: 10px;
-					font-size: 12px;
+					top: -22px;
+					left: 0px;
+					font-size: 17px;
 					font-weight: 600;
                     font-family: 'Goudy',sans-serif;
 				}
