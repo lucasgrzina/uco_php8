@@ -79,7 +79,7 @@
             @foreach (trans('front.paginas.nuestroCompromiso.certificaciones.items') as $item)
 			<div class="col-md-4 mb-item">
 				<img class="icon" src="{{asset($item['icono'])}}">
-				<h3>{{$item['titulo']}}</h3>
+				<h3>{{ucfirst(strtolower($item['titulo']))}}</h3>
 				<p>{{$item['subtitulo']}}</p>
 			</div>
             @endforeach

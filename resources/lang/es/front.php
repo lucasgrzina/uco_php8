@@ -261,8 +261,8 @@ return [
                 'titulo' => 'Certificaciones',
                 'subtitulo' => 'No forzamos, acompañamos. Intervenimos cuando se necesita, sin alterar, sólo colaborando. Creemos que un cambio de paradigma en la gestión del trabajo en el viñedo y en la vinificación es posible y necesario.',
                 'items' => [
-                    '1' => ['icono' => 'img/icon1.svg','titulo' => 'BUENAS PRÁCTICAS AGRÍCOLAS','subtitulo' => 'Hemos estado certificando BPA (GLOBAL GAP), sin interrupciones, desde nuestra primera cosecha hasta el dia de hoy.'],
-                    '2' => ['icono' => 'img/icon2.svg','titulo' => 'BUENAS PRACTICAS DE MANUFACTURA','subtitulo' => 'Hemos estado certificando BPM desde nuestra primera elaboración hasta la actualidad sin interrupciones.'],
+                    '1' => ['icono' => 'img/icon1.svg','titulo' => 'BUENAS PRáCTICAS AGRíCOLAS','subtitulo' => 'Hemos estado certificando BPA (GLOBAL GAP), sin interrupciones, desde nuestra primera cosecha hasta el dia de hoy.'],
+                    '2' => ['icono' => 'img/icon2.svg','titulo' => 'BUENAS PRáCTICAS DE MANUFACTURA','subtitulo' => 'Hemos estado certificando BPM desde nuestra primera elaboración hasta la actualidad sin interrupciones.'],
                     '3' => ['icono' => 'img/icon3.svg','titulo' => 'MENCION ESPECIAL POR ARGENINTA','subtitulo' => '“Producción de uvas de alta calidad usando un proceso productivo sustentable cuidando el medio físico, biológico, socioeconómico y cultural.”'],
                     '4' => ['icono' => 'img/icon7.svg','titulo' => 'CAMPOLIMPIO','subtitulo' => 'Compromiso con la gestión adecuada de envases de productos fitosanitarios que aseguran la no contaminación del ambiente a través del programa nacional CampoLimpio.'],
                     '5' => ['icono' => 'img/icon5.svg','titulo' => 'COINCE','subtitulo' => 'Gestión adecuada de residuos y agentes contaminantes, reciclado y reutilización.'],

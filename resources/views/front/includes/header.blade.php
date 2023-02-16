@@ -99,10 +99,18 @@
             </li>
 
         </ul>
-        <a href="javascript:void(0);" class="cart-link  d-xl-none" style="right: 20px;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" >
+        <a href="javascript:void(0);" class="cart-link  d-xl-none" style="right: 60px;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" >
             <span class="cart-count" v-if="carrito.cantidad > 0">(%carrito.cantidad%)</span>
             <img src="{{asset('img/shop.svg')}}" class="icon icon-shop" style="width:20px; padding: 0 0 2px 0;" />
         </a>
+
+        @if(!auth()->guard('web')->check())
+        <a href="{{routeIdioma('login')}}" class="user-link d-xl-none" style="right: 20px;"><img src="{{asset('img/user.svg')}}" class="icon icon-user" /></a>
+        @else
+        <a href="javascript:void(0);" class="user-link d-xl-none" style="right: 20px;" data-bs-toggle="offcanvas" data-bs-target="#menuUser" aria-controls="menuUser"><img src="{{asset('img/user.svg')}}" class="icon icon-user" /></a>
+
+        @endif
+
         <!-- <a class="nav-link d-none d-xl-flex"  href="#">INGRESAR</a> -->
         <a class="nav-link d-none"  ><img src="{{asset('img/shop.svg')}}" class="icon icon-shop" />{{trans('front.navMenuFooter.links.comprar')}}</a>
       </div>
