@@ -42,7 +42,7 @@ class NotificacionRegistro extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject('Ruta 365 - Tu cuenta está casi lista')
+                ->subject('Bienvenido!')
                 ->markdown('emails.registro', ['registrado' => $this->registrado]);
     }
 

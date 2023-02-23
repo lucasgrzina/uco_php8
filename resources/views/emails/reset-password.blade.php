@@ -1,208 +1,406 @@
-<!doctype html>
-    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
-      <head>
-        <title>
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-        </title>
-        <!--[if !mso]><!-- -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!--<![endif]-->
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <html>
+
+    <head>
+
+        <meta charset="utf-8">
+
+        <title>Magia de Uco</title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style type="text/css">
-          #outlook a { padding:0; }
-          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
-          table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
-          img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
-          p { display:block;margin:13px 0; }
-        </style>
-        <!--[if mso]>
-        <xml>
-        <o:OfficeDocumentSettings>
-          <o:AllowPNG/>
-          <o:PixelsPerInch>96</o:PixelsPerInch>
-        </o:OfficeDocumentSettings>
-        </xml>
-        <![endif]-->
-        <!--[if lte mso 11]>
-        <style type="text/css">
-          .outlook-group-fix { width:100% !important; }
-        </style>
-        <![endif]-->
 
-      <!--[if !mso]><!-->
-        <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet" type="text/css">
-        <style type="text/css">
-          @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);
-@import url(https://fonts.googleapis.com/css?family=Cabin:400,700);
-        </style>
-      <!--<![endif]-->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-
-
-    <style type="text/css">
-      @media only screen and (max-width:480px) {
-        .mj-column-per-100 { width:100% !important; max-width: 100%; }
-      }
-    </style>
-
+        <script type="text/javascript" src="/dtagent634_23hjprtx_1034.js" data-dtconfig="rid=RID_1487864261|rpid=2060065574|domain=smiles.com.br|rt=100|tp=500,50,3,1,10|reportUrl=dynaTraceMonitor"></script>
 
         <style type="text/css">
 
+            .dataSaldoHeader a{color:#828484; text-decoration:none;}
+            .dataHeader a{color:#555555; text-decoration:none;}
+            .dataReferentes a{color:#828484; text-decoration:none;}
+            .dataExpiracao a{color:#ff7119; text-decoration:none;}
+            .applelinkFooter a{color:#F2F0DE; text-decoration:none;}
 
+            @media screen and (max-width: 600px){
 
-    @media only screen and (max-width:480px) {
-      table.full-width-mobile { width: 100% !important; }
-      td.full-width-mobile { width: auto !important; }
-    }
+                .full-width{
+                    width: 100% !important;
+                }
 
-        </style>
-        <style type="text/css">.hide_on_mobile { display: none !important;}
-        @media only screen and (min-width: 480px) { .hide_on_mobile { display: block !important;} }
-        .hide_section_on_mobile { display: none !important;}
-        @media only screen and (min-width: 480px) {
-            .hide_section_on_mobile {
-                display: table !important;
+                .img-responsive {
+                    width: 100% !important;
+                    height: auto !important;
+                }
+
+                .text-center {
+                    text-align: center !important;
+                }
             }
 
-            div.hide_section_on_mobile {
-                display: block !important;
+            .mobile-only{ display:none;}
+
+            img {
+                border: 0 none;
             }
-        }
-        .hide_on_desktop { display: block !important;}
-        @media only screen and (min-width: 480px) { .hide_on_desktop { display: none !important;} }
-        .hide_section_on_desktop {
-            display: table !important;
-            width: 100%;
-        }
-        @media only screen and (min-width: 480px) { .hide_section_on_desktop { display: none !important;} }
-
-          p, h1, h2, h3 {
-              margin: 0px;
-          }
-
-          ul, li, ol {
-            font-size: 11px;
-            font-family: Ubuntu, Helvetica, Arial;
-          }
-
-          a {
-              text-decoration: none;
-              color: inherit;
-          }
-
-          @media only screen and (max-width:480px) {
-
-            .mj-column-per-100 { width:100%!important; max-width:100%!important; }
-            .mj-column-per-100 > .mj-column-per-75 { width:75%!important; max-width:75%!important; }
-            .mj-column-per-100 > .mj-column-per-60 { width:60%!important; max-width:60%!important; }
-            .mj-column-per-100 > .mj-column-per-50 { width:50%!important; max-width:50%!important; }
-            .mj-column-per-100 > .mj-column-per-40 { width:40%!important; max-width:40%!important; }
-            .mj-column-per-100 > .mj-column-per-33 { width:33.333333%!important; max-width:33.333333%!important; }
-            .mj-column-per-100 > .mj-column-per-25 { width:25%!important; max-width:25%!important; }
-
-            .mj-column-per-100 { width:100%!important; max-width:100%!important; }
-            .mj-column-per-75 { width:100%!important; max-width:100%!important; }
-            .mj-column-per-60 { width:100%!important; max-width:100%!important; }
-            .mj-column-per-50 { width:100%!important; max-width:100%!important; }
-            .mj-column-per-40 { width:100%!important; max-width:100%!important; }
-            .mj-column-per-33 { width:100%!important; max-width:100%!important; }
-            .mj-column-per-25 { width:100%!important; max-width:100%!important; }
-        }</style>
-
-      </head>
-      <body style="background-color:#FFFFFF;">
 
 
-      <div style="background-color:#FFFFFF;">
+            @media screen and (max-width:480px){
+
+                .txt-480 {font-size: 16px !important;}
+
+                .margen-box {width: 95% !important;}
+
+                .width-foto {width: 97% !important; image-rendering: -webkit-optimize-contrast;}
+
+                .logo-gris {width: 33% !important; image-rendering:-webkit-optimize-contrast; text-align: center !important; margin:auto !important; padding-left:0px !important;}
+
+                .ancho-div-1{width:97% !important; margin: auto !important; text-align: center !important; padding-left:2% !important; padding-right: 2% !important; }
+
+                .txt-aling{ text-align: center !important;}
+
+                .centrar { margin: auto !important; padding-bottom: 7%;}
+
+            }
 
 
-      <!--[if mso | IE]>
-      <table
-         align="center" border="0" cellpadding="0" cellspacing="0" class="" style="width:600px;" width="600"
-      >
-        <tr>
-          <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;">
-      <![endif]-->
 
+            @media only screen and (max-width:480px) {
 
-      <div style="margin:0px auto;max-width:600px;">
+                table[class="mobile-only"]{ display:block !important; text-align: center !important;  overflow: visible !important;float: none !important;line-height:100% !important;}
 
-        <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="width:100%;">
-          <tbody>
-            <tr>
-              <td style="direction:ltr;font-size:0px;padding:9px 0px 9px 0px;text-align:center;">
-                <!--[if mso | IE]>
-                  <table role="presentation" border="0" cellpadding="0" cellspacing="0">
+            }
 
-        <tr>
+        </style>
 
-            <td
-               class="" style="vertical-align:top;width:600px;"
-            >
-          <![endif]-->
+    </head>
 
-      <div class="mj-column-per-100 outlook-group-fix" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%;">
+    <body style="margin:0; padding:0;">
 
-      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top;" width="100%">
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color:#e0e0e0;">
 
             <tr>
-              <td align="center" style="font-size:0px;padding:0px 0px 0px 0px;word-break:break-word;">
 
-      <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;border-spacing:0px;">
-        <tbody>
-          <tr>
-            <td style="width:600px;">
+                <td>
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
 
-      <img height="auto" src="https://s3-eu-west-1.amazonaws.com/topolio/uploads/63bef9096f02d/1673461632.jpg" style="border:0;display:block;outline:none;text-decoration:none;height:auto;width:100%;font-size:13px;" width="600">
+                        <tbody>
 
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                            <tr>
 
-              </td>
+                                <td>
+
+                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="550" align="center">
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td style="text-align: center; font-size: 0;" align="center">
+
+                                                    <div style="display:inline-block; vertical-align:top;" class="full-width">
+
+                                                        <table align="left" width="230" cellspacing="0" cellpadding="0" border="0" class="full-width">
+
+                                                            <tbody>
+
+                                                                <tr>
+
+                                                                    <td>
+
+                                                                        <table align="center" width="230" cellspacing="0" cellpadding="0" border="0" class="full-width" style="max-width: 230px;">
+                                                                            <tbody>
+                                                                                <tr>
+                                                                                    <td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <a href="#" target="_blank">
+                                                                                            <img src="{{asset('img/mailings/logo-magia-uco.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+
+
+
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+
+                    <table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <tbody>
+                            <tr>
+                                <td style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top; ">
+
+                                    <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
+                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #F2F0DE;" width="100%">
+
+
+                                            <tr>
+                                                <td>
+                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0 55px 55px 55px;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #ffffff; text-align: center;">
+                                                        <img src="{{asset('img/mailings/recupera.png')}}" border="0" width="100%;" height="auto" >
+
+
+                                                        <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; padding: 15px; margin: 0 auto;">
+                                                            Hemos recibido una solicitud para <strong>restablecer la contraseña</strong> de tu cuenta. Si es así, ingresá de nuevo utilizando esta por única vez; {{$clave}}.
+                                                        </div>
+                                                        <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
+                                                            Al hacerlo no olvides cambiarla por una <strong>nueva y personal</strong>.
+                                                        </div>
+                                                        <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
+                                                            Si no solicitaste el restablecimiento de la contraseña, ignorá este correo electrónico.
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td align="center">
+                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#8E8063; width:40%;"><a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: bold;">RESTABLECER CONTRASE&Ntilde;A</a>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr><td height="36px;">&nbsp;</td></tr>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="550" align="center">
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td style="text-align: center; font-size: 0;" align="center">
+
+                                                    <div style="display:inline-block; vertical-align:top;" class="full-width">
+
+                                                        <table align="left" width="230" cellspacing="0" cellpadding="0" border="0" class="full-width">
+
+                                                            <tbody>
+
+                                                                <tr>
+
+                                                                    <td>
+
+                                                                        <table align="center" width="230" cellspacing="0" cellpadding="0" border="0" class="full-width" style="max-width: 230px;">
+
+                                                                            <tbody>
+
+                                                                                <tr>
+
+                                                                                    <td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+
+                                                                                </tr>
+
+                                                                                <tr>
+
+                                                                                    <td>
+
+                                                                                        <a href="#" target="_blank">
+
+                                                                                            <img src="{{asset('img/mailings/logo-magia-uco.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+
+                                                                                        </a>
+                                                                                    </td>
+                                                                                </tr>
+                                                                                <tr>
+                                                                                    <td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+
+
+
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+
+                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="550" align="center">
+
+                                        <tbody>
+
+                                            <tr>
+
+                                                <td style="text-align: center; font-size: 0;" align="center">
+
+
+
+
+                                                    <div style="display:inline-block; vertical-align:top;" class="full-width">
+
+                                                        <table align="left" width="150" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle;" class="full-width">
+
+                                                            <tbody>
+
+                                                                <tr>
+
+                                                                    <td>
+
+                                                                        <table align="right" width="150" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle;" class="full-width">
+
+                                                                            <tbody>
+
+                                                                                <tr>
+
+                                                                                    <td>
+
+                                                                                        <table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#F2F0DE;" class="full-width ">
+
+                                                                                            <tbody>
+
+                                                                                                <tr>
+
+                                                                                                    <td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+
+                                                                                                </tr>
+
+                                                                                                <tr>
+
+                                                                                                    <td>
+                                                                                                        <a href="https://www.facebook.com/" target="_blank">
+                                                                                                            <img src="{{asset('img/mailings/ico_facebook.jpg')}}" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
+                                                                                                        </a>
+                                                                                                    </td>
+
+                                                                                                    <td>
+
+                                                                                                        <a href="https://www.instagram.com/magiadeluco/" target="_blank">
+                                                                                                            <img src="{{asset('img/mailings/ico_instagram.jpg')}}" width="27" height="32" border="0" style="display:block; margin: 0 auto; width: 27px; height: 32px;">
+                                                                                                        </a>
+
+                                                                                                    </td>
+
+
+                                                                                                </tr>
+
+                                                                                                <tr>
+
+                                                                                                    <td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+
+                                                                                                </tr>
+
+                                                                                            </tbody>
+
+                                                                                        </table>
+
+                                                                                    </td>
+
+                                                                                </tr>
+
+                                                                            </tbody>
+
+                                                                        </table>
+
+                                                                    </td>
+
+                                                                </tr>
+
+                                                            </tbody>
+
+                                                        </table>
+
+                                                    </div>
+
+                                                </td>
+
+                                            </tr>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#ffffff;" class="full-width" width="600" align="center">
+
+                        <tr>
+
+                            <td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/filete.jpg')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#ffffff;" class="full-width" width="600" align="center">
+
+                        <tr>
+
+                            <td width="600" class="full-width" align="center">
+                                <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#F2F0DE; "><a href="#" style="color:#363126; text-decoration: none; font-weight: normal;">Quiero desuscribirme</a> | <a href="#" style="color:#363126; text-decoration: none; font-weight: normal;">Actualizar perfil</a> | <a href="#" style="color:#363126; text-decoration: none; font-weight: normal;">Términos y condiciones</a></div>
+
+                            </td>
+
+                        </tr>
+
+                    </table>
+                </td>
             </tr>
-
-            <tr>
-              <td align="left" style="font-size:0px;padding:15px 15px 15px 15px;word-break:break-word;">
-
-      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:13px;line-height:1.5;text-align:left;color:#000000;"><h1 class="h1 mb-3 font-weight-normal" style="font-family: 'Cabin', sans-serif; font-size: 22px; text-align: center;">Te generamos una nueva clave</h1>
-<p class="p mb-3 font-weight-normal" style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial; text-align: center;">Hola {{$user->usuario}}, tu nueva clave es {{$clave}}.</p>
-<div class="btn btn-lg btn-002 btn-block" style="text-align: center;">Ingresá a tu cuenta.</div>
-<p class="p mb-3 font-weight-normal" style="font-size: 11px; font-family: Ubuntu, Helvetica, Arial; text-align: center;"> </p></div>
-
-              </td>
-            </tr>
-
-      </table>
-
-      </div>
-
-          <!--[if mso | IE]>
-            </td>
-
-        </tr>
-
-                  </table>
-                <![endif]-->
-              </td>
-            </tr>
-          </tbody>
         </table>
-
-      </div>
-
-
-      <!--[if mso | IE]>
-          </td>
-        </tr>
-      </table>
-      <![endif]-->
-
-
-      </div>
-
-      </body>
+    </body>
     </html>
