@@ -50,6 +50,8 @@ class RegisterController extends Controller
         try {
             $user = $this->create($request->all());
             event(new Registered($user));
+
+            $user->enviarNotificacionRegistro();
             $this->guard()->login($user);
 
             $data = [
@@ -58,11 +60,11 @@ class RegisterController extends Controller
             ];
 
             return response()->json(ResponseUtil::makeResponse('La operación finalizó con éxito', $data));
-    
+
         } catch (\Exception $e) {
             return response()->json(ResponseUtil::makeError($e->getMessage(), []));
         }
-        
+
 
     }
 
@@ -105,12 +107,12 @@ class RegisterController extends Controller
             //throw new \Exception("Error Processing Request", 1);
             DB::commit();
             return $model;
-    
+
         } catch (\Exception $e) {
             DB::rollback();
             \Log::info($e->getMessage());
             throw $e;
         }
-        
+
     }
 }

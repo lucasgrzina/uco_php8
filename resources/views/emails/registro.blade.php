@@ -1,99 +1,501 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <title>Mailing - Microsoft Ruta365</title>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<html>
 
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
+<head>
 
-      html,
-      body {
-        height: 100%;
-      }
+	<meta charset="utf-8">
 
-      body {
-        display: -ms-block;
-        display: block;
-        align-items: center;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        background-color: #fff; /*#00a1df;*/
-        font-family: 'Lato', sans-serif;
-      }
+	<title>Magia de Uco</title>
 
-      .container {
-        max-width: 600px;
-        background-color: #00a1df;
-        padding-bottom: 30px;
-      }
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-      .container-fluid p {
-        margin-top: 13px;
-        margin-bottom: 13px;
-      }
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-      .container .h1 {
-        color: #fff;
-        font-size: 27px;
-        font-weight: bold !important;
-        padding-top: 50px;
-      }
+	<script type="text/javascript" src="/dtagent634_23hjprtx_1034.js" data-dtconfig="rid=RID_1487864261|rpid=2060065574|domain=smiles.com.br|rt=100|tp=500,50,3,1,10|reportUrl=dynaTraceMonitor"></script>
 
-      .container .p {
-        color: #fff;
-        font-size: 15px;
-        line-height: 17px;
-        padding-bottom: 15px;
-      }
+	<style type="text/css">
 
-      .container .btn-002 {
-        width: 230px;
-        margin-top: 40px;
-        margin-bottom: 40px;
-        background-color: #000000;
-        color:#fff;
-        border-radius: 0;
-        font-size: 11pt;
-        margin-left: auto;
-        margin-right: auto;
-      }
+		.dataSaldoHeader a{color:#828484; text-decoration:none;}
+		.dataHeader a{color:#555555; text-decoration:none;}
+		.dataReferentes a{color:#828484; text-decoration:none;}
+		.dataExpiracao a{color:#ff7119; text-decoration:none;}
+		.applelinkFooter a{color:#F2F0DE; text-decoration:none;}
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-  </head>
-  <body class="text-center">
-    <div class="container-fluid">
-      @if(!isset($respaldo))
-      <p class="p font-weight-normal">Si no puede visualzar este newsletter correctamente, <a href="{{route('mailingRespaldo.registro',[md5($registrado->id)])}}">haga click aquí</a>.</p>
-      @endif
-      <img src="{{asset('img/Header-mailing.jpg')}}" class="img-fluid" alt="Microsoft Ruta 365">
-    </div>
-    <div class="container">
+		@media screen and (max-width: 600px){
 
-      <h1 class="h1 mb-3 font-weight-normal">Tu cuenta está casi lista</h1>
-      <p class="p mb-3 font-weight-normal">Hola {{$registrado->nombre}}, gracias por haberte registrado.<br>Para activar tu cuenta, haz click en el botón de verificar email.<br>¡Muchas gracias!</p>
+			.full-width{
+				width: 100% !important;
+			}
 
-      <a href="{{route('confirmarCuenta',[md5($registrado->id)])}}" class="link-001" target="_self"><div class="btn btn-lg btn-002 btn-block">Verificar email</div></a>
+			.img-responsive {
+				width: 100% !important;
+				height: auto !important;
+			}
 
-      <p class="p mb-3 font-weight-normal">Si usted no se suscribió a este sitio, por favor descarte este email.</p>
-    </div>
+			.text-center {
+				text-align: center !important;
+			}
+		}
+
+		.mobile-only{ display:none;}
+
+		img {
+			border: 0 none;
+		}
+
+
+		@media screen and (max-width:480px){
+
+			.txt-480 {font-size: 16px !important;}
+
+			.margen-box {width: 95% !important;}
+
+			.width-foto {width: 97% !important; image-rendering: -webkit-optimize-contrast;}
+
+			.logo-gris {width: 33% !important; image-rendering:-webkit-optimize-contrast; text-align: center !important; margin:auto !important; padding-left:0px !important;}
+
+			.ancho-div-1{width:97% !important; margin: auto !important; text-align: center !important; padding-left:2% !important; padding-right: 2% !important; }
+
+			.txt-aling{ text-align: center !important;}
+
+			.centrar { margin: auto !important; padding-bottom: 7%;}
+
+		}
+
+
+
+		@media only screen and (max-width:480px) {
+
+			table[class="mobile-only"]{ display:block !important; text-align: center !important;  overflow: visible !important;float: none !important;line-height:100% !important;}
+
+		}
+
+	</style>
+
+</head>
+
+<body style="margin:0; padding:0;">
+
+	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color:#e0e0e0;">
+
+		<tr>
+
+			<td>
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+
+					<tbody>
+
+						<tr>
+
+							<td>
+
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="550" align="center">
+
+									<tbody>
+
+										<tr>
+
+											<td style="text-align: center; font-size: 0;" align="center">
+
+												<div style="display:inline-block; vertical-align:top;" class="full-width">
+
+													<table align="left" width="230" cellspacing="0" cellpadding="0" border="0" class="full-width">
+
+														<tbody>
+
+															<tr>
+
+																<td>
+
+																	<table align="center" width="230" cellspacing="0" cellpadding="0" border="0" class="full-width" style="max-width: 230px;">
+																		<tbody>
+																			<tr>
+																				<td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+																			</tr>
+																			<tr>
+																				<td>
+																					<a href="#" target="_blank">
+																						<img src="{{asset('img/mailings/logo-magia-uco.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+																					</a>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+
+												</div>
+
+
+
+											</td>
+
+										</tr>
+
+									</tbody>
+
+								</table>
+
+							</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+				<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top; ">
+
+								<div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
+
+									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #F2F0DE;" width="100%">
+
+
+
+
+										<tr>
+											<td align="center">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #F2F0DE; text-align: center;">
+													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
+														{{$registrado->usuario}}
+													</div>
+
+												</div>
+											</td>
+										</tr>
+										<tr><td height="5px;">&nbsp;</td></tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+
+					<tbody>
+
+						<tr>
+
+							<td>
+
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#ffffff;" class="full-width" width="600" align="center">
+
+								<tr>
+
+									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/te-damos-la-bienvenida.jpg')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+
+									</td>
+
+								</tr>
+
+							</table>
+
+							</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+
+					<tbody>
+
+						<tr>
+
+							<td>
+
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#ffffff;" class="full-width" width="600" align="center">
+
+								<tr>
+
+									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/quedate-atento.jpg')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+
+									</td>
+
+								</tr>
+
+							</table>
+
+							</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+				<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top; ">
+
+								<div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
+
+									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #ffffff;" width="100%">
+										<tr><td height="10px;">&nbsp;</td></tr>
+										<tr>
+											<td align="center">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #000000; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #ffffff; text-align: center;">
+
+
+													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:16px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
+														A partir de ahora, para acceder a tu perfil, podrás hacerlo ingresando tu nombre de usuario <span style="color: #8E8063;">{{$registrado->usuario}}</span> y tu contraseña.
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr><td height="10px;">&nbsp;</td></tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top; ">
+
+								<div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
+									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #ffffff;" width="100%">
+
+
+
+										<tr>
+											<td align="center">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; width:40%;">
+                                                    <a href="{{routeIdioma('home')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">INGRESÁ AL SITIO</a>
+												</div>
+											</td>
+										</tr>
+										<tr><td height="36px;">&nbsp;</td></tr>
+									</table>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063; margin:0 auto;" class="full-width" width="600" align="center">
+
+					<tbody>
+
+						<tr>
+
+							<td>
+
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063; margin:0 auto;" class="full-width" width="550" align="center">
+
+									<tbody>
+
+										<tr>
+
+											<td style="text-align: center; font-size: 0;" align="center">
+
+												<div style="display:inline-block; vertical-align:top;" class="full-width">
+
+													<table align="left" width="230" cellspacing="0" cellpadding="0" border="0" class="full-width">
+
+														<tbody>
+
+															<tr>
+
+																<td>
+
+																	<table align="center" width="230" cellspacing="0" cellpadding="0" border="0" class="full-width" style="max-width: 230px;">
+
+																		<tbody>
+
+																			<tr>
+
+																				<td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+
+																			</tr>
+
+																			<tr>
+
+																				<td>
+
+																					<a href="#" target="_blank">
+
+																						<img src="{{asset('img/mailings/logo-magia-uco-beige.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+
+																					</a>
+																				</td>
+																			</tr>
+																			<tr>
+																				<td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+																			</tr>
+																		</tbody>
+																	</table>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+
+												</div>
+
+
+
+											</td>
+
+										</tr>
+
+									</tbody>
+
+								</table>
+
+							</td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063; margin:0 auto;" class="full-width" width="600" align="center">
+
+					<tbody>
+
+						<tr>
+
+							<td>
+
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063; margin:0 auto;" class="full-width" width="550" align="center">
+
+									<tbody>
+
+										<tr>
+
+											<td style="text-align: center; font-size: 0;" align="center">
+
+
+
+
+												<div style="display:inline-block; vertical-align:top;" class="full-width">
+
+													<table align="left" width="150" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle;" class="full-width">
+
+														<tbody>
+
+															<tr>
+
+																<td>
+
+																	<table align="right" width="150" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle;" class="full-width">
+
+																		<tbody>
+
+																			<tr>
+
+																				<td>
+
+																					<table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#8E8063;" class="full-width ">
+
+																						<tbody>
+
+																							<tr>
+
+																								<td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+
+																							</tr>
+
+																							<tr>
+
+																								<td>
+																									<a href="https://www.facebook.com/" target="_blank">
+																										<img src="{{asset('img/mailings/ico_facebook_beige.png')}}" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
+																									</a>
+																								</td>
+
+																								<td>
+
+																									<a href="https://www.instagram.com/magiadeluco/" target="_blank">
+																										<img src="{{asset('img/mailings/ico_instagram_beige.png')}}" width="27" height="32" border="0" style="display:block; margin: 0 auto; width: 27px; height: 32px;">
+																									</a>
+
+																								</td>
+
+
+																							</tr>
+
+																							<tr>
+
+																								<td height="15" style="line-height: 0px; font-size: 0px; height: 15px;">&nbsp;</td>
+
+																							</tr>
+
+																						</tbody>
+
+																					</table>
+
+																				</td>
+
+																			</tr>
+
+																		</tbody>
+
+																	</table>
+
+																</td>
+
+															</tr>
+
+														</tbody>
+
+													</table>
+
+												</div>
+
+											</td>
+
+										</tr>
+
+									</tbody>
+
+								</table>
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063;" class="full-width" width="600" align="center">
+
+					<tr>
+
+						<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/filete-baige.png')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+
+						</td>
+
+					</tr>
+
+				</table>
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063;" class="full-width" width="600" align="center">
+
+					<tr>
+
+						<td width="600" class="full-width" align="center">
+							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Quiero desuscribirme</a> | <a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Actualizar perfil</a> | <a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Términos y condiciones</a></div>
+
+						</td>
+
+					</tr>
+
+				</table>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>
