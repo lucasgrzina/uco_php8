@@ -181,7 +181,7 @@
 
                                             <tr>
                                                 <td align="center">
-                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#8E8063; width:40%;"><a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: bold;">RESTABLECER CONTRASE&Ntilde;A</a>
+                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#8E8063; width:40%;"><a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: bold;">RESTABLECER CONTRASE&Ntilde;A</a>
                                                     </div>
                                                 </td>
                                             </tr>
