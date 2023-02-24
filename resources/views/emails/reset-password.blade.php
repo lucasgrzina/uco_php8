@@ -167,13 +167,13 @@
 
 
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; padding: 15px; margin: 0 auto;">
-                                                            Hemos recibido una solicitud para <strong>restablecer la contraseña</strong> de tu cuenta. Si es así, ingresá de nuevo utilizando esta por única vez; {{$clave}}.
+                                                            {!! trans('emails.recuperar.linea1') !!} {{$clave}}.
                                                         </div>
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
-                                                            Al hacerlo no olvides cambiarla por una <strong>nueva y personal</strong>.
+                                                            {!! trans('emails.recuperar.linea2') !!}
                                                         </div>
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
-                                                            Si no solicitaste el restablecimiento de la contraseña, ignorá este correo electrónico.
+                                                            {!! trans('emails.recuperar.linea3') !!}
                                                         </div>
                                                     </div>
                                                 </td>
@@ -181,7 +181,7 @@
 
                                             <tr>
                                                 <td align="center">
-                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#8E8063; width:40%;"><a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: bold;">RESTABLECER CONTRASE&Ntilde;A</a>
+                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#8E8063; width:40%;"><a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: bold;">{!! trans('emails.recuperar.btn_texto') !!}</a>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -392,7 +392,11 @@
                         <tr>
 
                             <td width="600" class="full-width" align="center">
-                                <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#F2F0DE; "><a href="#" style="color:#363126; text-decoration: none; font-weight: normal;">Quiero desuscribirme</a> | <a href="#" style="color:#363126; text-decoration: none; font-weight: normal;">Actualizar perfil</a> | <a href="#" style="color:#363126; text-decoration: none; font-weight: normal;">Términos y condiciones</a></div>
+                                <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#F2F0DE; ">
+                                    <a href="{{routeIdioma('home')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> |
+                                    <a href="{{routeIdioma('login')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> |
+                                    <a href="{{routeIdioma('terminosCondiciones')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a>
+                                </div>
 
                             </td>
 

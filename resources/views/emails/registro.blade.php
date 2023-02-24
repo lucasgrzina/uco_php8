@@ -250,7 +250,7 @@
 
 
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:16px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
-														A partir de ahora, para acceder a tu perfil, podrás hacerlo ingresando tu nombre de usuario <span style="color: #8E8063;">{{$registrado->usuario}}</span> y tu contraseña.
+														{!! str_replace('@USUARIO',$registrado->usuario,trans('emails.registro.texto')) !!}
 													</div>
 												</div>
 											</td>
@@ -275,7 +275,7 @@
 										<tr>
 											<td align="center">
 												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; width:40%;">
-                                                    <a href="{{routeIdioma('home')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">INGRESÁ AL SITIO</a>
+                                                    <a href="{{routeIdioma('home')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">{{trans('emails.registro.btn_texto')}}</a>
 												</div>
 											</td>
 										</tr>
@@ -415,7 +415,7 @@
 																							<tr>
 
 																								<td>
-																									<a href="https://www.facebook.com/" target="_blank">
+																									<a href="https://www.facebook.com/magiadeluco" target="_blank">
 																										<img src="{{asset('img/mailings/ico_facebook_beige.png')}}" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
 																									</a>
 																								</td>
@@ -487,7 +487,11 @@
 					<tr>
 
 						<td width="600" class="full-width" align="center">
-							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Quiero desuscribirme</a> | <a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Actualizar perfil</a> | <a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Términos y condiciones</a></div>
+							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; ">
+                                <a href="{{routeIdioma('home')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> |
+                                <a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> |
+                                <a href="{{routeIdioma('terminosCondiciones')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a>
+                            </div>
 
 						</td>
 
