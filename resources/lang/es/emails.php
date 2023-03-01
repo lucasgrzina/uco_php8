@@ -14,5 +14,17 @@ return [
         'linea2' => 'Al hacerlo no olvides cambiarla por una <strong>nueva y personal</strong>.',
         'linea3' => 'Si no solicitaste el restablecimiento de la contraseña, ignorá este correo electrónico.',
         'btn_texto' => 'RESTABLECER CONTRASE&Ntilde;A',
+    ],
+    'pedido' => [
+        'info' => 'Información de tu compra',
+        'nro' => 'Tu número de pedido es ',
+        'producto' => 'Producto',
+        'fecha' => 'Fecha',
+        'hora' => 'Hora',
+        'subtotal' => 'Subtotal',
+        'envio' => 'Costo de envío',
+        'total' => 'Total',
+        'infoEnvio' => 'Información del envío',
+        'conocer' => 'Para conocer el estado de tu pedido podés hacerlo ingresando a <strong>tu cuenta</strong> en nuestro sitio web a través de la opción listado de pedidos.',
     ]
 ];

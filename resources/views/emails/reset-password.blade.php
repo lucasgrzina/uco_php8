@@ -181,7 +181,7 @@
 
                                             <tr>
                                                 <td align="center">
-                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#8E8063; width:40%;"><a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: bold;">{!! trans('emails.recuperar.btn_texto') !!}</a>
+                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size:12px;line-height:24px;text-align:center;color:#FFF;padding:10px; background-color:#8E8063; width:40%;"><a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: bold;">{!! trans('emails.recuperar.btn_texto') !!}</a>
                                                     </div>
                                                 </td>
                                             </tr>

@@ -288,6 +288,7 @@
 
                             <div class="block-content" id="seccionEnvio">
                                 <h2>{{trans('front.paginas.checkout.datosEnvio.titulo')}}</h2>
+                                <span style="font-size: 10px;display: inline-block;">{!!trans('front.paginas.checkout.envioSoloArgentina')!!}</span>
                                 <form>
                                     <fieldset :disabled="checkout.seccionActual !== 'envioRetiro'">
                                         <a href="javascript:void(0)" v-show="checkout.seccionActual === 'envioRetiro'" class="f-right mb-3 lnk-agregar" @click="agregarDireccion()">{{trans('front.paginas.checkout.btnAgregar')}}</a>
@@ -298,7 +299,7 @@
                                                     <p><span>(% item.calle %)</span><span>(% item.cp %),(% item.ciudad %)</span><span>(% item.nombre.concat(' ').concat(item.apellido)%)</span></p>
                                                 </div>
                                                 <div class="actions" v-if="checkout.seccionActual == 'envioRetiro'">
-                                                    <a href="javascript:void(0)" v-show="index > 0" class="f-right" @click="seleccionarDireccion(index)">{{trans('front.paginas.checkout.envioRetiro.btnSeleccionar')}}</a>
+                                                    <a href="javascript:void(0)" v-show="index > 0" class="f-right" @click="seleccionarDireccion(index)">{{trans('front.paginas.checkout.btnSeleccionar')}}</a>
                                                     <a href="javascript:void(0)" v-show="index == 0" class="f-right" @click="editarDireccion(item,index)">{{trans('front.paginas.checkout.btnEditar')}}</a>
                                                     <!--button type="button" v-show="index > 0" class="btn btn-primary f-right" @click="seleccionarDireccion(index)">Seleccionar</button>
                                                     <button type="button" v-show="index == 0" class="btn btn-primary f-right" @click="editarDireccion(item,index)">Editar</button-->

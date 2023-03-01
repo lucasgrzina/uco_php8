@@ -77,7 +77,7 @@
             </div>
             <div class="col-12">
                 <div class="shop">
-                    <p class="destacado mt-3 text-center">Por compras superiores a $35.000 el envío es gratis.</p>
+                    <p class="destacado mt-3 text-center">{{trans('front.paginas.colecciones.interna.porCompras')}}</p>
                 </div>
             </div>
         </div>

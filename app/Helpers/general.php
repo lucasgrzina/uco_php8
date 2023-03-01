@@ -30,6 +30,14 @@ function formatoFechaNota($fecha) {
     return Carbon::parse($fecha)->format('d.M');
 }
 
+if (!function_exists('formatoImporte')) {
+    function formatoImporte($importe, $signo = 'AR$')
+    {
+        $importe = number_format($importe, 2, ',', '.');
+        return ($signo ? $signo . ' ' : '') . $importe;
+    }
+}
+
 function obtenerDolarOficial() {
     if (env('APP_ENV','local') === 'local') {
         return (float)env('COTIZACION_DOLAR','176.83');

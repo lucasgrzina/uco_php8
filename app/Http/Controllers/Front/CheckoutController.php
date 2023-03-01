@@ -238,7 +238,9 @@ class CheckoutController extends AppBaseController
                 //$pedido->ult_estado_pago = 'aprobado';
                 $pedido->estado_id = 1;
                 $pedido->save();
-                //$pedido->registrado->enviarNotificacionPedidoConfirmado($pedido);
+                $pedido->registrado->enviarNotificacionPedido($pedido);
+                //throw new \Exception("Error Processing Request", 1);
+
                 $salida = ['redirect' => routeIdioma('home')];
                 \Cart::destroy();
             } else {

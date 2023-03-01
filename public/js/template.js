@@ -282,9 +282,9 @@ Vue.filter('currency', function(value, decimals, separators){
         separators = ['.', "'", ','];
     }
     if (locale == 'es') {
-        return '$ ' + currency(value,decimals, separators);
+        return 'AR$ ' + currency(value,decimals, separators);
     } else {
-        return '$ ' + currency(value,decimals, separators);
+        return 'AR$ ' + currency(value,decimals, separators);
         // return currency(value,decimals, separators) + ' USD';
     }
 });

@@ -7,9 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NotificacionRegistroConfirmado extends Notification
+class NotificacionPedido extends Notification
 {
     use Queueable;
+    public $pedido;
     public $registrado;
 
     /**
@@ -17,8 +18,9 @@ class NotificacionRegistroConfirmado extends Notification
      *
      * @return void
      */
-    public function __construct($registrado)
+    public function __construct($registrado,$pedido)
     {
+        $this->pedido = $pedido;
         $this->registrado = $registrado;
     }
 
@@ -42,10 +44,8 @@ class NotificacionRegistroConfirmado extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject('Ruta 365 - Tu cuenta ha sido activada')
-                ->markdown('emails.registro-confirmado', [
-                    'registrado' => $this->registrado,
-                    'linkRespaldo' => route('mailingRespaldo.registro-confirmado',[md5($this->registrado->id)])]);
+                ->subject('Gracias por elegirnos!')
+                ->markdown('emails.pedido', ['pedido' => $this->pedido]);
     }
 
     /**

@@ -85,7 +85,7 @@
 
                                     <a :href="aniadaActual.ficha_url" target="_blank" class="btn btn-white" v-if="aniadaActual.ficha">{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</a>
                                     <div v-if="actual.vendible" class="btn btn-white total">
-                                        (% locale == 'es' ? '$ ' + aniadaActual.precio_pesos : '$ ' + aniadaActual.precio_pesos %)
+                                        (% locale == 'es' ? 'AR$ ' + aniadaActual.precio_pesos : 'AR$ ' + aniadaActual.precio_pesos %)
                                     </div>
                                     <div v-if="actual.vendible" class="dropdown">
                                         <button class="btn btn-dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
