@@ -22,6 +22,51 @@ function randomPassword() {
     return implode($pass); //turn the array into a string
 }
 
+function randomPassword2($password_length=6) {
+    $uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $numbers = '0123456789';
+
+    // Genera una contraseña aleatoria que contenga al menos una letra mayúscula y al menos un número
+    do {
+      $password = '';
+      $has_uppercase_letter = false;
+      $has_number = false;
+
+      // Genera una contraseña aleatoria de longitud $password_length
+      for ($i = 0; $i < $password_length; $i++) {
+        $characters = '';
+
+        // Agrega letras mayúsculas si aún no se ha agregado ninguna
+        if (!$has_uppercase_letter || !$has_number) {
+          if (!$has_uppercase_letter) {
+            $characters .= $uppercase_letters;
+          }
+
+          if (!$has_number) {
+            $characters .= $numbers;
+          }
+        } else {
+          // Si ya se ha agregado al menos una letra mayúscula y un número, se pueden agregar letras minúsculas y caracteres especiales
+          $characters = $uppercase_letters . strtolower($uppercase_letters) . $numbers . '!@#$%^&*()';
+        }
+
+        // Agrega un caracter aleatorio del conjunto de caracteres disponibles
+        $password .= $characters[rand(0, strlen($characters) - 1)];
+
+        // Verifica si se ha agregado una letra mayúscula y un número a la contraseña
+        if (preg_match('/[A-Z]/', $password)) {
+          $has_uppercase_letter = true;
+        }
+
+        if (preg_match('/[0-9]/', $password)) {
+          $has_number = true;
+        }
+      }
+    } while (!$has_uppercase_letter || !$has_number);
+
+    return $password;
+}
+
 function strEmpiezaCon($str,$comp) {
     return substr($str,0,strlen($comp)) === $comp;
 }

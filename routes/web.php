@@ -19,6 +19,9 @@ Route::prefix('id')->group(function () {
 
 Route::prefix('test')->group(function () {
     Route::get('/leer-s3', 'TestController@leerS3');
+    Route::get('/rapido', function() {
+        return randomPassword2();
+    });
 });
 
 Route::prefix('combos')->group(function () {

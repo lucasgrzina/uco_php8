@@ -289,7 +289,15 @@
 												</div>
 											</td>
 										</tr>
-										<tr background="#ffffff" style="vertical-align:top; background-color: #ffffff;" width="100%"><td background="#ffffff" style="vertical-align:top; color: #fff; background-color: #ffffff;" width="100%" height="36px;">&nbsp;</td></tr>
+
+										<tr>
+											<td align="center">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#ffffff; max-width: 300px; width:100%;"><a href="#" style="color:#ffffff; text-decoration: none; font-weight: bold;">&nbsp;</a>
+												</div>
+											</td>
+										</tr>
+
+
 									</table>
 								</div>
 							</td>
