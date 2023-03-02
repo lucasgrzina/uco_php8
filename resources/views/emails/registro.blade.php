@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -12,66 +13,76 @@
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<script type="text/javascript" src="/dtagent634_23hjprtx_1034.js" data-dtconfig="rid=RID_1487864261|rpid=2060065574|domain=smiles.com.br|rt=100|tp=500,50,3,1,10|reportUrl=dynaTraceMonitor"></script>
+
 
 	<style type="text/css">
+.applelinkFooter a {
+  color: #F2F0DE;
+  text-decoration: none;
+}
+@media screen and (max-width: 600px) {
+  .full-width {
+    width: 100% !important;
+  }
 
-		.dataSaldoHeader a{color:#828484; text-decoration:none;}
-		.dataHeader a{color:#555555; text-decoration:none;}
-		.dataReferentes a{color:#828484; text-decoration:none;}
-		.dataExpiracao a{color:#ff7119; text-decoration:none;}
-		.applelinkFooter a{color:#F2F0DE; text-decoration:none;}
+  .img-responsive {
+    width: 100% !important;
+    height: auto !important;
+  }
 
-		@media screen and (max-width: 600px){
+  .text-center {
+    text-align: center !important;
+  }
+}
+@media screen and (max-width:480px) {
+  .txt-480 {
+    font-size: 16px !important;
+  }
 
-			.full-width{
-				width: 100% !important;
-			}
+  .margen-box {
+    width: 95% !important;
+  }
 
-			.img-responsive {
-				width: 100% !important;
-				height: auto !important;
-			}
+  .width-foto {
+    width: 97% !important;
+    image-rendering: -webkit-optimize-contrast;
+  }
 
-			.text-center {
-				text-align: center !important;
-			}
-		}
+  .logo-gris {
+    width: 33% !important;
+    image-rendering: -webkit-optimize-contrast;
+    text-align: center !important;
+    margin: auto !important;
+    padding-left: 0px !important;
+  }
 
-		.mobile-only{ display:none;}
+  .ancho-div-1 {
+    width: 97% !important;
+    margin: auto !important;
+    text-align: center !important;
+    padding-left: 2% !important;
+    padding-right: 2% !important;
+  }
 
-		img {
-			border: 0 none;
-		}
+  .txt-aling {
+    text-align: center !important;
+  }
 
-
-		@media screen and (max-width:480px){
-
-			.txt-480 {font-size: 16px !important;}
-
-			.margen-box {width: 95% !important;}
-
-			.width-foto {width: 97% !important; image-rendering: -webkit-optimize-contrast;}
-
-			.logo-gris {width: 33% !important; image-rendering:-webkit-optimize-contrast; text-align: center !important; margin:auto !important; padding-left:0px !important;}
-
-			.ancho-div-1{width:97% !important; margin: auto !important; text-align: center !important; padding-left:2% !important; padding-right: 2% !important; }
-
-			.txt-aling{ text-align: center !important;}
-
-			.centrar { margin: auto !important; padding-bottom: 7%;}
-
-		}
-
-
-
-		@media only screen and (max-width:480px) {
-
-			table[class="mobile-only"]{ display:block !important; text-align: center !important;  overflow: visible !important;float: none !important;line-height:100% !important;}
-
-		}
-
-	</style>
+  .centrar {
+    margin: auto !important;
+    padding-bottom: 7%;
+  }
+}
+@media only screen and (max-width:480px) {
+  table[class="mobile-only"] {
+    display: block !important;
+    text-align: center !important;
+    overflow: visible !important;
+    float: none !important;
+    line-height: 100% !important;
+  }
+}
+</style>
 
 </head>
 
@@ -116,7 +127,7 @@
 																			<tr>
 																				<td>
 																					<a href="#" target="_blank">
-																						<img src="https://stage.magiadeluco.com/img/mailings/logo-magia-uco.png"" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+																						<img src="https://stage.magiadeluco.com/img/mailings/logo-magia-uco.png" " width="190" height="76" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 190px; height: 76px;">
 																					</a>
 																				</td>
 																			</tr>
@@ -150,14 +161,14 @@
 
 				</table>
 
-				<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+				<table width="600" border="0" align="center" cellpadding="0" cellspacing="0" background="#F2F0DE">
 					<tbody>
 						<tr>
 							<td style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top; ">
 
 								<div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
 
-									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #F2F0DE;" width="100%">
+									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #F2F0DE;" background="#F2F0DE" width="100%">
 
 
 
@@ -165,7 +176,7 @@
 										<tr>
 											<td align="center">
 												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #F2F0DE; text-align: center;">
-													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
+													<div style="width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
 														Pedrosanchez1
 													</div>
 
@@ -191,7 +202,7 @@
 
 								<tr>
 
-									<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/te-damos-la-bienvenida.jpg" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+									<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/te-damos-la-bienvenida.jpg" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
 
 									</td>
 
@@ -219,7 +230,7 @@
 
 								<tr>
 
-									<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/quedate-atento.jpg" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+									<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/quedate-atento.jpg" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
 
 									</td>
 
@@ -262,7 +273,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+				<table width="600" border="0" align="center" cellpadding="0" cellspacing="0" background="#ffffff" style="background-color:#ffffff;">
 					<tbody>
 						<tr>
 							<td style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top; ">
@@ -328,7 +339,7 @@
 
 																					<a href="#" target="_blank">
 
-																						<img src="https://stage.magiadeluco.com/img/mailings/logo-magia-uco-beige.png" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+																						<img src="https://stage.magiadeluco.com/img/mailings/logo-magia-uco-beige.png" width="190" height="76" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 190px; height: 76px;">
 
 																					</a>
 																				</td>
@@ -415,14 +426,14 @@
 
 																								<td>
 																									<a href="https://www.facebook.com/" target="_blank">
-																										<img src="https://stage.magiadeluco.com/img/mailings/ico_facebook_beige.png" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
+																										<img src="https://stage.magiadeluco.com/img/mailings/ico_facebook_beige.png" width="14" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 14px; height: 32px;">
 																									</a>
 																								</td>
 
 																								<td>
 
 																									<a href="https://www.instagram.com/magiadeluco/" target="_blank">
-																										<img src="https://stage.magiadeluco.com/img/mailings/ico_instagram_beige.png" width="27" height="32" border="0" style="display:block; margin: 0 auto; width: 27px; height: 32px;">
+																										<img src="https://stage.magiadeluco.com/img/mailings/ico_instagram_beige.png" width="27" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 27px; height: 32px;">
 																									</a>
 
 																								</td>
@@ -474,7 +485,7 @@
 
 					<tr>
 
-						<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/filete-baige.png" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+						<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/filete-baige.png" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
 
 						</td>
 
