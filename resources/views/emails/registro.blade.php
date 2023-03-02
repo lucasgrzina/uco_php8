@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -88,7 +87,7 @@
 
 <body style="margin:0; padding:0;">
 
-	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color:#e0e0e0;">
+	<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE;">
 
 		<tr>
 
@@ -279,13 +278,13 @@
 							<td style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top; ">
 
 								<div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
-									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #ffffff;" width="100%">
+									<table border="0" cellpadding="0" cellspacing="0" role="presentation" background="#ffffff" style="vertical-align:top; background-color: #ffffff;" width="100%">
 
 
 
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; width:40%;"><a href="#" style="color:#8E8063; text-decoration: none; font-weight: bold;">INGRESÁ AL SITIO</a>
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; max-width: 300px; width:100%;"><a href="#" style="color:#8E8063; text-decoration: none; font-weight: bold;">INGRESÁ AL SITIO</a>
 												</div>
 											</td>
 										</tr>
