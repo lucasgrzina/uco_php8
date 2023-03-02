@@ -116,7 +116,7 @@
 																			<tr>
 																				<td>
 																					<a href="#" target="_blank">
-																						<img src="{{asset('img/mailings/logo-magia-uco.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+																						<img src="https://stage.magiadeluco.com/img/mailings/logo-magia-uco.png"" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
 																					</a>
 																				</td>
 																			</tr>
@@ -191,7 +191,7 @@
 
 								<tr>
 
-									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/te-damos-la-bienvenida.jpg')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+									<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/te-damos-la-bienvenida.jpg" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
 
 									</td>
 
@@ -219,7 +219,7 @@
 
 								<tr>
 
-									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/quedate-atento.jpg')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+									<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/quedate-atento.jpg" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
 
 									</td>
 
@@ -274,8 +274,7 @@
 
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; width:40%;">
-                                                    <a href="{{routeIdioma('home')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">{{trans('emails.registro.btn_texto')}}</a>
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; width:40%;"><a href="{{routeIdioma('home')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">{{trans('emails.registro.btn_texto')}}</a>
 												</div>
 											</td>
 										</tr>
@@ -329,7 +328,7 @@
 
 																					<a href="#" target="_blank">
 
-																						<img src="{{asset('img/mailings/logo-magia-uco-beige.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+																						<img src="https://stage.magiadeluco.com/img/mailings/logo-magia-uco-beige.png" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
 
 																					</a>
 																				</td>
@@ -415,15 +414,15 @@
 																							<tr>
 
 																								<td>
-																									<a href="https://www.facebook.com/magiadeluco" target="_blank">
-																										<img src="{{asset('img/mailings/ico_facebook_beige.png')}}" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
+																									<a href="https://www.facebook.com/" target="_blank">
+																										<img src="https://stage.magiadeluco.com/img/mailings/ico_facebook_beige.png" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
 																									</a>
 																								</td>
 
 																								<td>
 
 																									<a href="https://www.instagram.com/magiadeluco/" target="_blank">
-																										<img src="{{asset('img/mailings/ico_instagram_beige.png')}}" width="27" height="32" border="0" style="display:block; margin: 0 auto; width: 27px; height: 32px;">
+																										<img src="https://stage.magiadeluco.com/img/mailings/ico_instagram_beige.png" width="27" height="32" border="0" style="display:block; margin: 0 auto; width: 27px; height: 32px;">
 																									</a>
 
 																								</td>
@@ -475,7 +474,7 @@
 
 					<tr>
 
-						<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/filete-baige.png')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+						<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/filete-baige.png" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
 
 						</td>
 
@@ -487,11 +486,7 @@
 					<tr>
 
 						<td width="600" class="full-width" align="center">
-							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; ">
-                                <a href="{{routeIdioma('home')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> |
-                                <a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> |
-                                <a href="{{routeIdioma('terminosCondiciones')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a>
-                            </div>
+							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="{{routeIdioma('home')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> | <a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> | <a href="{{routeIdioma('terminosCondiciones')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a></div>
 
 						</td>
 
