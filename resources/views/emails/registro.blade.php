@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -288,7 +289,7 @@
 												</div>
 											</td>
 										</tr>
-										<tr><td height="36px;">&nbsp;</td></tr>
+										<tr background="#ffffff" style="vertical-align:top; background-color: #ffffff;" width="100%"><td background="#ffffff" style="vertical-align:top; color: #fff; background-color: #ffffff;" width="100%" height="36px;">&nbsp;</td></tr>
 									</table>
 								</div>
 							</td>
