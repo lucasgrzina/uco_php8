@@ -166,7 +166,7 @@
 											<td align="center">
 												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #F2F0DE; text-align: center;">
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
-														{{$registrado->usuario}}
+														Pedrosanchez1
 													</div>
 
 												</div>
@@ -250,7 +250,7 @@
 
 
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:16px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
-														{!! str_replace('@USUARIO',$registrado->usuario,trans('emails.registro.texto')) !!}
+														A partir de ahora, para acceder a tu perfil, podrás hacerlo ingresando tu nombre de usuario <span style="color: #8E8063;">PedroSanchez1</span> y tu contraseña.
 													</div>
 												</div>
 											</td>
@@ -274,7 +274,7 @@
 
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; width:40%;"><a href="{{routeIdioma('home')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">{{trans('emails.registro.btn_texto')}}</a>
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; width:40%;"><a href="#" style="color:#8E8063; text-decoration: none; font-weight: bold;">INGRESÁ AL SITIO</a>
 												</div>
 											</td>
 										</tr>
@@ -486,7 +486,7 @@
 					<tr>
 
 						<td width="600" class="full-width" align="center">
-							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="{{routeIdioma('home')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> | <a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> | <a href="{{routeIdioma('terminosCondiciones')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a></div>
+							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Quiero desuscribirme</a> | <a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Actualizar perfil</a> | <a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Términos y condiciones</a></div>
 
 						</td>
 
