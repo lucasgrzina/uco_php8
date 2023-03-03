@@ -417,7 +417,8 @@ return [
             ],
             'btnRegistrarse' => 'REGISTRARSE',
             'yaTenes' => 'Iniciar sesión',
-            'lnkLogin' => 'Login'
+            'lnkLogin' => 'Login',
+            'yaSosParte' => 'Agora você faz parte do mundo Magia del Uco. Bem-vinda!'
         ],
         'checkout' => [
             'titulo' => 'Checkout',

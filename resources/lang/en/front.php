@@ -366,7 +366,8 @@ return [
             ],
             'btnRegistrarse' => 'Register',
             'yaTenes' => 'Login',
-            'lnkLogin' => 'Login'
+            'lnkLogin' => 'Login',
+            'yaSosParte' => 'You are now part Magia del Uco world. Welcome!'
         ],
         'checkout' => [
             'titulo' => 'Checkout',

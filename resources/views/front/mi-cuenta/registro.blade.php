@@ -3,21 +3,22 @@
     @parent
     <script type="text/javascript">
  		var _data = {!! json_encode($data) !!};
-		
+
 		 _methods.registroSubmit = function() {
 			var _this = this;
 			var _registro = _this.registro;
 			var scope = 'frm-registro';
 			var _errorMsg = null;
-			
+
 			//_registro.enviado = true;
 			this.$validator.validateAll(scope).then(function() {
-				
+
 				_registro.enviando = true;
 				_this._call(_registro.url_post,'POST',_registro.form).then(function(data) {
 					_registro.enviando = false;
 					_registro.enviado = true;
-					document.location = '{{routeIdioma('home')}}';					
+                    alert('{{trans("front.paginas.registro.yaSosParte")}}');
+					document.location = '{{routeIdioma('home')}}';
 				}, function(error) {
 					if (error.status != 422) {
 						alert(error.statusText);
@@ -29,13 +30,13 @@
 						alert(mensaje[0]);
 					}
 					_registro.enviando = false;
-				});          
-			
+				});
+
 			}).catch(function(e) {
 				_registro.enviando = false;
 			});
 		};
-	
+
 
         this._mounted.push(function(_this) {
             console.debug(_this);
