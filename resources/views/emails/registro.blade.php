@@ -126,7 +126,7 @@
 																			<tr>
 																				<td>
 																					<a href="#" target="_blank">
-																						<img src="https://stage.magiadeluco.com/img/mailings/logo-magia-uco.png" " width="190" height="76" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 190px; height: 76px;">
+																						<img src="{{asset('img/mailings/logo-magia-uco.png')}}" width="190" height="76" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 190px; height: 76px;">
 																					</a>
 																				</td>
 																			</tr>
@@ -201,7 +201,7 @@
 
 								<tr>
 
-									<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/te-damos-la-bienvenida.jpg" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
+									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/te-damos-la-bienvenida.jpg')}}" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
 
 									</td>
 
@@ -229,7 +229,7 @@
 
 								<tr>
 
-									<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/quedate-atento.jpg" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
+									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/quedate-atento.jpg')}}" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
 
 									</td>
 
@@ -367,7 +367,7 @@
 
 																					<a href="#" target="_blank">
 
-																						<img src="https://stage.magiadeluco.com/img/mailings/logo-magia-uco-beige.png" width="190" height="76" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 190px; height: 76px;">
+																						<img src="{{asset('img/mailings/logo-magia-uco-beige.png')}}" width="190" height="76" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 190px; height: 76px;">
 
 																					</a>
 																				</td>
@@ -454,14 +454,14 @@
 
 																								<td>
 																									<a href="https://www.facebook.com/" target="_blank">
-																										<img src="https://stage.magiadeluco.com/img/mailings/ico_facebook_beige.png" width="14" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 14px; height: 32px;">
+																										<img src="{{asset('img/mailings/ico_facebook_beige.png')}}" width="14" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 14px; height: 32px;">
 																									</a>
 																								</td>
 
 																								<td>
 
 																									<a href="https://www.instagram.com/magiadeluco/" target="_blank">
-																										<img src="https://stage.magiadeluco.com/img/mailings/ico_instagram_beige.png" width="27" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 27px; height: 32px;">
+																										<img src="{{asset('img/mailings/ico_instagram_beige.png')}}" width="27" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 27px; height: 32px;">
 																									</a>
 
 																								</td>
@@ -513,7 +513,7 @@
 
 					<tr>
 
-						<td width="600" class="full-width" align="center"><img src="https://stage.magiadeluco.com/img/mailings/filete-baige.png" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
+						<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/filete-baige.png')}}" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
 
 						</td>
 
