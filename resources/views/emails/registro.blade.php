@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -177,7 +176,7 @@
 											<td align="center">
 												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #F2F0DE; text-align: center;">
 													<div style="width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
-														Pedrosanchez1
+														{{$registrado->usuario}}
 													</div>
 
 												</div>
@@ -261,7 +260,7 @@
 
 
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:16px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
-														A partir de ahora, para acceder a tu perfil, podrás hacerlo ingresando tu nombre de usuario <span style="color: #8E8063;">PedroSanchez1</span> y tu contraseña.
+														{!! str_replace('@USUARIO',$registrado->usuario,trans('emails.registro.texto')) !!}
 													</div>
 												</div>
 											</td>
@@ -285,19 +284,40 @@
 
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; max-width: 300px; width:100%;"><a href="#" style="color:#8E8063; text-decoration: none; font-weight: bold;">INGRESÁ AL SITIO</a>
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; max-width: 300px; width:100%;"><a href="{{routeIdioma('home')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">{{trans('emails.registro.btn_texto')}}</a>
 												</div>
 											</td>
 										</tr>
 
+
+
+									</table>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<table width="600" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tbody>
+						<tr>
+							<td style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top; ">
+
+								<div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
+
+									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #ffffff;" width="100%">
+										<tr><td height="10px;">&nbsp;</td></tr>
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#ffffff; max-width: 300px; width:100%;"><a href="#" style="color:#ffffff; text-decoration: none; font-weight: bold;">&nbsp;</a>
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #000000; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:0 10px; background-color: #ffffff; text-align: center;">
+
+
+													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:16px; line-height:24px; text-align:left; color:#ffffff; font-weight: normal; text-align: center; margin: 0 auto">
+														&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+													</div>
 												</div>
 											</td>
 										</tr>
-
-
 									</table>
 								</div>
 							</td>
@@ -505,7 +525,7 @@
 					<tr>
 
 						<td width="600" class="full-width" align="center">
-							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Quiero desuscribirme</a> | <a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Actualizar perfil</a> | <a href="#" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">Términos y condiciones</a></div>
+							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="{{routeIdioma('home')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> | <a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> | <a href="{{routeIdioma('terminosCondiciones')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a></div>
 
 						</td>
 
