@@ -47,7 +47,7 @@ function randomPassword2($password_length=6) {
           }
         } else {
           // Si ya se ha agregado al menos una letra mayúscula y un número, se pueden agregar letras minúsculas y caracteres especiales
-          $characters = $uppercase_letters . strtolower($uppercase_letters) . $numbers . '!@#$%^&*()';
+          $characters = $uppercase_letters . strtolower($uppercase_letters) . $numbers;
         }
 
         // Agrega un caracter aleatorio del conjunto de caracteres disponibles
