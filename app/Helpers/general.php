@@ -12,29 +12,27 @@ function routeIdioma($name,$params = []) {
 }
 
 function randomPassword() {
-    $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    $numbers = '1234567890';
     $pass = array(); //remember to declare $pass as an array
-    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
-    for ($i = 0; $i < 8; $i++) {
-        $n = rand(0, $alphaLength);
-        $pass[] = $alphabet[$n];
+
+    while (count($pass) < 6) {
+        $pos = rand(0, strlen($alphabet) - 1);
+        $n = $alphabet[$pos];
+        $pass[] = $n;
+
+        $pos = rand(0, strlen($alphabet) - 1);
+        $n = $alphabet[$pos];
+        $pass[] = strtoupper($n);
+
+        $pos = rand(0, strlen($numbers) - 1);
+        $n = $numbers[$pos];
+        $pass[] = $n;
     }
+
     return implode($pass); //turn the array into a string
 }
 
-function randomPassword2($password_length=6) {
-    $longitud = $password_length; // Cambia el valor aquí para ajustar la longitud de la cadena
-    $cadena = '';
-
-    while (true) {
-        $cadena = bin2hex(random_bytes($longitud)); // Genera una cadena aleatoria en hexadecimal
-
-        // Comprueba si la cadena contiene al menos una letra minúscula, una letra mayúscula y un número
-        if (preg_match('/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[0-9]).{'.$longitud.',}$/',$cadena)) {
-            return $cadena;
-        }
-    }
-}
 
 function strEmpiezaCon($str,$comp) {
     return substr($str,0,strlen($comp)) === $comp;

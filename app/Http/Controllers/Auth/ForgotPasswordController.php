@@ -39,7 +39,7 @@ class ForgotPasswordController extends Controller
         $this->validateEmail($request);
 
         if ($user = Registrado::where('email', $request->input('email'))->first()) {
-            $clave = randomPassword2();
+            $clave = randomPassword();
             $user->password = $clave;
             $user->save();
             /*DB::table('password_resets')->insert([
