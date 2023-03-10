@@ -163,8 +163,13 @@
                                             <tr>
                                                 <td>
                                                     <div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0 55px 55px 55px;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #ffffff; text-align: center;">
-                                                        <img src="{{asset('img/mailings/recupera.png')}}" border="0" width="100%;" height="auto" >
+                                                        <img src="{{asset('img/mailings/'.trans('emails.recuperar.imagenes.recupera'))}}" border="0" width="100%;" height="auto" >
+                                                        <div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; text-align: center;">
+                                                            <div style="width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
+                                                                {{$user->usuario}}
+                                                            </div>
 
+                                                        </div>
 
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; padding: 15px; margin: 0 auto;">
                                                             {!! trans('emails.recuperar.linea1') !!} {{$clave}}.

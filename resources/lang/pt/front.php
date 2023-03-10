@@ -329,7 +329,7 @@ return [
                 'acepto' => 'Aceito os <a class="acepto" target="_blank" href="_link_tyc_">termos e condições</a> e as <a class="acepto" target="_blank" href="_link_pp_">políticas de privacidade</a>.',
                 'recibir' => 'Aceito receber informações promocionais.'
             ],
-            'obligatorios' => '*Campos obligatorios.',
+            'obligatorios' => '*Campos obrigatórios.',
             'disclaimer' => 'As informações e os dados pessoais que você nos proporciona podem ser usados e tratados por Neubell S.A. para fins previstos na Declaração de Privacidade. Em qualquer momento, você pode fazer uso dos seus direitos, solicitando acessos aos seus dados, a retificação, atualização ou supressão dos mesmos, ou cancelar assinatura dos nossos serviços aos quais você tenha assinado, entrando em contato conosco através do e-mail info@magiadeluco.com ou enviando uma carta a Av. Santa Fe 2888, San Miguel, Provincia de Buenos Aires. “A AGÊNCIA DE ACESSO À INFORMAÇÃO PÚBLICA, na qualidade de Órgão de Controle da Lei 25.326, tem a atribuição de atender às denúncias e reclamações realizadas por quem resultar afetado nos seus direitos por incumprimento das normas vigentes em termos de proteção de dados pessoais” (Artigo 3° da Resolução 14/2018 da Agência de Acesso à Informação Pública). Por favor, leia as nossas Políticas de Privacidade.',
             'btn' => 'ENVIAR',
             'gracias' => 'Gracias por suscribirte',
@@ -351,7 +351,7 @@ return [
                 'aniadas' => 'Añadas',
                 'fichaTecnica' => 'Ficha Técnica',
                 'porCantidades' => '*Para quantidades superiores a 18 garrafas, por favor, entrar em contato conosco em: <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
-                'porCompras' => 'Por compras superiores a AR$35.000 el envío es gratis.',
+                'porCompras' => 'Para compras acima de AR$ 35.000, o envio é gratuito.',
                 'btnAgregar' => 'Adicionar ao carrinho'
             ],
             'root' => [
@@ -404,7 +404,8 @@ return [
                     'email' => 'Endereço de e-mail'
                 ],
                 'btnIngresar' => 'RECUPERAR',
-                'acceso' => 'Aceso'
+                'acceso' => 'Aceso',
+                'teHemos' => 'Nós enviamos uma nova senha para o seu e-mail.'
             ],
         ],
         'registro' => [

@@ -33,10 +33,11 @@
 					}
 					_login.enviando = false;
 				}, function(error) {
+                    console.log(error);
 					_login.enviando = false;
 					if (error.status != 422) {
 						//console.debug(error.data.message);
-						alert(error.data.message);
+						alert(error.message);
 					} else {
                         var mensaje = [];
 						_.forEach(error.fields, function(msj,campo) {
@@ -62,13 +63,9 @@
 			_login.enviado = false;
 			if (vista === 'login') {
 			_login.formRecuperar.email = null;
-			_login.tituloSeccion = 'Iniciar sesión';
-			_login.subtituloSeccion = 'Completa tus datos para ingresar.';
 			} else {
 			_login.form.email = null;
 			_login.form.password = null;
-			_login.tituloSeccion = '¿Olvidaste tus datos?';
-			_login.subtituloSeccion = 'Ingresa tu email y te enviaremos una nueva contraseña.';
 			}
 			_login.vista = vista;
 

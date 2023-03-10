@@ -94,7 +94,7 @@
 
 								<tr>
 
-									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/img/header-gracias.jpg')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/'.trans('emails.pedido.imagenes.gracias'))}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
 
 									</td>
 
@@ -124,7 +124,7 @@
 										<tr>
 											<td>
 												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #ffffff; text-align: center;">
-													<img src="{{asset('img/mailings/img/camion.jpg')}}" width="124" height="79" border="0" style="display:block; margin: 0 auto; width: 124px; height: 79px;">
+													<img src="{{asset('img/mailings/camion.jpg')}}" width="124" height="79" border="0" style="display:block; margin: 0 auto; width: 124px; height: 79px;">
 
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
 														{!! trans('emails.pedido.info') !!}
@@ -152,7 +152,7 @@
 
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #F2F0DE; text-align: center;"><img src="{{asset('img/mailings/img/lupa.jpg')}}" width="124" height="111" border="0" style="display:block; margin: 0 auto; width: 124px; height: 111px;">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #F2F0DE; text-align: center;"><img src="{{asset('img/mailings//lupa.jpg')}}" width="124" height="111" border="0" style="display:block; margin: 0 auto; width: 124px; height: 111px;">
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
 														{!! trans('emails.pedido.infoEnvio') !!}
 													</div>
@@ -216,7 +216,7 @@
 
 																					<a href="#" target="_blank">
 
-																						<img src="{{asset('img/mailings/img/logo-magia-uco.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+																						<img src="{{asset('img/mailings//logo-magia-uco.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
 
 																					</a>
 																				</td>
@@ -302,14 +302,14 @@
 
 																								<td>
 																									<a href="https://www.facebook.com/magiadeluco" target="_blank">
-																										<img src="{{asset('img/mailings/img/ico_facebook.png')}}" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
+																										<img src="{{asset('img/mailings//ico_facebook.png')}}" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
 																									</a>
 																								</td>
 
 																								<td>
 
 																									<a href="https://www.instagram.com/magiadeluco/" target="_blank">
-																										<img src="{{asset('img/mailings/img/ico_instagram.png')}}" width="27" height="32" border="0" style="display:block; margin: 0 auto; width: 27px; height: 32px;">
+																										<img src="{{asset('img/mailings//ico_instagram.png')}}" width="27" height="32" border="0" style="display:block; margin: 0 auto; width: 27px; height: 32px;">
 																									</a>
 
 																								</td>
@@ -361,7 +361,7 @@
 
 					<tr>
 
-						<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/img/filete.png')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+						<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings//filete.png')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
 
 						</td>
 

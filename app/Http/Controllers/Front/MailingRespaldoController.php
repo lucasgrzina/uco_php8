@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use App\Pedido;
 use App\Registrado;
 use Illuminate\Mail\Markdown;
 use App\Http\Controllers\AppBaseController;
@@ -20,6 +21,7 @@ class MailingRespaldoController extends AppBaseController
 
     public function registro($guid)
     {
+        app()->setLocale('pt');
         $registrado = Registrado::where(\DB::raw('md5(id)'),$guid)->first();
         $markdown = new Markdown(view(), config('mail.markdown'));
 
@@ -32,6 +34,42 @@ class MailingRespaldoController extends AppBaseController
             \Log::error($ex->getMessage());
         }
         return $markdown->render('emails.registro', ['registrado' => $registrado, 'respaldo' => true]);
+
+    }
+
+    public function recuperar($guid)
+    {
+        app()->setLocale('pt');
+        $registrado = Registrado::where(\DB::raw('md5(id)'),$guid)->first();
+        $markdown = new Markdown(view(), config('mail.markdown'));
+
+        try
+        {
+            $registrado->enviarNotificacionRegistro();
+        }
+        catch(\Exception $ex)
+        {
+            \Log::error($ex->getMessage());
+        }
+        return $markdown->render('emails.reset-password', ['clave' => 'aaa','user' => $registrado, 'respaldo' => true]);
+
+    }
+
+    public function pedido($id)
+    {
+        app()->setLocale('en');
+        $pedido = Pedido::find($id);
+        $markdown = new Markdown(view(), config('mail.markdown'));
+
+        try
+        {
+            //$pedido->registrado->enviarNotificacionPedido($pedido);
+        }
+        catch(\Exception $ex)
+        {
+            \Log::error($ex->getMessage());
+        }
+        return $markdown->render('emails.pedido', ['pedido' => $pedido,'respaldo' => true]);
 
     }
 

@@ -375,7 +375,8 @@ return [
                     'email' => 'EMAIL'
                 ],
                 'btnIngresar' => 'RECUPERAR',
-                'acceso' => 'Acceso'
+                'acceso' => 'Acceso',
+                'teHemos' => 'Te hemos enviado una nueva contraseña a tu correo'
             ],
         ],
         'registro' => [

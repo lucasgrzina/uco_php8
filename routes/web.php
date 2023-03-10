@@ -158,6 +158,8 @@ Route::get('/log/borrar', function () {
 
 Route::prefix('mailing/respaldo')->group(function () {
     Route::get('/registro/{guid}', 'Front\MailingRespaldoController@registro')->name('mailingRespaldo.registro');
+    Route::get('/recuperar/{guid}', 'Front\MailingRespaldoController@recuperar')->name('mailingRespaldo.recuperar');
+    Route::get('/pedido/{id}', 'Front\MailingRespaldoController@pedido')->name('mailingRespaldo.pedido');
 });
 
 

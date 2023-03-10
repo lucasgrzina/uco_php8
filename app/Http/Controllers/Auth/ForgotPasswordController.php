@@ -62,6 +62,6 @@ class ForgotPasswordController extends Controller
 
     protected function sendResetLinkResponse($response)
     {
-        return response()->json(ResponseUtil::makeResponse('Te hemos enviado una nueva clave a tu correo.', ['message' => 'Te hemos enviado una nueva clave a tu correo.']));
+        return response()->json(ResponseUtil::makeResponse(trans('front.paginas.login.recuperar.teHemos'), ['message' => trans('front.paginas.login.recuperar.teHemos')]));
     }
 }

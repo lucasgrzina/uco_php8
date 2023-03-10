@@ -291,7 +291,7 @@ return [
                 'acepto' => 'I agree to <a class="acepto" target="_blank" href="_link_tyc_">terms & conditions</a>.',
                 'recibir' => 'I agree to receive promotional information.'
             ],
-            'obligatorios' => '*Campos obligatorios.',
+            'obligatorios' => '*Required fields.',
             'disclaimer' => '*The information or personal data provided by you may be used and processed by Neubell S.A. for the purposes set forth in the Privacy Statement. You can make use of your rights at any time, requesting access to your data, their rectification, update or deletion, or unsubscribe from our services by emailing us at info@magiadeluco.com , or by sending a letter to Av. Santa Fe 2888, San Miguel, Provincia de Buenos Aires.<br>“The Argentine Agency for Access to Public Information, in its capacity as Supervisory Body of Act of Law No. 25.326, has the power to deal with complaints and claims filed by those whose rights are affected by non-compliance with the regulations in force on the protection of personal data" (Section 3° of Resolution 14/2018 of the Agency of Access to Public Information).<br>Please read our Privacy Policy.',
             'btn' => 'Submit',
             'gracias' => 'Thanks for subscribe',
@@ -313,7 +313,7 @@ return [
                 'aniadas' => 'Vintage',
                 'fichaTecnica' => 'Explore more',
                 'porCantidades' => '*For orders over 18 bottles, please contact us at <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
-                'porCompras' => 'Por compras superiores a AR$35.000 el envío es gratis.',
+                'porCompras' => 'For purchases over AR$ 35,000, shipping is free.',
                 'btnAgregar' => 'Add to bag'
             ],
             'root' => [
@@ -346,7 +346,7 @@ return [
 
         ],
         'login' => [
-            'titulo' => 'Acceso',
+            'titulo' => 'LogIn',
             'form' => [
                 'usuario' => 'Username',
                 'password' => 'Password',
@@ -354,7 +354,16 @@ return [
             'btnIngresar' => 'LOGIN',
             'olvidaste' => 'Forgot password',
             'noTenes' => 'Register',
-            'lnkRegistro' => 'Register'
+            'lnkRegistro' => 'Register',
+            'recuperar' => [
+                'titulo' => 'Forgot password',
+                'form' => [
+                    'email' => 'EMAIL'
+                ],
+                'btnIngresar' => 'Recover',
+                'acceso' => 'Login',
+                'teHemos' => 'We have sent you a new password to your email.'
+            ],
         ],
         'registro' => [
             'titulo' => 'Register',

@@ -201,7 +201,7 @@
 
 								<tr>
 
-									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/te-damos-la-bienvenida.jpg')}}" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
+									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/'.trans('emails.registro.imagenes.te-damos-la-bienvenida'))}}" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
 
 									</td>
 
@@ -229,7 +229,7 @@
 
 								<tr>
 
-									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/quedate-atento.jpg')}}" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
+									<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/'.trans('emails.registro.imagenes.quedate-atento'))}}" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
 
 									</td>
 
