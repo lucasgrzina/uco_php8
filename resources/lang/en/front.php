@@ -355,6 +355,7 @@ return [
             'olvidaste' => 'Forgot password',
             'noTenes' => 'Register',
             'lnkRegistro' => 'Register',
+            'formatoPassword' => 'The password format is invalid.',
             'recuperar' => [
                 'titulo' => 'Forgot password',
                 'form' => [
@@ -362,7 +363,8 @@ return [
                 ],
                 'btnIngresar' => 'Recover',
                 'acceso' => 'Login',
-                'teHemos' => 'We have sent you a new password to your email.'
+                'teHemos' => 'We have sent you a new password to your email.',
+                'noRegistrado' => 'The email entered is not registered.'
             ],
         ],
         'registro' => [
@@ -376,7 +378,14 @@ return [
             'btnRegistrarse' => 'Register',
             'yaTenes' => 'Login',
             'lnkLogin' => 'Login',
-            'yaSosParte' => 'You are now part Magia del Uco world. Welcome!'
+            'yaSosParte' => 'You are now part Magia del Uco world. Welcome!',
+            'validaciones' => [
+                'usuario.unique' => 'The entered user is already in use.',
+                'email.unique' => ' The entered email is already in use.',
+                'password.regex' => 'La contraseña debe contener al menos 6 caracteres, una mayúscula, minúsculas y un número.',
+                'password.confirmed' => 'The entered passwords do not match.',
+            ],
+
         ],
         'checkout' => [
             'titulo' => 'Checkout',

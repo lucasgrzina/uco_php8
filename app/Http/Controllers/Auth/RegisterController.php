@@ -78,12 +78,7 @@ class RegisterController extends Controller
     {
         $rules = Registrado::$rules;
         $rules['email'] = str_replace('{:id}', 0, $rules['email']);
-        $messages = [
-            'usuario.unique' => ' El usuario ya está siendo utilizado por otro usuario.',
-            'email.unique' => ' Esta dirección de email ya está siendo utilizada por otro usuario.',
-            'password.regex' => 'La contraseña debe contener al menos 6 caracteres, una mayúscula, minúsculas y un número.',
-            'password.confirmed' => 'Las contraseñas ingresadas no coinciden.',
-        ];
+        $messages = trans('front.paginas.registro.validaciones');
         return Validator::make($data, $rules, $messages);
     }
 

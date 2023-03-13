@@ -57,7 +57,7 @@ class Registrado extends Authenticatable
         //'apellido' => 'required_if:id,0|string|max:255',
         'email' => 'required|string|email|max:255|unique:registrados,email,{:id},id',
         'usuario' => 'required|string|max:255|unique:registrados,usuario,{:id},id',
-        'password' => 'required_if:id,0|confirmed|min:6|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/'
+        'password' => 'required_if:id,0|confirmed|regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/'
     ];
 
     public function setPasswordAttribute($password)
@@ -68,6 +68,8 @@ class Registrado extends Authenticatable
     public function sendPasswordResetNotification($clave)
     {
         try {
+            logger(request()->url());
+            //app()->setLocale(request()->segment(0));
             $this->notify(new MailRequestPasswordToken($clave,$this));
         } catch (\Exception $e) {
             \Log::error('*******SEND EMAIL ERROR: ' . $e->getMessage());
@@ -77,6 +79,8 @@ class Registrado extends Authenticatable
     public function enviarNotificacionRegistro()
     {
         try {
+            logger(\Request::segment(0));
+            app()->setLocale(\Request::segment(0));
             $this->notify(new NotificacionRegistro($this));
         } catch (\Exception $e) {
             \Log::error('*******SEND EMAIL ERROR: ' . $e->getMessage());

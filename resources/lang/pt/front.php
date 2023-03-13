@@ -398,6 +398,7 @@ return [
             'olvidaste' => 'Olvidé mi contraseña',
             'noTenes' => 'Registrarme',
             'lnkRegistro' => 'Registrarme',
+            'formatoPassword' => 'El formato de la senha es invalido.',
             'recuperar' => [
                 'titulo' => 'Olvidé mi contraseña',
                 'form' => [
@@ -405,7 +406,8 @@ return [
                 ],
                 'btnIngresar' => 'RECUPERAR',
                 'acceso' => 'Aceso',
-                'teHemos' => 'Nós enviamos uma nova senha para o seu e-mail.'
+                'teHemos' => 'Nós enviamos uma nova senha para o seu e-mail.',
+                'noRegistrado' => 'O email inserido não está registrado.'
             ],
         ],
         'registro' => [
@@ -419,7 +421,13 @@ return [
             'btnRegistrarse' => 'REGISTRARSE',
             'yaTenes' => 'Iniciar sesión',
             'lnkLogin' => 'Login',
-            'yaSosParte' => 'Agora você faz parte do mundo Magia del Uco. Bem-vinda!'
+            'yaSosParte' => 'Agora você faz parte do mundo Magia del Uco. Bem-vinda!',
+            'validaciones' => [
+                'usuario.unique' => 'O usuário inserido já está em uso.',
+                'email.unique' => 'O e-mail inserido já está em uso.',
+                'password.regex' => 'La contraseña debe contener al menos 6 caracteres, una mayúscula, minúsculas y un número.',
+                'password.confirmed' => 'As senhas inseridas não coincidem.',
+            ],
         ],
         'checkout' => [
             'titulo' => 'Checkout',

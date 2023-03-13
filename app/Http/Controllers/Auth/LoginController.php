@@ -60,7 +60,11 @@ class LoginController extends Controller
         $rules['usuario'] = str_replace('|unique:registrados,usuario,{:id},id','',$rules['usuario']);
         $rules['password'] = str_replace('required_if:id,0|','required|',$rules['password']);
         $rules['password'] = str_replace('confirmed|','',$rules['password']);
-        $this->validate($request, $rules);
+
+        $messages = [
+            'password.regex' => trans('front.paginas.login.formatoPassword')
+        ];
+        $this->validate($request, $rules,$messages);
     }
 
     public function login($lang,Request $request)

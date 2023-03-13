@@ -277,8 +277,10 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|es|pt']],function 
         });
         Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     });
+
+    Route::post('/olvide-contrasena', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('olvide-password');
 });
-Route::post('/olvide-contrasena', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('olvide-password');
+
 
 
 

@@ -29,7 +29,7 @@ class ForgotPasswordController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($locale=null)
     {
         $this->middleware('guest');
     }
@@ -57,7 +57,7 @@ class ForgotPasswordController extends Controller
 
     protected function sendResetLinkFailedResponse(Request $request, $response)
     {
-        return response()->json(ResponseUtil::makeError('Revisá el email ingresado ya que es inválido o no se encuentra registrado'), 404);
+        return response()->json(ResponseUtil::makeError(trans('front.paginas.login.recuperar.noRegistrado')), 404);
     }
 
     protected function sendResetLinkResponse($response)
