@@ -11,7 +11,8 @@ return [
         'imagenes' => [
             'te-damos-la-bienvenida' => 'te-damos-la-bienvenida.jpg',
             'quedate-atento' => 'quedate-atento.jpg',
-        ]
+        ],
+        'subject' => 'Bienvenido'
     ],
     'recuperar' => [
         'linea1' => 'Hemos recibido una solicitud para <strong>restablecer la contraseña</strong> de tu cuenta. Si es así, ingresá de nuevo utilizando esta por única vez; ',
@@ -20,7 +21,8 @@ return [
         'btn_texto' => 'RESTABLECER CONTRASE&Ntilde;A',
         'imagenes' => [
             'recupera' => 'recupera.png'
-        ]
+        ],
+        'subject' => 'Magia del Uco - Nueva clave'
     ],
     'pedido' => [
         'info' => 'Información de tu compra',
@@ -35,6 +37,7 @@ return [
         'conocer' => 'Para conocer el estado de tu pedido podés hacerlo ingresando a <strong>tu cuenta</strong> en nuestro sitio web a través de la opción listado de pedidos.',
         'imagenes' => [
             'gracias' => 'header-gracias.jpg'
-        ]
+        ],
+        'subject' => 'Gracias por elegirnos'
     ]
 ];

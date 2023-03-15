@@ -43,7 +43,7 @@ class MailRequestPasswordToken extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject(env('APP_NAME').' - Nueva clave')
+                ->subject(trans('emails.recuperar.subject'))
                 ->markdown('emails.reset-password',[
                     'clave' => $this->clave,
                     'user' => $this->user,

@@ -11,7 +11,8 @@ return [
         'imagenes' => [
             'te-damos-la-bienvenida' => 'banner-bienvenida-portugues.png',
             'quedate-atento' => 'novedades-portugues.png',
-        ]
+        ],
+        'subject' => 'Bem-vindos'
     ],
     'recuperar' => [
         'linea1' => 'Recebemos uma solicitação para restabelecer a senha da sua conta. Se for este o caso, ingresse novamente usando esta senha por única vez.',
@@ -20,7 +21,8 @@ return [
         'btn_texto' => 'RESTABLECER CONTRASE&Ntilde;A',
         'imagenes' => [
             'recupera' => 'contraseña-portugues.png'
-        ]
+        ],
+        'subject' => 'Magia del Uco - Nova Senha'
     ],
     'pedido' => [
         'info' => 'Informações sobre a sua compra',
@@ -35,6 +37,7 @@ return [
         'conocer' => 'Para saber o estado do seu pedido, utilize a opção “Lista de Pedidos” para ingressar na sua conta no nosso website.',
         'imagenes' => [
             'gracias' => 'compra-portugues.png'
-        ]
+        ],
+        'subject' => 'Obrigado por nos escolher'
     ]
 ];

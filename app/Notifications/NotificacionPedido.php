@@ -44,7 +44,7 @@ class NotificacionPedido extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject('Gracias por elegirnos!')
+                ->subject(trans('emails.pedido.subject'))
                 ->markdown('emails.pedido', ['pedido' => $this->pedido]);
     }
 

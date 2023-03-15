@@ -42,7 +42,7 @@ class NotificacionRegistro extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                ->subject('Bienvenido!')
+                ->subject(trans('emails.registro.subject'))
                 ->markdown('emails.registro', ['registrado' => $this->registrado]);
     }
 
