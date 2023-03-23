@@ -165,7 +165,7 @@ Route::prefix('mailing/respaldo')->group(function () {
 
 
 //Route::middleware(['check.country'])->group(function () {
-Route::get('/cambiar-idioma/{lang}', 'Front\HomeController@cambiarIdioma')->name('cambiarIdioma');
+Route::get('/cambiar-idioma/{lang}/{desde?}', 'Front\HomeController@cambiarIdioma')->name('cambiarIdioma');
 Route::group(['prefix' => 'servicios'],function () {
     Route::post('/newsletter/guardar', '\App\Services\NewsletterService@guardar')->name('service.newsletter.guardar');
     Route::post('/contacto/guardar', '\App\Services\ContactoService@guardar')->name('service.contacto.guardar');

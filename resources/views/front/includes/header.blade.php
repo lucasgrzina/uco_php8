@@ -22,9 +22,9 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
         <ul class="nav-lenguage mobile">
-          <li><a href="{{route('cambiarIdioma',['es'])}}" class="{{app()->getLocale() === 'es' ? 'active' : ''}}">ESP</a></li>
-          <li><a href="{{route('cambiarIdioma',['en'])}}" class="{{app()->getLocale() === 'en' ? 'active' : ''}}">ENG</a></li>
-          <li><a href="{{route('cambiarIdioma',['pt'])}}" class="{{app()->getLocale() === 'pt' ? 'active' : ''}}">POR</a></li>
+          <li><a href="{{route('cambiarIdioma',['es',\Route::currentRouteName()])}}" class="{{app()->getLocale() === 'es' ? 'active' : ''}}">ESP</a></li>
+          <li><a href="{{route('cambiarIdioma',['en',\Route::currentRouteName()])}}" class="{{app()->getLocale() === 'en' ? 'active' : ''}}">ENG</a></li>
+          <li><a href="{{route('cambiarIdioma',['pt',\Route::currentRouteName()])}}" class="{{app()->getLocale() === 'pt' ? 'active' : ''}}">POR</a></li>
 
         </ul>
         <!--a class="nav-link mobile comprar"  href="javascript:void(0);" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="{{asset('img/shop.svg')}}" class="icon icon-shop" />{{trans('front.navMenuFooter.links.comprar')}}</a-->
@@ -83,9 +83,9 @@
       </div>
       <div class="nav-right">
         <ul class="nav-lenguage desktop">
-          <li><a href="{{route('cambiarIdioma',['es'])}}" class="{{app()->getLocale() === 'es' ? 'active' : ''}}">ESP</a></li>
-          <li><a href="{{route('cambiarIdioma',['en'])}}" class="{{app()->getLocale() === 'en' ? 'active' : ''}}">ENG</a></li>
-          <li><a href="{{route('cambiarIdioma',['pt'])}}" class="{{app()->getLocale() === 'pt' ? 'active' : ''}}">POR</a></li>
+          <li><a href="{{route('cambiarIdioma',['es',\Route::currentRouteName()])}}" class="{{app()->getLocale() === 'es' ? 'active' : ''}}">ESP</a></li>
+          <li><a href="{{route('cambiarIdioma',['en',\Route::currentRouteName()])}}" class="{{app()->getLocale() === 'en' ? 'active' : ''}}">ENG</a></li>
+          <li><a href="{{route('cambiarIdioma',['pt',\Route::currentRouteName()])}}" class="{{app()->getLocale() === 'pt' ? 'active' : ''}}">POR</a></li>
           @if(!auth()->guard('web')->check())
           <li><a href="{{routeIdioma('login')}}" >{{trans('front.navMenuFooter.links.ingresar')}}</a></li>
           @else

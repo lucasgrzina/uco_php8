@@ -10,14 +10,14 @@ return [
             'interwine' => 'collections/interwine',
         ],
         'francescaTucci' => 'francesca-tucci',
-        'novedades' => 'no',
+        'novedades' => 'novelties',
         'contacto' => 'contact-us',
         'miCuenta' => [
-            'root' => 'mi-cuenta',
-            'misDatos' => 'mis-datos',
-            'cambiarPassword' => 'cambiar-password',
-            'direcciones' => 'direcciones',
-            'pedidos' => 'pedidos'
+            'root' => 'my-account',
+            'misDatos' => 'details',
+            'cambiarPassword' => 'change-password',
+            'direcciones' => 'addresses',
+            'pedidos' => 'orders'
         ],
         'carrito' => [
             'root' => 'carrito',

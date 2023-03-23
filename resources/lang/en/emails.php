@@ -1,7 +1,7 @@
 <?php
 return [
     'general' => [
-        'desuscribirme' => 'Quiero desuscribirme',
+        'desuscribirme' => 'Unsubscribe',
         'perfil' => 'Update my profile',
         'tyc' => 'Terms & conditions',
     ],

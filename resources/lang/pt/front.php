@@ -395,17 +395,17 @@ return [
                 'password' => 'Senha',
             ],
             'btnIngresar' => 'INGRESAR',
-            'olvidaste' => 'Olvidé mi contraseña',
-            'noTenes' => 'Registrarme',
-            'lnkRegistro' => 'Registrarme',
+            'olvidaste' => 'Esqueci minha senha',
+            'noTenes' => 'Registrar',
+            'lnkRegistro' => 'Registrar',
             'formatoPassword' => 'El formato de la senha es invalido.',
             'recuperar' => [
-                'titulo' => 'Olvidé mi contraseña',
+                'titulo' => 'Esqueci minha senha',
                 'form' => [
                     'email' => 'Endereço de e-mail'
                 ],
                 'btnIngresar' => 'RECUPERAR',
-                'acceso' => 'Aceso',
+                'acceso' => 'Acesso',
                 'teHemos' => 'Nós enviamos uma nova senha para o seu e-mail.',
                 'noRegistrado' => 'O email inserido não está registrado.'
             ],
@@ -577,7 +577,7 @@ return [
             'cantidad' => 'Quantidad',
             'subtotal' => 'Subtotal',
             'eliminar' => 'Eliminar',
-            'finalizar' => 'Finalizar orden',
+            'finalizar' => 'Finalizar ordem',
             'editarCarrito' => 'Editar Carrinho'
         ]
     ],

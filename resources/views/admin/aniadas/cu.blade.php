@@ -14,19 +14,19 @@
 
         _data.files = {
             ficha: [],
-        };         
-        
+        };
+
         _methods.inputFicha = function (n,o) {
           var _this = this;
           this.inputFile(n,o,function(file) {
-            _this.selectedItem.ficha_url     = file.response.path;      
-            _this.selectedItem.ficha         = file.response.file;   
+            _this.selectedItem.ficha_url     = file.response.path;
+            _this.selectedItem.ficha         = file.response.file;
 
           }, function(file) {
             //_this.errors.add('light_ficha',file.error, 'server');
           },'uploadFicha');
-        }     
-      
+        }
+
 
     </script>
     <script type="text/javascript" src="{{ asset('vendor/vee-validate.min.js') }}"></script>
@@ -49,7 +49,7 @@
             <div class="box-footer text-right">
                 <button-type type="save" :promise="store"></button-type>
                 <button-type type="cancel" @click="cancel()"></button-type>
-            </div>            
-        </div>    
+            </div>
+        </div>
     </div>
 @endsection

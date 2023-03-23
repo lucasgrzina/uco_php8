@@ -413,13 +413,13 @@ return [
             ],
             'datosEnvio' => [
                 'titulo' => 'Datos de envío',
-                'domicilioDest' => 'Recipient’s Address',
-                'nombre' => 'First Name',
-                'apellido' => 'Last Name',
-                'calle' => 'Street and Number ',
-                'ciudad' => 'City',
-                'provincia' => 'Province ',
-                'cp' => 'Zip Code'
+                'domicilioDest' => 'Domicilio del destinatario',
+                'nombre' => 'Nombre',
+                'apellido' => 'Apellido',
+                'calle' => 'Calle y número ',
+                'ciudad' => 'Ciudad',
+                'provincia' => 'Provincia',
+                'cp' => 'Código Postal'
             ],
             'datosDestinatario' => [
                 'titulo' => 'Datos del destinatario',

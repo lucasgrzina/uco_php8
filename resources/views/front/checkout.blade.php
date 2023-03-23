@@ -288,7 +288,6 @@
 
                             <div class="block-content" id="seccionEnvio">
                                 <h2>{{trans('front.paginas.checkout.datosEnvio.titulo')}}</h2>
-                                <span style="font-size: 10px;display: inline-block;">{!!trans('front.paginas.checkout.envioSoloArgentina')!!}</span>
                                 <form>
                                     <fieldset :disabled="checkout.seccionActual !== 'envioRetiro'">
                                         <a href="javascript:void(0)" v-show="checkout.seccionActual === 'envioRetiro'" class="f-right mb-3 lnk-agregar" @click="agregarDireccion()">{{trans('front.paginas.checkout.btnAgregar')}}</a>
@@ -564,6 +563,7 @@
 						</table>
 					</div>
 				</div>
+                <span class="mt-2" style="font-size: 10px;display: inline-block;text-align:justify;">{!!trans('front.paginas.checkout.envioSoloArgentina')!!}</span>
 			</div>
 
 		</div>
