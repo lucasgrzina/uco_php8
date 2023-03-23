@@ -41,11 +41,9 @@ class HomeController extends AppBaseController
         if(in_array($lang, config('translatable.locales')))
         {
             app()->setLocale($lang);
-            logger($desde);
             $cookie = \Cookie::make('uco_idioma', $lang, 518400);
 
             $desdePartes = explode('.',$desde);
-            logger([$desde,$desdePartes]);
             $desde = $desdePartes[0];
 
             $to = $lang.'/';
