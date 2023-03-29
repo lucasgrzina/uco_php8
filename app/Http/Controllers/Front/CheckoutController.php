@@ -121,12 +121,13 @@ class CheckoutController extends AppBaseController
 
         \Cart::clear();
 
+
         $this->data['checkout'] = [
-            'mensaje' => trans('front.paginas.checkout.gracias.mensajesEstados.'.$pedido->estado_id),
+            'mensaje' => trans('front.paginas.checkout.gracias.mensajeTipoFactura.'.$pedido->tipo_factura),
             'pedido' => $pedido
         ];
         return view('front.checkout-gracias', [
-            'tituloPagina' => trans('front.paginas.checkout.gracias.titulo'),
+            'tituloPagina' => trans('front.paginas.checkout.gracias.mensajeTipoFactura.'.$pedido->tipo_factura.'.titulo'),
             'dataSection' => 'checkout',
             'data' => $this->data
         ]);
@@ -135,6 +136,16 @@ class CheckoutController extends AppBaseController
     public function cotizarEnvio($lang, Request $request, UPSService $upsService) {
         try {
             $salida = [];
+
+            $montoEnvioGratis = config('constantes.montoEnvioGratis',false);
+            if ($montoEnvioGratis && \Cart::getTotal() >= $montoEnvioGratis) {
+                return $this->sendResponse([
+                    'cotizacion' => 0,
+                    'dolares' => 0,
+                    'pesos' => 0
+                ], trans('admin.success'));;
+            }
+
             $itemsCarrito = \Cart::getContent();
             $ids = [];
             foreach ($itemsCarrito as $item) {

@@ -485,11 +485,15 @@ return [
             'btnCancel' => 'CANCELAR',
             'btnGuardar' => 'SALVAR',
             'gracias' => [
-                'titulo' => 'Gracias por tu compra',
+                'titulo' => 'Obrigada pela sua compra.',
                 'mensajesEstados' => [
                     '0' => 'Su pedido se encuentra en estado Pendiente.<br>Le avisaremos por cualquier cambio.',
                     '1' => 'Su pedido se encuentra aprobado.<br>Pronto lo enviaremos',
                     '-1' => 'Su pedido se encuentra rechazado'
+                ],
+                'mensajeTipoFactura' => [
+                    'A' =>  ['titulo'=>'Muito obrigado!','texto' =>'Seu pedido foi recebido com sucesso. Em breve você receberá um email para completar o processo de compra.'],
+                    'CF' => ['titulo'=>'Obrigada pela sua compra.','texto' =>'Os dados do seu pedido serão enviados ao email cadastrado.']
                 ],
                 'btnMisPedidos' => 'Meus pedidos'
             ],
@@ -584,5 +588,12 @@ return [
     'colecciones' => [
         'francescaTucci' => 'Francesca Tucci',
         'interwine' => 'Interwine',
+    ],
+    'pedidos' => [
+        'estados' => [
+            'pendiente' => 'Pedido em andamento',
+            'aprobado' => 'Approved',
+            'rechazado' => 'Refused',
+        ]
     ]
 ];

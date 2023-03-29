@@ -129,13 +129,13 @@ class Pedido extends Model
     {
         switch ($this->attributes['estado_id']) {
             case 1:
-                return 'Aprobado';
+                return trans('front.pedidos.estados.aprobado');
                 break;
             case -1:
-                return 'Rechazado';
+                return trans('front.pedidos.estados.rechazado');
                 break;
             default:
-                return 'Pendiente';
+                return trans('front.pedidos.estados.pendiente');
                 break;
         }
     }
