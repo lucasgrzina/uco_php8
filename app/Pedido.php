@@ -80,7 +80,15 @@ class Pedido extends Model
         'nombre_fc','apellido_fc','dni_fc','direccion_fc','ciudad_fc','cp_fc','provincia_fc','pais_id_fc',
         'ups_etiqueta',
         'ups_tracking_number',
-        'ups_info'
+        'ups_info',
+        'sincronizo_sap',
+        'sincronizo_pago',
+        'error_sincronizacion_sap',
+        'documento_sap',
+        'tipo_tarjeta',
+        'tarjeta',
+        'tarjeta_exp',
+        'numero_voucher'	
         //'enabled'
     ];
 
@@ -104,7 +112,10 @@ class Pedido extends Model
         'total_usd' => 'float(15,2)',
         'cotizacion_usd' => 'float(7,2)',
         'pais_id_fc' => 'integer',
-        'ups_info' => 'json'
+        'ups_info' => 'json',
+        'sincronizo_sap' => 'boolean',
+        'error_sincronizacion_sap' => 'string',
+        'documento_sap' => 'integer'	
         //'enabled' => 'boolean'
     ];
 

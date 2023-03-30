@@ -76,8 +76,8 @@ class UPSService extends AppBaseController
             $resultado = $rate->getRate($shipment);
             $dolarOficial = obtenerDolarOficial();
             return [
-                'cotizacion' => $dolarOficial,
-                'pesos' => $resultado->RatedShipment[0]->TotalCharges->MonetaryValue * $dolarOficial,
+                'cotizacion' => $dolarOficial, 
+                'pesos' => ($resultado->RatedShipment[0]->TotalCharges->MonetaryValue * $dolarOficial) * 1.21, 
                 'dolares' => $resultado->RatedShipment[0]->TotalCharges->MonetaryValue
             ];
         } catch (Exception $e) {
@@ -275,7 +275,7 @@ class UPSService extends AppBaseController
                     'digest' => $confirm->ShipmentDigest,
                     'etiqueta' => $accept->PackageResults->LabelImage->GraphicImage,
                     'cotizacion_usd' => $dolarOficial,
-                    'pesos' => $confirm->ShipmentCharges->TotalCharges->MonetaryValue * $dolarOficial,
+                    'pesos' => ($confirm->ShipmentCharges->TotalCharges->MonetaryValue * $dolarOficial)  * 1.21,
                     'dolares' => $confirm->ShipmentCharges->TotalCharges->MonetaryValue,
                 ];
 

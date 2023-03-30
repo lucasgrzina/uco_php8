@@ -3,6 +3,7 @@
 namespace App\Console;
 
 use App\Console\Commands\SincronizarSAP;
+use App\Console\Commands\SincronizarVentasSAP;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -14,7 +15,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        SincronizarSAP::class
+        SincronizarSAP::class,
+        SincronizarVentasSAP::class
     ];
 
     /**
@@ -26,6 +28,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command(SincronizarSAP::class)->hourly()->withoutOverlapping();
+        $schedule->command(SincronizarVentasSAP::class)->everyFiveMinutes()->withoutOverlapping();
     }
 
     /**
