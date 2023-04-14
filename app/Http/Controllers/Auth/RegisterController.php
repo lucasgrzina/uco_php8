@@ -97,7 +97,7 @@ class RegisterController extends Controller
             DB::beginTransaction();
             $model = Registrado::create($data);
 
-            //$model->enviarNotificacionRegistro();
+            $model->enviarNotificacionRegistro();
 
             //throw new \Exception("Error Processing Request", 1);
             DB::commit();
