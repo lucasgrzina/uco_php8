@@ -61,7 +61,7 @@ class RegisterController extends Controller
 
 
             $user->enviarNotificacionRegistro($locale);
-            throw new \Exception("Error Processing Request", 1);
+            //throw new \Exception("Error Processing Request", 1);
 
             $this->guard()->login($user);
 
