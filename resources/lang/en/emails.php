@@ -12,7 +12,8 @@ return [
             'te-damos-la-bienvenida' => 'banner-bienvenida-ingles.png',
             'quedate-atento' => 'novedades-ingles.png',
         ],
-        'subject' => 'Welcome'
+        'subject' => 'Welcome',
+        'url' => env('APP_URL').'/en'
     ],
     'recuperar' => [
         'linea1' => 'We have received a request to <strong>reset your account password</strong>. If so, please log in again using this one-time password.',

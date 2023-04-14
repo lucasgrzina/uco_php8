@@ -20,6 +20,8 @@
                     alert('{{trans("front.paginas.registro.yaSosParte")}}');
 					document.location = '{{routeIdioma('home')}}';
 				}, function(error) {
+                    _registro.enviando = false;
+                    console.debug(error);
 					if (error.status != 422) {
 						alert(error.statusText);
 					} else {

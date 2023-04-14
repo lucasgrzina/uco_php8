@@ -12,7 +12,8 @@ return [
             'te-damos-la-bienvenida' => 'te-damos-la-bienvenida.jpg',
             'quedate-atento' => 'quedate-atento.jpg',
         ],
-        'subject' => 'Bienvenido'
+        'subject' => 'Bienvenido',
+        'url' => env('APP_URL').'/es'
     ],
     'recuperar' => [
         'linea1' => 'Hemos recibido una solicitud para <strong>restablecer la contraseña</strong> de tu cuenta. Si es así, ingresá de nuevo utilizando esta por única vez; ',

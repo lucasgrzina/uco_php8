@@ -218,6 +218,7 @@ _methods._call = function (path,method,data) {
 
             }
         }, function(response) {
+            console.debug(response);
             switch (response.status) {
                 case 422:
                     //Validacion de laravel

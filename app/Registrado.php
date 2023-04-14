@@ -68,7 +68,6 @@ class Registrado extends Authenticatable
     public function sendPasswordResetNotification($clave)
     {
         try {
-            logger(request()->url());
             //app()->setLocale(request()->segment(0));
             $this->notify(new MailRequestPasswordToken($clave,$this));
         } catch (\Exception $e) {
@@ -76,11 +75,12 @@ class Registrado extends Authenticatable
         }
     }
 
-    public function enviarNotificacionRegistro()
+    public function enviarNotificacionRegistro($locale)
     {
         try {
+            \Log::info(request()->url());
             app()->setLocale(\Request::segment(0));
-            $this->notify(new NotificacionRegistro($this));
+            $this->notify(new NotificacionRegistro($this,$locale));
         } catch (\Exception $e) {
             \Log::error('*******SEND EMAIL ERROR: ' . $e->getMessage());
         }

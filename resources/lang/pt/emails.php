@@ -12,7 +12,8 @@ return [
             'te-damos-la-bienvenida' => 'banner-bienvenida-portugues.png',
             'quedate-atento' => 'novedades-portugues.png',
         ],
-        'subject' => 'Bem-vindos'
+        'subject' => 'Bem-vindos',
+        'url' => env('APP_URL').'/pt'
     ],
     'recuperar' => [
         'linea1' => 'Recebemos uma solicitação para restabelecer a senha da sua conta. Se for este o caso, ingresse novamente usando esta senha por única vez.',
