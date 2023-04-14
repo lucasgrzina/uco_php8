@@ -29,7 +29,7 @@
 <!-- Peso Field -->
 <div class="form-group col-sm-3" :class="{'has-error': errors.has('peso')}">
     {!! Form::label('peso', 'Peso') !!}
-    {!! Form::number('peso', null, ['class' => 'form-control','v-model' => 'selectedItem.peso','step' => '0.1','max' => '999.9','min' => '0.1']) !!}
+    {!! Form::number('peso', null, ['class' => 'form-control','v-model' => 'selectedItem.peso','step' => 'any','max' => '999.9','min' => '0.1']) !!}
     <span class="help-block" v-show="errors.has('peso')">(% errors.first('peso') %)</span>
 </div>
 <div class="clearfix"></div>
