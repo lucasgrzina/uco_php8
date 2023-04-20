@@ -92,7 +92,7 @@
 		<tr>
 
 			<td>
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF; margin:0 auto;" class="full-width" width="600" align="center">
 
 					<tbody>
 
@@ -100,7 +100,7 @@
 
 							<td>
 
-								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="550" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF; margin:0 auto;" class="full-width" width="550" align="center">
 
 									<tbody>
 
@@ -182,7 +182,7 @@
 												</div>
 											</td>
 										</tr>
-										<tr><td height="5px;">&nbsp;</td></tr>
+										<!--tr><td height="5px;">&nbsp;</td></tr-->
 									</table>
 								</div>
 							</td>
