@@ -82,7 +82,7 @@ return [
             'recordarme' => 'Remember me',
             'btnSi' => 'Yes',
             'btnNo' => 'No',
-            'disclaimer' => 'By subscribing, you agree to the Terms and Conditions. A favor del consumo responsable y moderado.Beber con moderación | Prohibida su venta a menores de 18 años.'
+            'disclaimer' => 'By subscribing, you agree to the <a class="acepto" target="_blank" href="_link_tyc_">Terms and Conditions</a>. A favor del consumo responsable y moderado.Beber con moderación | Prohibida su venta a menores de 18 años.'
         ],
         'pp' => [
             'titulo' => 'Privacy Policy',

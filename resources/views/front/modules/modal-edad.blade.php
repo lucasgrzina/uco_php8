@@ -24,7 +24,8 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<p>{!! trans('front.modulos.ageGate.disclaimer') !!}</p>
+                <p>{!! str_replace('_link_tyc_',routeIdioma('terminosCondiciones'),trans('front.modulos.ageGate.disclaimer')) !!}</p>
+				<!--p>{!! trans('front.modulos.ageGate.disclaimer') !!}</p-->
 			</div>
 		</div>
 	</div>

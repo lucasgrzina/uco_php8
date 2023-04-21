@@ -4,8 +4,8 @@ $(document).ready(function(){
 		keyboard: false
 	});
 
-	if(typeof Cookies.get('ag_uco') == 'undefined' && Cookies.get('ag_uco') != 1) {
-		myModal.show();
+	if(typeof Cookies.get('ag_uco') == 'undefined' && Cookies.get('ag_uco') != 1 && !hideAgeGate) {
+        myModal.show();
 	}
 
 	$('.module-full-slider .slider').slick({
