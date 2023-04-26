@@ -9,10 +9,11 @@ return [
         'texto' => 'From now on, you can access your profile by entering your username <span style="color: #8E8063;">@USUARIO</span> and your password.',
         'btn_texto' => 'ENTER THE SITE',
         'imagenes' => [
-            'te-damos-la-bienvenida' => 'banner-bienvenida-ingles.png',
-            'quedate-atento' => 'novedades-ingles.png',
+            'te-damos-la-bienvenida' => 'header-bienvenida-eng.jpg',
+            'quedate-atento' => 'novedades-eng.jpg',
         ],
-        'subject' => 'Welcome'
+        'subject' => 'Welcome',
+        'url' => env('APP_URL').'/en'
     ],
     'recuperar' => [
         'linea1' => 'We have received a request to <strong>reset your account password</strong>. If so, please log in again using this one-time password.',
@@ -20,7 +21,7 @@ return [
         'linea3' => 'If you did not request a password reset, please ignore this email.',
         'btn_texto' => 'Retrieve your password',
         'imagenes' => [
-            'recupera' => 'contraseña-ingles.png'
+            'recupera' => 'contrasena-eng.jpg'
         ],
         'subject' => 'Magia del Uco - New password'
     ],

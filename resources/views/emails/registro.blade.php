@@ -92,7 +92,7 @@
 		<tr>
 
 			<td>
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF; margin:0 auto;" class="full-width" width="600" align="center">
 
 					<tbody>
 
@@ -100,7 +100,7 @@
 
 							<td>
 
-								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="550" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF; margin:0 auto;" class="full-width" width="550" align="center">
 
 									<tbody>
 
@@ -182,7 +182,7 @@
 												</div>
 											</td>
 										</tr>
-										<tr><td height="5px;">&nbsp;</td></tr>
+										<!--tr><td height="5px;">&nbsp;</td></tr-->
 									</table>
 								</div>
 							</td>
@@ -284,7 +284,7 @@
 
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; max-width: 300px; width:100%;"><a href="{{routeIdioma('home')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">{{trans('emails.registro.btn_texto')}}</a>
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; max-width: 300px; width:100%;"><a href="{{trans('emails.registro.url')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">{{trans('emails.registro.btn_texto')}}</a>
 												</div>
 											</td>
 										</tr>
@@ -525,7 +525,7 @@
 					<tr>
 
 						<td width="600" class="full-width" align="center">
-							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="{{routeIdioma('home')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> | <a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> | <a href="{{routeIdioma('terminosCondiciones')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a></div>
+							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="{{trans('emails.registro.url')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a></div>
 
 						</td>
 

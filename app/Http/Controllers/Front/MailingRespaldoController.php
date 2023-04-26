@@ -19,15 +19,14 @@ class MailingRespaldoController extends AppBaseController
         //$this->middleware('auth:admin');
     }
 
-    public function registro($guid)
+    public function registro($id,$locale='es')
     {
-        app()->setLocale('pt');
-        $registrado = Registrado::where(\DB::raw('md5(id)'),$guid)->first();
+        $registrado = Registrado::find($id);
         $markdown = new Markdown(view(), config('mail.markdown'));
 
         try
         {
-            $registrado->enviarNotificacionRegistro();
+            $registrado->enviarNotificacionRegistro($locale);
         }
         catch(\Exception $ex)
         {
@@ -37,15 +36,15 @@ class MailingRespaldoController extends AppBaseController
 
     }
 
-    public function recuperar($guid)
+    public function recuperar($id,$locale='es')
     {
-        app()->setLocale('pt');
-        $registrado = Registrado::where(\DB::raw('md5(id)'),$guid)->first();
+        app()->setLocale($locale);
+        $registrado = Registrado::find($id);
         $markdown = new Markdown(view(), config('mail.markdown'));
 
         try
         {
-            $registrado->enviarNotificacionRegistro();
+            $registrado->sendPasswordResetNotification('holis');
         }
         catch(\Exception $ex)
         {
@@ -55,9 +54,9 @@ class MailingRespaldoController extends AppBaseController
 
     }
 
-    public function pedido($id)
+    public function pedido($id,$locale='es')
     {
-        app()->setLocale('en');
+        app()->setLocale($locale);
         $pedido = Pedido::find($id);
         $markdown = new Markdown(view(), config('mail.markdown'));
 

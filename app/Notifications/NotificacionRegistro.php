@@ -11,15 +11,18 @@ class NotificacionRegistro extends Notification
 {
     use Queueable;
     public $registrado;
+    public $locale;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($registrado)
+    public function __construct($registrado,$locale)
     {
         $this->registrado = $registrado;
+        $this->locale = $locale;
+        app()->setLocale($locale);
     }
 
     /**
@@ -41,6 +44,7 @@ class NotificacionRegistro extends Notification
      */
     public function toMail($notifiable)
     {
+
         return (new MailMessage)
                 ->subject(trans('emails.registro.subject'))
                 ->markdown('emails.registro', ['registrado' => $this->registrado]);

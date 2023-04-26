@@ -124,7 +124,9 @@
           var _mounted = [];
 
         </script>
-
+        <script>
+            var hideAgeGate = {{ isset($hideAgeGate) && $hideAgeGate ? 'true' : 'false'}};
+        </script>
     </head>
     @php
       if (!isset($dataSection)) {

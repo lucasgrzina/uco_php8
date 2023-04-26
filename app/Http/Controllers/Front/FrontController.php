@@ -24,6 +24,7 @@ class FrontController extends AppBaseController
         return view('front.estaticas.terminos-condiciones', [
             'tituloPagina' => trans('front.modulos.tyc.titulo'),
             'dataSection' => 'mis-pedidos',
+            'hideAgeGate' => true,
             'data' => $data
         ]);
     }

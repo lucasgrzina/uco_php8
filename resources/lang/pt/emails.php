@@ -9,10 +9,11 @@ return [
         'texto' => 'Para ter acesso ao seu perfil, você poderá ingressar o seu nome de usuário <span style="color: #8E8063;">@USUARIO</span> e a sua senha.',
         'btn_texto' => 'ENTRE NO SITE',
         'imagenes' => [
-            'te-damos-la-bienvenida' => 'banner-bienvenida-portugues.png',
-            'quedate-atento' => 'novedades-portugues.png',
+            'te-damos-la-bienvenida' => 'header-bienvenida-port.jpg',
+            'quedate-atento' => 'novedades-port.jpg',
         ],
-        'subject' => 'Bem-vindos'
+        'subject' => 'Bem-vindos',
+        'url' => env('APP_URL').'/pt'
     ],
     'recuperar' => [
         'linea1' => 'Recebemos uma solicitação para restabelecer a senha da sua conta. Se for este o caso, ingresse novamente usando esta senha por única vez.',
@@ -20,7 +21,7 @@ return [
         'linea3' => 'Se você não solicitou o restabelecimento da senha, ignore este e-mail',
         'btn_texto' => 'RESTABLECER CONTRASE&Ntilde;A',
         'imagenes' => [
-            'recupera' => 'contraseña-portugues.png'
+            'recupera' => 'contrasena-port.jpg'
         ],
         'subject' => 'Magia del Uco - Nova Senha'
     ],

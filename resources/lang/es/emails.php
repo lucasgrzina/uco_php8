@@ -9,10 +9,11 @@ return [
         'texto' => 'A partir de ahora, para acceder a tu perfil, podrás hacerlo ingresando tu nombre de usuario <span style="color: #8E8063;">@USUARIO</span> y tu contraseña.',
         'btn_texto' => 'INGRESÁ AL SITIO',
         'imagenes' => [
-            'te-damos-la-bienvenida' => 'te-damos-la-bienvenida.jpg',
-            'quedate-atento' => 'quedate-atento.jpg',
+            'te-damos-la-bienvenida' => 'header-bienvenida-esp.jpg',
+            'quedate-atento' => 'novedades-esp.jpg',
         ],
-        'subject' => 'Bienvenido'
+        'subject' => 'Bienvenido',
+        'url' => env('APP_URL').'/es'
     ],
     'recuperar' => [
         'linea1' => 'Hemos recibido una solicitud para <strong>restablecer la contraseña</strong> de tu cuenta. Si es así, ingresá de nuevo utilizando esta por única vez; ',
@@ -20,7 +21,7 @@ return [
         'linea3' => 'Si no solicitaste el restablecimiento de la contraseña, ignorá este correo electrónico.',
         'btn_texto' => 'RESTABLECER CONTRASE&Ntilde;A',
         'imagenes' => [
-            'recupera' => 'recupera.png'
+            'recupera' => 'contrasena-esp.jpg'
         ],
         'subject' => 'Magia del Uco - Nueva clave'
     ],

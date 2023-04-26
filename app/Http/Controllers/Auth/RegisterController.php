@@ -48,10 +48,21 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         try {
+            $locale = 'es';
+            if (\Str::contains(request()->url(), 'en')) {
+                $locale = 'en';
+            } else if (\Str::contains(request()->url(), 'pt')) {
+                $locale = 'pt';
+            }
+
+
             $user = $this->create($request->all());
             event(new Registered($user));
 
-            $user->enviarNotificacionRegistro();
+
+            $user->enviarNotificacionRegistro($locale);
+            //throw new \Exception("Error Processing Request", 1);
+
             $this->guard()->login($user);
 
             $data = [
@@ -98,8 +109,6 @@ class RegisterController extends Controller
             $model = Registrado::create($data);
 
             //$model->enviarNotificacionRegistro();
-
-            //throw new \Exception("Error Processing Request", 1);
             DB::commit();
             return $model;
 
