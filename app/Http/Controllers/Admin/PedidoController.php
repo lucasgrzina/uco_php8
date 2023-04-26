@@ -98,6 +98,13 @@ class PedidoController extends CrudAdminController
         try {
             $model = $this->repository->with(['items.aniada.vino'])->findWithoutFail($id);
 
+            $productos = [];
+            foreach ($model->items as $item) {
+                for($x=0; $x < $item->cantidad; $x++) {
+                    array_push($productos, $item);
+                }
+            }
+
             $respuesta = $upsService->generarEnvio($id
                 ,$model->items
                 ,$model->direccion

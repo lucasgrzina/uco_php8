@@ -148,15 +148,22 @@ class CheckoutController extends AppBaseController
 
             $itemsCarrito = \Cart::getContent();
             $ids = [];
+            $productos = [];
+            $total = 0;
             foreach ($itemsCarrito as $item) {
                 $ids[] = $item->attributes->aniada_id;
+                for($x=0; $x < $item->quantity; $x++) {
+                    $producto = Aniada::with('vino')->where('id',$item->attributes->aniada_id)->first();
+                    array_push($productos, $producto);
+                }
+                $total += $item->quantity;
             }
-            $productos = Aniada::with('vino')->whereIn('id',$ids)->get();
+
             //logger($request->all());
             //logger([$request->pais->codigo, $request->cp]);
 
             $pais = Pais::find($request->pais_id);
-            $respuesta = $upsService->cotizarEnvio($pais->codigo, $request->cp, $productos);
+            $respuesta = $upsService->cotizarEnvio($pais->codigo, $request->cp, $request->calle, $request->ciudad, $productos);
             $salida = $respuesta;
 
             return $this->sendResponse($salida, trans('admin.success'));

@@ -37,5 +37,6 @@ return [
         ],
     ],
     'montoDatosFC' => 61534,
-    'montoEnvioGratis' => 35000
+    'montoEnvioGratis' => 35000,
+    'dolarUPS' => 40.71
 ];

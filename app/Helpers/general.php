@@ -50,6 +50,10 @@ if (!function_exists('formatoImporte')) {
     }
 }
 
+function obtenerDolarUPS() {
+    return config('constantes.dolarUPS');
+}
+
 function obtenerDolarOficial() {
     if (env('APP_ENV','local') === 'local') {
         return (float)env('COTIZACION_DOLAR','176.83');

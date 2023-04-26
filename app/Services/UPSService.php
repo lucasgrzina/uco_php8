@@ -14,11 +14,25 @@ class UPSService extends AppBaseController
 
     }
 
-    public function cotizarEnvio($codigoPais, $codigoPostal, $productos)
+    public function cotizarEnvio($codigoPais, $codigoPostal, $calle, $ciudad, $productos)
     {
-        $rate = new \Ups\Rate(config('ups.UPS_ACCESS_KEY'), config('ups.UPS_USERID'), config('ups.UPS_PASSWORD'), true);
+        $rate = new \Ups\Rate(config('ups.UPS_ACCESS_KEY'), config('ups.UPS_USERID'), config('ups.UPS_PASSWORD'), config('ups.UPS_INTEGRATION'));
         try {
             $shipment = new \Ups\Entity\Shipment();
+
+            $shipper = $shipment->getShipper();
+            $shipper->setShipperNumber(config('ups.UPS_USERID'));
+            $shipper->setName(config('ups.DIRECCION_DESDE.NOMBRE'));
+            $shipper->setAttentionName(config('ups.DIRECCION_DESDE.NOMBRE'));
+            $shipperAddress = $shipper->getAddress();
+            $shipperAddress->setAddressLine1(config('ups.DIRECCION_DESDE.DIRECCION'));
+            $shipperAddress->setPostalCode(config('ups.DIRECCION_DESDE.CODIGO_POSTAL'));
+            $shipperAddress->setCity(config('ups.DIRECCION_DESDE.PROVINCIA'));
+            $shipperAddress->setCountryCode(config('ups.DIRECCION_DESDE.PAIS'));
+            $shipper->setAddress($shipperAddress);
+            $shipper->setEmailAddress(config('ups.EMAIL'));
+            $shipper->setPhoneNumber(config('ups.TELEFONO'));
+            $shipment->setShipper($shipper);
 
             $address = new \Ups\Entity\Address();
             $address->setAttentionName(config('ups.DIRECCION_DESDE.NOMBRE'));
@@ -34,8 +48,8 @@ class UPSService extends AppBaseController
 
             $address = new \Ups\Entity\Address();
             $address->setAttentionName('Hasta');
-            //$address->setAddressLine1('4056 Ventura Canyon Ave');
-            //$address->setCity('Sherman Oaks');
+            $address->setAddressLine1($calle);
+            $address->setCity($ciudad);
             $address->setCountryCode($codigoPais);
             $address->setPostalCode($codigoPostal);
 
@@ -45,12 +59,13 @@ class UPSService extends AppBaseController
             $shipment->setShipTo($shipTo);
 
             $cajasEnvio = $this->calcularCajas($productos);
+            $peso = 0;
             foreach($cajasEnvio as $caja)
             {
                 $package = new \Ups\Entity\Package();
                 $package->getPackagingType()->setCode(\Ups\Entity\PackagingType::PT_PACKAGE);
                 $package->getPackageWeight()->setWeight($caja->peso);
-
+                $peso += $caja->peso;
                 // if you need this (depends of the shipper country)
                 $weightUnit = new \Ups\Entity\UnitOfMeasurement;
                 $weightUnit->setCode("KGS");
@@ -70,15 +85,22 @@ class UPSService extends AppBaseController
                 $shipment->addPackage($package);
             }
 
+            $service = new \Ups\Entity\Service;
+            $service->setCode(\Ups\Entity\Service::S_SAVER);
+            $service->setDescription($service->getName());
+            $shipment->setService($service);
+
             $rateInformation = new \Ups\Entity\RateInformation;
             $rateInformation->setNegotiatedRatesIndicator(1);
+            $rateInformation->setRateChartIndicator(1);
             $shipment->setRateInformation($rateInformation);
             $resultado = $rate->getRate($shipment);
-            $dolarOficial = obtenerDolarOficial();
+
+            $dolarOficial = obtenerDolarUPS();
             return [
-                'cotizacion' => $dolarOficial, 
-                'pesos' => ($resultado->RatedShipment[0]->TotalCharges->MonetaryValue * $dolarOficial) * 1.21, 
-                'dolares' => $resultado->RatedShipment[0]->TotalCharges->MonetaryValue
+                'cotizacion' => $dolarOficial,
+                'pesos' => ($resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue * $dolarOficial),
+                'dolares' => $resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue
             ];
         } catch (Exception $e) {
             throw $e;
@@ -255,12 +277,12 @@ class UPSService extends AppBaseController
         $rateInformation->setNegotiatedRatesIndicator(true);
         $shipment->setRateInformation($rateInformation);
 
-        $dolarOficial = obtenerDolarOficial();
+        $dolarOficial = obtenerDolarUPS();
 
         $respuesta = [];
         // Get shipment info
         try {
-            $api = new \Ups\Shipping(config('ups.UPS_ACCESS_KEY'), config('ups.UPS_USERID'), config('ups.UPS_PASSWORD'), true);
+            $api = new \Ups\Shipping(config('ups.UPS_ACCESS_KEY'), config('ups.UPS_USERID'), config('ups.UPS_PASSWORD'), config('ups.UPS_INTEGRATION'));
 
             $confirm = $api->confirm(\Ups\Shipping::REQ_VALIDATE, $shipment);
             /*
