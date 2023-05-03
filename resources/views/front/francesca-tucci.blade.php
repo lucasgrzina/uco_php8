@@ -19,7 +19,7 @@
 		<div class="row">
 			
 			<div class="col-md-12 col-text">
-				<div class="wrap-text fade_JS">
+				<div class="wrap-text ">
 					<h2 class="text-center">Coming soon</h2>
 					
 				</div>
