@@ -109,7 +109,7 @@
 	</div>
 </section>
 
-<section class="section-colecciones">
+<section class="section-colecciones pb-0">
 	<div class="container-fluid ">
 		<div class="row">
 			<div class="col-md-7  col-img ">
@@ -126,7 +126,7 @@
 	</div>
 </section>
 
-<section class="section-full-image " >
+<section class="section-full-image m-0" >
 	<div class="bg-content w-100 h-100 " style="background-image: url({{asset('img/full-image.jpg')}});">
 	<div class="container " >
 		<div class="row">

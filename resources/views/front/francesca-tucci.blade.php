@@ -18,6 +18,25 @@
 	<div class="container " >
 		<div class="row">
 			
+			<div class="col-md-12 col-text">
+				<div class="wrap-text fade_JS">
+					<h2 class="text-center">Coming soon</h2>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+
+@php 
+	if(1>2):
+@endphp
+<section class="section-free-text  m-0" >
+	
+	<div class="container " >
+		<div class="row">
+			
 			<div class="col-md-5 col-text">
 				<div class="wrap-text fade_JS">
 					<h2>{!! trans('front.paginas.francescaTucci.modulo1.titulo') !!}</h2>
@@ -63,4 +82,7 @@
 	</div>
 	</div>
 </section>
+@php 
+	endif;
+@endphp
 @endsection  

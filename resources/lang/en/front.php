@@ -216,7 +216,7 @@ return [
             ],
             'tucci' => [
                 'titulo' => 'Francesca Tucci',
-                'subtitulo' => '',
+                'subtitulo' => '“Wine poetry from afar, exploring all there is between earth and sky”',
                 'btn1' => 'ALL ABOUT FRANCESCA',
                 'btn2' => 'SHOP ONLINE',
             ],
