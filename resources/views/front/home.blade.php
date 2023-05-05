@@ -136,7 +136,7 @@
 					<h2>{!! trans('front.paginas.home.tucci.titulo') !!}</h2>
 					<p>{!! trans('front.paginas.home.tucci.subtitulo') !!}</p>
 					<a href="{{routeIdioma('francescaTucci')}}" class="btn-primary">{!! trans('front.paginas.home.tucci.btn1') !!}</a>
-					<a href="{{routeIdioma('colecciones.tucci')}}" class="btn-primary">{!! trans('front.paginas.home.tucci.btn2') !!}</a>
+					<!--a href="{{routeIdioma('colecciones.tucci')}}" class="btn-primary">{!! trans('front.paginas.home.tucci.btn2') !!}</a-->
 				</div>
 			</div>
 		</div>
