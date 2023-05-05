@@ -154,10 +154,11 @@ header {
 						.images{
 							position: absolute;
 							right:100%;
-							top: 23px;
+							top: 41px;
 							display: flex;
 							z-index: 3;
 							padding-right: 30px;
+							transform: rotate(3deg);
 							.img-prod{
 								position: relative;
 								float: left;

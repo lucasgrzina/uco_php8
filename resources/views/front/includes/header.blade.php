@@ -44,8 +44,7 @@
 
             <div class="submenu">
               <div class="images">
-                <img src="{{asset('img/vinos/vino-1.png')}}" class="img-prod" />
-                <img src="{{asset('img/vinos/vino-2.png')}}" class="img-prod" />
+                <img src="{{asset('img/vinos/vino-3.png')}}" class="img-prod" />
               </div>
               <div class="menu">
                 <ul>
