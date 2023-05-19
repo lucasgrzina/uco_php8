@@ -51,12 +51,12 @@ class SAPService extends AppBaseController
             $response = $this->client->send($request);
             return json_decode($response->getBody());
         }  catch (\Exception $ex) {
-            logger("SAP - ". $ex->getMessage());
+            \Log::channel('consola')->info("SAP - ". $ex->getMessage());
             dd("SAP - ". $ex->getMessage());
         }
 
         if($response->getStatusCode() != 200) {
-            logger("SAP - No hubo loggin - ". $response->getStatusCode());
+            \Log::channel('consola')->info("SAP - No hubo loggin - ". $response->getStatusCode());
             die();
         }
     }
@@ -80,9 +80,9 @@ class SAPService extends AppBaseController
             $response = $this->client->send($request);
             $productos = json_decode($response->getBody());
         }  catch (\Exception $ex) {
-            logger("SAP - ". $ex->getMessage());
+            \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
-        logger("SAP - Conexion OK");
+        \Log::channel('consola')->info("SAP - Conexion OK");
         foreach($productos->value as $producto)
         {
             if (($producto->PriceList == 2 || $producto->PriceList == 1) && $producto->ItemCode != "")
@@ -90,7 +90,7 @@ class SAPService extends AppBaseController
                 $aniada = Aniada::where('sku', $producto->ItemCode)->first();
 
                 if ($aniada != null) {
-                    logger($aniada);
+                    \Log::channel('consola')->info($aniada);
                     $aniada->stock = $producto->StockAlmacen;
                     if($producto->PriceList == 2) {
                         $aniada->precio_usd = $producto->Price;
@@ -101,7 +101,7 @@ class SAPService extends AppBaseController
                 }
             }
         }
-        logger("SAP - FIN");
+        \Log::channel('consola')->info("SAP - FIN");
     }
 
     public function consultarCliente($codigo)
@@ -124,7 +124,7 @@ class SAPService extends AppBaseController
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             dd($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
-            logger("SAP - ". $ex->getMessage());
+            \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
 
         return count($cliente->value) > 0 && $cliente->value[0]->CardCode === $codigo;
@@ -134,7 +134,7 @@ class SAPService extends AppBaseController
     public function altaCliente($pedido)
     {
         $login = $this->login();
-        logger("SAP - Alta Cliente");
+        \Log::channel('consola')->info("SAP - Alta Cliente");
         $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
 
         if ($this->consultarCliente($codigoCliente))
@@ -177,13 +177,13 @@ class SAPService extends AppBaseController
             $response = $this->client->send($request);
             $cliente = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
-            logger($ex->getResponse()->getBody()->getContents());
+            \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
             return false;
         }  catch (\Exception $ex) {
-            logger("SAP - ". $ex->getMessage());
+            \Log::channel('consola')->info("SAP - ". $ex->getMessage());
             return false;
         }
-        logger("SAP - Fin Cliente");
+        \Log::channel('consola')->info("SAP - Fin Cliente");
         return isset($cliente->CardCode);
     }
 
@@ -193,7 +193,7 @@ class SAPService extends AppBaseController
 
         $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
         $this->altaCliente($pedido);
-        logger("SAP - Alta venta");
+        \Log::channel('consola')->info("SAP - Alta venta");
         $venta["CardCode"] = $codigoCliente;
         $venta["DocDate"] = "DateTime.Now";
         $venta["DocDueDate"] = "DateTime.Now";
@@ -230,7 +230,7 @@ class SAPService extends AppBaseController
 
         $venta["DocumentLines"] = $itemsVenta;
 
-        logger(json_encode($venta));
+        \Log::channel('consola')->info(json_encode($venta));
 
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/Invoices");
 
@@ -242,7 +242,7 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $venta = json_decode($response->getBody());
-            logger($response->getBody());
+            \Log::channel('consola')->info($response->getBody());
             $pedido->documento_sap = $venta->DocEntry;
             $pedido->sincronizo_sap = true;
             $pedido->save();
@@ -251,13 +251,13 @@ class SAPService extends AppBaseController
             $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $error->error->message->value;
             $pedido->save();
-            logger($ex->getResponse()->getBody()->getContents());
+            \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
             $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $ex->getMessage();
             $pedido->save();
         }
-        logger("SAP - Fin pedido");
+        \Log::channel('consola')->info("SAP - Fin pedido");
     }
 
     public function altaPedido($pedido)
@@ -266,7 +266,7 @@ class SAPService extends AppBaseController
 
         $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
         $this->altaCliente($pedido);
-        logger("SAP - Alta pedido");
+        \Log::channel('consola')->info("SAP - Alta pedido");
         $venta["CardCode"] = $codigoCliente;
         $venta["DocDueDate"] = Carbon::now()->format('Y-m-d');
         $venta["DocCurrency"] = "ARS";
@@ -300,7 +300,7 @@ class SAPService extends AppBaseController
 
         $venta["DocumentLines"] = $itemsVenta;
 
-        logger(json_encode($venta));
+        \Log::channel('consola')->info(json_encode($venta));
 
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/Invoices");
 
@@ -312,7 +312,7 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $venta = json_decode($response->getBody());
-            logger($response->getBody());
+            \Log::channel('consola')->info($response->getBody());
             $pedido->documento_sap = $venta->DocEntry;
             $pedido->sincronizo_sap = true;
             $pedido->sincronizo_pago = true;
@@ -322,22 +322,22 @@ class SAPService extends AppBaseController
             $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $error->error->message->value;
             $pedido->save();
-            logger($ex->getResponse()->getBody()->getContents());
+            \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
             $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $ex->getMessage();
             $pedido->save();
         }
-        logger("SAP - Fin pedido");
+        \Log::channel('consola')->info("SAP - Fin pedido");
     }
 
     public function sincronizarVentas()
     {
         $pedidosPendientes = Pedido::whereSincronizoSap(false)->whereNull('error_sincronizacion_sap')->get();
-        logger("SAP - Ventas");
+        \Log::channel('consola')->info("SAP - Ventas");
 
         if(count($pedidosPendientes) == 0) {
-            logger("SAP - Sin Ventas");
+            \Log::channel('consola')->info("SAP - Sin Ventas");
             return false;
         }
 
@@ -365,7 +365,7 @@ class SAPService extends AppBaseController
     public function sincronizarPagos()
     {
         $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->whereSincronizoPago(false)->whereNull('error_sincronizacion_sap')->get();
-        logger("SAP - Pagos");
+        \Log::channel('consola')->info("SAP - Pagos");
         $login = $this->login();
 
         if(count($pedidosPendientes) == 0) {
@@ -385,7 +385,7 @@ class SAPService extends AppBaseController
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             dd($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
-            logger("SAP - ". $ex->getMessage());
+            \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
 
         $tarjetasArr = [];
@@ -431,7 +431,7 @@ class SAPService extends AppBaseController
                 $pedido->save();
             }
 
-            logger("SAP - Fin Pagos");
+            \Log::channel('consola')->info("SAP - Fin Pagos");
         }
     }
 }
