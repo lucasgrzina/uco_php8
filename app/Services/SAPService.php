@@ -248,10 +248,10 @@ class SAPService extends AppBaseController
             $pedido->save();
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             $error = json_decode($ex->getResponse()->getBody()->getContents());
-            logger($ex->getResponse()->getBody()->getContents());
             $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $error->error->message->value;
             $pedido->save();
+            logger($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
             $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $ex->getMessage();
@@ -319,10 +319,10 @@ class SAPService extends AppBaseController
             $pedido->save();
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             $error = json_decode($ex->getResponse()->getBody()->getContents());
-            dd($error);
             $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $error->error->message->value;
             $pedido->save();
+            logger($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
             $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $ex->getMessage();
