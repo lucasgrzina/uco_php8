@@ -333,7 +333,10 @@ class SAPService extends AppBaseController
 
     public function sincronizarVentas()
     {
-        $pedidosPendientes = Pedido::whereSincronizoSap(false)->whereNull('error_sincronizacion_sap')->get();
+        $pedidosPendientes = Pedido::whereSincronizoSap(false)->where(function($q) {
+            $q->whereNull('error_sincronizacion_sap')->orWhere('error_sincronizacion_sap', '');
+        })->get();
+
         \Log::channel('consola')->info("SAP - Ventas");
 
         if(count($pedidosPendientes) == 0) {
@@ -364,7 +367,10 @@ class SAPService extends AppBaseController
 
     public function sincronizarPagos()
     {
-        $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->whereSincronizoPago(false)->whereNull('error_sincronizacion_sap')->get();
+        $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->whereSincronizoPago(false)->where(function($q) {
+            $q->whereNull('error_sincronizacion_sap')->orWhere('error_sincronizacion_sap', '');
+        })->get();
+
         \Log::channel('consola')->info("SAP - Pagos");
         $login = $this->login();
 
