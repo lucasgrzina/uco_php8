@@ -285,11 +285,11 @@ class UPSService extends AppBaseController
             $api = new \Ups\Shipping(config('ups.UPS_ACCESS_KEY'), config('ups.UPS_USERID'), config('ups.UPS_PASSWORD'), config('ups.UPS_INTEGRATION'));
 
             $confirm = $api->confirm(\Ups\Shipping::REQ_VALIDATE, $shipment);
-            /*
-                logger(json_decode( json_encode($confirm), true));
+
+                logger(json_encode($confirm));
                 logger($confirm->ShipmentCharges->TotalCharges->MonetaryValue); // Confirm holds the digest you need to accept the result
                 logger($confirm->ShipmentIdentificationNumber); // Confirm holds the digest you need to accept the result
-            */
+
             if ($confirm) {
                 $accept = $api->accept($confirm->ShipmentDigest);
                 $respuesta = [
@@ -297,8 +297,8 @@ class UPSService extends AppBaseController
                     'digest' => $confirm->ShipmentDigest,
                     'etiqueta' => $accept->PackageResults->LabelImage->GraphicImage,
                     'cotizacion_usd' => $dolarOficial,
-                    'pesos' => ($confirm->ShipmentCharges->TotalCharges->MonetaryValue * $dolarOficial)  * 1.21,
-                    'dolares' => $confirm->ShipmentCharges->TotalCharges->MonetaryValue,
+                    'pesos' => ($confirm->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue * $dolarOficial)  * 1.21,
+                    'dolares' => $confirm->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue,
                 ];
 
                 //logger(json_decode( json_encode($accept), true));

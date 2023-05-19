@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command(SincronizarSAP::class)->hourly()->withoutOverlapping();
+        $schedule->command(SincronizarSAP::class)->everyThirtyMinutes()->withoutOverlapping();
         $schedule->command(SincronizarVentasSAP::class)->everyFiveMinutes()->withoutOverlapping();
     }
 
