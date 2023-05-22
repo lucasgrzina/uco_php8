@@ -148,7 +148,7 @@ class SAPService extends AppBaseController
         $cliente["U_B1SYS_FiscIdType"] = $pedido->tipo_factura == 'A' ? 80 : 96;
         $cliente["U_B1SYS_VATCtg"] = $pedido->tipo_factura == 'A' ? "RI" : "CF";
         $cliente["FederalTaxID"] = ($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
-        $cliente["GroupCode"] = 192228;
+        $cliente["GroupCode"] = 202;
         $cliente["SalesPersonCode"] = 5;
         $cliente["PriceListNum"] = 2;
         $cliente["EmailAddress"] = $pedido->email;
