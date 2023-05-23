@@ -54,8 +54,7 @@ $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
-echo 1;
-exit;
+
 $response->send();
 
 $kernel->terminate($request, $response);
