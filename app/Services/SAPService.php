@@ -389,6 +389,7 @@ class SAPService extends AppBaseController
             $response = $this->client->send($request);
             $tarjetas = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
+            \Log::channel('consola')->info("SAP - ". $ex->getResponse()->getBody()->getContents());
             dd($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
