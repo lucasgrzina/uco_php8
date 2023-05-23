@@ -56,7 +56,10 @@ $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );
 echo 1;
-exit;
+
 $response->send();
+echo 2;
 
 $kernel->terminate($request, $response);
+echo 3;
+exit;
