@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Excel;
+use Illuminate\Http\Request as Excel;
+//use Maatwebsite\Excel\Excel;
 
 class ExportController extends Controller
 {
