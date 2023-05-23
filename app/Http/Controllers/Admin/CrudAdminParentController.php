@@ -8,7 +8,7 @@ use App\Http\Controllers\AppBaseController;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
+//use Maatwebsite\Excel\Facades\Excel;
 
 class CrudAdminParentController extends AppBaseController
 {
@@ -261,7 +261,7 @@ class CrudAdminParentController extends AppBaseController
     protected function _exportXls($data=[],$header = [],$format = [],$name='export')
     {
         $_name = $name . '_'. Carbon::now()->format('Ymd') . '.xlsx';
-        return Excel::download(new GeneralExport($data,$header,$format),$_name);
+        //return Excel::download(new GeneralExport($data,$header,$format),$_name);
     }
 
     protected function _destroy($model)
