@@ -18,6 +18,11 @@ class SAPService extends AppBaseController
 
     public function __construct()
     {
+
+    }
+
+    public function login()
+    {
         $this->host = env("SAP_HOST");
         $this->port = env("SAP_POST");
         $this->client = new Client([
@@ -30,10 +35,7 @@ class SAPService extends AppBaseController
                 'timeout' => 30000
             ]
         ]);
-    }
 
-    public function login()
-    {
         // Login credentials
         $body = [
             "UserName" => env("SAP_USERNAME"),
@@ -64,6 +66,19 @@ class SAPService extends AppBaseController
     public function sincronizarProductos()
     {
         $login = $this->login();
+
+        $this->host = env("SAP_HOST");
+        $this->port = env("SAP_POST");
+        $this->client = new Client([
+            'verify' => false,
+            'defaults' => [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                ],
+                'timeout' => 30000
+            ]
+        ]);
 
         $param = [
             "\$select" => "ItemCode,ItemName,StockTotal,PriceList,Price,Currency,WhsCode,StockAlmacen"
@@ -108,6 +123,19 @@ class SAPService extends AppBaseController
     {
         $login = $this->login();
 
+        $this->host = env("SAP_HOST");
+        $this->port = env("SAP_POST");
+        $this->client = new Client([
+            'verify' => false,
+            'defaults' => [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                ],
+                'timeout' => 30000
+            ]
+        ]);
+
         $param["\$filter"] = "(CardCode eq '{$codigo}')";
         $param["\$select"] = "CardCode,CardName,FederalTaxID,EmailAddress,BPAddresses";
 
@@ -134,6 +162,20 @@ class SAPService extends AppBaseController
     public function altaCliente($pedido)
     {
         $login = $this->login();
+
+        $this->host = env("SAP_HOST");
+        $this->port = env("SAP_POST");
+        $this->client = new Client([
+            'verify' => false,
+            'defaults' => [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                ],
+                'timeout' => 30000
+            ]
+        ]);
+
         \Log::channel('consola')->info("SAP - Alta Cliente");
         $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
 
@@ -194,6 +236,20 @@ class SAPService extends AppBaseController
         $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
         $this->altaCliente($pedido);
         \Log::channel('consola')->info("SAP - Alta venta");
+
+        $this->host = env("SAP_HOST");
+        $this->port = env("SAP_POST");
+        $this->client = new Client([
+            'verify' => false,
+            'defaults' => [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                ],
+                'timeout' => 30000
+            ]
+        ]);
+
         $venta["CardCode"] = $codigoCliente;
         $venta["DocDate"] = "DateTime.Now";
         $venta["DocDueDate"] = "DateTime.Now";
@@ -267,6 +323,20 @@ class SAPService extends AppBaseController
         $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
         $this->altaCliente($pedido);
         \Log::channel('consola')->info("SAP - Alta pedido");
+
+        $this->host = env("SAP_HOST");
+        $this->port = env("SAP_POST");
+        $this->client = new Client([
+            'verify' => false,
+            'defaults' => [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                ],
+                'timeout' => 30000
+            ]
+        ]);
+
         $venta["CardCode"] = $codigoCliente;
         $venta["DocDueDate"] = Carbon::now()->format('Y-m-d');
         $venta["DocCurrency"] = "ARS";
@@ -377,6 +447,19 @@ class SAPService extends AppBaseController
         if(count($pedidosPendientes) == 0) {
             return false;
         }
+
+        $this->host = env("SAP_HOST");
+        $this->port = env("SAP_POST");
+        $this->client = new Client([
+            'verify' => false,
+            'defaults' => [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                ],
+                'timeout' => 30000
+            ]
+        ]);
 
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/SQLQueries('ConsultarTC')/List");
 
