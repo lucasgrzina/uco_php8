@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Excel;
+//use Maatwebsite\Excel\Excel;
 
 class ExportController extends Controller
 {
@@ -52,7 +52,7 @@ class ExportController extends Controller
                 $data = $user_repo->all()->toArray();
                 //return respo
                 break;
-            
+
             default:
                 # code...
                 break;
