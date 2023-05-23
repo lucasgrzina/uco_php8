@@ -40,7 +40,7 @@ class SAPService extends AppBaseController
             "Password" => env("SAP_PASSWORD"),
             "CompanyDB" => env("SAP_COMPANY"),
         ];
-        dd(env("SAP_USERNAME"),  env("SAP_HOST"), $this);
+
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/Login");
 
         $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
