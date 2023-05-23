@@ -350,9 +350,9 @@ class SAPService extends AppBaseController
             {
                 if( $pedido->tipo_factura == 'A')
                 {
-                    $this->altaPedido($pedido);
+                   // $this->altaPedido($pedido);
                 } else{
-                    $this->altaVenta($pedido);
+                   // $this->altaVenta($pedido);
                 }
 
             } catch (\Exception $ex) {
@@ -407,11 +407,11 @@ class SAPService extends AppBaseController
             $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
             $venta["CardCode"] = $codigoCliente;
             $venta["PaymentInvoices"]["DocEntry"] = $pedido->documento_sap;
-            $venta["PaymentCreditCards"]["CreditCard"] = $tarjetas[$pedido->tipo_tarjeta];
+            $venta["PaymentCreditCards"]["CreditCard"] = array_key_exists($pedido->tipo_tarjeta, $tarjetasArr) ? $tarjetasArr[$pedido->tipo_tarjeta] : 2;
             $venta["PaymentCreditCards"]["CreditCardNumber"] = $pedido->tarjeta;
             $venta["PaymentCreditCards"]["CardValidUntil"] = $pedido->tarjeta_exp;
             $venta["VoucherNum"]["CardValidUntil"] = $pedido->numero_voucher;
-            $venta["VoucherNum"]["CreditSum"] = $pedido->$pedido->total_envio;
+            $venta["VoucherNum"]["CreditSum"] = $pedido->total_envio;
 
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/IncomingPayments");
 
@@ -424,7 +424,7 @@ class SAPService extends AppBaseController
                 $response = $this->client->send($request);
                 $venta = json_decode($response->getBody());
 
-                $pedido->sincronizo_pago = true;
+                $pedido->sincronizo_pago = 1;
                 $pedido->save();
             }  catch (\GuzzleHttp\Exception\RequestException $ex) {
                 $error = json_decode($ex->getResponse()->getBody()->getContents());
