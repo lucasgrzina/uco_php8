@@ -51,14 +51,9 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
-try {
-    $response = $kernel->handle(
-        $request = Illuminate\Http\Request::capture()
-    );
-
-} catch(\Exception $e) {
-    echo $e->getMessage();
-}
+$response = $kernel->handle(
+    $request = Illuminate\Http\Request::capture()
+);
 
 $response->send();
 
