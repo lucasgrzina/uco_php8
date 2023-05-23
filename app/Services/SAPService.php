@@ -120,6 +120,8 @@ class SAPService extends AppBaseController
 
         try {
             $response = $this->client->send($request);
+            \Log::channel('consola')->info('cliente');
+            \Log::channel('consola')->info($response->getBody());
             $cliente = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             dd($ex->getResponse()->getBody()->getContents());
@@ -175,6 +177,8 @@ class SAPService extends AppBaseController
 
         try {
             $response = $this->client->send($request);
+            \Log::channel('consola')->info('alta cliente');
+            \Log::channel('consola')->info($response->getBody());
             $cliente = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
@@ -242,6 +246,7 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $venta = json_decode($response->getBody());
+            \Log::channel('consola')->info('alta pedido');
             \Log::channel('consola')->info($response->getBody());
             $pedido->documento_sap = $venta->DocEntry;
             $pedido->sincronizo_sap = true;
