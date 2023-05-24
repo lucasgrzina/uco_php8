@@ -79,6 +79,7 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $productos = json_decode($response->getBody());
+            dd($productos);
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
@@ -234,8 +235,6 @@ class SAPService extends AppBaseController
 
         $venta["DocumentLines"] = $itemsVenta;
 
-        \Log::channel('consola')->info(json_encode($venta));
-
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/Invoices");
 
         $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
@@ -247,18 +246,15 @@ class SAPService extends AppBaseController
             $response = $this->client->send($request);
             $venta = json_decode($response->getBody());
             \Log::channel('consola')->info('alta pedido');
-            \Log::channel('consola')->info($response->getBody());
             $pedido->documento_sap = $venta->DocEntry;
             $pedido->sincronizo_sap = true;
             $pedido->save();
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             $error = json_decode($ex->getResponse()->getBody()->getContents());
-            $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $error->error->message->value;
             $pedido->save();
             \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
-            $pedido->sincronizo_sap = false;
             $pedido->error_sincronizacion_sap = $ex->getMessage();
             $pedido->save();
         }
@@ -304,10 +300,9 @@ class SAPService extends AppBaseController
         }
 
         $venta["DocumentLines"] = $itemsVenta;
-
-        \Log::channel('consola')->info(json_encode($venta));
-
-        $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/Invoices");
+        //logger("https://{$this->host}:{$this->port}/b1s/v1/Orders");
+        //logger(json_encode($venta));
+        $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/Orders");
 
         $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
             'Content-Type' => 'application/json',
@@ -317,6 +312,7 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $venta = json_decode($response->getBody());
+            //dd($venta);
             \Log::channel('consola')->info($response->getBody());
             $pedido->documento_sap = $venta->DocEntry;
             $pedido->sincronizo_sap = true;
@@ -324,12 +320,12 @@ class SAPService extends AppBaseController
             $pedido->save();
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             $error = json_decode($ex->getResponse()->getBody()->getContents());
-            $pedido->sincronizo_sap = false;
+            //dd($error);
             $pedido->error_sincronizacion_sap = $error->error->message->value;
             $pedido->save();
             \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
-            $pedido->sincronizo_sap = false;
+            //dd($ex);
             $pedido->error_sincronizacion_sap = $ex->getMessage();
             $pedido->save();
         }
@@ -351,6 +347,9 @@ class SAPService extends AppBaseController
 
         foreach($pedidosPendientes as $pedido)
         {
+            $pedido->sincronizo_sap = true;
+            $pedido->save();
+
             try
             {
                 if( $pedido->tipo_factura == 'A')
@@ -361,7 +360,6 @@ class SAPService extends AppBaseController
                 }
 
             } catch (\Exception $ex) {
-                $pedido->sincronizo_sap = false;
                 $pedido->error_sincronizacion_sap = $ex->getMessage();
                 $pedido->save();
             }
@@ -409,6 +407,9 @@ class SAPService extends AppBaseController
 
         foreach($pedidosPendientes as $pedido)
         {
+            $pedido->sincronizo_pago = 1;
+            $pedido->save();
+
             $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
             $venta["CardCode"] = $codigoCliente;
             $venta["PaymentInvoices"]["DocEntry"] = $pedido->documento_sap;
@@ -433,12 +434,9 @@ class SAPService extends AppBaseController
                 $pedido->save();
             }  catch (\GuzzleHttp\Exception\RequestException $ex) {
                 $error = json_decode($ex->getResponse()->getBody()->getContents());
-
-                $pedido->sincronizo_sap = false;
                 $pedido->error_sincronizacion_sap = $error->error->message->value;
                 $pedido->save();
             }  catch (\Exception $ex) {
-                $pedido->sincronizo_sap = false;
                 $pedido->error_sincronizacion_sap = $ex->getMessage();
                 $pedido->save();
             }
