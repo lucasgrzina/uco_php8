@@ -166,7 +166,7 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
-        Barryvdh\Debugbar\ServiceProvider::class,
+        //Barryvdh\Debugbar\ServiceProvider::class,
         //Barryvdh\Cors\ServiceProvider::class,
 
 	//\Fruitcake\Cors\HandleCors::class,
@@ -245,7 +245,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'FUHelper' => App\Helpers\FileUploadHelper::class,
         'AdminHelper' => App\Helpers\AdminHelper::class,
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        //'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
