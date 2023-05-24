@@ -28,8 +28,19 @@ class AppServiceProvider extends ServiceProvider
             'stage.magiadeluco.com',
             'www.magiadeluco.com',
             'magiadeluco.com',
+
             'magiadeuco.com',
             'www.magiadeuco.com',
+
+            'magiadeuco.com.ar',
+            'www.magiadeuco.com.ar',
+
+            'francescatucci.com',
+            'www.francescatucci.com',
+
+            'francescatucci.com.ar',
+            'www.francescatucci.com.ar',
+
         ];
 
         if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host))
