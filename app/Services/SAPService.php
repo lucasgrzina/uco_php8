@@ -355,9 +355,9 @@ class SAPService extends AppBaseController
             {
                 if( $pedido->tipo_factura == 'A')
                 {
-                   // $this->altaPedido($pedido);
+                   $this->altaPedido($pedido);
                 } else{
-                   // $this->altaVenta($pedido);
+                   $this->altaVenta($pedido);
                 }
 
             } catch (\Exception $ex) {
