@@ -27,7 +27,9 @@ class AppServiceProvider extends ServiceProvider
             'localhost',
             'stage.magiadeluco.com',
             'www.magiadeluco.com',
-            'magiadeluco.com'
+            'magiadeluco.com',
+            'magiadeuco.com',
+            'www.magiadeuco.com',
         ];
 
         if (!isset($_SERVER['HTTP_HOST']) || !in_array($_SERVER['HTTP_HOST'], $allowed_host))
