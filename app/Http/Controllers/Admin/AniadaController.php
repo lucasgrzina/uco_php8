@@ -38,7 +38,7 @@ class AniadaController extends CrudAdminParentController
         try
         {
             $this->repository->pushCriteria(new RequestCriteria($request));
-            $collection = $this->repository->with(['updater','vino'])->scopeQuery(function($q) use($parentId){
+            $collection = $this->repository->with(['vino'])->scopeQuery(function($q) use($parentId){
                 return $q->whereVinoId($parentId);
             })->paginate($request->get('per_page'))->toArray();
 
