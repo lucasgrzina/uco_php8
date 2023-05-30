@@ -213,12 +213,11 @@ _methods._call = function (path,method,data) {
                 if (response.body.errors === 'LOGIN') {
                     document.location = _this.url_login;
                 } else {
-                    reject(response.body.errors);
+                    reject(response.body.errors ? response.body.errors : response.body.message);
                 }
 
             }
         }, function(response) {
-            console.debug(response);
             switch (response.status) {
                 case 422:
                     //Validacion de laravel

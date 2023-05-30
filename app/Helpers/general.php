@@ -61,7 +61,6 @@ function obtenerDolarOficial() {
 
     $fecha = Carbon::yesterday()->format('Y-m-d');
     if (\Cache::has('dolar-'.$fecha)) {
-        logger('dolar cache');
         return \Cache::get('dolar-'.$fecha);
     }
 

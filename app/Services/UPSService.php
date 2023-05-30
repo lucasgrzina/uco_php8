@@ -286,10 +286,6 @@ class UPSService extends AppBaseController
 
             $confirm = $api->confirm(\Ups\Shipping::REQ_VALIDATE, $shipment);
 
-                logger(json_encode($confirm));
-                logger($confirm->ShipmentCharges->TotalCharges->MonetaryValue); // Confirm holds the digest you need to accept the result
-                logger($confirm->ShipmentIdentificationNumber); // Confirm holds the digest you need to accept the result
-
             if ($confirm) {
                 $accept = $api->accept($confirm->ShipmentDigest);
                 $respuesta = [
