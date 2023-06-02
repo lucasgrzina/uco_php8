@@ -78,7 +78,7 @@ class Registrado extends Authenticatable
     public function enviarNotificacionRegistro($locale)
     {
         try {
-            \Log::info(request()->url());
+            //\Log::info(request()->url());
             app()->setLocale(\Request::segment(0));
             $this->notify(new NotificacionRegistro($this,$locale));
         } catch (\Exception $e) {

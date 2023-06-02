@@ -48,6 +48,7 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         try {
+            DB::beginTransaction();
             $locale = 'es';
             if (\Str::contains(request()->url(), 'en')) {
                 $locale = 'en';
@@ -58,6 +59,7 @@ class RegisterController extends Controller
 
             $user = $this->create($request->all());
             event(new Registered($user));
+            //throw new \Exception("Error Processing Request", 1);
 
 
             $user->enviarNotificacionRegistro($locale);
@@ -69,10 +71,11 @@ class RegisterController extends Controller
                 'user' => $this->guard()->user(),
                 'url_redirect' => false
             ];
-
+            DB::commit();
             return response()->json(ResponseUtil::makeResponse('La operación finalizó con éxito', $data));
 
         } catch (\Exception $e) {
+            DB::rollback();
             return response()->json(ResponseUtil::makeError($e->getMessage(), []));
         }
 

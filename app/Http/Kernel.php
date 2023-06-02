@@ -68,7 +68,7 @@ class Kernel extends HttpKernel
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
         'permission' => \App\Http\Middleware\AuthMiddleware::class,
         'check.country' => \App\Http\Middleware\CheckUserCountry::class,
-	'checkout' => \App\Http\Middleware\CheckoutMiddleware::class
+	    'checkout' => \App\Http\Middleware\CheckoutMiddleware::class
     ];
 
     /**

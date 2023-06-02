@@ -28,7 +28,7 @@ class CambiarPasswordRequest extends FormRequest
         $rules = \Arr::only(Registrado::$rules,['password']);
         $rules['password'] = explode('|',$rules['password']);
         array_shift($rules['password']);
-        logger($rules);
+        //logger($rules);
         return $rules;
     }
 }
