@@ -64,7 +64,7 @@ class SAPService extends AppBaseController
     public function sincronizarProductos()
     {
         $login = $this->login();
-
+        \Log::channel('consola')->info("SAP - Productos");
         $param = [
             "\$select" => "ItemCode,ItemName,StockTotal,PriceList,Price,Currency,WhsCode,StockAlmacen"
         ];
@@ -79,19 +79,19 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $productos = json_decode($response->getBody());
-            dd($productos);
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
-        \Log::channel('consola')->info("SAP - Conexion OK");
+
         foreach($productos->value as $producto)
         {
             if (($producto->PriceList == 2 || $producto->PriceList == 1) && $producto->ItemCode != "")
             {
+                \Log::channel('consola')->info($producto->ItemCode);
                 $aniada = Aniada::where('sku', $producto->ItemCode)->first();
-
+                \Log::channel('consola')->info($aniada);
                 if ($aniada != null) {
-                    \Log::channel('consola')->info($aniada);
+
                     $aniada->stock = $producto->StockAlmacen;
                     if($producto->PriceList == 2) {
                         $aniada->precio_usd = $producto->Price;
@@ -130,7 +130,7 @@ class SAPService extends AppBaseController
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
 
-        return count($cliente->value) > 0 && $cliente->value[0]->CardCode === $codigo;
+        return count($cliente->value) > 0 && $cliente->value[0]->CardCode == $codigo;
     }
 
 
@@ -138,19 +138,14 @@ class SAPService extends AppBaseController
     {
         $login = $this->login();
         \Log::channel('consola')->info("SAP - Alta Cliente");
-        $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
-
-        if ($this->consultarCliente($codigoCliente))
-        {
-            return false;
-        }
+        $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
 
         $cliente["CardCode"] = $codigoCliente;     		//C + NRO DE DOCUMENTO
-        $cliente["CardName"] = $pedido->tipo_factura == 'A' ? $pedido->razon_social : $pedido->nombre. ' ' .$pedido->apellido;
+        $cliente["CardName"] = $pedido->tipo_factura == 'A' ? $pedido->razon_social : $pedido->nombre_fc. ' ' .$pedido->apellido_fc;
         $cliente["CardType"] = "C";
         $cliente["U_B1SYS_FiscIdType"] = $pedido->tipo_factura == 'A' ? 80 : 96;
         $cliente["U_B1SYS_VATCtg"] = $pedido->tipo_factura == 'A' ? "RI" : "CF";
-        $cliente["FederalTaxID"] = ($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
+        $cliente["FederalTaxID"] = ($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
         $cliente["GroupCode"] = 202;
         $cliente["SalesPersonCode"] = 5;
         $cliente["PriceListNum"] = 2;
@@ -169,18 +164,32 @@ class SAPService extends AppBaseController
 
         array_push($cliente["BPAddresses"], $direccion);
 
-        $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/BusinessPartners");
+        if ($this->consultarCliente($codigoCliente))
+        {
+            $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/BusinessPartners('{$codigoCliente}')");
 
-        $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
-            'Content-Type' => 'application/json',
-            'Cookie' => 'B1SESSION='.$login->SessionId
-        ], json_encode($cliente));
+            $request = new Psr7\Request('PATCH', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
+                'Content-Type' => 'application/json',
+                'Cookie' => 'B1SESSION='.$login->SessionId
+            ], json_encode($cliente));
+            \Log::channel('consola')->info($uri);
+            \Log::channel('consola')->info(json_encode($cliente));
+            \Log::channel('consola')->info('PATCH');
+        } else {
+            $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/BusinessPartners");
+
+            $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
+                'Content-Type' => 'application/json',
+                'Cookie' => 'B1SESSION='.$login->SessionId
+            ], json_encode($cliente));
+        }
 
         try {
             $response = $this->client->send($request);
             \Log::channel('consola')->info('alta cliente');
             \Log::channel('consola')->info($response->getBody());
             $cliente = json_decode($response->getBody());
+
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
             return false;
@@ -188,6 +197,7 @@ class SAPService extends AppBaseController
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
             return false;
         }
+        dd(1);
         \Log::channel('consola')->info("SAP - Fin Cliente");
         return isset($cliente->CardCode);
     }
@@ -196,7 +206,7 @@ class SAPService extends AppBaseController
     {
         $login = $this->login();
 
-        $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
+        $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
         $this->altaCliente($pedido);
         \Log::channel('consola')->info("SAP - Alta venta");
         $venta["CardCode"] = $codigoCliente;
@@ -265,7 +275,7 @@ class SAPService extends AppBaseController
     {
         $login = $this->login();
 
-        $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
+        $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
         $this->altaCliente($pedido);
         \Log::channel('consola')->info("SAP - Alta pedido");
         $venta["CardCode"] = $codigoCliente;
@@ -410,7 +420,7 @@ class SAPService extends AppBaseController
             $pedido->sincronizo_pago = 1;
             $pedido->save();
 
-            $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni);
+            $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
             $venta["CardCode"] = $codigoCliente;
             $venta["PaymentInvoices"]["DocEntry"] = $pedido->documento_sap;
             $venta["PaymentCreditCards"]["CreditCard"] = array_key_exists($pedido->tipo_tarjeta, $tarjetasArr) ? $tarjetasArr[$pedido->tipo_tarjeta] : 2;
