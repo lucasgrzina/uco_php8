@@ -82,6 +82,7 @@ class PedidoController extends CrudAdminController
     public function edit($id)
     {
         parent::edit($id);
+        $this->data['selectedItem']->load(['registrado','pais','items.aniada.vino']);
 
         return view($this->viewPrefix.'cu')->with('data',$this->data);
     }

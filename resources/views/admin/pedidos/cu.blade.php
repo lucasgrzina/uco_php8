@@ -28,11 +28,46 @@
                 <div class="row">
                         @include('admin.pedidos.fields')
                 </div>
+                <div class="table-responsive">
+                    <table class="table m-b-0" id="pedidos-table">
+                        <thead>
+                            <tr>
+                                <th>Vino/Añada</th>
+                                <th class="text-center">Cantidad</th>
+                                <th class="text-right">Precio Unitario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="item in selectedItem.items">
+                                <td>(% item.aniada && item.aniada.vino ? item.aniada.vino.titulo : '--' %) ((% item.aniada ? item.aniada.anio : '' %))</td>
+                                <td class="text-center">
+                                    (% item.cantidad %)
+                                </td>
+                                <td class="text-right">(% item.precio_pesos | currency %)</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="2">Subtotal</th>
+                                <th class="text-right">(% selectedItem.total_carrito | currency %)</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Costo de envío</th>
+                                <th class="text-right">(% selectedItem.total_envio | currency %)</th>
+                            </tr>
+                            <tr>
+                                <th colspan="2">Total</th>
+                                <th class="text-right">(% selectedItem.total | currency %)</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+
             </div>
             <div class="box-footer text-right">
                 <button-type type="save" :promise="store"></button-type>
                 <button-type type="cancel" @click="cancel()"></button-type>
-            </div>            
-        </div>    
+            </div>
+        </div>
     </div>
 @endsection
