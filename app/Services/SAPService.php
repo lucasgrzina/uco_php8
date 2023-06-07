@@ -85,6 +85,7 @@ class SAPService extends AppBaseController
 
         foreach($productos->value as $producto)
         {
+            \Log::channel('consola')->info(json_encode($producto->ItemCode));
             if (($producto->PriceList == 2 || $producto->PriceList == 1) && $producto->ItemCode != "")
             {
 
