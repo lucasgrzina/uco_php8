@@ -87,9 +87,9 @@ class SAPService extends AppBaseController
         {
             if (($producto->PriceList == 2 || $producto->PriceList == 1) && $producto->ItemCode != "")
             {
-                \Log::channel('consola')->info(json_encode($producto));
+
                 $aniada = Aniada::where('sku', $producto->ItemCode)->first();
-                \Log::channel('consola')->info($aniada);
+
                 if ($aniada != null) {
 
                     $aniada->stock = $producto->StockAlmacen;
@@ -98,7 +98,10 @@ class SAPService extends AppBaseController
                     } else {
                         $aniada->precio_pesos = $producto->Price * 1.21;
                     }
+                    \Log::channel('consola')->info(json_encode($aniada));
                     $aniada->save();
+
+
                 }
             }
         }
