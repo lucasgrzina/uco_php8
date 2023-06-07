@@ -82,10 +82,10 @@ class SAPService extends AppBaseController
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
-
+        \Log::channel('consola')->info(json_encode($productos->value));
         foreach($productos->value as $producto)
         {
-            \Log::channel('consola')->info(json_encode($producto->ItemCode));
+
             if (($producto->PriceList == 2 || $producto->PriceList == 1) && $producto->ItemCode != "")
             {
 
@@ -99,7 +99,7 @@ class SAPService extends AppBaseController
                     } else {
                         $aniada->precio_pesos = $producto->Price * 1.21;
                     }
-                    \Log::channel('consola')->info(json_encode($aniada));
+
                     $aniada->save();
 
 
