@@ -94,10 +94,11 @@ class SAPService extends AppBaseController
                 if ($aniada != null) {
 
                     $aniada->stock = $producto->StockAlmacen;
-                    if($producto->PriceList == 2) {
+                    if($producto->PriceList == 3) {
                         $aniada->precio_usd = $producto->Price;
-                    } else {
-                        $aniada->precio_pesos = $producto->Price * 1.21;
+                    }
+                    if($producto->PriceList == 2) {
+                        $aniada->precio_pesos = $producto->Price;
                     }
 
                     $aniada->save();
