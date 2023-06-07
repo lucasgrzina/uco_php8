@@ -86,7 +86,7 @@ class SAPService extends AppBaseController
         foreach($productos->value as $producto)
         {
 
-            if (($producto->PriceList == 2 || $producto->PriceList == 1) && $producto->ItemCode != "")
+            if (($producto->PriceList == 2 || $producto->PriceList == 3) && $producto->ItemCode != "")
             {
 
                 $aniada = Aniada::where('sku', $producto->ItemCode)->first();
