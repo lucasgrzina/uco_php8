@@ -254,6 +254,7 @@ class CheckoutController extends AppBaseController
 
             if (\Auth::user()->email === env('EMAIL_PEDIDO_PRUEBA','')) {
                 //$pedido->ult_estado_pago = 'aprobado';
+
                 $pedido->estado_id = 1;
                 $pedido->save();
                 $pedido->registrado->enviarNotificacionPedido($pedido);
@@ -262,6 +263,11 @@ class CheckoutController extends AppBaseController
                 $salida = ['redirect' => routeIdioma('home')];
                 \Cart::destroy();
             } else {
+                try {
+                    $pedido->registrado->enviarNotificacionPedido($pedido);
+                } catch (\Exception $e) {
+                    logger('Checkout::confirmar: '.$e->getMessage());
+                }
                 $salida = $this->armarPreferenciaPago($pedido);
             }
 
