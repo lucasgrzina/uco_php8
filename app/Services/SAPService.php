@@ -69,6 +69,7 @@ class SAPService extends AppBaseController
             "\$select" => "ItemCode,ItemName,StockTotal,PriceList,Price,Currency,WhsCode,StockAlmacen"
         ];
 
+        \Log::channel('consola')->info('Url API: '."https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
 
         $request = new Psr7\Request('GET', $uri->withQuery(\GuzzleHttp\Psr7\Query::build($param)), [
@@ -82,7 +83,9 @@ class SAPService extends AppBaseController
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
+
         \Log::channel('consola')->info(json_encode($productos->value));
+
         foreach($productos->value as $producto)
         {
 
