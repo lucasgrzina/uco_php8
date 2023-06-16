@@ -96,7 +96,6 @@ class SAPService extends AppBaseController
         }
 
         \Log::channel('consola')->info(json_encode($productos->value));
-        return false;
         foreach($productos->value as $producto)
         {
 
