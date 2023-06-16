@@ -65,10 +65,21 @@ class SAPService extends AppBaseController
     {
         $login = $this->login();
         \Log::channel('consola')->info("SAP - Productos");
+
+        $codigosAniadas = Aniada::whereNotNull('sku')->pluck('sku')->toArray();
+
+        $filtersItemCode = [];
+        foreach ($codigosAniadas as $sku) {
+            $filtersItemCode[] = "ItemCode eq '{$sku}'";
+        }
+
         $param = [
-            "\$select" => "ItemCode,ItemName,StockTotal,PriceList,Price,Currency,WhsCode,StockAlmacen"
+            "\$select" => "ItemCode,ItemName,StockTotal,PriceList,Price,Currency,WhsCode,StockAlmacen",
+            "\$filter" => "(" . implode(' or ',$filtersItemCode) . ") and (PriceList eq 2 or PriceList eq 3)"
         ];
 
+
+        //\Log::channel('consola')->info($param);
         \Log::channel('consola')->info('Url API: '."https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
 
@@ -85,7 +96,7 @@ class SAPService extends AppBaseController
         }
 
         \Log::channel('consola')->info(json_encode($productos->value));
-
+        return false;
         foreach($productos->value as $producto)
         {
 
