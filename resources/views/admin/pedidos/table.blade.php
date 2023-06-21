@@ -37,9 +37,13 @@
                         <span v-else class="label label-warning">
                             SI - Sin Nro.
                         </span>
-                        <span v-if="item.error_sincronizacion_sap" class="label label-danger">
-                            <br>(% item.error_sincronizacion_sap %)
-                        </span>
+                        <template v-if="item.error_sincronizacion_sap">
+                            <br>
+                            <span  class="label label-danger">
+                                (% item.error_sincronizacion_sap %)
+                            </span>
+                        </template>
+
 
                     </template>
                     <template v-else>
