@@ -8,6 +8,7 @@
                 <th>Estado</th>
                 <th>Envío</th>
                 <th>Total</th>
+                <th>SAP</th>
                 <!--th class="td-enabled">{{ trans('admin.table.enabled') }}</th-->
                 <th class="td-actions">{{ trans('admin.table.actions') }}</th>
             </tr>
@@ -28,6 +29,25 @@
                     <a v-else href="javascript:void(0);" @click="generarEnvio(item)">Generar</a>
                 </td>
                 <td>(% item.total | currency %)</td>
+                <td>
+                    <template v-if="item.sincronizo_sap">
+                        <span v-if="item.error_sincronizacion_sap" class="label label-danger">
+                            (% item.error_sincronizacion_sap %)
+                        </span>
+                        <span v-else-if="item.documento_sap" class="label label-success">
+                            N° (% item.documento_sap %)
+                        </span>
+                        <span v-else class="label label-warning">
+                            SI - Sin Nro.
+                        </span>
+
+                    </template>
+                    <template v-else>
+                        <span v-if="item.error_sincronizacion_sap" class="label label-danger">
+                            NO
+                        </span>
+                    </template>
+                </td>
                 <!--td class="td-enabled">
                     <switch-button v-model="item.enabled" theme="bootstrap" type-bold="true" @onChange="onChangeEnabled(item)"></switch-button>
                 </td-->
