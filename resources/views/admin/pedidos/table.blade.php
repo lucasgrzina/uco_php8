@@ -31,14 +31,14 @@
                 <td>(% item.total | currency %)</td>
                 <td>
                     <template v-if="item.sincronizo_sap">
-                        <span v-if="item.error_sincronizacion_sap" class="label label-danger">
-                            (% item.error_sincronizacion_sap %)
-                        </span>
-                        <span v-else-if="item.documento_sap" class="label label-success">
+                        <span v-if="item.documento_sap" class="label label-success">
                             N° (% item.documento_sap %)
                         </span>
                         <span v-else class="label label-warning">
                             SI - Sin Nro.
+                        </span>
+                        <span v-if="item.error_sincronizacion_sap" class="label label-danger">
+                            <br>(% item.error_sincronizacion_sap %)
                         </span>
 
                     </template>
