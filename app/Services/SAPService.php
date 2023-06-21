@@ -52,7 +52,7 @@ class SAPService extends AppBaseController
             return json_decode($response->getBody());
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
-            dd("SAP - ". $ex->getMessage());
+            //dd("SAP - ". $ex->getMessage());
         }
 
         if($response->getStatusCode() != 200) {
@@ -208,6 +208,7 @@ class SAPService extends AppBaseController
             \Log::channel('consola')->info($response->getBody());
             $cliente = json_decode($response->getBody());
 
+
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
             return false;
@@ -215,7 +216,6 @@ class SAPService extends AppBaseController
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
             return false;
         }
-        dd(1);
         \Log::channel('consola')->info("SAP - Fin Cliente");
         return isset($cliente->CardCode);
     }
@@ -272,8 +272,10 @@ class SAPService extends AppBaseController
 
         try {
             $response = $this->client->send($request);
+
             $venta = json_decode($response->getBody());
             \Log::channel('consola')->info('alta pedido');
+            \Log::channel('consola')->info($response->getBody());
             $pedido->documento_sap = $venta->DocEntry;
             $pedido->sincronizo_sap = true;
             $pedido->save();
@@ -421,7 +423,7 @@ class SAPService extends AppBaseController
             $tarjetas = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getResponse()->getBody()->getContents());
-            dd($ex->getResponse()->getBody()->getContents());
+            //dd($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
