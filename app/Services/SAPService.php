@@ -95,7 +95,7 @@ class SAPService extends AppBaseController
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
 
-        \Log::channel('consola')->info(json_encode($productos->value));
+        //\Log::channel('consola')->info(json_encode($productos->value));
         foreach($productos->value as $producto)
         {
 
@@ -139,8 +139,8 @@ class SAPService extends AppBaseController
 
         try {
             $response = $this->client->send($request);
-            \Log::channel('consola')->info('cliente');
-            \Log::channel('consola')->info($response->getBody());
+            //\Log::channel('consola')->info('cliente');
+            //\Log::channel('consola')->info($response->getBody());
             $cliente = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             dd($ex->getResponse()->getBody()->getContents());
@@ -171,14 +171,25 @@ class SAPService extends AppBaseController
 
         $cliente["BPAddresses"] = [];
 
-        $direccion["AddressName"] = $pedido->direccion;
-        $direccion["Street"] = $pedido->direccion;
-        $direccion["ZipCode"] =  $pedido->cp;
-        $direccion["City"] =  $pedido->ciudad;
-        $direccion["State"] = "01";			//VER TABLA PROVINCIAS
+        $direccion["AddressName"] = "Domicilio Declarado";
+        $direccion["Street"] = $pedido->direccion_fc;
+        $direccion["ZipCode"] =  $pedido->cp_fc;
+        $direccion["City"] =  $pedido->ciudad_fc;
+        $direccion["State"] = $this->obtenerProvinciaSAP($pedido->provincia_fc);			//VER TABLA PROVINCIAS
         $direccion["Country"] = "AR";			//VER TABLA PAISES
         $direccion["TaxCode"] = "IVA_21";
         $direccion["AddressType"] = "bo_BillTo";
+
+        array_push($cliente["BPAddresses"], $direccion);
+
+        $direccion["AddressName"] = "Domicilio Declarado Envio";
+        $direccion["Street"] = $pedido->direccion;
+        $direccion["ZipCode"] =  $pedido->cp;
+        $direccion["City"] =  $pedido->ciudad;
+        $direccion["State"] = $this->obtenerProvinciaSAP($pedido->provincia);			//VER TABLA PROVINCIAS
+        $direccion["Country"] = "AR";			//VER TABLA PAISES
+        $direccion["TaxCode"] = "IVA_21";
+        $direccion["AddressType"] = "bo_ShipTo";
 
         array_push($cliente["BPAddresses"], $direccion);
 
@@ -473,5 +484,83 @@ class SAPService extends AppBaseController
 
             \Log::channel('consola')->info("SAP - Fin Pagos");
         }
+    }
+
+    public function obtenerProvinciaSAP($provincia) {
+        $provincia = strtolower($provincia);
+        if(strpos($provincia, 'autono') > 0 || strpos($provincia, 'caba') > 0 || strpos($provincia, 'federal') > 0) {
+            return '00';
+        }
+        if(strpos($provincia, 'bs') > 0 || strpos($provincia, 'buenos') > 0 || strpos($provincia, 'aires') > 0 ) {
+            return '01';
+        }
+        if(strpos($provincia, 'cata') > 0 || strpos($provincia, 'marca') > 0) {
+            return '02';
+        }
+        if(strpos($provincia, 'cordoba') > 0 || strpos($provincia, 'córdo') > 0 || strpos($provincia, 'rdoba') > 0) {
+            return '03';
+        }
+        if(strpos($provincia, 'corr') > 0 || strpos($provincia, 'rrientes') > 0) {
+            return '04';
+        }
+        if(strpos($provincia, 'entre') > 0) {
+            return '05';
+        }
+        if(strpos($provincia, 'juj') > 0) {
+            return '06';
+        }
+        if(strpos($provincia, 'mendo') > 0 || strpos($provincia, 'mza') > 0) {
+            return '07';
+        }
+        if(strpos($provincia, 'rioja') > 0) {
+            return '08';
+        }
+        if(strpos($provincia, 'salta') > 0) {
+            return '09';
+        }
+        if(strpos($provincia, 'juan') > 0) {
+            return '10';
+        }
+        if(strpos($provincia, 'luis') > 0) {
+            return '11';
+        }
+        if(strpos($provincia, 'cruz') > 0) {
+            return '12';
+        }
+        if(strpos($provincia, 'fe') > 0) {
+            return '13';
+        }
+        if(strpos($provincia, 'santiago') > 0 || strpos($provincia, 'este') > 0) {
+            return '14';
+        }
+        if(strpos($provincia, 'tucu') > 0) {
+            return '15';
+        }
+        if(strpos($provincia, 'chaco') > 0  || strpos($provincia, 'chco') > 0) {
+            return '16';
+        }
+        if(strpos($provincia, 'chu') > 0) {
+            return '17';
+        }
+        if(strpos($provincia, 'form') > 0) {
+            return '18';
+        }
+        if(strpos($provincia, 'misi') > 0) {
+            return '19';
+        }
+        if(strpos($provincia, 'neuq') > 0) {
+            return '20';
+        }
+        if(strpos($provincia, 'pampa') > 0) {
+            return '21';
+        }
+        if(strpos($provincia, 'negr') > 0) {
+            return '22';
+        }
+        if(strpos($provincia, 'fuego') > 0 || strpos($provincia, 'tierra') > 0 || strpos($provincia, 'tdf') > 0) {
+            return '24';
+        }
+
+        return '99';
     }
 }
