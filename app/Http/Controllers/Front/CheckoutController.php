@@ -88,6 +88,7 @@ class CheckoutController extends AppBaseController
             ],
             'url_cotizar_envio' => routeIdioma('checkout.cotizarEnvio'),
             'url_confirmar' => routeIdioma('checkout.confirmar'),
+            'enviando' => false,
             'cotizando_envio' => false,
             'confirmando' => false
             /*'listado' => [
@@ -241,7 +242,7 @@ class CheckoutController extends AppBaseController
                 'cotizacion_usd',
                 'comentarios',
                 'nombre_fc',
-                'apellid_fc',
+                'apellido_fc',
                 'dni_fc',
                 'direccion_fc',
                 'ciudad_fc',

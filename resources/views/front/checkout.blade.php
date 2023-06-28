@@ -150,13 +150,15 @@
 
             _seccion.enviando = true;
             _this._call(_seccion.url_guardar,'POST',_seccion.itemSeleccionado).then(function(data) {
+
                 console.debug(data);
-                _seccion.itemSeleccionado.id = data.id;
                 //Si es una edicion, reemplazo la primera posicion
                 if (_esEdicion) {
                     Vue.set(_seccion.listado,0,_.cloneDeep(_seccion.itemSeleccionado));
                 } else {
+                    _seccion.itemSeleccionado.id = data.id;
                     var _listado = _.cloneDeep(_seccion.listado);
+
                     _.each(_listado, function (item) {
                         Vue.set(item,'principal',false);
                     });

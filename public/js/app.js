@@ -103,6 +103,9 @@ _methods.toastError = function(mensaje,titulo) {
         return false;
     }
 
+    if (_this.checkout.confirmando) {
+        return false;
+    }
     _this.checkout.confirmando = true;
     _this._call(_this.checkout.url_confirmar,'POST',_this.checkout.form).then(function(data) {
         //_this.setDataCarrito(data);

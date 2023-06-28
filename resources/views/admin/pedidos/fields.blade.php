@@ -61,7 +61,7 @@
 </div>
 
 <template v-if="selectedItem.tipo_factura == 'A'">
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-12">
         {!! Form::label('registrado_id', 'Tipo Factura') !!}
         <span class="form-control">Factura A</span>
     </div>
@@ -76,13 +76,17 @@
     </div>
 </template>
 <template v-else>
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-12">
         {!! Form::label('registrado_id', 'Tipo Factura') !!}
         <span class="form-control">Consumidor Final</span>
     </div>
-    <div class="form-group col-sm-8">
-        {!! Form::label('registrado_id', 'Nombre y Apellido') !!}
+    <div class="form-group col-sm-4">
+        {!! Form::label('registrado_id', 'Nombre') !!}
         <span class="form-control">(% selectedItem.nombre_fc %)</span>
+    </div>
+    <div class="form-group col-sm-4">
+        {!! Form::label('registrado_id', 'Apellido') !!}
+        <span class="form-control">(% selectedItem.apellido_fc %)</span>
     </div>
     <div class="form-group col-sm-4">
         {!! Form::label('registrado_id', 'DNI') !!}
