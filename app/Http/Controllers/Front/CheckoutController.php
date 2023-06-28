@@ -262,7 +262,7 @@ class CheckoutController extends AppBaseController
                 //throw new \Exception("Error Processing Request", 1);
 
                 $salida = ['redirect' => routeIdioma('home')];
-                \Cart::destroy();
+                \Cart::clear();
             } else {
                 try {
                     $pedido->registrado->enviarNotificacionPedido($pedido);
