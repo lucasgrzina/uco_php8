@@ -195,6 +195,14 @@ class SAPService extends AppBaseController
 
         if ($this->consultarCliente($codigoCliente))
         {
+            $rowNum = 0;
+            foreach($cliente["BPAddresses"] as &$direccion )
+            {
+                $direccion["RowNum"] = $rowNum;
+                $direccion["BPCode"] = $codigoCliente;
+                $rowNum++;
+            }
+
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/BusinessPartners('{$codigoCliente}')");
 
             $request = new Psr7\Request('PATCH', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
