@@ -405,7 +405,9 @@ class SAPService extends AppBaseController
                 {
                    $this->altaPedido($pedido);
                 } else{
-                   $this->altaVenta($pedido);
+                    if($pedido->pp_status == 'aprobado') {
+                        $this->altaVenta($pedido);
+                    }
                 }
 
             } catch (\Exception $ex) {
@@ -419,7 +421,7 @@ class SAPService extends AppBaseController
 
     public function sincronizarPagos()
     {
-        $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->whereSincronizoPago(false)->where(function($q) {
+        $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoPago(false)->where(function($q) {
             $q->whereNull('error_sincronizacion_sap')->orWhere('error_sincronizacion_sap', '');
         })->get();
 
@@ -462,7 +464,7 @@ class SAPService extends AppBaseController
             $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
             $venta["CardCode"] = $codigoCliente;
             $venta["PaymentInvoices"]["DocEntry"] = $pedido->documento_sap;
-            $venta["PaymentCreditCards"]["CreditCard"] = array_key_exists($pedido->tipo_tarjeta, $tarjetasArr) ? $tarjetasArr[$pedido->tipo_tarjeta] : 2;
+            $venta["PaymentCreditCards"]["CreditCard"] = array_key_exists(strtoupper($pedido->tipo_tarjeta), $tarjetasArr) ? $tarjetasArr[strtoupper($pedido->tipo_tarjeta)] : 2;
             $venta["PaymentCreditCards"]["CreditCardNumber"] = $pedido->tarjeta;
             $venta["PaymentCreditCards"]["CardValidUntil"] = $pedido->tarjeta_exp;
             $venta["VoucherNum"]["CardValidUntil"] = $pedido->numero_voucher;
