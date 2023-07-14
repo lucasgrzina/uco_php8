@@ -466,9 +466,15 @@ class SAPService extends AppBaseController
             $venta["PaymentInvoices"]["DocEntry"] = $pedido->documento_sap;
             $venta["PaymentCreditCards"]["CreditCard"] = array_key_exists(strtoupper($pedido->tipo_tarjeta), $tarjetasArr) ? $tarjetasArr[strtoupper($pedido->tipo_tarjeta)] : 2;
             $venta["PaymentCreditCards"]["CreditCardNumber"] = $pedido->tarjeta;
-            $venta["PaymentCreditCards"]["CardValidUntil"] = $pedido->tarjeta_exp;
-            $venta["VoucherNum"]["CardValidUntil"] = $pedido->numero_voucher;
-            $venta["VoucherNum"]["CreditSum"] = $pedido->total_envio;
+            $venta["PaymentCreditCards"]["CardValidUntil"] = Carbon::parse('1/'.$pedido->tarjeta_exp)->endOfMonth()->format('Y-m-d');
+            $venta["VoucherNum"] = $pedido->numero_voucher;
+            $venta["CreditSum"] = $pedido->total_envio;
+            $venta["NumOfPayments"] = 1;
+            $venta["CreditCur"] =  "ARS";
+            $venta["NumOfCreditPayments"] = $pedido->tarjeta_cuotas;
+            $venta["CreditType"] =  "cr_InternetTransaction";
+            $venta["SplitPayments"] =  "tYES";
+            $venta["PaymentMethodCode"] =  3;
 
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/IncomingPayments");
 
