@@ -88,7 +88,11 @@ class Pedido extends Model
         'tipo_tarjeta',
         'tarjeta',
         'tarjeta_exp',
-        'numero_voucher'	
+        'numero_voucher',
+        'pp_payment_type',
+        'pp_preference_id',
+        'pp_status',
+        'pp_status_desc'
         //'enabled'
     ];
 
@@ -115,7 +119,7 @@ class Pedido extends Model
         'ups_info' => 'json',
         'sincronizo_sap' => 'boolean',
         'error_sincronizacion_sap' => 'string',
-        'documento_sap' => 'integer'	
+        'documento_sap' => 'integer'
         //'enabled' => 'boolean'
     ];
 

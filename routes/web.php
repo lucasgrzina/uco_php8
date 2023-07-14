@@ -18,6 +18,7 @@ Route::prefix('id')->group(function () {
 });
 
 Route::prefix('test')->group(function () {
+    Route::get('/mp-pp', 'TestController@mpPreferenciaPago');
     Route::get('/leer-s3', 'TestController@leerS3');
     Route::get('/rapido', function() {
         //return randomPassword2();
@@ -254,14 +255,14 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|es|pt']],function 
             Route::post('/pagar', 'Front\CarritoController@checkoutPagar')->name('carrito.checkoutPagar');
         });*/
     });
-    Route::middleware(['checkout'])->group(function () {
-        Route::prefix(trans('front.rutas.checkout.root'))->group(function () {
-            Route::get(trans('front.rutas.checkout.gracias').'/{guid}', 'Front\CheckoutController@gracias')->name('checkout.gracias');
+    Route::prefix(trans('front.rutas.checkout.root'))->group(function () {
+        Route::get(trans('front.rutas.checkout.gracias').'/{guid}', 'Front\CheckoutController@gracias')->name('checkout.gracias');
+        Route::middleware(['checkout'])->group(function () {
             Route::post(trans('front.rutas.checkout.confirmar'), 'Front\CheckoutController@confirmar')->name('checkout.confirmar');
             Route::post(trans('front.rutas.checkout.cotizarEnvio'),'Front\CheckoutController@cotizarEnvio')->name('checkout.cotizarEnvio');
             Route::get('/', 'Front\CheckoutController@index')->name('checkout');
         });
-        Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
     });
 
     Route::middleware(['auth'])->group(function () {

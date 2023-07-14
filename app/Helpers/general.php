@@ -89,3 +89,23 @@ function obtenerDolarOficial() {
 function assetComodin($asset) {
     return strEmpiezaCon($asset,'_asset.') ? asset(str_replace('_asset.','',$asset)) : $asset;
 }
+
+function logInfo($input) {
+    try {
+        \Log::info($input);
+    } catch (\Exception $e) {
+
+    }
+}
+if (!function_exists('repo')) {
+    function repo($className)
+    {
+        return app('App\Repositories\\'.$className.'Repository');
+    }
+}
+if (!function_exists('servicio')) {
+    function servicio($className)
+    {
+        return app('App\Services\\'.$className.'Service');
+    }
+}

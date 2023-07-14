@@ -8,14 +8,16 @@ use App\Pais;
 //use App\Services\ConfiguracionesService;
 //use App\Services\EnvioService;
 use App\Aniada;
+use MercadoPago;
+use App\Services\MPService;
 use App\RegistradoDireccion;
 use App\Services\UPSService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+//use Srmklive\PayPal\Services\ExpressCheckout;
 use App\Repositories\PedidoRepository;
 use App\Http\Controllers\AppBaseController;
-//use Srmklive\PayPal\Services\ExpressCheckout;
 
 class CheckoutController extends AppBaseController
 {
@@ -24,9 +26,10 @@ class CheckoutController extends AppBaseController
      *
      * @return void
      */
-    public function __construct()
+    protected $upsService;
+    public function __construct(UPSService $upsService)
     {
-        //$this->middleware('auth:admin');
+        $this->upsService = $upsService;
     }
 
     public function index($lang)
@@ -110,18 +113,33 @@ class CheckoutController extends AppBaseController
         ]);
     }
 
-    public function gracias($lang,$guid,Request $request, PedidoRepository $pedidosRepo) {
+    public function gracias($lang,$guid,Request $request, PedidoRepository $pedidosRepo,MPService $mpService) {
+
         $pedido = $pedidosRepo->scopeQuery(function($q) use($guid){
-            return $q->where(DB::raw('md5(id)'),$guid)
-                    ->whereRegistradoId(auth()->user()->id);
+            return $q->where(DB::raw('md5(id)'),$guid);
+                    //->whereRegistradoId(auth()->user()->id);
         })->first();
 
-        if (!$pedido || \Cart::getContent()->count() < 1) {
+        if (!$pedido) {
             return redirect()->to(routeIdioma('home'));
         }
 
-        \Cart::clear();
+        if ($pedido->estado_id == 0) {
+            if ($pedido->tipo_factura == 'CF') {
+                if ($request->has('preference_id')) {
+                    $pedido = $pedidosRepo->actualizarPago($pedido);
+                }
+            }
+        }
 
+        if ($pedido->estado_id == -1) {
+            $pedido->delete();
+            return redirect()->to(routeIdioma('checkout'));
+        }
+
+        if (\Cart::getContent()->count() > 0) {
+            \Cart::clear();
+        }
 
         $this->data['checkout'] = [
             'mensaje' => trans('front.paginas.checkout.gracias.mensajeTipoFactura.'.$pedido->tipo_factura),
@@ -134,7 +152,7 @@ class CheckoutController extends AppBaseController
         ]);
     }
 
-    public function cotizarEnvio($lang, Request $request, UPSService $upsService) {
+    public function cotizarEnvio($lang, Request $request) {
         try {
             $salida = [];
 
@@ -160,11 +178,11 @@ class CheckoutController extends AppBaseController
                 $total += $item->quantity;
             }
 
-            //logger($request->all());
-            //logger([$request->pais->codigo, $request->cp]);
+            //logInfo($request->all());
+            //logInfo([$request->pais->codigo, $request->cp]);
 
             $pais = Pais::find($request->pais_id);
-            $respuesta = $upsService->cotizarEnvio($pais->codigo, $request->cp, $request->calle, $request->ciudad, $productos);
+            $respuesta = $this->upsService->cotizarEnvio($pais->codigo, $request->cp, $request->calle, $request->ciudad, $productos);
             $salida = $respuesta;
 
             return $this->sendResponse($salida, trans('admin.success'));
@@ -172,7 +190,6 @@ class CheckoutController extends AppBaseController
             return $this->sendError($ex->getMessage(), 500);
         }
     }
-
 
     public function confirmar($lang, Request $request, PedidoRepository $pedidosRepo)
     {
@@ -182,6 +199,7 @@ class CheckoutController extends AppBaseController
                 throw new \Exception('Debes iniciar sesion');
             }
 
+            DB::beginTransaction();
 
             $items = [];
             $totalCarrito = 0;
@@ -253,7 +271,26 @@ class CheckoutController extends AppBaseController
 
             $pedido = $pedidosRepo->altaDesdeCarrito($dataPedido, $items);
 
-            if (\Auth::user()->email === env('EMAIL_PEDIDO_PRUEBA','')) {
+            if ($pedido->tipo_factura == 'A') {
+                //Es solo un pedido, no debo generar etiqueta de envio ni pagarlo
+                try {
+                    $pedido->registrado->enviarNotificacionPedido($pedido);
+                } catch (\Exception $e) {
+                    logInfo('Checkout::confirmar: '.$e->getMessage());
+                }
+                $salida = [
+                    'redirect' => routeIdioma('checkout.gracias', [md5($pedido->id)])
+                ];
+            } else {
+                $preferenciaPago = $this->armarPreferenciaPago($pedido);
+                $pedido->pp_preference_id = $preferenciaPago->id;
+                $pedido->save();
+                $salida = [
+                    'redirect' => $preferenciaPago->init_point
+                ];
+            }
+
+            /*if (\Auth::user()->email === env('EMAIL_PEDIDO_PRUEBA','')) {
                 //$pedido->ult_estado_pago = 'aprobado';
 
                 $pedido->estado_id = 1;
@@ -267,93 +304,53 @@ class CheckoutController extends AppBaseController
                 try {
                     $pedido->registrado->enviarNotificacionPedido($pedido);
                 } catch (\Exception $e) {
-                    logger('Checkout::confirmar: '.$e->getMessage());
+                    logInfo('Checkout::confirmar: '.$e->getMessage());
                 }
                 $salida = $this->armarPreferenciaPago($pedido);
-            }
-
+            }*/
+            DB::commit();
             return $this->sendResponse($salida, trans('admin.success'));
 
         } catch (\Exception $ex) {
+            DB::rollback();
             return $this->sendError($ex->getMessage(), 500);
         }
 
 
 
     }
-    /*
-    public function checkoutPagar(CheckoutPagarRequest $request, PedidosRepository $pedidosRepo, EnvioService $srvEnvio)
-    {
-        //\Log::info(codigoPaisUsuario());
-        //return $this->sendResponse($request->all(), trans('admin.success'));
 
-        try {
-            $configuraciones = configuracionesPorPais();
-            $precio = $configuraciones['precio'];
-            $items = [];
-            $totalCarrito = 0;
-            foreach (\Cart::getContent() as $cartItem) {
-                $attributes = $cartItem->attributes->toArray();
-                //\Log::info($attributes);
-                $item = [
-                    'identificador' => $attributes['identificador'],
-                    'nombre' => $attributes['form']['nombre'],
-                    'genero' => $attributes['form']['genero'],
-                    'personaje' => $attributes['form']['personaje'],
-                    'idioma' => $attributes['form']['idioma'],
-                    'dedicatoria' => $attributes['form']['dedicatoria'],
-                    'foto' => $attributes['form']['foto'],
-                    'precio' => $precio,
-                    'cuento' => $attributes['cuento']
-                ];
-                $items[] = $item;
-                $totalCarrito += $precio;
-            }
-
-            $totalEnvio = $srvEnvio->calcular($request->cp, $request->provincia_id, $request->pais_id);
-
-            $dataPedido = array_merge($request->except(['acepta_tc']), [
-                'registrado_id' => \Auth::user()->id,
-                'estado_id' => 0,
-                'total_carrito' => $totalCarrito,
-                'total_envio' => $totalEnvio,
-                'total' => $totalCarrito + $totalEnvio,
-                'plataforma_pago' => codigoPaisUsuario() === 'ar' ? 'MP' : 'Paypal',
-                'moneda' => $configuraciones['moneda']
-            ]);
-
-            $pedido = $pedidosRepo->altaDesdeCarrito($dataPedido, $items);
-
-            if (\Auth::user()->email === env('EMAIL_PEDIDO_PRUEBA','')) {
-                $pedido->ult_estado_pago = 'aprobado';
-                $pedido->estado_id = 1;
-                $pedido->save();
-                $pedido->registrado->enviarNotificacionPedidoConfirmado($pedido);
-                $salida = ['mp_redirect' => route('home')];
-            } else {
-                $salida = $this->armarPreferenciaPago($pedido);
-            }
-
-
-
-            try {
-                //Mail::send(new NuevoPedidoMail($pedido));
-            } catch (\Exception $e) {
-                \Log::error($e->getMessage());
-            }
-
-            //\Cart::destroy();
-            return $this->sendResponse($salida, trans('admin.success'));
-        } catch (\Exception $ex) {
-            return $this->sendError($ex->getMessage(), 500);
-        }
-    }
-    */
     protected function armarPreferenciaPago($pedido)
     {
-        return [
-            'redirect' => routeIdioma('checkout.gracias',[md5($pedido->id)])
+        MercadoPago\SDK::setAccessToken(config('services.mercadopago.access_token'));
+
+        $preference = new MercadoPago\Preference();
+
+        // del artículo vendido
+        $item = new MercadoPago\Item();
+        $item->title = 'Magia del Uco - Pedido ' . $pedido->id;
+        $item->quantity = 1;
+        $item->currency_id = 'ARS';
+        $item->unit_price =  $pedido->total;
+        $preference->items = array($item);
+
+        $preference->back_urls = array(
+          "success" => routeIdioma('checkout.gracias', [md5($pedido->id)]),
+          "failure" => routeIdioma('checkout.gracias', [md5($pedido->id)]),
+          "pending" => routeIdioma('checkout.gracias', [md5($pedido->id)])
+        );
+        $preference->external_reference= config('services.mercadopago.ep_prefix').$pedido->id;
+        $preference->payment_methods = [
+            "excluded_payment_types"=> [
+                [
+                    "id" => "ticket"
+                ]
+            ],
+
         ];
+        $preference->save();
+        return $preference;
+
         /*
         if ($pedido->plataforma_pago === 'MP') {
             $preferenceData = [

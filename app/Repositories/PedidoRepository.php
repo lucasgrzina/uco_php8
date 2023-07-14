@@ -45,41 +45,85 @@ class PedidoRepository extends BaseRepository
         }
     }
 
-    public function actualizarPagoPedido($pedidoGuid, $estado, $estado_detalle = null)
+    public function generarEnvio($model)
     {
         try {
-            $modelo = $this->model->newQuery()->where(\DB::raw('md5(id)'), $pedidoGuid)->first();
-            $estadoActual = $modelo->estado_id;
+            $model->load(['items.aniada.vino']);
 
-            switch ($estado) {
-                case 'success':
-                case 'successwithwarning':
-                case 'approved':
-                    $modelo->ult_estado_pago = 'aprobado';
-                    $modelo->estado_id = 1;
-                    break;
-                case 'rejected':
-                case 'cancelled':
-                case 'failure':
-                    $modelo->estado_id = -1;
-                    $modelo->ult_estado_pago = 'rechazado';
-                    break;
-                default:
-                    $modelo->estado_id = 0;
-                    $modelo->ult_estado_pago = $estado;
-                    break;
-            }
-            $modelo->ult_estado_pago_detalle = ($estado_detalle ? $estado . ' - ' . $estado_detalle : $estado_detalle);
-            $modelo->save();
-
-            if ($modelo->estado_id == 1 && $estadoActual != 1) {
-                // El pago sufrio un cambio de estado a aprobado
-                //$modelo->registrado->enviarNotificacionPedidoConfirmado($modelo);
+            $productos = [];
+            foreach ($model->items as $item) {
+                for($x=0; $x < $item->cantidad; $x++) {
+                    array_push($productos, $item);
+                }
             }
 
-            return $modelo;
-        } catch (\Exception $e) {
-            throw new \Exception($e->getMessage(), 1);
+            $respuesta = servicio('UPS')->generarEnvio($model->id
+                ,$model->items
+                ,$model->direccion
+                ,$model->ciudad
+                ,$model->pais->codigo
+                ,$model->cp
+                ,$model->nombre
+                ,$model->apellido
+                ,$model->email
+                ,''
+            );
+
+            $model->ups_tracking_number = $respuesta['tracking_number'];
+            $model->ups_etiqueta = $respuesta['etiqueta'];
+            $model->ups_info = \Arr::except($respuesta,['tracking_number','etiqueta']);
+            $model->save();
+
+            return true;
+        } catch (\Exception $ex) {
+            logInfo('CheckoutController::generarEnvio => '.$ex->getMessage());
+            return false;
+            //return $this->sendError($ex->getMessage(),500);
         }
-    }    
+
+    }
+
+    public function actualizarPago($pedido) {
+        $mpPago = servicio('MP')->buscarPagoPorPedidoId($pedido->id);
+        //dd($mpPago);
+        if($mpPago) {
+            $pedido->pp_payment_type = $mpPago->payment_type_id;
+            if ($mpPago->payment_method) {
+                $pedido->tipo_tarjeta = $mpPago->payment_method->id;
+            }
+            if ($mpPago->card) {
+                $pedido->tarjeta = $mpPago->card->last_four_digits;
+                $pedido->tarjeta_exp = $mpPago->card->expiration_month.'/'.$mpPago->card->expiration_year;
+            }
+
+            if ($mpPago->status == 'approved'){
+                $pedido->numero_voucher = $mpPago->id;
+                $pedido->pp_status = 'aprobado';
+                $pedido->estado_id = 1;
+
+                if (!$pedido->ups_tracking_number) {
+                    $this->generarEnvio($pedido);
+                }
+            }else{
+                switch($mpPago->status) {
+                    case 'pending':
+                        $pedido->pp_status = 'pendiente';
+                        break;
+                    case 'rejected':
+                        $pedido->pp_status = 'rechazado';
+                        $pedido->estado_id = -1;
+                        break;
+                    case 'cancelled':
+                        $pedido->pp_status = 'cancelado';
+                        $pedido->estado_id = -1;
+                        break;
+                }
+            }
+            $pedido->pp_status_desc = $mpPago->status_detail;
+            $pedido->save();
+
+        }
+        return $pedido;
+    }
+
 }
