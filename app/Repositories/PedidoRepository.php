@@ -92,6 +92,7 @@ class PedidoRepository extends BaseRepository
                 $pedido->tipo_tarjeta = $mpPago->payment_method->id;
             }
             if ($mpPago->card) {
+                $pedido->tarjeta_cuotas = $mpPago->installments;
                 $pedido->tarjeta = $mpPago->card->last_four_digits;
                 $pedido->tarjeta_exp = $mpPago->card->expiration_month.'/'.$mpPago->card->expiration_year;
             }

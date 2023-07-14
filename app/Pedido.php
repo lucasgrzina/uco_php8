@@ -92,7 +92,8 @@ class Pedido extends Model
         'pp_payment_type',
         'pp_preference_id',
         'pp_status',
-        'pp_status_desc'
+        'pp_status_desc',
+        'tarjeta_cuotas'
         //'enabled'
     ];
 
@@ -119,7 +120,8 @@ class Pedido extends Model
         'ups_info' => 'json',
         'sincronizo_sap' => 'boolean',
         'error_sincronizacion_sap' => 'string',
-        'documento_sap' => 'integer'
+        'documento_sap' => 'integer',
+        'tarjeta_cuotas' => 'integer'
         //'enabled' => 'boolean'
     ];
 
