@@ -388,6 +388,7 @@ class SAPService extends AppBaseController
 
         if(count($pedidosPendientes) == 0) {
             \Log::channel('consola')->info("SAP - Sin Ventas");
+            $this->sincronizarPagos();
             return false;
         }
 
