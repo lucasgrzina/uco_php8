@@ -293,8 +293,7 @@ class SAPService extends AppBaseController
             $response = $this->client->send($request);
 
             $venta = json_decode($response->getBody());
-            \Log::channel('consola')->info('alta pedido');
-            \Log::channel('consola')->info($response->getBody());
+
             $pedido->documento_sap = $venta->DocEntry;
             $pedido->sincronizo_sap = true;
             $pedido->save();
@@ -421,9 +420,7 @@ class SAPService extends AppBaseController
 
     public function sincronizarPagos()
     {
-        $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoPago(false)->where(function($q) {
-            $q->whereNull('error_sincronizacion_sap')->orWhere('error_sincronizacion_sap', '');
-        })->get();
+        $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoPago(false)->get();
 
         \Log::channel('consola')->info("SAP - Pagos");
         $login = $this->login();
@@ -458,24 +455,26 @@ class SAPService extends AppBaseController
 
         foreach($pedidosPendientes as $pedido)
         {
-            $pedido->sincronizo_pago = 1;
-            $pedido->save();
-
             $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
             $venta["CardCode"] = $codigoCliente;
-            $venta["PaymentInvoices"]["DocEntry"] = $pedido->documento_sap;
-            $venta["PaymentCreditCards"]["CreditCard"] = array_key_exists(strtoupper($pedido->tipo_tarjeta), $tarjetasArr) ? $tarjetasArr[strtoupper($pedido->tipo_tarjeta)] : 2;
-            $venta["PaymentCreditCards"]["CreditCardNumber"] = $pedido->tarjeta;
-            $venta["PaymentCreditCards"]["CardValidUntil"] = Carbon::parse('1/'.$pedido->tarjeta_exp)->endOfMonth()->format('Y-m-d');
-            $venta["VoucherNum"] = $pedido->numero_voucher;
-            $venta["CreditSum"] = $pedido->total_envio;
-            $venta["NumOfPayments"] = 1;
-            $venta["CreditCur"] =  "ARS";
-            $venta["NumOfCreditPayments"] = $pedido->tarjeta_cuotas;
-            $venta["CreditType"] =  "cr_InternetTransaction";
-            $venta["SplitPayments"] =  "tYES";
-            $venta["PaymentMethodCode"] =  3;
+            $venta["PaymentInvoices"] = [];
+            array_push($venta["PaymentInvoices"], ["DocEntry" => $pedido->documento_sap]);
+            $credict = [];
+            $credict["CreditCard"] = array_key_exists(strtoupper($pedido->tipo_tarjeta), $tarjetasArr) ? $tarjetasArr[strtoupper($pedido->tipo_tarjeta)] : 2;
+            $credict["CreditCardNumber"] = $pedido->tarjeta;
+            $credict["CardValidUntil"] = Carbon::parse('1/'.$pedido->tarjeta_exp)->endOfMonth()->format('Y-m-d');
+            $credict["VoucherNum"] = (string) $pedido->documento_sap;
+            $credict["CreditSum"] = (float)$pedido->total;
+            $credict["NumOfPayments"] = 1;
+            $credict["CreditCur"] =  "ARS";
+            $credict["NumOfCreditPayments"] = $pedido->tarjeta_cuotas;
+            $credict["CreditType"] =  "cr_InternetTransaction";
+            $credict["SplitPayments"] =  "tYES";
+            $credict["PaymentMethodCode"] =  3;
+            $venta["PaymentCreditCards"]= [];
+            array_push($venta["PaymentCreditCards"], $credict);
 
+            \Log::channel('consola')->info(json_encode($venta));
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/IncomingPayments");
 
             $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
