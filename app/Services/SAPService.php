@@ -382,9 +382,7 @@ class SAPService extends AppBaseController
 
     public function sincronizarVentas()
     {
-        $pedidosPendientes = Pedido::whereSincronizoSap(false)->where(function($q) {
-            $q->whereNull('error_sincronizacion_sap')->orWhere('error_sincronizacion_sap', '');
-        })->get();
+        $pedidosPendientes = Pedido::whereSincronizoSap(false)->get();
 
         \Log::channel('consola')->info("SAP - Ventas");
 
