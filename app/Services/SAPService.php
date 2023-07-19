@@ -495,7 +495,7 @@ class SAPService extends AppBaseController
             try {
                 $response = $this->client->send($request);
                 $venta = json_decode($response->getBody());
-
+                $pedido->error_sincronizacion_sap = '';
                 $pedido->sincronizo_pago = 1;
                 $pedido->save();
             }  catch (\GuzzleHttp\Exception\RequestException $ex) {
