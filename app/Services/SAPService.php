@@ -454,12 +454,23 @@ class SAPService extends AppBaseController
 
         foreach($pedidosPendientes as $pedido)
         {
+            $codigo = 0;
+            if($pedido->tipo_tarjeta == 'amex') {
+                $codigo = 15;
+            }
+            if($pedido->tipo_tarjeta == 'master') {
+                $codigo = 3;
+            }
+            if( $codigo == 0 ) {
+                $codigo = array_key_exists(strtoupper($pedido->tipo_tarjeta), $tarjetasArr) ? $tarjetasArr[strtoupper($pedido->tipo_tarjeta)] : 2;
+            }
+
             $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
             $venta["CardCode"] = $codigoCliente;
             $venta["PaymentInvoices"] = [];
             array_push($venta["PaymentInvoices"], ["DocEntry" => $pedido->documento_sap]);
             $credict = [];
-            $credict["CreditCard"] = array_key_exists(strtoupper($pedido->tipo_tarjeta), $tarjetasArr) ? $tarjetasArr[strtoupper($pedido->tipo_tarjeta)] : 2;
+            $credict["CreditCard"] = $codigo;
             $credict["CreditCardNumber"] = $pedido->tarjeta;
             $credict["CardValidUntil"] = Carbon::parse('1/'.$pedido->tarjeta_exp)->endOfMonth()->format('Y-m-d');
             $credict["VoucherNum"] = (string) $pedido->documento_sap;
