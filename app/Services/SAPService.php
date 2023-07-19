@@ -419,7 +419,7 @@ class SAPService extends AppBaseController
 
     public function sincronizarPagos()
     {
-        $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoPago(false)->get();
+        $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoSap(true)->whereSincronizoPago(false)->get();
 
         \Log::channel('consola')->info("SAP - Pagos");
         $login = $this->login();
