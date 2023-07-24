@@ -36,7 +36,7 @@ return [
             ['titulo' => '_trans.front.paginas.carrito.titulo','subtitulo' => '_trans.front.paginas.novedades.subtitulo','imagen_desktop_url' => '_asset.img/novedades-header.jpg','imagen_mobile_url' => '_asset.img/novedades-header.jpg','orden' => 1]
         ],
     ],
-    'montoDatosFC' => 61534,
+    'montoDatosFC' => 92720,
     'montoEnvioGratis' => 35000,
     'dolarUPS' => 40.71
 ];
