@@ -415,7 +415,7 @@ class SAPService extends AppBaseController
     {
         $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoSap(true)->whereSincronizoPago(false)->get();
 
-        //\Log::channel('consola')->info("SAP - Pagos");
+        \Log::channel('consola')->info("SAP - Pagos");
         $login = $this->login();
 
         if(count($pedidosPendientes) == 0) {
