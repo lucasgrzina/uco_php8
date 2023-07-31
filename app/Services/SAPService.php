@@ -388,9 +388,8 @@ class SAPService extends AppBaseController
 
         foreach($pedidosPendientes as $pedido)
         {
-            $pedido->sincronizo_sap = true;
-            $pedido->save();
-
+            //$pedido->sincronizo_sap = true;
+            //$pedido->save();
             try
             {
                 if( $pedido->tipo_factura == 'A')
