@@ -449,18 +449,18 @@ class SAPService extends AppBaseController
         foreach($pedidosPendientes as $pedido)
         {
             $codigo = 0;
-            logger($pedido->tipo_tarjeta == 'amex');
+
             if($pedido->tipo_tarjeta == 'amex') {
                 $codigo = 15;
             }
-            logger($codigo);
+
             if($pedido->tipo_tarjeta == 'master') {
                 $codigo = 3;
             }
             if( $codigo == 0 ) {
                 $codigo = array_key_exists(strtoupper($pedido->tipo_tarjeta), $tarjetasArr) ? $tarjetasArr[strtoupper($pedido->tipo_tarjeta)] : 2;
             }
-            logger($codigo);
+
             $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
             $venta["CardCode"] = $codigoCliente;
             $venta["PaymentInvoices"] = [];
@@ -480,7 +480,7 @@ class SAPService extends AppBaseController
             $venta["PaymentCreditCards"]= [];
             array_push($venta["PaymentCreditCards"], $credict);
 //dd(json_encode($venta));
-  //          \Log::channel('consola')->info(json_encode($venta));
+            \Log::channel('consola')->info(json_encode($venta));
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/IncomingPayments");
 
             $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
