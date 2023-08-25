@@ -1,11 +1,16 @@
 <!-- Registrado Id Field -->
-<div class="form-group col-sm-6" :class="{'has-error': errors.has('registrado_id')}">
+<div class="form-group col-sm-3" :class="{'has-error': errors.has('created_at')}">
+    {!! Form::label('created_at', 'Fecha') !!}
+    <span class="form-control">(% selectedItem.created_at | dateFormat %)</span>
+</div>
+<!-- Registrado Id Field -->
+<div class="form-group col-sm-3" :class="{'has-error': errors.has('registrado_id')}">
     {!! Form::label('registrado_id', 'Usuario') !!}
     <span class="form-control">(% selectedItem.registrado.usuario %)</span>
 </div>
 
 <!-- Email Field -->
-<div class="form-group col-sm-6" :class="{'has-error': errors.has('email')}">
+<div class="form-group col-sm-3" :class="{'has-error': errors.has('email')}">
     {!! Form::label('email', 'Email') !!}
     <span class="form-control">(% selectedItem.email %)</span>
     <span class="help-block" v-show="errors.has('email')">(% errors.first('email') %)</span>

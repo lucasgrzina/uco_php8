@@ -9,6 +9,7 @@
                 <th>Envío</th>
                 <th>Total</th>
                 <th>SAP</th>
+                <th>Fecha</th>
                 <!--th class="td-enabled">{{ trans('admin.table.enabled') }}</th-->
                 <th class="td-actions">{{ trans('admin.table.actions') }}</th>
             </tr>
@@ -52,6 +53,7 @@
                         </span>
                     </template>
                 </td>
+                <td>(% item.created_at | dateFormat %)</td>
                 <!--td class="td-enabled">
                     <switch-button v-model="item.enabled" theme="bootstrap" type-bold="true" @onChange="onChangeEnabled(item)"></switch-button>
                 </td-->
