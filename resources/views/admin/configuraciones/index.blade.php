@@ -19,7 +19,7 @@
 @endsection
 
 @section('content-header')
-{!! AdminHelper::contentHeader('Contactos',trans('admin.list'),'new','create()') !!}
+{!! AdminHelper::contentHeader('Configuraciones',trans('admin.list')) !!}
 @endsection
 
 @section('content')
@@ -44,7 +44,7 @@
                     @include('admin.includes.crud.index-pagination')
                 </div>
             </div>
-            @include('admin.includes.crud.index-loading')            
+            @include('admin.includes.crud.index-loading')
         </div>
     </div>
 @endsection

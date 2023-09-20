@@ -36,8 +36,8 @@
           </div>
           <div class="col-12">
               <div class="social-links" style="max-width: 130px;">
-                  <a href="https://www.facebook.com/magiadeluco" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                  <a href="https://www.instagram.com/magiadeluco/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="https://www.facebook.com/magiadeuco" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a href="https://www.instagram.com/magiadeuco/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                   <!-- <a href="#"><i class="fa-brands fa-twitter"></i></a> -->
               </div>
           </div>

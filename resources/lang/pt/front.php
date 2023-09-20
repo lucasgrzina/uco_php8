@@ -84,7 +84,7 @@ return [
             'recordarme' => 'Recordarme',
             'btnSi' => 'Sí',
             'btnNo' => 'No',
-            'disclaimer' => 'Al ingresar usted acepta los <a class="acepto" target="_blank" href="_link_tyc_">términos y condiciones</a>. A favor del consumo responsable y moderado.Beber con moderación | Prohibida su venta a menores de 18 años.'
+            'disclaimer' => 'Al ingresar usted acepta los <a class="acepto" target="_blank" href="_link_tyc_">términos y condiciones</a>. A favor del consumo responsable y moderado. Beber con moderación | Prohibida su venta a menores de 18 años.'
         ],
         'pp' => [
             'titulo' => 'POLÍTICAS DE PRIVACIDADE',

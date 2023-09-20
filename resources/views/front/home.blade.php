@@ -163,7 +163,7 @@
                                     <div class="info fade_JS">
                                         <span class="date">{{$item['fecha_corta']}}</span>
                                         <h3>{{$item['titulo']}}</h3>
-                                        <p>{!!$item['cuerpo']!!}</p>
+                                        <p>{!!$item['bajada']!!}</p>
                                     </div>
                                 </a>
                             @endforeach
@@ -175,7 +175,7 @@
                                     <div class="info fade_JS">
                                         <span class="date">{{$item['fecha_corta']}}</span>
                                         <h3>{{$item['titulo']}}</h3>
-                                        <p>{!!$item['cuerpo']!!}</p>
+                                        <p>{!!$item['bajada']!!}</p>
                                     </div>
                                 </a>
                             @endforeach
