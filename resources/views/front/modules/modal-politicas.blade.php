@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-            <a class="brand" href="index.php"><img src="{{asset("img/logo.svg")}}" /></a>
+            <a class="brand" href="index.php"><img src="{{asset("img/logo.png")}}" /></a>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">

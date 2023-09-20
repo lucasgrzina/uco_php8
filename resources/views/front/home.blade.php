@@ -126,7 +126,7 @@
 	</div>
 </section>
 
-<section class="section-full-image m-0" >
+<!--section class="section-full-image m-0" >
 	<div class="bg-content w-100 h-100 " style="background-image: url({{asset('img/full-image.jpg')}});">
 	<div class="container " >
 		<div class="row">
@@ -136,13 +136,13 @@
 					<h2>{!! trans('front.paginas.home.tucci.titulo') !!}</h2>
 					<p>{!! trans('front.paginas.home.tucci.subtitulo') !!}</p>
 					<a href="{{routeIdioma('francescaTucci')}}" class="btn-primary">{!! trans('front.paginas.home.tucci.btn1') !!}</a>
-					<!--a href="{{routeIdioma('colecciones.tucci')}}" class="btn-primary">{!! trans('front.paginas.home.tucci.btn2') !!}</a-->
+					<a href="{{routeIdioma('colecciones.tucci')}}" class="btn-primary">{!! trans('front.paginas.home.tucci.btn2') !!}</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	</div>
-</section>
+</section-->
 
 @if (isset($data['novedades']) && count($data['novedades']) > 0)
 	<section class="section-novedades " >

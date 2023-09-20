@@ -116,7 +116,7 @@
                                                                                 <tr>
                                                                                     <td>
                                                                                         <a href="#" target="_blank">
-                                                                                            <img src="{{asset('img/mailings/logo-magia-uco.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+                                                                                            <img src="{{asset('img/mailings/logo-magia-uco-nuevo.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
                                                                                         </a>
                                                                                     </td>
                                                                                 </tr>
@@ -172,7 +172,7 @@
                                                         </div>
 
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; padding: 15px; margin: 0 auto;">
-                                                            {!! trans('emails.recuperar.linea1') !!} {{$clave}}.
+                                                            {!! trans('emails.recuperar.linea1') !!} {{$clave}}
                                                         </div>
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
                                                             {!! trans('emails.recuperar.linea2') !!}
@@ -240,7 +240,7 @@
 
                                                                                         <a href="#" target="_blank">
 
-                                                                                            <img src="{{asset('img/mailings/logo-magia-uco.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+                                                                                            <img src="{{asset('img/mailings/logo-magia-uco-nuevo.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
 
                                                                                         </a>
                                                                                     </td>

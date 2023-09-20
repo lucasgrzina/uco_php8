@@ -23,7 +23,7 @@ return [
         'imagenes' => [
             'recupera' => 'contrasena-eng.jpg'
         ],
-        'subject' => 'Magia del Uco - New password'
+        'subject' => 'Magia de Uco - New password'
     ],
     'pedido' => [
         'info' => 'Your purchase information',

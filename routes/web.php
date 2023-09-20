@@ -124,6 +124,12 @@ Route::prefix('/admin')->group(function () {
         Route::post('pais/filter', 'Admin\PaisController@filter')->name('pais.filter');
         Route::resource('pais', 'Admin\PaisController');
 
+        Route::get('configuraciones/edit/{id}/{lang}', 'Admin\ConfiguracionesController@editLang')->name('configuraciones.edit-lang');
+        Route::post('configuraciones/change-enabled', 'Admin\ConfiguracionesController@changeEnabled')->name('configuraciones.change-enabled');
+        Route::post('configuraciones/filter', 'Admin\ConfiguracionesController@filter')->name('configuraciones.filter');
+        Route::resource('configuraciones', 'Admin\ConfiguracionesController');
+
+
         Route::get('clear-cache', function () {
             $exitCode = Artisan::call('cache:clear');
             echo 'done';// return what you want
@@ -237,6 +243,8 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|es|pt']],function 
 
     Route::get(trans('front.rutas.colecciones.tucci').'/{id?}/{slug?}', 'Front\ColeccionesController@tucci')->name('colecciones.tucci');
     Route::get(trans('front.rutas.colecciones.interwine').'/{id?}/{slug?}', 'Front\ColeccionesController@interwine')->name('colecciones.interwine');
+    Route::get(trans('front.rutas.colecciones.magiaUco').'/{id?}/{slug?}', 'Front\ColeccionesController@magiaUco')->name('colecciones.magiaUco');
+    Route::get(trans('front.rutas.colecciones.magiaUcoNotable').'/{id?}/{slug?}', 'Front\ColeccionesController@magiaUcoNotable')->name('colecciones.magiaUcoNotable');
     Route::get(trans('front.rutas.colecciones.root'), 'Front\ColeccionesController@index')->name('colecciones');
 
     Route::get(trans('front.rutas.francescaTucci'), 'Front\FrancescaTucciController@index')->name('francescaTucci');

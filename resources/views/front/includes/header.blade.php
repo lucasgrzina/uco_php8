@@ -18,7 +18,7 @@
           </svg>
         </div>
       </button>
-      <a class="navbar-brand" href="{{route('home',[app()->getLocale()])}}"><img src="{{asset('img/logo.svg')}}" /></a>
+      <a class="navbar-brand" href="{{route('home',[app()->getLocale()])}}"><img src="{{asset('img/logo.png')}}" style="max-width: 100%;" /></a>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 
         <ul class="nav-lenguage mobile">
@@ -48,9 +48,11 @@
               </div>
               <div class="menu">
                 <ul>
-                  <li><a href="{{routeIdioma('colecciones')}}">{{trans('front.navMenuFooter.links.colecciones')}}</a></li>
+                  <li><!--a href="{{routeIdioma('colecciones')}}">{{trans('front.navMenuFooter.links.colecciones')}}</a></li-->
                     <!--li><a href="{{routeIdioma('colecciones.tucci')}}">{{trans('front.navMenuFooter.links.francescaTucci')}}</a></li-->
-                  <li><a href="{{routeIdioma('colecciones.interwine')}}">{{trans('front.navMenuFooter.links.interwine')}}</a></li>
+                  <!--li><a href="{{routeIdioma('colecciones.interwine')}}">{{trans('front.navMenuFooter.links.interwine')}}</a></li-->
+                  <li><a href="{{routeIdioma('colecciones.magiaUco')}}">{{trans('front.navMenuFooter.links.magiaUco')}}</a></li>
+                  <li><a href="{{routeIdioma('colecciones.magiaUcoNotable')}}">{{trans('front.navMenuFooter.links.magiaUcoNotable')}}</a></li>
                 </ul>
               </div>
             </div>
@@ -58,9 +60,9 @@
 
           </li>
 
-          <li class="nav-item">
+          <!--li class="nav-item">
             <a class="nav-link" href="{{routeIdioma('francescaTucci')}}">{{trans('front.navMenuFooter.links.francescaTucci')}}</a>
-          </li>
+          </li-->
 
           <li class="nav-item">
             <a class="nav-link" href="{{routeIdioma('novedades')}}">{{trans('front.navMenuFooter.links.novedades')}}</a>

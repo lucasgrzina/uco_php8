@@ -77,7 +77,9 @@
             </div>
             <div class="col-12">
                 <div class="shop">
-                    <p class="destacado mt-3 text-center">{{trans('front.paginas.colecciones.interna.porCompras')}}</p>
+                    <p class="destacado mt-3 text-center">
+                        {!! str_replace('_COMPRAS_SUPERIORES_',$data['configuraciones']['COMPRAS_SUPERIORES'],trans('front.paginas.colecciones.interna.porCompras')) !!}
+                    </p>
                 </div>
             </div>
         </div>

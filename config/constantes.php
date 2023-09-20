@@ -4,7 +4,9 @@ return [
         'visibleHome' => [['key' => 'NO','value' => 'No'],['key' => 'SI','value' => 'Si - Columna Izquierda'],['key' => 'SD','value' => 'Si - Columna Derecha']],
         'colecciones' => [
             'FT' => '_trans.front.colecciones.francescaTucci',
-            'IN' => '_trans.front.colecciones.interwine'
+            'IN' => '_trans.front.colecciones.interwine',
+            'MU' => '_trans.front.colecciones.magiaUco',
+            'MN' => '_trans.front.colecciones.magiaUcoNotable',
         ]
     ],
     'headers' => [
@@ -28,6 +30,12 @@ return [
         ],
         'coleccionesInterwine' => [
             ['titulo' => '_trans.front.paginas.colecciones.interwine.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/interwine-header.jpg','imagen_mobile_url' => '_asset.img/interwine-header.jpg','orden' => 1]
+        ],
+        'coleccionesMagiaUco' => [
+            ['titulo' => '_trans.front.paginas.colecciones.magiaUco.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/interwine-header.jpg','imagen_mobile_url' => '_asset.img/interwine-header.jpg','orden' => 1]
+        ],
+        'coleccionesMagiaUcoNotable' => [
+            ['titulo' => '_trans.front.paginas.colecciones.magiaUcoNotable.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/interwine-header.jpg','imagen_mobile_url' => '_asset.img/interwine-header.jpg','orden' => 1]
         ],
         'novedades' => [
             ['titulo' => '_trans.front.paginas.novedades.titulo','subtitulo' => '','imagen_desktop_url' => '_asset.img/novedades-header.jpg','imagen_mobile_url' => '_asset.img/novedades-header.jpg','orden' => 1]

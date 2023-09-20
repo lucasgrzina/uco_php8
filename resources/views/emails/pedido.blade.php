@@ -216,7 +216,7 @@
 
 																					<a href="#" target="_blank">
 
-																						<img src="{{asset('img/mailings//logo-magia-uco.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+																						<img src="{{asset('img/mailings//logo-magia-uco-nuevo.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
 
 																					</a>
 																				</td>

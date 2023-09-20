@@ -23,7 +23,7 @@ return [
         'imagenes' => [
             'recupera' => 'contrasena-port.jpg'
         ],
-        'subject' => 'Magia del Uco - Nova Senha'
+        'subject' => 'Magia de Uco - Nova Senha'
     ],
     'pedido' => [
         'info' => 'Informações sobre a sua compra',

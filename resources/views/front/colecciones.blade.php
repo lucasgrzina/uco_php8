@@ -104,7 +104,9 @@
 
                                 </div>
                                 <div v-if="actual.vendible" class="shop">
-                                    <p class="destacado mb-3">{!!trans('front.paginas.colecciones.interna.porCompras')!!}</p>
+                                    <p class="destacado mb-3">
+                                        {!! str_replace('_COMPRAS_SUPERIORES_',$data['configuraciones']['COMPRAS_SUPERIORES'],trans('front.paginas.colecciones.interna.porCompras')) !!}
+                                    </p>
                                     <a href="javascript:void(0)" class="btn btn-brown" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
 
                                 </div>

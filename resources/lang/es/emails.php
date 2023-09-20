@@ -23,7 +23,7 @@ return [
         'imagenes' => [
             'recupera' => 'contrasena-esp.jpg'
         ],
-        'subject' => 'Magia del Uco - Nueva clave'
+        'subject' => 'Magia de Uco - Nueva clave'
     ],
     'pedido' => [
         'info' => 'Información de tu compra',

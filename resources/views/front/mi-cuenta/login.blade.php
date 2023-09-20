@@ -87,7 +87,7 @@
             </div>
             <div class="col-lg-7 col-form">
                 <div class="wraper" v-if="login.vista === 'login'">
-                    <a class="brand"><img src="{{asset('img/logo.svg')}}" /></a>
+                    <a class="brand"><img src="{{asset('img/logo.png')}}" /></a>
                     <form v-on:submit.prevent="loginSubmit('frm-login')" data-vv-scope="frm-login">
                         <!-- Email input -->
                         <div class="form-floating mb-form">
@@ -118,7 +118,7 @@
                     </form>
                 </div>
                 <div class="wraper" v-else>
-                    <a class="brand"><img src="{{asset('img/logo.svg')}}" /></a>
+                    <a class="brand"><img src="{{asset('img/logo.png')}}" /></a>
                     <form v-on:submit.prevent="loginSubmit('frm-recuperar')" data-vv-scope="frm-recuperar">
                         <!-- Email input -->
                         <div class="form-floating mb-form">

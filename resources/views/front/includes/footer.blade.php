@@ -31,7 +31,7 @@
       <div class="row">
           <div class="col-12">
               <a href="#" class="logo">
-                  <img src="{{asset('img/logo.svg')}}">
+                  <img src="{{asset('img/logo.png')}}">
               </a>
           </div>
           <div class="col-12">

@@ -7,6 +7,7 @@ use App\Aniada;
 //use App\Repositories\PedidosRepository;
 //use App\Services\ConfiguracionesService;
 //use App\Services\EnvioService;
+use App\Configuraciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\AppBaseController;
@@ -26,13 +27,14 @@ class CarritoController extends AppBaseController
 
     public function index($lang)
     {
+        $configuraciones = Configuraciones::whereIn('clave',['COMPRAS_SUPERIORES'])->pluck('valor','clave')->toArray();
         $itemsCarrito = \Cart::getContent();
 
         $this->data['detalleCarrito'] = [
             'info' => [
             ],
         ];
-
+        $this->data['configuraciones'] = $configuraciones;
         return view('front.carrito', [
             'tituloPagina' => trans('front.paginas.carrito.titulo'),
             'dataSection' => 'mis-pedidos',

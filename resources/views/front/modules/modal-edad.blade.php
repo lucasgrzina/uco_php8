@@ -4,7 +4,7 @@
 	<div class="modal-dialog  modal-dialog-centered">
 		<div class="modal-content">
 			<div class="modal-header">
-				<a class="brand" href="index.php"><img src="{{asset("img/logo.svg")}}" /></a>
+				<a class="brand" href="index.php"><img src="{{asset("img/logo.png")}}" /></a>
 			</div>
 			<div class="modal-body">
 				<h3>{!! trans('front.modulos.ageGate.bienvenido') !!}</h3>

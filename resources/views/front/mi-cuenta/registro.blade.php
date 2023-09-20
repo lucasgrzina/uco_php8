@@ -56,7 +56,7 @@
             </div>
             <div class="col-lg-7 col-form">
                 <div class="wraper">
-                    <a class="brand"><img src="{{asset('img/logo.svg')}}" /></a>
+                    <a class="brand"><img src="{{asset('img/logo.png')}}" /></a>
                     <form v-on:submit.prevent="registroSubmit()" data-vv-scope="frm-registro">
                         <!-- Email input -->
                         <div class="form-floating">

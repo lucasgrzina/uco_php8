@@ -91,7 +91,7 @@ p{
 			@include under($b-lg) {
 				margin-top: 45px;
 			}
-			&:after{
+			/*&:after{
 				content: ' ';
 				position: absolute;
 				background-image: url(../img/firulete.svg);
@@ -113,7 +113,7 @@ p{
 					left: calc(100% + 11px);
 					top: 5px;
 				}
-			}
+			}*/
 
 			&:hover{
 				&:after{
@@ -953,7 +953,7 @@ p{
 	}
 
 	.col-map{
-		padding: 60px 0 0 0;
+		padding: 60px 0;
 		display: inline-grid;
 
 		h2{
@@ -996,11 +996,15 @@ p{
 			max-width: 410px;
 		}
 		@include over($b-md) {
-
+            padding: 250px 35px 0 0;
 			float: left;
 		}
 
 		@include under($b-lg) {
+			padding: 220px 35px 0 0;
+		}
+
+		@include under($b-md) {
 			padding: 60px 35px 0 0;
 		}
 	}

@@ -8,6 +8,8 @@ return [
             'root' => 'collections',
             'tucci' => 'collections/francesca-tucci',
             'interwine' => 'collections/interwine',
+            'magiaUco' => 'collections/magia-uco',
+            'magiaUcoNotable' => 'collections/magia-uco-notable',
         ],
         'francescaTucci' => 'francesca-tucci',
         'novedades' => 'novelties',
@@ -41,7 +43,7 @@ return [
             'home' => 'Inicio',
             'legado' => 'Legacy',
             'nuestroCompromiso' => 'Our Commitment',
-            'colecciones' => 'Collections',
+            'colecciones' => 'Shop',
             'francescaTucci' => 'Francesca Tucci',
             'interwine' => 'Intertwine',
             'novedades' => 'News',
@@ -86,12 +88,12 @@ return [
         ],
         'pp' => [
             'titulo' => 'Privacy Policy',
-            'contenido' => "<p><u>Privacy Policy of Magia del Uco's Website</u></p>
+            'contenido' => "<p><u>Privacy Policy of Magia de Uco's Website</u></p>
             <p>Below you will find information about our Privacy Policy, the manner and circumstances in which your data are collected, used and shared when you use our website and your rights.</p>
             <p>You should know that Neubell S.A., as the party responsible for the database, will not gather or perform any type of collection of the Data through the website&nbsp;<u>https://www.magiadeluco.com</u>&nbsp;or any of its digital media until you have accepted these Privacy Policies.</p>
             <p><u>Responsibility for the Processing of Personal Data:</u></p>
             <p>The Personal Data provided by you are recorded in a database which is duly registered with the Agency of Access to Public Information, and Neubell S.A. assumes responsibility for such database. The firm&rsquo;s domicile is registered at: Santa Fe 2888, San Miguel, Province of Buenos Aires. Telephone number: 02622 36 2442. Email:&nbsp;<u>info@magiadeluco.com</u>&nbsp;</p>
-            <p>&ldquo;Magia del Uco&rdquo;, as well as &ldquo;Intertwine&rdquo; and &ldquo;Francesca Tucci&rdquo;, are registered trademarks owned by&nbsp;Neubell S.A.</p>
+            <p>&ldquo;Magia de Uco&rdquo;, as well as &ldquo;Intertwine&rdquo; and &ldquo;Francesca Tucci&rdquo;, are registered trademarks owned by&nbsp;Neubell S.A.</p>
             <p><u>Commitment of Responsibility</u>:</p>
             <p>Neubell S.A. is responsible for the database and assumes the commitment to protect your privacy and confidentiality under the terms of section 9, paragraph 1 of Act No. 25326 on the Protection of Personal Data.</p>
             <p>Likewise, it undertakes to use responsibly the general information and personal data provided by you when using our media.</p>
@@ -152,9 +154,9 @@ return [
             ],
         'tyc' => [
             'titulo' => 'Terms and Conditions',
-            'contenido' => "<p><u>Terms and Conditions for Use of Magia del Uco's Website</u></p>
+            'contenido' => "<p><u>Terms and Conditions for Use of Magia de Uco's Website</u></p>
             <p>In this section you will find the Terms and Conditions applicable to the access and use of the website www.magiadeluco.com, owned by Neubell S.A.</p>
-            <p>&ldquo;Magia del Uco&rdquo;, as well as &ldquo;Intertwine&rdquo; and &ldquo;Francesca Tucci&rdquo;, are registered trademarks owned by&nbsp;Neubell S.A. Likewise, the logos, designs, commercial names of the products, advertising phrases, commercial advertisements or notices, texts, and other contents of the website are property of Neubell S.A. and no rights over them are transferred to the \"users\" by accessing or using this website.</p>
+            <p>&ldquo;Magia de Uco&rdquo;, as well as &ldquo;Intertwine&rdquo; and &ldquo;Francesca Tucci&rdquo;, are registered trademarks owned by&nbsp;Neubell S.A. Likewise, the logos, designs, commercial names of the products, advertising phrases, commercial advertisements or notices, texts, and other contents of the website are property of Neubell S.A. and no rights over them are transferred to the \"users\" by accessing or using this website.</p>
             <p><u>Preliminary Warnings</u>:</p>
             <p>Any user or visitor (hereinafter the \"user\") of this website should inform themselves about the Terms and Conditions detailed below.</p>
             <p>Likewise, every \"user\" of this website must inform themselves and accept the Privacy Policy.</p>
@@ -195,13 +197,13 @@ return [
     'paginas' => [
         'home' => [
             'legado' => [
-                'titulo' => 'Magia del Uco’s legacy',
+                'titulo' => 'Magia de Uco’s legacy',
                 'subtitulo' => 'Winegrowers steeped in more than 450 years of history',
                 'btn' => 'LEARN ABOUT OUR HISTORY'
             ],
             'compromiso' => [
                 'titulo' => 'Our Commitment',
-                'subtitulo' => 'At Magia del Uco, we love and care for our natural environment and are committed to respecting it deeply, in every one of our actions.',
+                'subtitulo' => 'At Magia de Uco, we love and care for our natural environment and are committed to respecting it deeply, in every one of our actions.',
                 'slider' => [
                     'certifications' => 'CERTIFICATIONS',
                     'quality' => 'QUALITY',
@@ -238,9 +240,9 @@ return [
             ],
             'modulo2' => [
                 'slider' => [
-                    '1' => ['imagen' => 'img/nuestro-compromiso/nuestra-gente.jpg','titulo' => 'Our People','subtitulo' => 'From the beginning we have worked with the determination to take Argentine wine to a new level worldwide. This paradigm shift is possible thanks to the effort, study and passion of a team of skilled and committed people.<br>At Magia del Uco there is no single star; we define ourselves as a constellation that grows daily and evolves alongside the vines.<br>Each and every one of us is part of an integrated whole that works together to create extraordinary, unique wines. Our people play a key role as the custodians of quality and are irreplaceable in each one of our tasks.'],
-                    '2' => ['imagen' => 'img/nuestro-compromiso/viticultora-regenerativa.jpg','titulo' => 'Regenerative viticulture','subtitulo' => 'We understand that we are part of an ecosystem. That the footprint we leave causes an impact; and therefore, we try to keep it to a minimum. We are also constantly challenged to bring the soil back to life, thus promoting biodiversity. At Magia del Uco, we conserve 5.6 hectares (160 acres) in their natural state, sheltering the native flora and fauna. Practicing regenerative viticulture is part of our ethos. We were pioneers in having the Global GAP certification in “Good Agricultural Practices” since the very first vintage and uninterruptedly until today.<br>We enhance the natural generosity of vines with planned and efficient management. Our conviction and commitment led us to join the Regenerative Viticulture Association, becoming pioneers in joining this institution that promotes a new way of managing vines.'],
-                    '3' => ['imagen' => 'img/nuestro-compromiso/calidad.jpg','titulo' => 'Quality','subtitulo' => 'At Magia del Uco, we divide our vineyard into 6 cells, which are, in turn, divided into 74 micro-plots defined by their homogeneity and also by their uniqueness. From the very beginning, each cell is assigned a dedicated winegrower, who guarantees that the maximum quality of the grapes will be obtained, to later be converted into our wines. In order to further guarantee extreme quality, we perform night harvests and our wines are sourced from our own grapes in our own winery. This allows us to start vinification in just 30 minutes, monitored at all times by the watchful eye of our staff.<br>We created the winery with state-of-the-art equipment, in line with the highest standards of technological innovation, and based on a unique concept in Latin America. We have also designed the VINARIUN program, which provides the necessary conditions for the production of natural, unique wines, which are subjected to a strict tasting and selection process, in order for the Authority Board to determine the potential and nobility of each line of wines that comes onto the market.'],
+                    '1' => ['imagen' => 'img/nuestro-compromiso/nuestra-gente.jpg','titulo' => 'Our People','subtitulo' => 'From the beginning we have worked with the determination to take Argentine wine to a new level worldwide. This paradigm shift is possible thanks to the effort, study and passion of a team of skilled and committed people.<br>At Magia de Uco there is no single star; we define ourselves as a constellation that grows daily and evolves alongside the vines.<br>Each and every one of us is part of an integrated whole that works together to create extraordinary, unique wines. Our people play a key role as the custodians of quality and are irreplaceable in each one of our tasks.'],
+                    '2' => ['imagen' => 'img/nuestro-compromiso/viticultora-regenerativa.jpg','titulo' => 'Regenerative viticulture','subtitulo' => 'We understand that we are part of an ecosystem. That the footprint we leave causes an impact; and therefore, we try to keep it to a minimum. We are also constantly challenged to bring the soil back to life, thus promoting biodiversity. At Magia de Uco, we conserve 5.6 hectares (160 acres) in their natural state, sheltering the native flora and fauna. Practicing regenerative viticulture is part of our ethos. We were pioneers in having the Global GAP certification in “Good Agricultural Practices” since the very first vintage and uninterruptedly until today.<br>We enhance the natural generosity of vines with planned and efficient management. Our conviction and commitment led us to join the Regenerative Viticulture Association, becoming pioneers in joining this institution that promotes a new way of managing vines.'],
+                    '3' => ['imagen' => 'img/nuestro-compromiso/calidad.jpg','titulo' => 'Quality','subtitulo' => 'At Magia de Uco, we divide our vineyard into 6 cells, which are, in turn, divided into 74 micro-plots defined by their homogeneity and also by their uniqueness. From the very beginning, each cell is assigned a dedicated winegrower, who guarantees that the maximum quality of the grapes will be obtained, to later be converted into our wines. In order to further guarantee extreme quality, we perform night harvests and our wines are sourced from our own grapes in our own winery. This allows us to start vinification in just 30 minutes, monitored at all times by the watchful eye of our staff.<br>We created the winery with state-of-the-art equipment, in line with the highest standards of technological innovation, and based on a unique concept in Latin America. We have also designed the VINARIUN program, which provides the necessary conditions for the production of natural, unique wines, which are subjected to a strict tasting and selection process, in order for the Authority Board to determine the potential and nobility of each line of wines that comes onto the market.'],
                 ]
             ],
             'certificaciones' => [
@@ -252,7 +254,7 @@ return [
                     '3' => ['icono' => 'img/icon3.svg','titulo' => 'SPECIAL MENTION FOR ARGENINTA','subtitulo' => '“Production of high quality grapes using a sustainable production process and taking care of the physical, biological, socio-economic and cultural environment.”'],
                     '4' => ['icono' => 'img/icon7.svg','titulo' => 'CAMPOLIMPIO','subtitulo' => 'Proper handling of phytosanitary product containers through CampoLimpio, a national program that ensures the environment is kept free from pollution.'],
                     '5' => ['icono' => 'img/icon5.svg','titulo' => 'COINCE','subtitulo' => 'A local consortium for the appropriate management, recycling and reuse of urban waste and pollutants.'],
-                    '6' => ['icono' => 'img/icon4.svg','titulo' => 'SODIUM-FREE NATURAL MINERAL SPRING WATER','subtitulo' => 'Magia del Uco owns a natural source of sodium-free mineral water used efficiently to irrigate our vineyards drop by drop. Project feasibility permit granted by the province of Mendoza, April 2008.'],
+                    '6' => ['icono' => 'img/icon4.svg','titulo' => 'SODIUM-FREE NATURAL MINERAL SPRING WATER','subtitulo' => 'Magia de Uco owns a natural source of sodium-free mineral water used efficiently to irrigate our vineyards drop by drop. Project feasibility permit granted by the province of Mendoza, April 2008.'],
 
                 ]
             ]
@@ -273,7 +275,7 @@ return [
             ],
         ],
         'contacto' => [
-            'titulo' => 'Magia del Uco experience',
+            'titulo' => 'Magia de Uco experience',
             'subtitulo' => 'We are working so that you can enjoy your experience. We will be posting updates soon. ',
             'donde' => 'Where to find us',
             'contactanos' => 'Contact Us',
@@ -313,7 +315,7 @@ return [
                 'aniadas' => 'Vintage',
                 'fichaTecnica' => 'Explore more',
                 'porCantidades' => '*For orders over 18 bottles, please contact us at <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
-                'porCompras' => 'For purchases over AR$ 35,000, shipping is free.',
+                'porCompras' => 'For purchases over AR$ _COMPRAS_SUPERIORES_, shipping is free.',
                 'btnAgregar' => 'Add to bag'
             ],
             'root' => [
@@ -378,7 +380,7 @@ return [
             'btnRegistrarse' => 'Register',
             'yaTenes' => 'Login',
             'lnkLogin' => 'Login',
-            'yaSosParte' => 'You are now part Magia del Uco world. Welcome!',
+            'yaSosParte' => 'You are now part Magia de Uco world. Welcome!',
             'validaciones' => [
                 'usuario.unique' => 'The entered user is already in use.',
                 'email.unique' => ' The entered email is already in use.',

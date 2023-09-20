@@ -8,6 +8,8 @@ return [
             'root' => 'colecoes',
             'tucci' => 'colecoes/francesca-tucci',
             'interwine' => 'colecoes/intertwine',
+            'magiaUco' => 'colecoes/magia-uco',
+            'magiaUcoNotable' => 'colecoes/magia-uco-notable',
         ],
         'francescaTucci' => 'francesca-tucci',
         'novedades' => 'novidades',
@@ -41,7 +43,7 @@ return [
             'home' => 'Inicio',
             'legado' => 'Legado',
             'nuestroCompromiso' => 'Nosso compromisso',
-            'colecciones' => 'Coleções',
+            'colecciones' => 'Shop',
             'francescaTucci' => 'Francesca Tucci',
             'interwine' => 'Intertwine',
             'novedades' => 'Novidades',
@@ -86,12 +88,12 @@ return [
         ],
         'pp' => [
             'titulo' => 'POLÍTICAS DE PRIVACIDADE',
-            'contenido' => '<p><u>Pol&iacute;ticas de privacidade do site &ldquo;Magia del Uco&rdquo;:</u></p>
+            'contenido' => '<p><u>Pol&iacute;ticas de privacidade do site &ldquo;Magia de Uco&rdquo;:</u></p>
             <p>A seguir, voc&ecirc; poder&aacute; receber&aacute; informa&ccedil;&otilde;es sobre as nossas Pol&iacute;ticas de Privacidade, o modo e as circunst&acirc;ncias nas quais os seus dados s&atilde;o recompilados, utilizados e compartilhados quando voc&ecirc; utiliza o nosso website e os seus direitos.</p>
             <p>Saiba que antes de Neubell S.A., como respons&aacute;vel pela base de dados, recompila&ccedil;&atilde;o ou realiza&ccedil;&atilde;o de qualquer tipo de coleta de dados atrav&eacute;s do website <u>https://www.magiadeluco.com</u> ou qualquer dos seus meios digitais, voc&ecirc; dever&aacute; aceitar essas pol&iacute;ticas de privacidade.</p>
             <p><u>Respons&aacute;vel pelo tratamento dos dados pessoais</u>:</p>
             <p>Os dados pessoais indicados por voc&ecirc; s&atilde;o registrados em uma base de dados devidamente inscrita na Ag&ecirc;ncia de Acesso &agrave; Informa&ccedil;&atilde;o P&uacute;blica, sendo o seu respons&aacute;vel Neubell S.A., com domic&iacute;lio em Av. Santa Fe 2888, San Miguel, Provincia de Buenos Aires, telefone: 02622 36 2442, e-mail: <u>info@magiadeluco.com</u>.</p>
-            <p>&ldquo;Magia del Uco&rdquo; e as marcas &ldquo;Intertwine&rdquo; e &ldquo;Francesca Tucci&rdquo; s&atilde;o marcas registradas que pertencem a Neubell S.A.</p>
+            <p>&ldquo;Magia de Uco&rdquo; e as marcas &ldquo;Intertwine&rdquo; e &ldquo;Francesca Tucci&rdquo; s&atilde;o marcas registradas que pertencem a Neubell S.A.</p>
             <p><u>Compromisso do respons&aacute;vel</u>:</p>
             <p>Neubell S.A., na qualidade de respons&aacute;vel da base de dados, assume o compromisso de proteger a sua privacidade e confidencialidade nos termos do artigo 9&ordm;, inciso 1 da lei 25.326 de Prote&ccedil;&atilde;o de Dados Pessoais.</p>
             <p>Ademais, compromete-se a usar responsavelmente a informa&ccedil;&atilde;o geral e dados pessoais indicados por voc&ecirc; ao utilizar os nossos meios.</p>
@@ -154,11 +156,11 @@ return [
             'titulo' => 'Termos e Condições',
             'contenido' => '<p>Princ&iacute;pio do formul&aacute;rio</p>
             <p>&nbsp;</p>
-            <p><u>Termos e Condi&ccedil;&otilde;es de Uso do Website de &ldquo;Magia del Uco&rdquo;</u></p>
+            <p><u>Termos e Condi&ccedil;&otilde;es de Uso do Website de &ldquo;Magia de Uco&rdquo;</u></p>
             <p>&nbsp;</p>
             <p>Nesta se&ccedil;&atilde;o voc&ecirc; encontrar&aacute; os Termos e Condi&ccedil;&otilde;es aplic&aacute;veis ao acesso e ao uso do website &ldquo;www.magiadeluco.com&rdquo; de propriedade de &ldquo;Neubell S.A.&rdquo;.</p>
             <p>&nbsp;</p>
-            <p>&ldquo;Magia del Uco&rdquo; e as marcas &ldquo;Intertwine&rdquo; e &ldquo;Francesca Tucci&rdquo; s&atilde;o marcas registradas que pertencem a Neubell S.A. Ademais, os logotipos, desenhos, nomes comerciais dos produtos, frases de propaganda, publicidade ou avisos, textos e demais conte&uacute;do do website s&atilde;o propriedade de Neubell S.A. e nenhum direito sobre os mesmos &eacute; transmitido aos &ldquo;usu&aacute;rios&rdquo; pelo acesso ou uso do presente website.</p>
+            <p>&ldquo;Magia de Uco&rdquo; e as marcas &ldquo;Intertwine&rdquo; e &ldquo;Francesca Tucci&rdquo; s&atilde;o marcas registradas que pertencem a Neubell S.A. Ademais, os logotipos, desenhos, nomes comerciais dos produtos, frases de propaganda, publicidade ou avisos, textos e demais conte&uacute;do do website s&atilde;o propriedade de Neubell S.A. e nenhum direito sobre os mesmos &eacute; transmitido aos &ldquo;usu&aacute;rios&rdquo; pelo acesso ou uso do presente website.</p>
             <p>&nbsp;</p>
             <p><u>Advert&ecirc;ncias preliminares</u>:</p>
             <p>&nbsp;</p>
@@ -233,13 +235,13 @@ return [
     'paginas' => [
         'home' => [
             'legado' => [
-                'titulo' => 'O legado de Magia del Uco',
+                'titulo' => 'O legado de Magia de Uco',
                 'subtitulo' => 'Viticultores com mais de 450 anos de história',
                 'btn' => 'CONHEÇA A NOSSA HISTÓRIA'
             ],
             'compromiso' => [
                 'titulo' => 'Nosso compromisso',
-                'subtitulo' => 'Em Magia del Uco, amamos e cuidamos do nosso entorno natural e temos o compromisso de respeitá-lo profundamente em cada uma das nossas ações.',
+                'subtitulo' => 'Em Magia de Uco, amamos e cuidamos do nosso entorno natural e temos o compromisso de respeitá-lo profundamente em cada uma das nossas ações.',
                 'slider' => [
                     'certificacoes' => 'Certificações',
                     'qualidade' => 'QUALIDADE',
@@ -276,9 +278,9 @@ return [
             ],
             'modulo2' => [
                 'slider' => [
-                    '1' => ['imagen' => 'img/nuestro-compromiso/nuestra-gente.jpg','titulo' => 'Nossa gente','subtitulo' => 'Desde o início trabalhamos com a convicção de levar o vinho argentino a um novo nível mundial. Essa mudança de paradigma é possível graças ao esforço, ao estudo e à paixão de uma equipe de pessoas idôneas e comprometidas.<br>Em Magia del Uco não existe uma única estrela: somos uma constelação que, dia após dia, se especializa e cresce junto com as vinhas. Todos e cada um de nós nos dedicamos a criar vinhos extraordinários e únicos. A nossa gente, com um protagonismo indiscutível, zela pela qualidade e se torna indispensável em todas e cada uma das nossas ações.'],
-                    '2' => ['imagen' => 'img/nuestro-compromiso/viticultora-regenerativa.jpg','titulo' => 'Viticultura regenerativa','subtitulo' => 'Entendemos que somos parte de um ecossistema. Que a pegada que deixamos modificar e impacta. Por esse motivo, tentamos fazer com que seja mínima. Também nos move o desafio contínuo de devolver vida ao solo e fomentar, assim, a biodiversidade. Em Magia del Uco, conservamos 5,6 hectares no seu estado natural, abrigando flora e fauna nativas. Praticar uma viticultura regenerativa aí é parte do nosso espírito. Somos pioneiros em contar com a certificação Global Gap em “Boas Práticas Agrícolas”, desde a primeira safra e sem interrupções até o dia de hoje.<br>Acompanhamos a natural nobreza da vinha com uma gestão planejada e eficiente. A nossa convicção e o nosso compromisso nos impulsionam a ser parte da Associação de Viticultura Regenerativa o que nos leva a ser pioneiros em participar dessa instituição que promove uma nova forma de administrar a vinha.'],
-                    '3' => ['imagen' => 'img/nuestro-compromiso/calidad.jpg','titulo' => 'Qualidade','subtitulo' => 'Em Magia del Uco dividimos o nosso vinhedo em seis células que, por sua vez, são fracionadas em 74 microparcelas definidas pela sua homogeneidade e também pela sua singularidade. Desde a sua gênese, cada célula tem um viticultor responsável, quem garante a máxima qualidade das uvas que se transformarão depois nos nossos vinhos. Para continuar garantindo uma qualidade extrema, realizamos a vindima noturna e os nossos vinhos são elaborados com uvas próprias na nossa vinícola. Isso permite iniciar a vinificação em apenas 30 minutos, supervisionada durante todo momento pelo olhar atento da nossa gente.<br>Criamos a vinícola com equipamento de última geração, em conformidade com os mais altos padrões de inovação tecnológica e a partir de um único desenvolvimento na América Latina. Além disso, criamos o programa VINARIUN, que oferece as condições necessárias para a produção de vinhos naturais e únicos, que são submetidos a um estrito processo de degustação e seleção a fim de que o Conselho de Autoridade determine o potencial e a nobreza de cada linha de vinho que sai ao mercado.'],
+                    '1' => ['imagen' => 'img/nuestro-compromiso/nuestra-gente.jpg','titulo' => 'Nossa gente','subtitulo' => 'Desde o início trabalhamos com a convicção de levar o vinho argentino a um novo nível mundial. Essa mudança de paradigma é possível graças ao esforço, ao estudo e à paixão de uma equipe de pessoas idôneas e comprometidas.<br>Em Magia de Uco não existe uma única estrela: somos uma constelação que, dia após dia, se especializa e cresce junto com as vinhas. Todos e cada um de nós nos dedicamos a criar vinhos extraordinários e únicos. A nossa gente, com um protagonismo indiscutível, zela pela qualidade e se torna indispensável em todas e cada uma das nossas ações.'],
+                    '2' => ['imagen' => 'img/nuestro-compromiso/viticultora-regenerativa.jpg','titulo' => 'Viticultura regenerativa','subtitulo' => 'Entendemos que somos parte de um ecossistema. Que a pegada que deixamos modificar e impacta. Por esse motivo, tentamos fazer com que seja mínima. Também nos move o desafio contínuo de devolver vida ao solo e fomentar, assim, a biodiversidade. Em Magia de Uco, conservamos 5,6 hectares no seu estado natural, abrigando flora e fauna nativas. Praticar uma viticultura regenerativa aí é parte do nosso espírito. Somos pioneiros em contar com a certificação Global Gap em “Boas Práticas Agrícolas”, desde a primeira safra e sem interrupções até o dia de hoje.<br>Acompanhamos a natural nobreza da vinha com uma gestão planejada e eficiente. A nossa convicção e o nosso compromisso nos impulsionam a ser parte da Associação de Viticultura Regenerativa o que nos leva a ser pioneiros em participar dessa instituição que promove uma nova forma de administrar a vinha.'],
+                    '3' => ['imagen' => 'img/nuestro-compromiso/calidad.jpg','titulo' => 'Qualidade','subtitulo' => 'Em Magia de Uco dividimos o nosso vinhedo em seis células que, por sua vez, são fracionadas em 74 microparcelas definidas pela sua homogeneidade e também pela sua singularidade. Desde a sua gênese, cada célula tem um viticultor responsável, quem garante a máxima qualidade das uvas que se transformarão depois nos nossos vinhos. Para continuar garantindo uma qualidade extrema, realizamos a vindima noturna e os nossos vinhos são elaborados com uvas próprias na nossa vinícola. Isso permite iniciar a vinificação em apenas 30 minutos, supervisionada durante todo momento pelo olhar atento da nossa gente.<br>Criamos a vinícola com equipamento de última geração, em conformidade com os mais altos padrões de inovação tecnológica e a partir de um único desenvolvimento na América Latina. Além disso, criamos o programa VINARIUN, que oferece as condições necessárias para a produção de vinhos naturais e únicos, que são submetidos a um estrito processo de degustação e seleção a fim de que o Conselho de Autoridade determine o potencial e a nobreza de cada linha de vinho que sai ao mercado.'],
                 ]
             ],
             'certificaciones' => [
@@ -290,7 +292,7 @@ return [
                     '3' => ['icono' => 'img/icon3.svg','titulo' => 'MENÇÃO ESPECIAL POR ARGENTINA','subtitulo' => '“Produção de uvas de alta qualidade usando um processo produtivo sustentável que cuida do meio físico, biológico, socioeconômico e cultural.”'],
                     '4' => ['icono' => 'img/icon7.svg','titulo' => 'CAMPOLIMPIO','subtitulo' => 'Gestão adequada de embalagens de produtos fitosanitários que garantem a não contaminação do ambiente através do programa nacional CampoLimpio.'],
                     '5' => ['icono' => 'img/icon5.svg','titulo' => 'COINCE','subtitulo' => 'Gestão adequada de resíduos e agentes contaminantes, reciclagem e reutilização.'],
-                    '6' => ['icono' => 'img/icon4.svg','titulo' => 'ÁGUA MINERAL NATURAL DE MANANCIAL LIVBRE DE SÓDIO:','subtitulo' => 'Magia del Uco conta com uma fonte de água mineral natural de manancial livre de sódio, utilizada de maneira eficiente para regar as nossas vinhas gota a gota. Factibilidade outorgada pela província de Mendoza (abril de 2008).'],
+                    '6' => ['icono' => 'img/icon4.svg','titulo' => 'ÁGUA MINERAL NATURAL DE MANANCIAL LIVBRE DE SÓDIO:','subtitulo' => 'Magia de Uco conta com uma fonte de água mineral natural de manancial livre de sódio, utilizada de maneira eficiente para regar as nossas vinhas gota a gota. Factibilidade outorgada pela província de Mendoza (abril de 2008).'],
 
                 ]
             ]
@@ -351,7 +353,7 @@ return [
                 'aniadas' => 'Añadas',
                 'fichaTecnica' => 'Ficha Técnica',
                 'porCantidades' => '*Para quantidades superiores a 18 garrafas, por favor, entrar em contato conosco em: <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
-                'porCompras' => 'Para compras acima de AR$ 35.000, o envio é gratuito.',
+                'porCompras' => 'Para compras acima de AR$ _COMPRAS_SUPERIORES_, o envio é gratuito.',
                 'btnAgregar' => 'Adicionar ao carrinho'
             ],
             'root' => [
@@ -421,7 +423,7 @@ return [
             'btnRegistrarse' => 'REGISTRARSE',
             'yaTenes' => 'Iniciar sesión',
             'lnkLogin' => 'Login',
-            'yaSosParte' => 'Agora você faz parte do mundo Magia del Uco. Bem-vinda!',
+            'yaSosParte' => 'Agora você faz parte do mundo Magia de Uco. Bem-vinda!',
             'validaciones' => [
                 'usuario.unique' => 'O usuário inserido já está em uso.',
                 'email.unique' => 'O e-mail inserido já está em uso.',

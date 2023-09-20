@@ -19,7 +19,7 @@
 @endsection
 
 @section('content-header')
-{!! AdminHelper::contentHeader('Contactos',trans('admin.list'),'new','create()') !!}
+{!! AdminHelper::contentHeader('Configuraciones',trans('admin.list')) !!}
 @endsection
 
 @section('content')
@@ -34,7 +34,7 @@
                 </div>
             </div>
             <div class="box-body box-list no-padding">
-                    @include('admin.contactos.table')
+                    @include('admin.configuraciones.table')
             </div>
             <div class="box-footer">
                 <div class="col-sm-8 left">
@@ -44,7 +44,7 @@
                     @include('admin.includes.crud.index-pagination')
                 </div>
             </div>
-            @include('admin.includes.crud.index-loading')            
+            @include('admin.includes.crud.index-loading')
         </div>
     </div>
 @endsection

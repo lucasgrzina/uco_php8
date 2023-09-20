@@ -9,13 +9,14 @@ use App\Pais;
 //use App\Services\EnvioService;
 use App\Aniada;
 use MercadoPago;
+use App\Configuraciones;
 use App\Services\MPService;
 use App\RegistradoDireccion;
 use App\Services\UPSService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Mail;
 //use Srmklive\PayPal\Services\ExpressCheckout;
+use Illuminate\Support\Facades\Mail;
 use App\Repositories\PedidoRepository;
 use App\Http\Controllers\AppBaseController;
 
@@ -35,6 +36,7 @@ class CheckoutController extends AppBaseController
     public function index($lang)
     {
         //$precio = precioLibroPorPais();
+
 
         $itemsCarrito = \Cart::getContent();
 
@@ -93,7 +95,8 @@ class CheckoutController extends AppBaseController
             'url_confirmar' => routeIdioma('checkout.confirmar'),
             'enviando' => false,
             'cotizando_envio' => false,
-            'confirmando' => false
+            'confirmando' => false,
+
             /*'listado' => [
                 'items' => $itemsCarrito,
 
@@ -333,7 +336,7 @@ class CheckoutController extends AppBaseController
 
         // del artículo vendido
         $item = new MercadoPago\Item();
-        $item->title = 'Magia del Uco - Pedido ' . $pedido->id;
+        $item->title = 'Magia de Uco - Pedido ' . $pedido->id;
         $item->quantity = 1;
         $item->currency_id = 'ARS';
         $item->unit_price =  $pedido->total;

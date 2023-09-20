@@ -52,7 +52,7 @@ class TestController extends AppBaseController
 
             // del artículo vendido
             $item = new MercadoPago\Item();
-            $item->title = 'Magia del Uco - Pedido ' . $pedido->id;
+            $item->title = 'Magia de Uco - Pedido ' . $pedido->id;
             $item->quantity = 1;
             $item->currency_id = 'ARS';
             $item->unit_price =  $pedido->total;

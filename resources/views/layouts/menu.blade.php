@@ -1,7 +1,7 @@
 <li class="{{ Request::is('dashboard*') ? 'active' : '' }}">
   <a href="{!! route('admin.home') !!}"><i class="fa fa-chevron-right"></i><span>Dashboard</span></a>
 </li>
-@if (\App\Helpers\AdminHelper::mostrarMenu(['usuarios','roles-y-permisos','clientes']))    
+@if (\App\Helpers\AdminHelper::mostrarMenu(['usuarios','roles-y-permisos','clientes']))
 <li class=" treeview menu-open {{ Request::is('users*') || Request::is('roles*') || Request::is('clientes*') ? 'active' : '' }}">
   <a href="#">
     <i class="fa fa-user-shield"></i> <span>Administración</span>
@@ -10,7 +10,7 @@
     </span>
   </a>
   <ul class="treeview-menu" style="">
-    @if (\App\Helpers\AdminHelper::mostrarMenu('usuarios'))    
+    @if (\App\Helpers\AdminHelper::mostrarMenu('usuarios'))
     <li class="{{ Request::is('usuarios*') ? 'active' : '' }}">
       <a href="{!! route('usuarios.index') !!}"><i class="fa fa-user"></i><span>Usuarios - Staff</span></a>
     </li>
@@ -19,7 +19,7 @@
     <li class="{{ Request::is('roles*') ? 'active' : '' }}">
       <a href="{!! route('roles.index') !!}"><i class="fa fa-user"></i><span>Roles</span></a>
     </li>
-    @endif 
+    @endif
   </ul>
 </li>
 @endif
@@ -61,4 +61,6 @@
 <li class="{{ Request::is('pais*') ? 'active' : '' }}">
     <a href="{!! route('pais.index') !!}"><i class="fa fa-edit"></i><span>Pais</span></a>
 </li>
-
+<li class="{{ Request::is('configuraciones*') ? 'active' : '' }}">
+    <a href="{!! route('configuraciones.index') !!}"><i class="fa fa-edit"></i><span>Configuraciones</span></a>
+</li>

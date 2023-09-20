@@ -5,9 +5,9 @@
 
         <!-- Sidebar user panel (optional) -->
 
-        
+
         <a href="#" class="sidebar-logo" style=" background:#8E8063!important;">
-            <img src="{{asset('img/logo.svg')}}" style="max-width: 170px;">
+            <img src="{{asset('img/logo.png')}}" style="max-width: 170px;">
         </a>
         @if(Auth::check())
         <div class="media sidebar-user">

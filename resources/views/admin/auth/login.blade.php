@@ -40,7 +40,7 @@
         .login-box-body {
             border: 1px solid #d2d6de;
             background: rgb(250, 250, 250);
-            border-radius: 5px;        
+            border-radius: 5px;
         }
         .btn-login {
             background-color: #CCD3B9;
@@ -54,7 +54,7 @@
 <div class="login-box">
     <div class="login-logo">
         <a href="{{ url('/home') }}">
-            <img src="{{asset('img/logo.svg')}}">
+            <img src="{{asset('img/logo.png')}}">
         </a>
     </div>
 
@@ -101,8 +101,8 @@
             </div>
         </form>
 		<!--a href="{{ url('/password/email') }}" style="margin-left: 10px">Olvidé mi password</a--><br>
-        
-        
+
+
 
     </div>
     <!-- /.login-box-body -->
