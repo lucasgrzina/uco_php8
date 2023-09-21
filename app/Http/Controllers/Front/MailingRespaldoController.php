@@ -26,7 +26,7 @@ class MailingRespaldoController extends AppBaseController
 
         try
         {
-            $registrado->enviarNotificacionRegistro($locale);
+            //$registrado->enviarNotificacionRegistro($locale);
         }
         catch(\Exception $ex)
         {
@@ -44,7 +44,7 @@ class MailingRespaldoController extends AppBaseController
 
         try
         {
-            $registrado->sendPasswordResetNotification('holis');
+            //$registrado->sendPasswordResetNotification('holis');
         }
         catch(\Exception $ex)
         {
