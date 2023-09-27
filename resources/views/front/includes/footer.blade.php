@@ -45,7 +45,7 @@
               <div class="site-links">
                   <a href="{{routeIdioma('home')}}">{{trans('front.navMenuFooter.links.home')}}</a>
                   <a href="{{routeIdioma('colecciones')}}">{{trans('front.navMenuFooter.links.colecciones')}}</a>
-                  <a href="{{routeIdioma('francescaTucci')}}">{{trans('front.navMenuFooter.links.francescaTucci')}}</a>
+                  <!--a href="{{routeIdioma('francescaTucci')}}">{{trans('front.navMenuFooter.links.francescaTucci')}}</a-->
                   <a href="{{routeIdioma('novedades')}}">{{trans('front.navMenuFooter.links.novedades')}}</a>
                   <a href="{{routeIdioma('nuestroCompromiso')}}">{{trans('front.navMenuFooter.links.nuestroCompromiso')}}</a>
                   <a href="{{routeIdioma('legado')}}">{{trans('front.navMenuFooter.links.legado')}}</a>
