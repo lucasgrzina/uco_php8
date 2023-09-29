@@ -313,7 +313,7 @@ return [
             ],
         ],
         'contacto' => [
-            'titulo' => 'Experiência Mágia de Uco',
+            'titulo' => 'Experiência Magia de Uco',
             'subtitulo' => 'Estamos trabalhando para que você possa desfrutar a sua experiência. Em breve publicaremos novidades.',
             'donde' => 'Onde encontrar os nossos vinhos',
             'contactanos' => 'Contactanos',
