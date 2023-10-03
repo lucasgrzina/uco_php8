@@ -315,7 +315,7 @@ return [
                 'aniadas' => 'Vintage',
                 'fichaTecnica' => 'Explore more',
                 'porCantidades' => '*For orders over 18 bottles, please contact us at <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
-                'porCompras' => 'For purchases over AR$ _COMPRAS_SUPERIORES_, shipping is free.',
+                'porCompras' => 'For purchases over AR$ _COMPRAS_SUPERIORES_, please contact us at <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>.',
                 'btnAgregar' => 'Add to bag'
             ],
             'root' => [

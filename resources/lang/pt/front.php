@@ -353,7 +353,7 @@ return [
                 'aniadas' => 'Añadas',
                 'fichaTecnica' => 'Ficha Técnica',
                 'porCantidades' => '*Para quantidades superiores a 18 garrafas, por favor, entrar em contato conosco em: <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
-                'porCompras' => 'Para compras acima de AR$ _COMPRAS_SUPERIORES_, o envio é gratuito.',
+                'porCompras' => 'Para compras acima de AR$ _COMPRAS_SUPERIORES_, entrar em contato conosco em: <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
                 'btnAgregar' => 'Adicionar ao carrinho'
             ],
             'root' => [
