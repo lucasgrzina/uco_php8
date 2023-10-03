@@ -118,12 +118,12 @@
 
 								<div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
 
-									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #F2F0DE;" width="100%">
+									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #f2f1df;" width="100%">
 
 
 										<tr>
 											<td>
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #ffffff; text-align: center;">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #f2f1df; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #f2f1df; text-align: center;">
 													<img src="{{asset('img/mailings/camion.jpg')}}" width="124" height="79" border="0" style="display:block; margin: 0 auto; width: 124px; height: 79px;">
 
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
@@ -152,7 +152,7 @@
 
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #F2F0DE; text-align: center;"><img src="{{asset('img/mailings//lupa.jpg')}}" width="124" height="111" border="0" style="display:block; margin: 0 auto; width: 124px; height: 111px;">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #ffffff; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #ffffff; text-align: center;"><img src="{{asset('img/mailings//lupa.jpg')}}" width="124" height="111" border="0" style="display:block; margin: 0 auto; width: 124px; height: 111px;">
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
 														{!! trans('emails.pedido.infoEnvio') !!}
 													</div>
@@ -166,7 +166,7 @@
 												</div>
 											</td>
 										</tr>
-										<tr><td height="36px;">&nbsp;</td></tr>
+										<tr><td height="36px;" style="border-color: #ffffff; background-color:#ffffff;">&nbsp;</td></tr>
 									</table>
 								</div>
 							</td>
@@ -174,7 +174,7 @@
 					</tbody>
 				</table>
 
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#BCC4A8; margin:0 auto;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="600" align="center">
 
 					<tbody>
 
@@ -182,7 +182,7 @@
 
 							<td>
 
-								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#BCC4A8; margin:0 auto;" class="full-width" width="600" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="600" align="center">
 
 									<tbody>
 
@@ -251,7 +251,7 @@
 
 				</table>
 
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#BCC4A8; margin:0 auto;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="600" align="center">
 
 					<tbody>
 
@@ -259,7 +259,7 @@
 
 							<td>
 
-								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#BCC4A8; margin:0 auto;" class="full-width" width="550" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="550" align="center">
 
 									<tbody>
 
@@ -288,7 +288,7 @@
 
 																				<td>
 
-																					<table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#BCC4A8;" class="full-width ">
+																					<table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#f5f5f5;" class="full-width ">
 
 																						<tbody>
 
@@ -357,7 +357,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#BCC4A8;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5;" class="full-width" width="600" align="center">
 
 					<tr>
 
@@ -368,12 +368,12 @@
 					</tr>
 
 				</table>
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#BCC4A8;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5;" class="full-width" width="600" align="center">
 
 					<tr>
 
 						<td width="600" class="full-width" align="center">
-							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#BCC4A8; ">
+							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#f5f5f5; ">
                                 <a href="{{routeIdioma('home')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> |
                                 <a href="{{routeIdioma('login')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> |
                                 <a href="{{routeIdioma('terminosCondiciones')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a>

@@ -37,7 +37,7 @@ return [
         'infoEnvio' => 'Información del envío',
         'conocer' => 'Para conocer el estado de tu pedido podés hacerlo ingresando a <strong>tu cuenta</strong> en nuestro sitio web a través de la opción listado de pedidos.',
         'imagenes' => [
-            'gracias' => 'header-gracias.jpg'
+            'gracias' => 'header-registro-2.jpg'
         ],
         'subject' => 'Gracias por elegirnos'
     ]

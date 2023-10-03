@@ -77,12 +77,12 @@
 
     <body style="margin:0; padding:0;">
 
-        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color:#e0e0e0;">
+        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5;">
 
             <tr>
 
                 <td>
-                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="600" align="center">
 
                         <tbody>
 
@@ -90,7 +90,7 @@
 
                                 <td>
 
-                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="550" align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="550" align="center">
 
                                         <tbody>
 
@@ -157,12 +157,12 @@
                                 <td style="direction:ltr;font-size:0px;padding:0;text-align:center;vertical-align:top; ">
 
                                     <div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
-                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #F2F0DE;" width="100%">
+                                        <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #f5f5f5;" width="100%">
 
 
                                             <tr>
                                                 <td>
-                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0 55px 55px 55px;     border-style: solid; font-weight: 400; padding:0; background-color: #ffffff; text-align: center;">
+                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #f5f5f5; border-width:0 55px 55px 55px;     border-style: solid; font-weight: 400; padding:0; background-color: #ffffff; text-align: center;">
                                                         <img src="{{asset('img/mailings/'.trans('emails.recuperar.imagenes.recupera'))}}" border="0" width="100%;" height="auto" >
                                                         <div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; text-align: center;">
                                                             <div style="width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
@@ -198,7 +198,7 @@
                         </tbody>
                     </table>
 
-                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="600" align="center">
 
                         <tbody>
 
@@ -206,7 +206,7 @@
 
                                 <td>
 
-                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="550" align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="550" align="center">
 
                                         <tbody>
 
@@ -275,7 +275,7 @@
 
                     </table>
 
-                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="600" align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="600" align="center">
 
                         <tbody>
 
@@ -283,7 +283,7 @@
 
                                 <td>
 
-                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#F2F0DE; margin:0 auto;" class="full-width" width="550" align="center">
+                                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="550" align="center">
 
                                         <tbody>
 
@@ -312,7 +312,7 @@
 
                                                                                     <td>
 
-                                                                                        <table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#F2F0DE;" class="full-width ">
+                                                                                        <table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#f5f5f5;" class="full-width ">
 
                                                                                             <tbody>
 
@@ -326,14 +326,14 @@
 
                                                                                                     <td>
                                                                                                         <a href="https://www.facebook.com/" target="_blank">
-                                                                                                            <img src="{{asset('img/mailings/ico_facebook.jpg')}}" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
+                                                                                                            <img src="{{asset('img/mailings/ico_facebook.png')}}" width="14" height="32" border="0" style="display:block; margin: 0 auto; width: 14px; height: 32px;">
                                                                                                         </a>
                                                                                                     </td>
 
                                                                                                     <td>
 
                                                                                                         <a href="https://www.instagram.com/magiadeluco/" target="_blank">
-                                                                                                            <img src="{{asset('img/mailings/ico_instagram.jpg')}}" width="27" height="32" border="0" style="display:block; margin: 0 auto; width: 27px; height: 32px;">
+                                                                                                            <img src="{{asset('img/mailings/ico_instagram.png')}}" width="27" height="32" border="0" style="display:block; margin: 0 auto; width: 27px; height: 32px;">
                                                                                                         </a>
 
                                                                                                     </td>
@@ -381,23 +381,23 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#ffffff;" class="full-width" width="600" align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5;" class="full-width" width="600" align="center">
 
                         <tr>
 
-                            <td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/filete.jpg')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
+                            <td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/filete.png')}}" width="600" class="full-width" border="0" style="display:block; max-width: 100%;">
 
                             </td>
 
                         </tr>
 
                     </table>
-                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#ffffff;" class="full-width" width="600" align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5;" class="full-width" width="600" align="center">
 
                         <tr>
 
                             <td width="600" class="full-width" align="center">
-                                <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#F2F0DE; ">
+                                <div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#f5f5f5; ">
                                     <a href="{{routeIdioma('home')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> |
                                     <a href="{{routeIdioma('login')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> |
                                     <a href="{{routeIdioma('terminosCondiciones')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a>

@@ -325,7 +325,7 @@
 					</tbody>
 				</table>
 
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063; margin:0 auto;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad; margin:0 auto;" class="full-width" width="600" align="center">
 
 					<tbody>
 
@@ -333,7 +333,7 @@
 
 							<td>
 
-								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063; margin:0 auto;" class="full-width" width="550" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad; margin:0 auto;" class="full-width" width="550" align="center">
 
 									<tbody>
 
@@ -367,7 +367,7 @@
 
 																					<a href="#" target="_blank">
 
-																						<img src="{{asset('img/mailings/logo-magia-uco-beige-nuevo.png')}}" width="190" height="76" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 190px; height: 76px;">
+																						<img src="{{asset('img/mailings/logo-magia-uco-nuevo.png')}}" width="190" height="76" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 190px; height: 76px;">
 
 																					</a>
 																				</td>
@@ -403,7 +403,7 @@
 				</table>
 
 
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063; margin:0 auto;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad; margin:0 auto;" class="full-width" width="600" align="center">
 
 					<tbody>
 
@@ -411,7 +411,7 @@
 
 							<td>
 
-								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063; margin:0 auto;" class="full-width" width="550" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad; margin:0 auto;" class="full-width" width="550" align="center">
 
 									<tbody>
 
@@ -440,7 +440,7 @@
 
 																				<td>
 
-																					<table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#8E8063;" class="full-width ">
+																					<table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#cecfad;" class="full-width ">
 
 																						<tbody>
 
@@ -454,14 +454,14 @@
 
 																								<td>
 																									<a href="https://www.facebook.com/" target="_blank">
-																										<img src="{{asset('img/mailings/ico_facebook_beige.png')}}" width="14" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 14px; height: 32px;">
+																										<img src="{{asset('img/mailings/ico_facebook.png')}}" width="14" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 14px; height: 32px;">
 																									</a>
 																								</td>
 
 																								<td>
 
 																									<a href="https://www.instagram.com/magiadeluco/" target="_blank">
-																										<img src="{{asset('img/mailings/ico_instagram_beige.png')}}" width="27" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 27px; height: 32px;">
+																										<img src="{{asset('img/mailings/ico_instagram.png')}}" width="27" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 27px; height: 32px;">
 																									</a>
 
 																								</td>
@@ -509,23 +509,23 @@
 						</tr>
 					</tbody>
 				</table>
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad;" class="full-width" width="600" align="center">
 
 					<tr>
 
-						<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings/filete-baige.png')}}" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
+						<td width="600" class="full-width" align="center"><img src="{{asset('img/mailings//filete.png')}}" width="600" class="full-width" border="0" style="border: 0 none; display: block; max-width: 100%;">
 
 						</td>
 
 					</tr>
 
 				</table>
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#8E8063;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad;" class="full-width" width="600" align="center">
 
 					<tr>
 
 						<td width="600" class="full-width" align="center">
-							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#F2F0DE; line-height:24px;text-align:center;color:#F2F0DE;padding:15px; background-color:#8E8063; "><a href="{{trans('emails.registro.url')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#F2F0DE; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a></div>
+							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#cecfad; "><a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a></div>
 
 						</td>
 
