@@ -17,7 +17,7 @@
 				_this._call(_registro.url_post,'POST',_registro.form).then(function(data) {
 					_registro.enviando = false;
 					_registro.enviado = true;
-                    alert('{{trans("front.paginas.registro.yaSosParte")}}');
+                    alert2('{{trans("front.paginas.registro.yaSosParte")}}');
 					document.location = '{{routeIdioma('home')}}';
 				}, function(error) {
                     _registro.enviando = false;
@@ -27,9 +27,9 @@
 						_.forEach(error.fields, function(msj,campo) {
 							mensaje.push(msj[0]);
 						});
-						alert(mensaje[0]);
+						alert2(mensaje[0]);
 					} else {
-                        alert(error);
+                        alert2(error);
                     }
 					_registro.enviando = false;
 				});

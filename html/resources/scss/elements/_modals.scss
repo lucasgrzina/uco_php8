@@ -131,7 +131,7 @@
 }
 
     .modal-backdrop {
-        &.show{
+        &.show.fade{
             opacity: 1;
             background-position: center;
             background-size: cover;

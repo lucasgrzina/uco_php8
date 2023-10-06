@@ -26,7 +26,7 @@
 							location.reload();
 						} else {
 							// _this.toastOk('Hemos enviado los pasos a seguir a tu correo electrónico.');
-							alert(data.message);
+							alert2(data.message);
 							_this.cambiarVista('login');
 						}
 
@@ -37,13 +37,13 @@
 					_login.enviando = false;
 					if (error.status != 422) {
 						//console.debug(error.data.message);
-						alert(error.message);
+						alert2(error.message);
 					} else {
                         var mensaje = [];
 						_.forEach(error.fields, function(msj,campo) {
 							mensaje.push(msj[0]);
 						});
-						alert(mensaje[0]);
+						alert2(mensaje[0]);
 					}
 
 

@@ -599,5 +599,11 @@ return [
             'aprobado' => 'Aprobado',
             'rechazado' => 'Rechazado',
         ]
+    ],
+    'general' => [
+        'alert' => [
+            'atencion' => 'Atención!',
+            'aceptar' => 'Aceptar'
+        ]
     ]
 ];

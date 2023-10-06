@@ -18,16 +18,16 @@
 
             _this._call(_this.url_post_save,'POST',_this.form).then(function(data) {
                 //_this.alertShow('Gracias por suscribirte');
-                alert(_this.trans.paginas.contacto.gracias);
+                alert2(_this.trans.paginas.contacto.gracias);
                 _this.loading = false;
             }, function(error) {
                 if (error.status === 422) {
                     for(var key in error.fields) {
-                        alert(error.fields[key][0]);
+                        alert2(error.fields[key][0]);
                         break;
                     }
                 } else {
-                    alert(error.message);
+                    alert2(error.message);
                 }
                 _this.loading = false;
             });

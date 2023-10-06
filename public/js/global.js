@@ -182,7 +182,7 @@ $( window ).resize(function() {
 
 const renderModal = (content, id) => {
 	modalcontent =
-	  '<div class="modal fade modal-uco  modal-slim to-contact-modal " id="js_alert_modal" tabindex="-1" role="dialog" aria-labelledby="alert_modalLabel" aria-hidden="true">\
+	  '<div class="modal modal-uco  modal-slim to-contact-modal " data-bs-backdrop="static" id="js_alert_modal" tabindex="-1" role="dialog" aria-labelledby="alert_modalLabel" aria-hidden="true">\
 			<div class="modal-dialog modal-dialog-centered" role="document">\
 			  <div  class="modal-content">\
 				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">\
@@ -198,7 +198,7 @@ const renderModal = (content, id) => {
 		  </div>";
 	return modalcontent;
   };
-  
+
   const showAlert = (title , message = null, btn1 = null, btn2 = null) => {
 	modal = $(
 	  renderModal(
@@ -215,7 +215,9 @@ const renderModal = (content, id) => {
 	  )
 	);
 	$("body").append(modal);
+
 	modal.modal("show").on("hide.bs.modal", function () {
-	  $(this).remove();
+	    $(this).remove();
 	});
+
   };

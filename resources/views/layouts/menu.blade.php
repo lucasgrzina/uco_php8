@@ -29,6 +29,10 @@
     <a href="{!! route('legados.index') !!}"><i class="fa fa-edit"></i><span>Legados</span></a>
 </li>
 
+<li class="{{ Request::is('legados*') ? 'active' : '' }}">
+    <a href="{!! route('nuestro-compromiso.index') !!}"><i class="fa fa-edit"></i><span>Nuestro compromiso</span></a>
+</li>
+
 <li class="{{ Request::is('notas*') ? 'active' : '' }}">
     <a href="{!! route('notas.index') !!}"><i class="fa fa-edit"></i><span>Notas</span></a>
 </li>

@@ -126,6 +126,11 @@
         </script>
         <script>
             var hideAgeGate = {{ isset($hideAgeGate) && $hideAgeGate ? 'true' : 'false'}};
+            function alert2(msg,title) {
+                var title = typeof title !== 'undefined' ? title : {!! "'" . trans('front.general.alert.atencion') . "'"!!};
+                btn1 = {text: "{{trans('front.general.alert.aceptar')}}"};
+                showAlert(title, msg, btn1) ;
+            }
         </script>
     </head>
     @php

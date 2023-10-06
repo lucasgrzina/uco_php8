@@ -1868,7 +1868,7 @@ body[data-section="mis-pedidos"]{
 	display: flex;*/
 	.modal-dialog{
 		.modal-content{
-			
+
 			border-radius: 0;
 			border-width: 0;
 			padding: 0;
@@ -1890,28 +1890,32 @@ body[data-section="mis-pedidos"]{
 			.modal-title{
 				color: $c-dark;
 				font-weight: 600;
-				font-size: 22px;
+				font-size: 18px;
+                text-transform: uppercase;
 			}
 			.modal-body{
 				p{
 					font-family: $f-book;
-					font-size: 18px;
+					font-size: 15px;
 					color: $c-dark;
 					text-align: left;
+                    line-height: 20px;
 					&.title{
-						
+
 					}
 				}
 			}
 
 			.modal-header{
 				background-color: #fafaf8;
+                border-bottom: 0;
 			}
 
 			.modal-footer{
 				display: flex;
 				justify-content: end;
 				gap: 10px;
+                border-top: 0;
 			}
 		}
 	}

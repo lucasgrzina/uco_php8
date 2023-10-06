@@ -137,7 +137,7 @@
             }, function(error) {
                 _seccion.cotizando_envio = false;
                 //console.debug(error.data.message);
-                alert(error.data.message);
+                alert2(error.data.message);
             });
         }
 
@@ -177,13 +177,13 @@
                 _seccion.enviando = false;
                 if (error.status != 422) {
                     //console.debug(error.data.message);
-                    alert(error.data.message);
+                    alert2(error.data.message);
                 } else {
                     var mensaje = [];
                     _.forEach(error.fields, function(msj,campo) {
                         mensaje.push(msj[0]);
                     });
-                    alert(mensaje[0]);
+                    alert2(mensaje[0]);
                 }
 
 
