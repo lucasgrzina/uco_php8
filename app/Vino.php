@@ -6,10 +6,11 @@ use App\Aniada;
 use Eloquent as Model;
 use App\Traits\UploadableTrait;
 
+use Illuminate\Support\Facades\App;
 use Yajra\Auditable\AuditableTrait;
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
 /**
  * Class Vinos
@@ -30,7 +31,7 @@ class Vino extends Model implements TranslatableContract
 
     use AuditableTrait;
      use Translatable;
-    use UploadableTrait;
+    //use UploadableTrait;
 
     public $table = 'vinos';
 
@@ -38,7 +39,7 @@ class Vino extends Model implements TranslatableContract
      * Translatable
      */
 
-    public $translatedAttributes = ['titulo','descripcion'];
+    public $translatedAttributes = ['titulo','imagen'];
 
     /**
      * Uploadable
@@ -46,8 +47,8 @@ class Vino extends Model implements TranslatableContract
      * files, targetDir, tmpDir, disk
      */
 
-    public $files = ['imagen'];
-    public $targetDir = 'vinos';
+    //public $files = ['imagen'];
+    //public $targetDir = 'vinos';
 
 
 
@@ -57,8 +58,8 @@ class Vino extends Model implements TranslatableContract
 
     public $fillable = [
         'titulo',
-        'imagen',
-        'descripcion',
+        //'imagen',
+
         'peso',
         'largo',
         'ancho',
@@ -76,7 +77,7 @@ class Vino extends Model implements TranslatableContract
      */
     protected $casts = [
         'titulo' => 'string',
-        'imagen' => 'string',
+        //'imagen' => 'string',
         'descripcion' => 'string',
         'peso' => 'float',
         'largo' => 'float',
@@ -106,8 +107,18 @@ class Vino extends Model implements TranslatableContract
 
     public function getImagenUrlAttribute($value)
     {
-        return \FUHelper::fullUrl($this->targetDir,$this->imagen);
+        $lang = App::getLocale();
+        try
+        {
+            $filename = $this->translate($lang)->imagen_url;
+            return $filename;
+        }
+        catch(\Exception $e) {
+            return null;
+        }
+        //return \FUHelper::fullUrl($this->targetDir,$this->imagen);
     }
+
 
     public function aniadas()
     {

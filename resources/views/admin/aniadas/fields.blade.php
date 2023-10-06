@@ -40,7 +40,7 @@
                 'max' => '100.00',
                 'step' => '0.01'
             ]) !!}
-    </div>  
+    </div>
     <span class="help-block" v-show="errors.has('precio_pesos')">(% errors.first('precio_pesos') %)</span>
 </div>
 
@@ -56,7 +56,7 @@
             'max' => '100.00',
             'step' => '0.01'
         ]) !!}
-    </div>     
+    </div>
     <span class="help-block" v-show="errors.has('precio_usd')">(% errors.first('precio_usd') %)</span>
 </div>
 
@@ -67,14 +67,14 @@
 <div class="form-group col-sm-12" :class="{'has-error': errors.has('ficha')}">
     {!! Form::label('ficha', 'Ficha') !!}
     <div class="">
-      
+
         <file-upload
-            
+
             :multiple="false"
             :headers="_fuHeader"
             ref="uploadFicha"
             extensions="pdf"
-            accept="application/pdf"           
+            accept="application/pdf"
             input-id="ficha"
             v-model="files.ficha"
             post-action="{{ route('uploads.store-file') }}"
@@ -90,7 +90,13 @@
                     <div class="progress-bar" :style="{ width: files.ficha[0].progress+'%' }"></div>
                 </div>
         </file-upload>
-    </div>   
+    </div>
     <span class="help-block" v-show="errors.has('ficha')">(% errors.first('ficha') %)</span>
+</div>
+<!-- Descripcion Field -->
+<div class="form-group col-sm-12 col-lg-12" :class="{'has-error': errors.has('descripcion')}">
+    {!! Form::label('descripcion', 'Descripcion') !!}
+    {!! Form::textarea('descripcion', null, ['class' => 'form-control','v-model' => 'selectedItem.descripcion']) !!}
+    <span class="help-block" v-show="errors.has('descripcion')">(% errors.first('descripcion') %)</span>
 </div>
 <div class="clearfix"></div>

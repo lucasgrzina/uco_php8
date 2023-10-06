@@ -44,7 +44,8 @@
 
             <div class="submenu">
               <div class="images">
-                <img src="{{asset('img/vinos/vino-3.png')}}" class="img-prod" />
+                <img src="{{asset('img/botella-franc-menu-shop.png')}}" class="img-prod" />
+                <img src="{{asset('img/botella-notable-malbec-menu-shop.png')}}" class="img-prod" />
               </div>
               <div class="menu">
                 <ul>

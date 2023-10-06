@@ -335,7 +335,7 @@ return [
                     'titulo' => 'Wine storage',
                     'items' => [
                         '1' => ['titulo' => 'Darkness', 'subtitulo' => 'Keep the wines away from light, as UV rays can detract from their adequate development.'],
-                        '2' => ['titulo' => 'Horizontal', 'subtitulo' => 'This allows the cork cap to remain in contact with the wine, preventing the passage of oxygen and its negative effects.'],
+                        '2' => ['titulo' => 'Horizontal', 'subtitulo' => 'Each wine evolves differently. Please follow the instructions on its technical sheet.'],
                         '3' => ['titulo' => 'Temperature', 'subtitulo' => 'The storage temperature for a varied collection of wines should remain constant, between 12 and 14 °C (54 and 57 °F).'],
                         '4' => ['titulo' => 'Movement', 'subtitulo' => 'It is advisable not to move wine during storage. Even small vibrations can have a negative impact on it. Correctly identify the bottles to avoid unnecessary handling.'],
                         '5' => ['titulo' => 'Humidity', 'subtitulo' => 'The storage humidity of wines should remain around 70% for the correct preservation of the cork cap.'],
@@ -452,7 +452,7 @@ return [
                     '-1' => 'Su pedido se encuentra rechazado'
                 ],
                 'mensajeTipoFactura' => [
-                    'A' =>  ['titulo'=>'Thank you.','texto' =>'Your order was received. We will send you an email to complete your order.'],
+                    'A' =>  ['titulo'=>'Thank you.','texto' =>'Thank you for your order request! We will be reaching out to the email you provided to assist you further.<br>We greatly appreciate your trust in Magia de Uco!'],
                     'CF' => ['titulo'=>'Thank you for your purchase.','texto' =>'You will receive your order information in the email provided.']
                 ],
                 'btnMisPedidos' => 'My orders'

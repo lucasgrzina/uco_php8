@@ -206,6 +206,19 @@
                 id: _this.checkout.direcciones.itemSeleccionado.pais_id
             })
         }
+        _methods.alCambiarUsarDatosDest = function() {
+            var _this = this;
+            if (_this.checkout.form.usarDatosDest) {
+                _this.checkout.form.nombre_fc = _this.checkout.form.nombre;
+                _this.checkout.form.apellido_fc = _this.checkout.form.apellido;
+                _this.checkout.form.dni_fc = _this.checkout.form.dni;
+            } else {
+                _this.checkout.form.nombre_fc = null;
+                _this.checkout.form.apellido_fc = null;
+                _this.checkout.form.dni_fc = null;
+            }
+        }
+
 
         _methods.seleccionarTipoFactura = function(tipo) {
             var _this = this;
@@ -451,6 +464,13 @@
                                     <div class="form-floating  mb-form">
                                         <input type="text" class="form-control" id="dniInput" placeholder=">Dni*" v-model="checkout.form.dni_fc">
                                         <label for="dniInput">{{trans('front.paginas.checkout.datosDestinatario.form.dni')}}*</label>
+                                    </div>
+
+                                    <div class="form-check " style="margin-bottom: 10px;">
+                                        <label class="container">{{trans('front.paginas.checkout.datosFacturacion.form.usarDatosDest')}}
+                                            <input type="checkbox" checked="checked" name="terminos-condiciones" v-model="checkout.form.usarDatosDest" @change="alCambiarUsarDatosDest">
+                                            <span class="checkmark"></span>
+                                        </label>
                                     </div>
                                 </template>
                                 <template v-else>

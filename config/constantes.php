@@ -23,7 +23,7 @@ return [
             ['titulo' => '_trans.front.navMenuFooter.links.contacto','subtitulo' => null,'imagen_desktop_url' => '_asset.img/contacto-header.jpg','imagen_mobile_url' => '_asset.img/contacto-header.jpg','orden' => 1]
         ],
         'colecciones' => [
-            ['titulo' => '_trans.front.paginas.colecciones.root.titulo','subtitulo' => '_trans.front.paginas.colecciones.root.subtitulo','imagen_desktop_url' => '_asset.img/colecciones-cuidados-2.jpg','imagen_mobile_url' => '_asset.img/colecciones-cuidados-2.jpg','orden' => 1]
+            ['titulo' => '_trans.front.paginas.colecciones.root.titulo','subtitulo' => '_trans.front.paginas.colecciones.root.subtitulo','imagen_desktop_url' => '_asset.img/header-shop.jpg','imagen_mobile_url' => '_asset.img/header-shop.jpg','orden' => 1]
         ],
         'coleccionesTucci' => [
             ['titulo' => '_trans.front.paginas.colecciones.tucci.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/coleccionesi-header.jpg','imagen_mobile_url' => '_asset.img/coleccionesi-header.jpg','orden' => 1]
@@ -32,10 +32,10 @@ return [
             ['titulo' => '_trans.front.paginas.colecciones.interwine.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/interwine-header.jpg','imagen_mobile_url' => '_asset.img/interwine-header.jpg','orden' => 1]
         ],
         'coleccionesMagiaUco' => [
-            ['titulo' => '_trans.front.paginas.colecciones.magiaUco.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/interwine-header.jpg','imagen_mobile_url' => '_asset.img/interwine-header.jpg','orden' => 1]
+            ['titulo' => '_trans.front.paginas.colecciones.magiaUco.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/header-shop-magiadeuco.jpg','imagen_mobile_url' => '_asset.img/header-shop-magiadeuco.jpg','orden' => 1]
         ],
         'coleccionesMagiaUcoNotable' => [
-            ['titulo' => '_trans.front.paginas.colecciones.magiaUcoNotable.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/interwine-header.jpg','imagen_mobile_url' => '_asset.img/interwine-header.jpg','orden' => 1]
+            ['titulo' => '_trans.front.paginas.colecciones.magiaUcoNotable.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/header-shop-magiadeuconotable.jpg','imagen_mobile_url' => '_asset.img/header-shop-magiadeuconotable.jpg','orden' => 1]
         ],
         'novedades' => [
             ['titulo' => '_trans.front.paginas.novedades.titulo','subtitulo' => '','imagen_desktop_url' => '_asset.img/novedades-header.jpg','imagen_mobile_url' => '_asset.img/novedades-header.jpg','orden' => 1]

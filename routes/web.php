@@ -71,6 +71,11 @@ Route::prefix('/admin')->group(function () {
         Route::post('legados/filter', 'Admin\LegadosController@filter')->name('legados.filter');
         Route::resource('legados', 'Admin\LegadosController');
 
+        Route::get('nuestro-compromiso/edit/{id}/{lang}', 'Admin\NuestroCompromisoController@editLang')->name('nuestro-compromiso.edit-lang');
+        Route::post('nuestro-compromiso/change-enabled', 'Admin\NuestroCompromisoController@changeEnabled')->name('nuestro-compromiso.change-enabled');
+        Route::post('nuestro-compromiso/filter', 'Admin\NuestroCompromisoController@filter')->name('nuestro-compromiso.filter');
+        Route::resource('nuestro-compromiso', 'Admin\NuestroCompromisoController');
+
         Route::get('notas/edit/{id}/{lang}', 'Admin\NotaController@editLang')->name('notas.edit-lang');
         Route::post('notas/change-enabled', 'Admin\NotaController@changeEnabled')->name('notas.change-enabled');
         Route::post('notas/filter', 'Admin\NotaController@filter')->name('notas.filter');
@@ -290,6 +295,8 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|es|pt']],function 
 
     Route::post('/olvide-contrasena', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('olvide-password');
 });
+
+
 
 
 

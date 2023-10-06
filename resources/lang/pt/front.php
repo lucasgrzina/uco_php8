@@ -373,7 +373,7 @@ return [
                     'titulo' => 'Armazenamento dos vinhos',
                     'items' => [
                         '1' => ['titulo' => 'Escuridão', 'subtitulo' => 'Manter os vinhos longe da luz, já que os raios UV podem afetar a sua correta evolução.'],
-                        '2' => ['titulo' => 'Horizontal', 'subtitulo' => 'Essa posição permite que a rolha se mantenha em contato com o vinho, evitando a passagem de oxigênio e as suas consequências negativas.'],
+                        '2' => ['titulo' => 'Horizontal', 'subtitulo' => 'Cada vinho evolui de maneira diferente, por isso, recomenda-se seguir as instruções presentes na ficha técnica.'],
                         '3' => ['titulo' => 'Temperatura', 'subtitulo' => 'A temperatura para armazenar uma coleção variada de vinhos deve ser constante entre 12° e 14° C.'],
                         '4' => ['titulo' => 'Movimento', 'subtitulo' => 'Aconselha-se não mover o vinho durante o tempo em que é guardado. Até mesmo pequenas vibrações podem causar um impacto negativo no vinho. Identificar corretamente as garrafas para evitar manuseios desnecessários.'],
                         '5' => ['titulo' => 'Umidade', 'subtitulo' => 'A umidade de armazenamento dos vinhos deve permanecer ao redor de 70% para a correta conservação da rolha.'],
@@ -494,7 +494,7 @@ return [
                     '-1' => 'Su pedido se encuentra rechazado'
                 ],
                 'mensajeTipoFactura' => [
-                    'A' =>  ['titulo'=>'Muito obrigado!','texto' =>'Seu pedido foi recebido com sucesso. Em breve você receberá um email para completar o processo de compra.'],
+                    'A' =>  ['titulo'=>'Muito obrigado!','texto' =>'Obrigado por sua solicitação de pedido! Entraremos em contato pelo e-mail fornecido para ajudá-lo ainda mais.<br>Agradecemos profundamente a sua confiança na Magia de Uco!'],
                     'CF' => ['titulo'=>'Obrigada pela sua compra.','texto' =>'Os dados do seu pedido serão enviados ao email cadastrado.']
                 ],
                 'btnMisPedidos' => 'Meus pedidos'

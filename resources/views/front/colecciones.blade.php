@@ -80,7 +80,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="descripcion"><p>(% actual.descripcion %)</p></div>
+                                <div class="descripcion"><p>(% aniadaActual ? aniadaActual.descripcion : '' %)</p></div>
                                 <div class="links-producto" v-if="aniadaActual">
 
                                     <a :href="aniadaActual.ficha_url" target="_blank" class="btn btn-white" v-if="aniadaActual.ficha">{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</a>

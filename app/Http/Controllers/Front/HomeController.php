@@ -7,6 +7,7 @@ use App\Repositories\NotaRepository;
 
 use App\Repositories\HomeSliderRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\NuestroCompromisoRepository;
 
 class HomeController extends AppBaseController
 {
@@ -21,13 +22,14 @@ class HomeController extends AppBaseController
         //parent::__construct();
     }
 
-    public function index(HomeSliderRepository $sliderRepo,NotaRepository $notaRepo,Request $request,$locale = null)
+    public function index(HomeSliderRepository $sliderRepo,NotaRepository $notaRepo,Request $request,NuestroCompromisoRepository $nuestroRepo,$locale = null)
     {
         //dd(app()->getLocale());
 
         $data = [
             'slides' => $sliderRepo->porSeccion('home'),
-            'novedades' => $notaRepo->destacadosHome()
+            'novedades' => $notaRepo->destacadosHome(),
+            'nuestroCompromiso' => $nuestroRepo->pluck('imagen_home','codigo')->toArray()
         ];
 
         return view('front.home', [
