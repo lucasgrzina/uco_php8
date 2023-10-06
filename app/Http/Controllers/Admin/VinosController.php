@@ -32,6 +32,7 @@ class VinosController extends CrudAdminController
                 return trans(str_replace('_trans.','',$value));
             })
         ];
+        $this->data['filters']['orderBy'] = 'enabled';
         $this->data['url_hijos'] = route('aniadas.index',['_ID_']);
 
         return view($this->viewPrefix.'index')->with('data',$this->data);
