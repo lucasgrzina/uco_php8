@@ -38,7 +38,7 @@ class Aniada extends Model implements TranslatableContract
      * Translatable
      */
 
-    public $translatedAttributes = ['ficha'];
+    public $translatedAttributes = ['ficha','descripcion'];
 
     /**
      * Uploadable
@@ -59,6 +59,7 @@ class Aniada extends Model implements TranslatableContract
         'anio',
         'ficha',
         'vino_id',
+        'descripcion',
         'stock',
         'precio_pesos',
         'precio_usd',

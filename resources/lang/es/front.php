@@ -362,11 +362,21 @@ return [
                     'subtitulo' => 'Creemos que el todo es una suma de sus partes, nada falta, cada parte es imprescindible. Porque encontrar el equilibrio adecuado no significa nada sin una correcta integración.',
                     'btn' => 'DESCUBRÍ'
                 ],
+                'magiaDeUco' => [
+                    'titulo' => 'Magia de Uco',
+                    'subtitulo' => 'Creemos que el todo es una suma de sus partes, nada falta, cada parte es imprescindible. Porque encontrar el equilibrio adecuado no significa nada sin una correcta integración.',
+                    'btn' => 'DESCUBRÍ'
+                ],
+                'magiaDeUcoNotable' => [
+                    'titulo' => 'Magia de Uco Notable',
+                    'subtitulo' => 'Creemos que el todo es una suma de sus partes, nada falta, cada parte es imprescindible. Porque encontrar el equilibrio adecuado no significa nada sin una correcta integración.',
+                    'btn' => 'DESCUBRÍ'
+                ],
                 'almacenamiento' => [
                     'titulo' => 'Almacenamiento de los vinos',
                     'items' => [
                         '1' => ['titulo' => 'Oscuridad', 'subtitulo' => 'Mantener los vinos lejos de la luz, ya que los rayos UV pueden afectar su correcta evolución.'],
-                        '2' => ['titulo' => 'Guarda', 'subtitulo' => 'Cada vino evoluciona de manera diferente; por lo que se recomienda seguir las instrucciones de la ficha técnica.'],
+                        '2' => ['titulo' => 'Guarda', 'subtitulo' => 'Cada vino evoluciona de manera diferente, por lo que se recomienda seguir las instrucciones de su ficha técnica.'],
                         '3' => ['titulo' => 'Temperatura', 'subtitulo' => 'La temperatura para almacenar una colección variada de vinos debe ser constante entre 12° y 14°C.'],
                         '4' => ['titulo' => 'Movimiento', 'subtitulo' => 'Se aconseja no mover el vino durante su guarda. Incluso pequeñas vibraciones pueden causar un impacto negativo en el vino. Identificar correctamente las botellas para evitar manipulaciones innecesarias.'],
                         '5' => ['titulo' => 'Humedad', 'subtitulo' => 'La humedad de almacenamiento de los vinos debe permanecer alrededor del 70% para la correcta conservación del corcho.'],
@@ -460,6 +470,7 @@ return [
                     'ciudad' => 'Ciudad',
                     'provincia' => 'Provincia',
                     'cp' => 'Código Postal',
+                    'usarDatosDest' => 'Usar los mismos datos de destinatario.'
                 ]
             ],
             'comentarios' => [
@@ -483,7 +494,7 @@ return [
                     '-1' => 'Su pedido se encuentra rechazado'
                 ],
                 'mensajeTipoFactura' => [
-                    'A' =>  ['titulo'=>'¡Muchas gracias!','texto' =>'Su solicitud ha sido recibida. Le enviaremos un correo electrónico para completar el proceso de compra.'],
+                    'A' =>  ['titulo'=>'¡Muchas gracias!','texto' =>'¡Hemos recibido tu pedido! Pronto nos pondremos en contacto al correo electrónico facilitado para dar seguimiento a tu solicitud.<br>¡Muchas gracias por confiar en Magia de Uco!'],
                     'CF' => ['titulo'=>'¡Gracias por su compra!','texto' =>'Recibirás toda la información de tu pedido al correo electrónico proporcionado.']
                 ],
                 'btnMisPedidos' => 'Ver Mis Pedidos'

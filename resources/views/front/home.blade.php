@@ -49,13 +49,14 @@
 				<div class="slider">
                     @php
                         $i = 1;
-                        $imgSlider = 'certificaciones.jpg';
+                        //$imgSlider = 'certificaciones.jpg';
+                        $imgSlider = isset($data['nuestroCompromiso']['certificaciones']) ? 'uploads/nuestro_compromiso/' .$data['nuestroCompromiso']['certificaciones'] : 'img/calidad.jpg';
                     @endphp
                     @foreach (trans('front.paginas.home.compromiso.slider') as $key => $item)
                         <div>
                             <div class="wrap-slide">
                                 <a href="{{routeIdioma('nuestroCompromiso',[$key])}}">
-                                    <div class="image"><img src="{{asset('img/'.$imgSlider)}}"></div>
+                                    <div class="image"><img src="{{asset($imgSlider)}}"></div>
                                     <div class="text">{!! trans('front.paginas.home.compromiso.slider.'.$key) !!}</div>
                                 </a>
                             </div>
@@ -64,13 +65,15 @@
                             $i = $i + 1;
                             switch ($i) {
                                 case 2:
-                                    $imgSlider = 'calidad.jpg';
+                                    $imgSlider = isset($data['nuestroCompromiso']['calidad']) ? 'uploads/nuestro_compromiso/' .$data['nuestroCompromiso']['calidad'] : 'img/calidad.jpg';
                                     break;
                                 case 3:
-                                    $imgSlider = 'regen.jpg';
+                                    $imgSlider = isset($data['nuestroCompromiso']['viticula']) ? 'uploads/nuestro_compromiso/' .$data['nuestroCompromiso']['viticula'] : 'img/regen.jpg';
+                                    //$imgSlider = 'regen.jpg';
                                     break;
                                 case 4:
-                                    $imgSlider = 'nuestra-gente.jpg';
+                                    $imgSlider = isset($data['nuestroCompromiso']['gente']) ? 'uploads/nuestro_compromiso/' .$data['nuestroCompromiso']['gente'] : 'img/regen.jpg';
+                                    //$imgSlider = 'nuestra-gente.jpg';
                                     break;
                             }
                         @endphp

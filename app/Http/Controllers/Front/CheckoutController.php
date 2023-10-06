@@ -65,6 +65,7 @@ class CheckoutController extends AppBaseController
                 'total_usd' => 0,
                 'comentarios' => null,
                 'pais_id_fc' => 3,
+                'usarDatosDest' => false
             ],
             'info' => [
                 'paises' => Pais::whereEnabled(true)->orderBy('nombre')->select('id','codigo','nombre')->get(),

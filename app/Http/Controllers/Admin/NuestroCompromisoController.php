@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Vino;
 use Response;
+use App\NuestroCompromiso;
 use Illuminate\Http\Request;
-use App\Repositories\AniadaRepository;
-use App\Http\Requests\Admin\CUAniadaRequest;
 
+use App\Http\Requests\Admin\CULegadosRequest;
 use Prettus\Repository\Criteria\RequestCriteria;
-use App\Http\Controllers\Admin\CrudAdminParentController;
+use App\Repositories\NuestroCompromisoRepository;
+use App\Http\Controllers\Admin\CrudAdminController;
+use App\Http\Requests\Admin\CUNuestroCompromisoRequest;
 
-class AniadaController extends CrudAdminParentController
+class NuestroCompromisoController extends CrudAdminController
 {
-    protected $routePrefix = 'aniadas';
-    protected $viewPrefix  = 'admin.aniadas.';
-    protected $actionPerms = 'aniadas';
+    protected $routePrefix = 'nuestro-compromiso';
+    protected $viewPrefix  = 'admin.nuestro_compromiso.';
+    protected $actionPerms = 'nuestro_compromiso';
 
-    public function __construct(AniadaRepository $repo)
+    public function __construct(NuestroCompromisoRepository $repo)
     {
         $this->repository = $repo;
 
@@ -25,22 +26,19 @@ class AniadaController extends CrudAdminParentController
         $this->middleware('permission:editar-'.$this->actionPerms, ['only' => ['create','store','edit','update','destroy']]);
     }
 
-    public function index($parentId)
+    public function index()
     {
-        parent::index($parentId);
-        $this->data['parent'] = Vino::find($parentId);
-        $this->data['url_back'] = route('vinos.index');
+        parent::index();
+
         return view($this->viewPrefix.'index')->with('data',$this->data);
     }
 
-    public function filter($parentId, Request $request)
+    public function filter(Request $request)
     {
         try
         {
             $this->repository->pushCriteria(new RequestCriteria($request));
-            $collection = $this->repository->with(['vino'])->scopeQuery(function($q) use($parentId){
-                return $q->whereVinoId($parentId);
-            })->paginate($request->get('per_page'))->toArray();
+            $collection = $this->repository->paginate($request->get('per_page'))->toArray();
 
             $this->data = [
                 'list' => $collection['data'],
@@ -56,7 +54,7 @@ class AniadaController extends CrudAdminParentController
         return $this->sendResponse($this->data, trans('admin.success'));
     }
 
-    public function show($parentId,$id)
+    public function show($id)
     {
         parent::show($id);
 
@@ -65,28 +63,36 @@ class AniadaController extends CrudAdminParentController
         return view($this->viewPrefix.'show')->with('data', $this->data);
     }
 
-    public function create($parentId)
+    public function create()
     {
-        parent::create($parentId);
-
-        $parent = Vino::find($parentId);
+        parent::create();
 
         data_set($this->data, 'selectedItem', [
                 'id' => 0,
-                'vino_id' => $parentId,
-                'vino' => $parent,
-                'ficha' => null,
-                'ficha_url' => null,
-                'enabled' => true,
-                'descripcion' => null
+                'titulo' => null,
+                'imagen_home' => null,
+                'imagen_home_url' => null,
         ]);
 
         return view($this->viewPrefix.'cu')->with('data',$this->data);
     }
 
-    public function store($parentId,CUAniadaRequest $request)
+    public function store(CUNuestroCompromisoRequest $request)
     {
-        $model = $this->_store($request->except('vino'));
+        $model = $this->_store($request);
+        return $this->sendResponse($model,trans('admin.success'));
+    }
+
+    public function edit($id)
+    {
+        parent::edit($id);
+
+        return view($this->viewPrefix.'cu')->with('data',$this->data);
+    }
+
+    public function update($id, CUNuestroCompromisoRequest $request)
+    {
+        $model = $this->_update($id, $request);
         return $this->sendResponse($model,trans('admin.success'));
     }
 
@@ -95,7 +101,7 @@ class AniadaController extends CrudAdminParentController
         \App::setLocale($lang);
 
         $model = $this->repository->findWithoutFail($id);
-        $model->load('vino');
+
         if (empty($model)) {
             return redirect()->back();
         }
@@ -107,23 +113,10 @@ class AniadaController extends CrudAdminParentController
         ];
 
 
+        $this->data['selectedItem']['cuerpo'] = $this->data['selectedItem']['cuerpo'] !== null ? $this->data['selectedItem']['cuerpo'] : '';
+
         $this->clearCache();
 
         return view($this->viewPrefix.'cu')->with('data',$this->data);
-    }
-
-    public function edit($parentId,$id)
-    {
-        parent::edit($parentId,$id);
-        $this->data['selectedItem']->load(['vino']);
-
-        return view($this->viewPrefix.'cu')->with('data',$this->data);
-    }
-
-    public function update($id, CUAniadaRequest $request)
-    {
-        $model = $this->_update($id, $request);
-
-        return $this->sendResponse($model,trans('admin.success'));
     }
 }

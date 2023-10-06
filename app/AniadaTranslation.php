@@ -13,13 +13,13 @@ class AniadaTranslation extends Model
     public $targetDir = 'aniadas';
 
     public $timestamps = false;
-    
-    protected $fillable = ['ficha'];
+
+    protected $fillable = ['ficha','descripcion'];
 
     protected $appends = ['ficha_url'];
 
-    public function getFichaUrlAttribute($value) 
+    public function getFichaUrlAttribute($value)
     {
         return isset($this->attributes['ficha']) ?  \FUHelper::fullUrl($this->targetDir,$this->attributes['ficha']) : null ;
-    }  
+    }
 }

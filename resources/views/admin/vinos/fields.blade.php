@@ -8,8 +8,10 @@
     <span class="help-block" v-show="errors.has('coleccion')">(% errors.first('coleccion') %)</span>
 </div>
 <div class="clearfix"></div>
+
+</template>
 <!-- Imagen Field -->
-<div class="form-group col-sm-2" :class="{'has-error': errors.has('imagen')}" v-if="!selectedItem.lang">
+<div class="form-group col-sm-2" :class="{'has-error': errors.has('imagen')}">
     {!! Form::label('imagen', 'Imagen') !!}
     <div class="thumb-wrap">
         <button-type v-if="selectedItem.imagen" type="remove-list" @click="removeFile('imagen')"></button-type>
@@ -34,8 +36,6 @@
     </div>
     <span class="help-block" v-show="errors.has('imagen')">(% errors.first('imagen') %)</span>
 </div>
-</template>
-
 <!-- Titulo Field -->
 <div class="form-group col-sm-10" :class="{'has-error': errors.has('titulo')}">
     {!! Form::label('titulo', 'Titulo') !!}
@@ -43,12 +43,7 @@
     <span class="help-block" v-show="errors.has('titulo')">(% errors.first('titulo') %)</span>
 </div>
 
-<!-- Descripcion Field -->
-<div class="form-group col-sm-12 col-lg-12" :class="{'has-error': errors.has('descripcion')}">
-    {!! Form::label('descripcion', 'Descripcion') !!}
-    {!! Form::textarea('descripcion', null, ['class' => 'form-control','v-model' => 'selectedItem.descripcion']) !!}
-    <span class="help-block" v-show="errors.has('descripcion')">(% errors.first('descripcion') %)</span>
-</div>
+
 <div class="clearfix"></div>
 <template  v-if="!selectedItem.lang">
 <!-- Peso Field -->
