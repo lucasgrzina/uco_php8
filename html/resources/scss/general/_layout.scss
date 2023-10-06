@@ -1861,3 +1861,58 @@ body[data-section="mis-pedidos"]{
 		}
 	}
 }
+
+
+.modal-uco{
+	/*align-items: center;
+	display: flex;*/
+	.modal-dialog{
+		.modal-content{
+			
+			border-radius: 0;
+			border-width: 0;
+			padding: 0;
+
+			.close{
+				padding: 9px;
+				z-index: 20;
+				position: absolute;
+				right: 18px;
+				top: 17px;
+				border-width: 0;
+				width: 35px;
+				height: 35px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 19px;
+			}
+			.modal-title{
+				color: $c-dark;
+				font-weight: 600;
+				font-size: 22px;
+			}
+			.modal-body{
+				p{
+					font-family: $f-book;
+					font-size: 18px;
+					color: $c-dark;
+					text-align: left;
+					&.title{
+						
+					}
+				}
+			}
+
+			.modal-header{
+				background-color: #fafaf8;
+			}
+
+			.modal-footer{
+				display: flex;
+				justify-content: end;
+				gap: 10px;
+			}
+		}
+	}
+}

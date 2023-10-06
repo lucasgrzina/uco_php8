@@ -180,3 +180,42 @@ $( window ).resize(function() {
 	fadeChildren();
 });
 
+const renderModal = (content, id) => {
+	modalcontent =
+	  '<div class="modal fade modal-uco  modal-slim to-contact-modal " id="js_alert_modal" tabindex="-1" role="dialog" aria-labelledby="alert_modalLabel" aria-hidden="true">\
+			<div class="modal-dialog modal-dialog-centered" role="document">\
+			  <div  class="modal-content">\
+				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">\
+				  <span aria-hidden="true">&times;</span>\
+				</button>\
+				<div class="forms-overflow" >\
+				  ' +
+	  content +
+	  "\
+				</div>\
+			  </div>\
+			</div>\
+		  </div>";
+	return modalcontent;
+  };
+  
+  const showAlert = (title , message = null, btn1 = null, btn2 = null) => {
+	modal = $(
+	  renderModal(
+		'<div class="modal-header">\
+			' +(title?('<h5 class="modal-title ">' +title + '</h5>'):'') +'\
+		</div>\
+	  	<div class="modal-body">\
+		  <div class="modal-icon-title"><i class="icon icon icon-complete-multicolor"></i></div>\
+		  '+ (message?('<p class="message ">' +message + '</p>'):'') + '</div>\
+		  <div class="modal-footer">\
+			  ' + (btn1?('<button type="button" class="btn-primary faded" '+(btn1['fun']?('onclick="'+btn1['fun']+'"'):'data-bs-dismiss="modal"')+'" >'+btn1['text']+'</button>'):'') +'\
+			  ' + (btn2?('<button type="button" class="btn-primary faded" '+(btn2['fun']?('onclick="'+btn2['fun']+'"'):'data-bs-dismiss="modal"')+'" >'+btn2['text']+'</button>'):'') +'\
+		  </div>'
+	  )
+	);
+	$("body").append(modal);
+	modal.modal("show").on("hide.bs.modal", function () {
+	  $(this).remove();
+	});
+  };
