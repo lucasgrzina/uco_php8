@@ -328,7 +328,10 @@ p{
         background-position: top;
     }
     .container {
-        height: 550px;
+        @include under($b-lg) {
+            height: 550px;
+        }
+        /*height: 550px;*/
     }
 	padding: 37px 0 10px;
 	@include under($b-lg) {
