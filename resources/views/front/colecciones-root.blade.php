@@ -48,7 +48,7 @@
 	</div>
 </section>
 
-<section class="section-almacenamiento  m-0" >
+<section class="section-almacenamiento bg-white  m-0" >
 	<div class="container">
 		<div class="col-12"><h2>{!! trans('front.paginas.colecciones.root.almacenamiento.titulo') !!}</h2></div>
 		<div class="col-12">

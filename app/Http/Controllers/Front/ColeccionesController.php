@@ -130,7 +130,7 @@ class ColeccionesController extends AppBaseController
 
         return view('front.colecciones', [
             'tituloPagina' => trans('front.paginas.colecciones.magiaUco.titulo'),
-            'dataSection' => 'interwine',
+            'dataSection' => 'uco',
             'data' => $data
         ]);
     }
@@ -164,7 +164,7 @@ class ColeccionesController extends AppBaseController
 
         return view('front.colecciones', [
             'tituloPagina' => trans('front.paginas.colecciones.magiaUcoNotable.titulo'),
-            'dataSection' => 'interwine',
+            'dataSection' => 'uco-notable',
             'data' => $data
         ]);
     }

@@ -63,7 +63,7 @@
 @section('content')
 <!-- CONTENT -->
 @include('front.modules.module-full-slider',['items' => $data['slides']])
-<section class="section-contacto-map">
+<section class="section-contacto-map bg-gris-claro">
 	<div class="container">
 		<div class="row ">
 			<div class="col-lg-6  fade_JS col-text">
@@ -83,7 +83,7 @@
 	</div>
 </section>
 
-<section class="section-form">
+<section class="section-form bg-white">
 	<div class="container">
 		<div class="row ">
 			<div class="col-md-12">

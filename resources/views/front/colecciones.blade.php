@@ -33,7 +33,7 @@
 @endphp
 @section('content')
 @include('front.modules.module-full-slider',['items' => $data['slides']])
-<section class="section-colecciones {{$dataSection}} interna"  id="section-colecciones">
+<section class="section-colecciones {{$dataSection}} interna bg-gris-claro"  id="section-colecciones">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -83,8 +83,8 @@
                                 <div class="descripcion"><p>(% aniadaActual ? aniadaActual.descripcion : '' %)</p></div>
                                 <div class="links-producto" v-if="aniadaActual">
 
-                                    <a :href="aniadaActual.ficha_url" target="_blank" class="btn btn-white" v-if="aniadaActual.ficha">{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</a>
-                                    <div v-if="actual.vendible" class="btn btn-white total">
+                                    <a :href="aniadaActual.ficha_url" target="_blank" class="btn btn-brown" v-if="aniadaActual.ficha">{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</a>
+                                    <div v-if="actual.vendible" class="btn btn-brown total">
                                         (% locale == 'es' ? 'AR$ ' + aniadaActual.precio_pesos : 'AR$ ' + aniadaActual.precio_pesos %)
                                     </div>
                                     <div v-if="actual.vendible" class="dropdown">

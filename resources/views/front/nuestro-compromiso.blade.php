@@ -18,7 +18,7 @@
 @endsection
 @section('content')
 @include('front.modules.module-full-slider',['items' => $data['slides']])
-<section class="nuestro-compromiso-1">
+<section class="nuestro-compromiso-1 bg-white">
 	<div class="container">
 		<div class="row ">
 			<div class="col-lg-6 fade_JS">
@@ -37,7 +37,7 @@
 	</div>
 </section>
 
-<section class="slider-fullscreen-section" id="calidad">
+<section class="slider-fullscreen-section bg-white" id="calidad">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-12 p-0">
@@ -49,7 +49,7 @@
 							<img class="image" src="{{asset($item['imagen'])}}">
 						</div>
 
-						<div class="content-text">
+						<div class="content-text bg-gris-claro">
 							<h2>{!! $item['titulo'] !!}</h2>
 							<p>{!! $item['subtitulo'] !!}</p>
 						</div>
@@ -62,7 +62,7 @@
 	</div>
 </section>
 
-<section class="certificaciones-section" id="certificaciones">
+<section class="certificaciones-section bg-white" id="certificaciones">
 	<div class="container">
 		<div class="row">
 			<div class="col-12 mb-item">

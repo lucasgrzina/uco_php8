@@ -123,11 +123,13 @@
 
 }
 
+
+
 .btn-dropdown, .btn-brown{
     font-family: $f-bold;
-    color: #fff;
-    background-color: #363126;
-    font-size: 16px;
+    color: #363126;
+    background-color: #CDCFAD;
+    font-size: 13px;
     position: relative;
     margin-right: 36px;
     &:after{
@@ -140,12 +142,12 @@
         height: 20px;
         background-repeat: no-repeat;
         background-size: auto 60%;
-        background-image: url(../img/arrow-down.svg);
+        background-image: url(../img/arrow-down-brown.svg);
         background-position: center;
         display: block;
         position: absolute;
         right: -42px;
-        background-color: #363126;
+        background-color: #CDCFAD;
         top: -1px;
         height: calc(100% + 2px);
         border-radius: 5px;
@@ -158,6 +160,7 @@
         outline: none;
     }
 }
+
 
 .btn-white{
     background-color: #fff;
@@ -219,8 +222,8 @@
     }
 
     @include under($b-md) {
-        background-color: #F2F0DE;
-        color: #8e8063;
+        /*background-color: #F2F0DE;
+        color: #8e8063;*/
     }
 }
 

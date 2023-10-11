@@ -37,7 +37,7 @@ p{
 
 .section-legado{
 	padding: 84px 0 124px;
-	background-color: $c-lighter;
+	background-color: #FAFAF9;
 
 	@include under($b-lg) {
 		padding: 24px 0;
@@ -202,6 +202,7 @@ p{
 
 .section-gallery{
 	padding: 84px 0 29px;
+    background-color: #FAFAF9;
 	@include under($b-lg) {
 		padding: 0 0 29px;
 	}
@@ -321,6 +322,14 @@ p{
 
 
 .section-colecciones{
+    background: url(http://localhost/magia-del-uco/public/img/colecciones.jpg);
+    background-size: cover;
+    @include under($b-md) {
+        background-position: top;
+    }
+    .container {
+        height: 550px;
+    }
 	padding: 37px 0 10px;
 	@include under($b-lg) {
 		padding: 73px 0 0;
@@ -328,6 +337,7 @@ p{
 	.col-img{
 		padding-left: 0;
 		padding-right: 0;
+        /*padding-top: 13%;*/
 
 		img{
 			width: 100%;
@@ -369,14 +379,14 @@ p{
 	}
 
 	.wrap-text{
-		padding: 0 91px 60px;
+		padding: 200px 0 60px 0px;
 		@include over($b-md) {
 
 			float: left;
 		}
 
 		@include under($b-lg) {
-			padding: 75px 28px;
+			padding: 75px 47px;
 			max-width: calc(100% - 35px);
 		}
 	}
@@ -539,7 +549,7 @@ p{
 .section-novedades{
 	padding: 99px 0 44px;
 	margin-bottom: 142px;
-
+    background-color: #FAFAF9;
 	.sidebar{
 		@include under($b-md) {
 			margin-top: 50px;
@@ -548,7 +558,7 @@ p{
 	}
 
 	&.big{
-		background-color: #F4F2E9;
+		background-color: #ffffff;
 		margin-bottom: 0;
 
 
@@ -753,7 +763,7 @@ p{
 }
 
 .section-subscribirse{
-	background-color: #CCD3B9;
+	/*background-color: #FAFAF9;*/
 	padding: 58px 0 76px;
 	h2{
 		text-align: center;
@@ -911,7 +921,6 @@ p{
 	}
 }
 
-
 .section-contacto-map{
 	background-color: #CCD3B9;
 	padding: 0;
@@ -920,7 +929,7 @@ p{
 		padding: 0 0 0;
 	}
 
-	&:after{
+	/*&:after{
 		@media(min-width: 1330px) {
 			content: ' ';
 			position: absolute;
@@ -938,7 +947,7 @@ p{
 			}
 
 		}
-	}
+	}*/
 	.col-img{
 		padding-left: 0;
 		padding-right: 0;
@@ -996,7 +1005,7 @@ p{
 			max-width: 410px;
 		}
 		@include over($b-md) {
-            padding: 250px 35px 0 0;
+            padding: 60px 35px 0 0;
 			float: left;
 		}
 
@@ -1333,7 +1342,7 @@ p{
 		}
 
 		.content-text{
-			background-color: #F2F0DE;
+			/*background-color: #F2F0DE;*/
 			padding: 40px 112px 40px 37px;
 			position: relative;
 			float: right;
@@ -1378,7 +1387,7 @@ p{
 }
 
 .certificaciones-section{
-	background-color: #8E8063;
+	/*background-color: #8E8063;*/
 	padding: 84px 0 124px;
 	@include under($b-lg) {
 		padding: 24px 0;
@@ -1480,12 +1489,14 @@ p{
 .section-colecciones{
 
 	.producto{
-		background-color: #AFA098;
+		background-color: #FFF;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		padding: 100px;
-
+        -webkit-box-shadow: 0px 0px 5px 1px rgba(196,196,196,1);
+        -moz-box-shadow: 0px 0px 5px 1px rgba(196,196,196,1);
+        box-shadow: 0px 0px 5px 1px rgba(196,196,196,1);
 		@include under($b-lg) {
 			padding: 40px 20px;
 		}
@@ -1500,10 +1511,10 @@ p{
 			gap: 50px;
 			.image{
 				width: 100%;
-				max-width: 220px;
+				max-width: 140px;
 				img{
 					width: 100%;
-					max-width: 185px;
+					max-width: 140px;
 				}
 
 				@include under($b-lg) {
@@ -1568,7 +1579,7 @@ p{
 					line-height: 27px;*/
 					font-size: 14px;
 					line-height: 22px;
-					color: #fff;
+					color: #363126;
 				}
 			}
 
@@ -1602,7 +1613,7 @@ p{
 				p{
 					font-size: 12px;
 					line-height: 12px;
-					color: #fff;
+					color: #363126;
 					margin-bottom: 0;
 				}
 			}
@@ -1610,7 +1621,7 @@ p{
 			.shop{
 				p{
 					&.destacado{
-						color: #fff;
+						color: #363126;
 						line-height: 19px;
 					    font-size: 14px;
 					    font-weight: bold;
@@ -1626,6 +1637,10 @@ p{
 }
 .section-colecciones.interna{
 	padding: 80px 0 140px;
+    background-image: none;
+    .container {
+        height: auto;
+    }
 }
 .section-colecciones.francesca-tucci {
 	background-color: #F8F0E5;
@@ -1633,7 +1648,7 @@ p{
 
 .section-almacenamiento{
 	padding: 100px 0;
-	background-color: #f4f2e9;
+	/*background-color: #f4f2e9;*/
 	h2{
 
 		text-align: center;
@@ -1854,7 +1869,7 @@ body[data-section="mis-pedidos"]{
 
 	header + section{
 		padding-top: 170px;
-		background-color: #F4F2E9;
+		background-color: #FAFAF9;
 
 		@include under($b-md){
 			padding-top: 120px;
@@ -1919,4 +1934,13 @@ body[data-section="mis-pedidos"]{
 			}
 		}
 	}
+}
+.bg-white{
+	background-color: #FFFFFF;
+}
+.bg-gris-claro{
+	background-color: #FAFAF9;
+}
+.bg-gris-medio{
+	background-color: #FAFAF9;
 }

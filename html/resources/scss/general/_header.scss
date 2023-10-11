@@ -100,7 +100,7 @@ header {
 			&.show{
 				@include under($b-lg){
 					height: 100vh;
-					background: #F2F0DE;
+					background: #FFF;
 					position: fixed;
 					left: 0;
 					top: 0;
@@ -154,15 +154,15 @@ header {
 						.images{
 							position: absolute;
 							right:100%;
-							top: 41px;
+							top: 15px;
 							display: flex;
 							z-index: 3;
 							padding-right: 30px;
-							transform: rotate(3deg);
+							/*transform: rotate(3deg);*/
 							.img-prod{
 								position: relative;
 								float: left;
-								width: 41px;
+								width: 34px;
 							}
 
 							@include under($b-lg){

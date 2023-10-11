@@ -44,16 +44,16 @@
 
             <div class="submenu">
               <div class="images">
-                <img src="{{asset('img/botella-franc-menu-shop.png')}}" class="img-prod" />
-                <img src="{{asset('img/botella-notable-malbec-menu-shop.png')}}" class="img-prod" />
+                <img src="{{asset('img/botella-franc-menu-shop.png')}}" class="img-prod img-prod-opc img-prod-opc-1" />
+                <img src="{{asset('img/botella-notable-malbec-menu-shop.png')}}" class="img-prod img-prod-opc img-prod-opc-2 d-none" />
               </div>
               <div class="menu">
                 <ul>
                   <li><!--a href="{{routeIdioma('colecciones')}}">{{trans('front.navMenuFooter.links.colecciones')}}</a></li-->
                     <!--li><a href="{{routeIdioma('colecciones.tucci')}}">{{trans('front.navMenuFooter.links.francescaTucci')}}</a></li-->
                   <!--li><a href="{{routeIdioma('colecciones.interwine')}}">{{trans('front.navMenuFooter.links.interwine')}}</a></li-->
-                  <li><a href="{{routeIdioma('colecciones.magiaUco')}}">{{trans('front.navMenuFooter.links.magiaUco')}}</a></li>
-                  <li><a href="{{routeIdioma('colecciones.magiaUcoNotable')}}">{{trans('front.navMenuFooter.links.magiaUcoNotable')}}</a></li>
+                  <li><a href="{{routeIdioma('colecciones.magiaUco')}}" id="prod-opc-1" class="prod-opc">{{trans('front.navMenuFooter.links.magiaUco')}}</a></li>
+                  <li><a href="{{routeIdioma('colecciones.magiaUcoNotable')}}" id="prod-opc-2" class="prod-opc">{{trans('front.navMenuFooter.links.magiaUcoNotable')}}</a></li>
                 </ul>
               </div>
             </div>

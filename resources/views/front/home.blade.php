@@ -113,18 +113,23 @@
 </section>
 
 <section class="section-colecciones pb-0">
-	<div class="container-fluid ">
+	<div class="container ">
 		<div class="row">
-			<div class="col-md-7  col-img ">
-				<img src="{{asset('img/colecciones.jpg')}}" class="img-fluid " />
+			<div class="col-md-12 mx-auto col-img ">
+				<!--img src="{{asset('img/colecciones.jpg')}}" class="img-fluid " /-->
+                <div class="wrap-text fade_JS">
+                    <h2 style="color: #fff;">{!! trans('front.paginas.home.colecciones.titulo') !!}</h2>
+                    <p style="color: #fff;">{!! trans('front.paginas.home.colecciones.subtitulo') !!}</p>
+                    <a href="{{routeIdioma('colecciones')}}" class="btn-primary">{!! trans('front.paginas.home.colecciones.btn') !!}</a>
+				</div>
 			</div>
-			<div class="col-md-5  bg-green col-text">
+			<!--div class="col-md-5  bg-green col-text">
 				<div class="wrap-text fade_JS">
                     <h2>{!! trans('front.paginas.home.colecciones.titulo') !!}</h2>
                     <p>{!! trans('front.paginas.home.colecciones.subtitulo') !!}</p>
                     <a href="{{routeIdioma('colecciones')}}" class="btn-primary">{!! trans('front.paginas.home.colecciones.btn') !!}</a>
 				</div>
-			</div>
+			</div-->
 		</div>
 	</div>
 </section>

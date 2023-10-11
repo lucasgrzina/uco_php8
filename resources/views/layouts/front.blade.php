@@ -179,6 +179,17 @@
       <script src="{{asset('js/app.js')}}?v=1"></script>
       @yield('scripts')
       <script src="{{ asset('js/template.js') }}"></script>
-
+      <script>
+        $(function() {
+            $('.prod-opc').hover(function() {
+                var id = $(this).attr('id');
+                $('.img-prod-opc').addClass('d-none');
+                console.debug('#img-' + id);
+                $('.img-' + id).removeClass('d-none');
+                //$( this ).fadeOut( 100 );
+                //$( this ).fadeIn( 500 );
+            },null);
+        });
+      </script>
     </body>
 </html>

@@ -1,5 +1,5 @@
 footer {
-	background-color: #BCC4A8;
+	background-color: #F5F5F5;
 
 	.logo{
 	    max-width: 258px;
@@ -74,7 +74,7 @@ footer {
 	}
 
 	.legales{
-		color: #fff;
+		color: #1D1D1B;
 		text-align: center;
 		margin: 5px auto;
 		font-size: 13px;
@@ -85,10 +85,11 @@ footer {
 		display: flex;
 		justify-content: space-between;
 		max-width: 600px;
+
 		a{
 			font-family: $f-book;
 			font-size: 11px;
-			color: #fff;
+			color: #1D1D1B;
 			padding: 5px;
             &:hover {
                 text-decoration: underline;

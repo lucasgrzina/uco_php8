@@ -33,7 +33,7 @@ body[data-section="registro"] {
 		}
 		.col-form{
 			@include over($b-md) {
-				background-color: #f2f1df;
+				background-color: #FAFAF9;
 			}
 			height: 100vh;
 			align-items: center;
@@ -43,7 +43,7 @@ body[data-section="registro"] {
 				width: 100%;
 				max-width: 374px;
 				@include under($b-md) {
-					background-color: #33333340;
+					background-color: #f2f0debd;
 				    padding: 55px 30px;
 				}
 			}
@@ -57,6 +57,7 @@ body[data-section="registro"] {
 				}
 				display: block;
 				img{
+                    filter: invert(1);
 					width: 100%;
 					@include over($b-md) {
 						filter: invert(54%) sepia(26%) saturate(398%) hue-rotate(2deg) brightness(88%) contrast(83%);
@@ -90,7 +91,7 @@ body[data-section="registro"] {
 					-webkit-background-clip: text;
 
 					@include under($b-md) {
-						border-color: #fff;
+						border-color: #2C2B2B;
 					}
 
 				}
@@ -119,7 +120,7 @@ body[data-section="registro"] {
     				font-size: 14px;
 
     				@include under($b-md) {
-						color: #fff;
+						color: #2C2B2B;
 					}
 				}
 
@@ -138,7 +139,7 @@ body[data-section="registro"] {
 
 
 						@include under($b-md) {
-							color: #fff;
+							color: #2C2B2B;
 						}
 					}
 				}
