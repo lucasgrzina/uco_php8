@@ -25,12 +25,12 @@ _methods.toastError = function(mensaje,titulo) {
         var _this = this;
 
         if (!_this.carrito.item.id) {
-            alert('Debe seleccionar un producto');
+            alert2('Debe seleccionar un producto');
             return false;
         }
 
         if (!_this.carrito.item.cantidad) {
-            alert('Debe indicar una cantidad mayor a 0');
+            alert2('Debe indicar una cantidad mayor a 0');
             return false;
         }
 
@@ -99,7 +99,7 @@ _methods.toastError = function(mensaje,titulo) {
     var _this = this;
 
     if (_this.carrito.items.length < 1) {
-        alert('Debe seleccionar un producto');
+        alert2('Debe seleccionar un producto');
         return false;
     }
 

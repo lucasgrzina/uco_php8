@@ -170,16 +170,16 @@ _methods.newsletterSubmit = function (scope){
 
     _this._call(_this.newsletter.url_post_save,'POST',_this.newsletter.form).then(function(data) {
         //_this.alertShow('Gracias por suscribirte');
-        alert(_this.trans.modulos.newsletter.gracias);
+        alert2(_this.trans.modulos.newsletter.gracias);
         _this.newsletter.loading = false;
     }, function(error) {
         if (error.status === 422) {
             for(var key in error.fields) {
-                alert(error.fields[key][0]);
+                alert2(error.fields[key][0]);
                 break;
             }
         } else {
-            alert(error.message);
+            alert2(error.message);
         }
         _this.newsletter.loading = false;
     });
