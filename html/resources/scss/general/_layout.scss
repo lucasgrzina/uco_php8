@@ -322,7 +322,7 @@ p{
 
 
 .section-colecciones{
-    background: url(http://localhost/magia-del-uco/public/img/colecciones.jpg);
+    background: url(../img/colecciones.jpg);
     background-size: cover;
     @include under($b-md) {
         background-position: top;
