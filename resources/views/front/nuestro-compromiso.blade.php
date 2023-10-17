@@ -72,7 +72,7 @@
 
 					</div>
 					<div class="col-md-6">
-						<p class="subtitulo">{!! trans('front.paginas.nuestroCompromiso.certificaciones.subtitulo') !!}</p>
+						<p class="subtitulo" style="color: #030303;">{!! trans('front.paginas.nuestroCompromiso.certificaciones.subtitulo') !!}</p>
 					</div>
 				</div>
 			</div>
@@ -80,7 +80,7 @@
 			<div class="col-md-4 mb-item">
 				<img class="icon" src="{{asset($item['icono'])}}">
 				<h3>{{ucfirst(strtolower($item['titulo']))}}</h3>
-				<p>{{$item['subtitulo']}}</p>
+				<p  style="color: #030303;">{{$item['subtitulo']}}</p>
 			</div>
             @endforeach
 		</div>
