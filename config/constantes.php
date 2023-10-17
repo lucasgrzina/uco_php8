@@ -32,7 +32,7 @@ return [
             ['titulo' => '_trans.front.paginas.colecciones.interwine.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/interwine-header.jpg','imagen_mobile_url' => '_asset.img/interwine-header.jpg','orden' => 1]
         ],
         'coleccionesMagiaUco' => [
-            ['titulo' => '_trans.front.paginas.colecciones.magiaUco.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/header-shop-magiadeuco.jpg','imagen_mobile_url' => '_asset.img/header-shop-magiadeuco.jpg','orden' => 1]
+            ['titulo' => '_trans.front.paginas.colecciones.magiaUco.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/header-shop-magiadeuco.jpg','imagen_mobile_url' => '_asset.img/header-shop-magiadeuco.jpg','orden' => 1,'slider_class' => 'bkg-md-right']
         ],
         'coleccionesMagiaUcoNotable' => [
             ['titulo' => '_trans.front.paginas.colecciones.magiaUcoNotable.titulo','subtitulo' => null,'imagen_desktop_url' => '_asset.img/header-shop-magiadeuconotable.jpg','imagen_mobile_url' => '_asset.img/header-shop-magiadeuconotable.jpg','orden' => 1]

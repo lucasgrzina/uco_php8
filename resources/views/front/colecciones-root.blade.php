@@ -32,7 +32,7 @@
 </section>
 
 <section class="section-full-image  m-0" >
-	<div class="bg-content w-100 h-100 " style="background-image: url({{asset('img/header-shop-magiadeuco.jpg')}});">
+	<div class="bg-content w-100 h-100 " style="background-image: url({{asset('img/header-shop-magiadeuco.jpg')}});background-position-x: right;">
 	<div class="container " >
 		<div class="row">
 

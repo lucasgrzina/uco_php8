@@ -1,7 +1,7 @@
 .module-full-slider{
 	width: 100%;
 	position: relative;
-    
+
 
     .slider{
         @include over($b-md) {
@@ -24,6 +24,11 @@
                 max-height: 545px;
                 height: 100vh;
             }
+            &.bkg-md-right {
+                @include under($b-md) {
+                    background-position-x: right;
+                }
+            }
 
             display: flex;
             align-items: center;
@@ -34,7 +39,7 @@
                     padding: 0 42px;
                 }
             }
-            
+
 
             &:before{
                 content: ' ';
@@ -84,5 +89,5 @@
         }
     }
 
-    
+
 }
