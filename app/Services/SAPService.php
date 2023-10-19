@@ -67,7 +67,7 @@ class SAPService extends AppBaseController
         \Log::channel('consola')->info("SAP - Productos");
 
         $codigosAniadas = Aniada::whereNotNull('sku')->pluck('sku')->toArray();
-
+        \Log::channel('consola')->info($codigosAniadas);
         $filtersItemCode = [];
         foreach ($codigosAniadas as $sku) {
             $filtersItemCode[] = "ItemCode eq '{$sku}'";
@@ -75,7 +75,8 @@ class SAPService extends AppBaseController
 
         $param = [
             "\$select" => "ItemCode,ItemName,StockTotal,PriceList,Price,Currency,WhsCode,StockAlmacen",
-            "\$filter" => "(" . implode(' or ',$filtersItemCode) . ") and (PriceList eq 2 or PriceList eq 3)"
+            "\$filter" => "(" . implode(' or ',$filtersItemCode) . ") and (PriceList eq 2 or PriceList eq 3)",
+            "\$top" => "100"
         ];
 
 
