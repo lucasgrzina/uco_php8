@@ -43,8 +43,6 @@ class SincronizarSAP extends BaseCommand
      */
     public function handle()
     {
-        \Log::channel('consola')->info("INICIO: cron:sincronizar-sap");
         $this->sapService->sincronizarProductos();
-        \Log::channel('consola')->info("FIN: cron:sincronizar-sap");
     }
 }

@@ -79,8 +79,8 @@ class SAPService extends AppBaseController
         ];
 
 
-        //\Log::channel('consola')->info($param);
-        //\Log::channel('consola')->info('Url API: '."https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
+        \Log::channel('consola')->info($param);
+        \Log::channel('consola')->info('Url API: '."https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
 
         $request = new Psr7\Request('GET', $uri->withQuery(\GuzzleHttp\Psr7\Query::build($param)), [
@@ -91,6 +91,7 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $productos = json_decode($response->getBody());
+            \Log::channel('consola')->info($productos);
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
