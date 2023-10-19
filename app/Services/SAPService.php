@@ -76,7 +76,8 @@ class SAPService extends AppBaseController
         $param = [
             "\$select" => "ItemCode,ItemName,StockTotal,PriceList,Price,Currency,WhsCode,StockAlmacen",
             "\$filter" => "(" . implode(' or ',$filtersItemCode) . ") and (PriceList eq 2 or PriceList eq 3)",
-            "\$top" => "100"
+            "\$top" => "100",
+            "\$skip" => "0",
         ];
 
 
