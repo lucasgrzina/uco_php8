@@ -345,8 +345,8 @@ return [
             'interna' => [
                 'aniadas' => 'Añadas',
                 'fichaTecnica' => 'Ficha Técnica',
-                'porCantidades' => '*Por cantidades mayores a 18 botellas, por favor contactarnos a <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
-                'porCompras' => 'Por compras superiores a AR$ _COMPRAS_SUPERIORES_ enviar mail a <a href="mailto:info@magiadeluco.com">info@magiadeluco.com</a>',
+                'porCantidades' => '*Por cantidades mayores a 18 botellas, por favor contactarnos a <a href="mailto:info@magiadeuco.com">info@magiadeuco.com</a>',
+                'porCompras' => 'Envio gratuito en compras superiores a AR$ _COMPRAS_SUPERIORES_.',
                 'btnAgregar' => 'Añadir al shop'
             ],
             'root' => [
@@ -499,7 +499,7 @@ return [
                 ],
                 'btnMisPedidos' => 'Ver Mis Pedidos'
             ],
-            'envioSoloArgentina' => 'Por el momento, realizamos envíos únicamente dentro de Argentina. Si deseas hacer un envío fuera de Argentina, por favor envíanos un correo electrónico a <a href="mailto:info@magiadeluco.com" style="font-size: 10px;text-decoration:underline;">info@magiadeluco.com</a>'
+            'envioSoloArgentina' => 'Por el momento, realizamos envíos únicamente dentro de Argentina. Si deseas hacer un envío fuera de Argentina, por favor envíanos un correo electrónico a <a href="mailto:info@magiadeuco.com" style="font-size: 10px;text-decoration:underline;">info@magiadeuco.com</a>'
 
         ],
         'miCuenta' => [
