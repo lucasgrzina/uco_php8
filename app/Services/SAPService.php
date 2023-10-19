@@ -91,7 +91,7 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $productos = json_decode($response->getBody());
-            \Log::channel('consola')->info($productos);
+            \Log::channel('consola')->info((array)$productos);
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
