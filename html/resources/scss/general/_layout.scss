@@ -1439,6 +1439,9 @@ p{
 			-webkit-justify-content: space-between;
 			justify-content: space-between;
 			width: 100%;
+            @include under($b-sm) {
+                flex-direction: column!important;
+            }
 		}
 	/*}*/
 	@include under($b-lg) {
