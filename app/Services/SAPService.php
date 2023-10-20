@@ -67,39 +67,60 @@ class SAPService extends AppBaseController
         \Log::channel('consola')->info("SAP - Productos");
 
         $codigosAniadas = Aniada::whereNotNull('sku')->pluck('sku')->toArray();
-        \Log::channel('consola')->info($codigosAniadas);
+        //\Log::channel('consola')->info($codigosAniadas);
         $filtersItemCode = [];
         foreach ($codigosAniadas as $sku) {
             $filtersItemCode[] = "ItemCode eq '{$sku}'";
         }
 
-        $param = [
-            "\$select" => "ItemCode,ItemName,StockTotal,PriceList,Price,Currency,WhsCode,StockAlmacen",
-            "\$filter" => "(" . implode(' or ',$filtersItemCode) . ") and (PriceList eq 2 or PriceList eq 3)",
-            "\$top" => "20",
-            "\$skip" => "20",
-        ];
 
+        $productos = [];
 
-        \Log::channel('consola')->info($param);
-        \Log::channel('consola')->info('Url API: '."https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
 
-        $request = new Psr7\Request('GET', $uri->withQuery(\GuzzleHttp\Psr7\Query::build($param)), [
-            'Content-Type' => 'application/json',
-            'Cookie' => 'B1SESSION='.$login->SessionId
-        ]);
-
         try {
-            $response = $this->client->send($request);
-            $productos = json_decode($response->getBody());
-            \Log::channel('consola')->info((array)$productos);
+            $i = 0;
+            do {
+                $param = [
+                    "\$select" => "ItemCode,ItemName,StockTotal,PriceList,Price,Currency,WhsCode,StockAlmacen",
+                    "\$filter" => "(" . implode(' or ',$filtersItemCode) . ") and (PriceList eq 2 or PriceList eq 3)",
+                    "\$skip" => $i * 20
+                ];
+                //\Log::channel('consola')->info($param);
+                //\Log::channel('consola')->info('Url API: '."https://{$this->host}:{$this->port}/b1s/v1/sml.svc/VU_ITEMINFO");
+
+
+
+                $request = new Psr7\Request('GET', $uri->withQuery(\GuzzleHttp\Psr7\Query::build($param)), [
+                    'Content-Type' => 'application/json',
+                    'Cookie' => 'B1SESSION='.$login->SessionId
+                ]);
+
+
+                $response = $this->client->send($request);
+                //$productos = json_decode($response->getBody());
+                $response = json_decode($response->getBody());
+                $arrResp = (array)$response;
+                //\Log::channel('consola')->info($arrResp);
+
+                foreach($response->value as $producto) {
+                    $productos[] = $producto;
+                }
+
+                $hayMas = isset($arrResp['@odata.nextLink']);
+
+                $i++;
+                if ($i > 5) {
+                    $hayMas = false;
+                }
+            } while ($hayMas);
+
+
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
         }
-
         //\Log::channel('consola')->info(json_encode($productos->value));
-        foreach($productos->value as $producto)
+        foreach($productos as $producto)
         {
 
             if (($producto->PriceList == 2 || $producto->PriceList == 3) && $producto->ItemCode != "")
