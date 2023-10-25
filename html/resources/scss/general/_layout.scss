@@ -1008,7 +1008,8 @@ p{
 			max-width: 410px;
 		}
 		@include over($b-md) {
-            padding: 60px 35px 0 0;
+            /*padding: 60px 35px 0 0;*/
+            padding: 220px 35px 0 0;
 			float: left;
 		}
 
@@ -1861,11 +1862,25 @@ p{
 body[data-section="checkout"],
 body[data-section="mis-pedidos"]{
 	header{
+        .navbar-toggler #nav-lines .nav-line {
+            stroke: #363126;
+        }
+        .navbar .navbar-brand img{
+            filter: invert(1)!important;
+        }
+
+        .navbar .nav-right .icon {
+            filter: none;
+        }
+
+        .nav-link, .nav-lenguage li a {
+            color: #363126;
+        }
 
 		&:before{
 			content: ' ';
 			background: rgb(0,0,0);
-			background: linear-gradient(180deg, rgba(142, 128, 99,1) 10%, rgba(142, 128, 99,0) 100%);
+			background: linear-gradient(180deg, rgb(131 131 131) 10%, rgba(142, 128, 99, 0) 100%);
 			position: absolute;
 			z-index: 1;
 			width: 100%;
@@ -1881,6 +1896,21 @@ body[data-section="mis-pedidos"]{
 			padding-top: 120px;
 		}
 	}
+
+    .form-check .container, .form-check .lbl {
+        color:#363126;
+    }
+    .form-check .checkmark {
+        background-color: transparent;
+        border: 1px solid #363126;
+    }
+    .form-check .container input:checked~.checkmark {
+        background-color: transparent;
+    }
+    .form-check .container .checkmark:after {
+        border: solid #363126;
+        border-width: 0 3px 3px 0;
+    }
 }
 
 

@@ -398,12 +398,15 @@ header {
 
 			&:after{
 
-				background-color: rgba(142, 128, 99,.5);
+				background-color: rgb(159 159 159 / 50%);
 				backdrop-filter: blur(5px);
 
 			}
 
 			.navbar-brand {
+                img {
+                    filter: invert(1);
+                }
 				@include over($b-md){
 					width: 150px;
 				}
@@ -427,6 +430,18 @@ header {
 			    background-color: rgba(142,128,99,.5);
 			    background-color: #ffffff;
 			}
+            .nav-link {
+                color: #363126;
+            }
+            .nav-lenguage li a {
+                color: #363126;
+            }
+            .nav-lenguage li:not(:last-child):after {
+                background-color: #363126;
+            }
+            .nav-right .icon {
+                filter: none;
+            }
 		}
 	}
 
