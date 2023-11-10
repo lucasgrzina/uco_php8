@@ -107,7 +107,7 @@
                                     <p class="destacado mb-3">
                                         {!! str_replace('_COMPRAS_SUPERIORES_',$data['configuraciones']['COMPRAS_SUPERIORES'],trans('front.paginas.colecciones.interna.porCompras')) !!}
                                     </p>
-                                    <a href="javascript:void(0)" class="btn btn-brown" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
+                                    <a href="javascript:void(0)" class="btn btn-brown" style="text-transform: uppercase;font-weight: bold;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
 
                                 </div>
                             </div>

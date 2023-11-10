@@ -35,7 +35,7 @@ return [
         'envio' => 'Costo de envío',
         'total' => 'Total',
         'infoEnvio' => 'Información del envío',
-        'conocer' => 'Para conocer el estado de tu pedido podés hacerlo ingresando a <strong>tu cuenta</strong> en nuestro sitio web a través de la opción listado de pedidos.',
+        'conocer' => 'Para conocer el estado de tu pedido podés hacerlo ingresando a <strong><a style="color:#000!important;" href="_lnk_cuenta_">tu cuenta</a></strong> en nuestro sitio web a través de la opción listado de pedidos.',
         'imagenes' => [
             'gracias' => 'header-registro-2.jpg'
         ],

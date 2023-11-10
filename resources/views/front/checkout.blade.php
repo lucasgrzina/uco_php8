@@ -60,10 +60,24 @@
         }
 
         _methods.validarDatosFacturacion = function (form) {
+            console.debug(form);
+            console.debug(this.checkout.info);
             if (form.tipo_factura == 'A') {
-                if (!form.razon_social || !form.cuit) {
+                if (!form.razon_social || !form.cuit || !form.direccion_fc || !form.ciudad_fc || !form.provincia_fc || !form.cp_fc) {
                     this.toastError('Complete los datos de facturación');
                     return false;
+                }
+
+            } else {
+                if (!form.nombre_fc || !form.apellido_fc || !form.dni_fc) {
+                    this.toastError('Complete los datos de facturación');
+                    return false;
+                }
+                if (form.total >= this.checkout.info.montoDatosFC) {
+                    if (!form.direccion_fc || !form.ciudad_fc || !form.provincia_fc || !form.cp_fc) {
+                        this.toastError('Complete los datos de facturación');
+                        return false;
+                    }
                 }
             }
             return true;
@@ -554,9 +568,10 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>(% item.name %) X (% item.quantity %)</td>
-
-                                        <td><span class="price">(% (item.quantity * item.price) | currency %)</span></td>
+                                        <td>
+                                            <span style="display: block;"> (% item.name %) X (% item.quantity %)</span>
+                                            <span class="price">(% (item.quantity * item.price) | currency %)</span>
+                                        </td>
                                     </tr>
                                 </template>
 							</tbody>

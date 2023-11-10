@@ -161,7 +161,7 @@
 													</div>
 
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:16px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
-														{!! trans('emails.pedido.conocer') !!}
+														{!! str_replace('_lnk_cuenta_',routeIdioma('miCuenta'),trans('emails.pedido.conocer')) !!}
 													</div>
 												</div>
 											</td>

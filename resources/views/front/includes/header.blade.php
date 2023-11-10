@@ -40,7 +40,7 @@
           </li>
 
           <li class="nav-item has-submenu">
-            <a class="nav-link" href="javascript:void(0);">{{trans('front.navMenuFooter.links.colecciones')}}</a>
+            <a class="nav-link" href="{{routeIdioma('colecciones')}}">{{trans('front.navMenuFooter.links.colecciones')}}</a>
 
             <div class="submenu">
               <div class="images">

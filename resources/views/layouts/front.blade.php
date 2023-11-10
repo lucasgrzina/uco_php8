@@ -10,7 +10,7 @@
         <meta property="og:title" content="Magia de Uco" />
         <meta property="og:image" content="" />
         <!-- Favicon-->
-        <link rel="icon" type="image/jpg" href="" />
+        <link rel="icon" type="image/jpg" href="{{asset('img/ico/16 x 16.png')}}" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{asset('css/libraries/bootstrap.min.css')}}" rel="stylesheet" />
         <!-- Favicons -->

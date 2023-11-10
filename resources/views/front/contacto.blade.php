@@ -137,7 +137,7 @@
 					</div>
 
 
-					<p class="mb-form">{!! trans('front.paginas.contacto.disclaimer') !!}</p>
+					<p class="mb-form">{!! str_replace('_link_pp_',routeIdioma('politicasPrivacidad'),trans('front.paginas.contacto.disclaimer')) !!}</p>
 
 					<button type="button" class="btn btn-form" @click="contactoSubmit()" :disabled="form.loading">{!! trans('front.paginas.contacto.btn') !!}</button>
 				</form>

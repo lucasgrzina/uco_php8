@@ -35,7 +35,7 @@ return [
         'envio' => 'Custo de envio',
         'total' => 'Total',
         'infoEnvio' => 'Informações sobre o seu envio',
-        'conocer' => 'Para saber o estado do seu pedido, utilize a opção “Lista de Pedidos” para ingressar na sua conta no nosso website.',
+        'conocer' => 'Para saber o estado do seu pedido, utilize a opção “Lista de Pedidos” para ingressar na <a style="color:#000!important;" href="_lnk_cuenta_">sua conta</a> no nosso website.',
         'imagenes' => [
             'gracias' => 'compra-portugues.png'
         ],

@@ -66,6 +66,12 @@ class HomeController extends AppBaseController
                 case 'checkout':
                     $to .= trans('front.rutas.'.$desde.'.root');
                     break;
+                case 'terminosCondiciones':
+                    $to .= trans('front.rutas.tyc');
+                    break;
+                case 'politicasPrivacidad':
+                    $to .= trans('front.rutas.pp');
+                    break;
                 default:
                     $to .= trans('front.rutas.'.$desde);
                     break;

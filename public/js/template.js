@@ -170,7 +170,8 @@ _methods.newsletterSubmit = function (scope){
 
     _this._call(_this.newsletter.url_post_save,'POST',_this.newsletter.form).then(function(data) {
         //_this.alertShow('Gracias por suscribirte');
-        alert2(_this.trans.modulos.newsletter.gracias);
+        console.debug(data);
+        alert2(data.message);
         _this.newsletter.loading = false;
     }, function(error) {
         if (error.status === 422) {

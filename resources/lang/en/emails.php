@@ -35,7 +35,7 @@ return [
         'envio' => 'Shipping cost',
         'total' => 'Total',
         'infoEnvio' => 'Shipping Information',
-        'conocer' => 'You can track the status of your order by logging into your account on our website through the Order List option.',
+        'conocer' => 'You can track the status of your order by logging into <a style="color:#000!important;" href="_lnk_cuenta_">your account</a> on our website through the Order List option.',
         'imagenes' => [
             'gracias' => 'compra-ingles.png'
         ],

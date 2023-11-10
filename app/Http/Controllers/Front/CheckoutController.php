@@ -16,9 +16,11 @@ use App\Services\UPSService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 //use Srmklive\PayPal\Services\ExpressCheckout;
+use App\Services\NewsletterService;
 use Illuminate\Support\Facades\Mail;
 use App\Repositories\PedidoRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Http\Requests\Admin\CUNewslettersRequest;
 
 class CheckoutController extends AppBaseController
 {
@@ -36,7 +38,7 @@ class CheckoutController extends AppBaseController
     public function index($lang)
     {
         //$precio = precioLibroPorPais();
-
+        $configuraciones = Configuraciones::whereIn('clave',['MONTO_MIN_AFIP'])->pluck('valor','clave')->toArray();
 
         $itemsCarrito = \Cart::getContent();
 
@@ -69,7 +71,7 @@ class CheckoutController extends AppBaseController
             ],
             'info' => [
                 'paises' => Pais::whereEnabled(true)->orderBy('nombre')->select('id','codigo','nombre')->get(),
-                'montoDatosFC' => config('constantes.montoDatosFC')
+                'montoDatosFC' => $configuraciones['MONTO_MIN_AFIP']
             ],
             'modelos' => [
                 'direccion' => [
@@ -200,10 +202,11 @@ class CheckoutController extends AppBaseController
         }
     }
 
-    public function confirmar($lang, Request $request, PedidoRepository $pedidosRepo)
+    public function confirmar($lang, Request $request, PedidoRepository $pedidosRepo, NewsletterService $srvNewsletter)
     {
 
         try {
+            //throw new \Exception('No existe la dirección seleccionada');
             if (!auth()->check()) {
                 throw new \Exception('Debes iniciar sesion');
             }
@@ -279,6 +282,10 @@ class CheckoutController extends AppBaseController
             ]));
 
             $pedido = $pedidosRepo->altaDesdeCarrito($dataPedido, $items);
+
+            if ($request->get('recibir',0)) {
+                $srvNewsletter->guardar(new CUNewslettersRequest($request->only('email')));
+            }
 
             if ($pedido->tipo_factura == 'A') {
                 //Es solo un pedido, no debo generar etiqueta de envio ni pagarlo
