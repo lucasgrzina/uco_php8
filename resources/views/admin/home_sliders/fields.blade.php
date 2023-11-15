@@ -5,12 +5,12 @@
         <div class="thumb-wrap">
             <button-type v-if="selectedItem.imagen_mobile" type="remove-list" @click="removeFile('imagen_mobile')"></button-type>
             <file-upload
-                
+
                 :multiple="false"
                 :headers="_fuHeader"
                 ref="uploadImagenMobile"
                 extensions="gif,jpg,jpeg,png,webp,svg"
-                accept="image/png,image/gif,image/jpeg,image/webp,image/svg"            
+                accept="image/png,image/gif,image/jpeg,image/webp,image/svg"
                 input-id="imagen_mobile"
                 v-model="files.imagen_mobile"
                 post-action="{{ route('uploads.store-file') }}"
@@ -22,7 +22,7 @@
                         <div class="progress-bar" :style="{ width: files.imagen_mobile[0].progress+'%' }"></div>
                     </div>
             </file-upload>
-        </div>     
+        </div>
         <span class="help-block" v-show="errors.has('imagen_mobile')">(% errors.first('imagen_mobile') %)</span>
     </div>
     <!-- ImagenWeb Field -->
@@ -31,12 +31,12 @@
         <div class="thumb-wrap">
             <button-type v-if="selectedItem.imagen_desktop" type="remove-list" @click="removeFile('imagen_desktop')"></button-type>
             <file-upload
-                
+
                 :multiple="false"
                 :headers="_fuHeader"
                 ref="uploadImagenDesktop"
                 extensions="gif,jpg,jpeg,png,webp,svg"
-                accept="image/png,image/gif,image/jpeg,image/webp,image/svg"            
+                accept="image/png,image/gif,image/jpeg,image/webp,image/svg"
                 input-id="imagen_desktop"
                 v-model="files.imagen_desktop"
                 post-action="{{ route('uploads.store-file') }}"
@@ -48,7 +48,7 @@
                         <div class="progress-bar" :style="{ width: files.imagen_desktop[0].progress+'%' }"></div>
                     </div>
             </file-upload>
-        </div>     
+        </div>
         <span class="help-block" v-show="errors.has('imagen_desktop')">(% errors.first('imagen_desktop') %)</span>
     </div>
     <!-- Video Field -->
@@ -57,7 +57,7 @@
         <div class="">
             <button-type v-if="selectedItem.video" type="remove-list" @click="removeFile('video')"></button-type>
             <file-upload
-                
+
                 :multiple="false"
                 :headers="_fuHeader"
                 ref="uploadVideo"
@@ -75,12 +75,20 @@
                         <div class="progress-bar" :style="{ width: files.video[0].progress+'%' }"></div>
                     </div>
             </file-upload>
-        </div>   
+        </div>
         <span class="help-block" v-show="errors.has('video')">(% errors.first('video') %)</span>
     </div>
 </template>
 
-
+<div class="form-group col-sm-3" :class="{'has-error': errors.has('seccion')}">
+    {!! Form::label('seccion', 'Sección') !!}
+    <select v-model="selectedItem.seccion" class="form-control" name="seccion" v-validate="'required'" data-vv-validate-on="'none'">
+        <!--option :value="null">Seleccione</option-->
+        <option v-for="(item,index) in info.secciones" :value="item">(% item %)</option>
+    </select>
+    <span class="help-block" v-show="errors.has('seccion')">(% errors.first('seccion') %)</span>
+</div>
+<div class="clearfix"></div>
 <!-- Titulo Field -->
 <div class="form-group col-sm-12" :class="{'has-error': errors.has('titulo')}">
     {!! Form::label('titulo', 'Titulo') !!}

@@ -43,6 +43,7 @@ return [
         'carrito' => [
             ['titulo' => '_trans.front.paginas.carrito.titulo','subtitulo' => '_trans.front.paginas.novedades.subtitulo','imagen_desktop_url' => '_asset.img/novedades-header.jpg','imagen_mobile_url' => '_asset.img/novedades-header.jpg','orden' => 1]
         ],
+        'home' => []
     ],
     'montoDatosFC' => 92720,
     'montoEnvioGratis' => 35000,

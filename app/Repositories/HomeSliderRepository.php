@@ -31,7 +31,19 @@ class HomeSliderRepository extends BaseRepository
     }
 
     public function porSeccion($seccion = 'home') {
-        if ($seccion !== 'home') {
+        $collection = $this->model->newQuery()->where('seccion',$seccion)->where('enabled',true)->orderBy('orden')->get();
+        if ($collection->count() < 1) {
+            $collection = collect(config('constantes.headers.'.$seccion));
+
+            $result = $collection->map(function ($element) {
+                return (object) $element;
+            });
+            //dd($result);
+            return $result->all();
+
+        }
+        return $collection;
+        /*if ($seccion !== 'home') {
             $collection = collect(config('constantes.headers.'.$seccion));
 
             $result = $collection->map(function ($element) {
@@ -41,7 +53,7 @@ class HomeSliderRepository extends BaseRepository
             return $result->all();
         } else {
             return $this->model->newQuery()->where('enabled',true)->orderBy('orden')->get();
-        }
+        }*/
 
     }
 }

@@ -100,8 +100,15 @@
                                     </div>
                                 </div>
                                 <div class="bajada">
+                                    <template  v-if="actual.vendible && aniadaActual">
+                                        <p v-if="aniadaActual.stock <= 10 && aniadaActual.stock > 0" class="destacado mb-3" style="font-weight: bolder;">
+                                            {!! trans('front.paginas.colecciones.interna.ultUnidades') !!}
+                                        </p>
+                                        <p v-if="aniadaActual.stock < 1" class="destacado mb-3" style="font-weight: bolder;">
+                                            {!! trans('front.paginas.colecciones.interna.sinStock') !!}
+                                        </p>
+                                    </template>
                                     <p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
-
                                 </div>
                                 <div v-if="actual.vendible" class="shop">
                                     <p class="destacado mb-3">

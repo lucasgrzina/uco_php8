@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Repositories\HomeSliderRepository;
 use App\Http\Requests\Admin\CUHomeSliderRequest;
 use Prettus\Repository\Criteria\RequestCriteria;
+use App\Repositories\Criteria\HomeSliderCriteria;
 use App\Http\Controllers\Admin\CrudAdminController;
 
 class HomeSliderController extends CrudAdminController
@@ -27,7 +28,10 @@ class HomeSliderController extends CrudAdminController
     public function index()
     {
         parent::index();
-
+        $this->data['info'] = [
+            'secciones' => array_keys(config('constantes.headers'))
+        ];
+        $this->data['filters']['seccion'] = 'home';
         return view($this->viewPrefix.'index')->with('data',$this->data);
     }
 
@@ -36,6 +40,7 @@ class HomeSliderController extends CrudAdminController
         try
         {
             $this->repository->pushCriteria(new RequestCriteria($request));
+            $this->repository->pushCriteria(new HomeSliderCriteria($request));
             $collection = $this->repository->with('updater')->paginate($request->get('per_page'))->toArray();
 
             $this->data = [
@@ -73,8 +78,13 @@ class HomeSliderController extends CrudAdminController
                 'imagen_desktop_url' => null,
                 'video' => null,
                 'enabled' => true,
-                'orden' => HomeSlider::max('orden') + 1
+                'orden' => HomeSlider::max('orden') + 1,
+                'seccion' => 'home'
         ]);
+
+        $this->data['info'] = [
+            'secciones' => array_keys(config('constantes.headers'))
+        ];
 
         return view($this->viewPrefix.'cu')->with('data',$this->data);
     }
@@ -88,7 +98,9 @@ class HomeSliderController extends CrudAdminController
     public function edit($id)
     {
         parent::edit($id);
-
+        $this->data['info'] = [
+            'secciones' => array_keys(config('constantes.headers'))
+        ];
         return view($this->viewPrefix.'cu')->with('data',$this->data);
     }
 

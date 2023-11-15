@@ -30,6 +30,12 @@
                 <div class="form-inline">
                     @include('admin.includes.crud.index-filters-input')
                     <!-- cualquier otro campo -->
+                    <div class="form-group">
+                    <select v-model="filters.seccion" class="form-control">
+                        <!--option :value="null">Seleccione</option-->
+                        <option v-for="(item,index) in info.secciones" :value="item">(% item %)</option>
+                    </select>
+                    </div>
                     @include('admin.includes.crud.index-filters-btn')
                 </div>
             </div>
@@ -44,7 +50,7 @@
                     @include('admin.includes.crud.index-pagination')
                 </div>
             </div>
-            @include('admin.includes.crud.index-loading')            
+            @include('admin.includes.crud.index-loading')
         </div>
     </div>
 @endsection

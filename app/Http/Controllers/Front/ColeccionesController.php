@@ -128,6 +128,7 @@ class ColeccionesController extends AppBaseController
             'configuraciones' =>$configuraciones
         ];
 
+        //dd($data['aniadaActual']->toArray());
         return view('front.colecciones', [
             'tituloPagina' => trans('front.paginas.colecciones.magiaUco.titulo'),
             'dataSection' => 'uco',

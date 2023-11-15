@@ -63,7 +63,8 @@ class HomeSlider extends Model implements TranslatableContract
         'boton_titulo',
         'boton_url',
         'orden',
-        'enabled'
+        'enabled',
+        'seccion'
     ];
 
     /**

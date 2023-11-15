@@ -131,6 +131,9 @@ p{
 		padding: 24px 0 0;
 	}
 	.col-text{
+        &.col-text-end {
+            justify-content: end;
+        }
 		display: flex;
 		align-items:center;
 		@include under($b-md) {
@@ -155,6 +158,11 @@ p{
 		}
 	}
 	.wrap-text{
+        &.wrap-text-end {
+
+            padding-right: 50px;
+            padding-left: 0;
+        }
 		padding-left: 50px;
 		max-width: 400px;
 		@include under($b-md) {
@@ -179,7 +187,7 @@ p{
 	.wrap-text{
 		max-width: 430px;
 		p{
-			margin-bottom: 50px;
+			/*margin-bottom: 50px;*/
 		}
 
 		@include under($b-lg) {

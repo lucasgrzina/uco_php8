@@ -356,7 +356,9 @@ return [
                 'fichaTecnica' => 'Ficha Técnica',
                 'porCantidades' => '*Para quantidades superiores a 18 garrafas, por favor, entrar em contato conosco em: <a href="mailto:info@magiadeuco.com">info@magiadeuco.com</a>',
                 'porCompras' => 'Frete grátis em pedidos acima de AR$ _COMPRAS_SUPERIORES_.',
-                'btnAgregar' => 'Adicionar ao carrinho'
+                'btnAgregar' => 'Adicionar ao carrinho',
+                'sinStock' => 'Sin stock',
+                'ultUnidades' => 'Últimas 10 unidades disponíveis'
             ],
             'root' => [
                 'titulo' => 'Coleções',

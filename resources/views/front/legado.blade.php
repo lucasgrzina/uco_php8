@@ -78,7 +78,36 @@
                 </div>
             </section>
         @else
-            <section class="section-descubrir bg-white">
+            <section class="section-2columns-image bg-white">
+                <div class="container-fluid">
+                    <div class="row ">
+                        <div class="col-md-6 col-text col-text-end">
+                            <div class="wrap-text wrap-text-end">
+                                @if (isset($item->titulo) && $item->titulo && $item->titulo != '&nbsp;')
+                                    <h2>{!!$item->titulo !!}</h2>
+                                @endif
+                                @if (isset($item->cuerpo) && $item->cuerpo)
+                                    @if (substr($item->cuerpo,0,3) !== '<p>')
+                                        <p>{!! $item->cuerpo !!}</p>
+                                    @else
+                                        {!! $item->cuerpo !!}
+                                    @endif
+                                @endif
+                                @if (isset($item->boton_titulo) && $item->boton_titulo)
+                                    <a href="{{$item->boton_url}}" class="btn-primary inverse">{{$item->boton_titulo}}</a>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6 p-0 col-img">
+                            @if ($item->foto)
+                                <img src="{{$item->foto_url}}">
+                            @endif
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!--section class="section-descubrir bg-white">
                 <div class="container">
                     <div class="row ">
                         <div class="col-md-6">
@@ -106,7 +135,7 @@
                             </div>
                         </div>
                     </div>
-            </section>
+            </section-->
         @endif
         @php
             if ($template === 2) {
