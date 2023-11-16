@@ -6,9 +6,9 @@
       <div class="row">
           <div class="col-12 fade_JS">
               <h2>{{trans('front.modulos.suscripcion.titulo')}}</h2>
-              <form>
+              <form >
                   <div class="row-form">
-                        <input type="text" v-model="newsletter.form.email" name="email" placeholder="{{trans('front.modulos.suscripcion.placeholderEmail')}}">
+                        <input type="text" v-model="newsletter.form.email" name="email" v-on:keydown.enter.prevent='newsletterSubmit()' placeholder="{{trans('front.modulos.suscripcion.placeholderEmail')}}">
                         <button type="button" class="btn-primary" @click="newsletterSubmit()" :disabled="newsletter.loading">
                         {{trans('front.modulos.suscripcion.btn')}}
                         </button>
