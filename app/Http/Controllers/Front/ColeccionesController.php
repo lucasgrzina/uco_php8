@@ -103,7 +103,7 @@ class ColeccionesController extends AppBaseController
 
     public function magiaUco(Request $request,HomeSliderRepository $sliderRepo, VinosRepository $vinosRepo,$locale = null,$id = null, $slug = null)
     {
-        //dd(app()->getLocale());
+        //dd(\Route::getCurrentRoute()->parameters());
         $vinos = $vinosRepo->porColeccion('MU');
         $actual = null;
         $configuraciones = Configuraciones::whereIn('clave',['COMPRAS_SUPERIORES'])->pluck('valor','clave')->toArray();

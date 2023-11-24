@@ -40,6 +40,7 @@ class HomeController extends AppBaseController
 
     public function cambiarIdioma($lang,$desde=null) {
         $desde = $desde ? $desde : 'home';
+
         if(in_array($lang, config('translatable.locales')))
         {
             app()->setLocale($lang);
@@ -54,7 +55,19 @@ class HomeController extends AppBaseController
                     $to = trans('front.rutas.'.$desde);
                     break;
                 case 'colecciones':
-                    $to.= count($desdePartes) > 1 ? trans("front.rutas.{$desde}.{$desdePartes[1]}") :  trans("front.rutas.{$desde}.root");
+                    //dd([$desde,trans("front.rutas.{$desde}.{$desdePartes[1]}"),request()->all()]);
+                    if (count($desdePartes) > 1) {
+                        $params = explode('|',request()->get('params'));
+                        if (count($params) > 1) {
+                            $to.= trans("front.rutas.{$desde}.{$desdePartes[1]}").'/'.$params[1].'/'.$params[2];
+                        } else {
+                            $to.= trans("front.rutas.{$desde}.{$desdePartes[1]}");
+                        }
+
+                    } else {
+                        $to.= trans("front.rutas.{$desde}.root");
+                    }
+
                     break;
                 case 'miCuenta':
 
