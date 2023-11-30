@@ -174,7 +174,7 @@
 
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #F2F0DE; text-align: center;">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #f5f5f5; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #f5f5f5; text-align: center;">
 													<div style="width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
 														{{$registrado->usuario}}
 													</div>
@@ -256,10 +256,10 @@
 										<tr><td height="10px;">&nbsp;</td></tr>
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #000000; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #ffffff; text-align: center;">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #000000; border-color: #F2F0DE; border-width:0;     border-style: solid; font-weight: 600; padding:10px 10px; background-color: #ffffff; text-align: center;">
 
 
-													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:16px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
+													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:16px; line-height:24px; text-align:left; color:#000000; font-weight: bold; text-align: center; margin: 0 auto; padding: 15px;">
 														{!! str_replace('@USUARIO',$registrado->usuario,trans('emails.registro.texto')) !!}
 													</div>
 												</div>
@@ -284,7 +284,7 @@
 
 										<tr>
 											<td align="center">
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#FFF;padding:15px; background-color:#F2F0DE; max-width: 300px; width:100%;"><a href="{{trans('emails.registro.url')}}" style="color:#8E8063; text-decoration: none; font-weight: bold;">{{trans('emails.registro.btn_texto')}}</a>
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px;line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#cdcfad; max-width: 300px; width:100%;"><a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: bold;">{{trans('emails.registro.btn_texto')}}</a>
 												</div>
 											</td>
 										</tr>

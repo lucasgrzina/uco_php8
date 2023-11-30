@@ -116,7 +116,7 @@
                                                                                 <tr>
                                                                                     <td>
                                                                                         <a href="#" target="_blank">
-                                                                                            <img src="{{asset('img/mailings/logo-magia-uco-nuevo.png')}}" width="190" height="76" border="0" style="display:block; margin: 0 auto; width: 190px; height: 76px;">
+                                                                                            <img src="{{asset('img/mailings/logo-magia-uco-nuevo.png')}}" width="177" height="80" border="0" style="display:block; margin: 0 auto; width: 177px; height: 80px;">
                                                                                         </a>
                                                                                     </td>
                                                                                 </tr>
@@ -164,17 +164,12 @@
                                                 <td>
                                                     <div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #f5f5f5; border-width:0 55px 55px 55px;     border-style: solid; font-weight: 400; padding:0; background-color: #ffffff; text-align: center;">
                                                         <img src="{{asset('img/mailings/'.trans('emails.recuperar.imagenes.recupera'))}}" border="0" width="100%;" height="auto" >
-                                                        <div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; text-align: center;">
-                                                            <div style="width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
-                                                                {{$user->usuario}}
-                                                            </div>
-
-                                                        </div>
+                                                        
 
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; padding: 15px; margin: 0 auto;">
                                                             {!! trans('emails.recuperar.linea1') !!} {{$clave}}
                                                         </div>
-                                                        <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
+                                                        <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#8e8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
                                                             {!! trans('emails.recuperar.linea2') !!}
                                                         </div>
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
@@ -186,7 +181,7 @@
 
                                             <tr>
                                                 <td align="center">
-                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size:12px;line-height:24px;text-align:center;color:#FFF;padding:10px; background-color:#8E8063; min-width: 240px;max-width: 55%;"><a href="{{routeIdioma('login')}}" style="color:#F2F0DE; text-decoration: none; font-weight: bold;">{!! trans('emails.recuperar.btn_texto') !!}</a>
+                                                    <div style="font-family: Helvetica, Arial, sans-serif;font-size:12px;line-height:24px;text-align:center;color:#FFF;padding:10px; background-color:#cdcfad; min-width: 240px;max-width: 55%;"><a href="{{routeIdioma('login')}}" style="color:#000000; text-decoration: none; font-weight: bold;">{!! trans('emails.recuperar.btn_texto') !!}</a>
                                                     </div>
                                                 </td>
                                             </tr>

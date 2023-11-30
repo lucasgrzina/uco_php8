@@ -118,13 +118,13 @@
 
 								<div class="mj-column-per-100 outlook-group-fix" style="font-size:13px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width: 100%; max-width: 100%;">
 
-									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #f2f1df;" width="100%">
+									<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="vertical-align:top; background-color: #f5f5f5;" width="100%">
 
 
 										<tr>
 											<td>
-												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #f2f1df; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #f2f1df; text-align: center;">
-													<img src="{{asset('img/mailings/camion.jpg')}}" width="124" height="79" border="0" style="display:block; margin: 0 auto; width: 124px; height: 79px;">
+												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #f5f5f5; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #f5f5f5; text-align: center;">
+													<img src="{{asset('img/mailings/camion-png.png')}}" width="124" height="79" border="0" style="display:block; margin: 0 auto; width: 124px; height: 79px;">
 
 													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
 														{!! trans('emails.pedido.info') !!}
