@@ -325,7 +325,7 @@
 					</tbody>
 				</table>
 
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad; margin:0 auto;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="600" align="center">
 
 					<tbody>
 
@@ -333,7 +333,7 @@
 
 							<td>
 
-								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad; margin:0 auto;" class="full-width" width="550" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="550" align="center">
 
 									<tbody>
 
@@ -403,7 +403,7 @@
 				</table>
 
 
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad; margin:0 auto;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="600" align="center">
 
 					<tbody>
 
@@ -411,7 +411,7 @@
 
 							<td>
 
-								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad; margin:0 auto;" class="full-width" width="550" align="center">
+								<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5; margin:0 auto;" class="full-width" width="550" align="center">
 
 									<tbody>
 
@@ -440,7 +440,7 @@
 
 																				<td>
 
-																					<table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#cecfad;" class="full-width ">
+																					<table align="center" width="75" valign="middle" height="36" cellspacing="0" cellpadding="0" border="0" style="height: 32px; vertical-align: middle; max-width: 75px; background-color:#f5f5f5;" class="full-width ">
 
 																						<tbody>
 
@@ -509,7 +509,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5;" class="full-width" width="600" align="center">
 
 					<tr>
 
@@ -520,12 +520,12 @@
 					</tr>
 
 				</table>
-				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#cecfad;" class="full-width" width="600" align="center">
+				<table border="0" cellpadding="0" cellspacing="0" style="background-color:#f5f5f5;" class="full-width" width="600" align="center">
 
 					<tr>
 
 						<td width="600" class="full-width" align="center">
-							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#cecfad; "><a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a></div>
+							<div style="font-family: Helvetica, Arial, sans-serif;font-size:15px; color:#363126; line-height:24px;text-align:center;color:#363126;padding:15px; background-color:#f5f5f5; "><a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.desuscribirme')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.perfil')}}</a> | <a href="{{trans('emails.registro.url')}}" style="color:#363126; text-decoration: none; font-weight: normal;">{{trans('emails.general.tyc')}}</a></div>
 
 						</td>
 
