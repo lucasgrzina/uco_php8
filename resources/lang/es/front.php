@@ -70,7 +70,7 @@ return [
     'modulos' => [
         'suscripcion' => [
             'titulo' => 'Suscribite para recibir las novedades',
-            'placeholderEmail' => 'ingrese su e-mail',
+            'placeholderEmail' => 'Ingrese su e-mail',
             'btn' => 'ENVIAR',
             'chk' => 'Al suscribirse, aceptas los <a class="acepto" target="_blank" href="_link_tyc_">términos y condiciones</a>.',
             'gracias' => 'Bienvenida a Magia de Uco<br>¡Muchas gracias por suscribirte al newsletter!',
