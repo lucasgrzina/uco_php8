@@ -80,6 +80,16 @@ body[data-section="checkout"] {
 		}
 	}
 
+	.content-check{
+		padding-left: 24px;
+    	padding-bottom: 13px;	
+    	.form-check-input{
+    		&:checked{
+    			background-color: #cdcfad;
+    			border-color: #cdcfad;
+    		}
+    	}    	
+	}
 
 	.direccion{
 		display: flex;

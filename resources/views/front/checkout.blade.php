@@ -448,6 +448,22 @@
 				<template v-if="checkout.secciones.datosFacturacion">
                     <div class="block-content" id="seccionFacturacion">
                         <div class="titulo">
+                            <h2>{{trans('front.paginas.checkout.datosFacturacion.titulo')}}</h2>
+                            <div class="content-check">
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                  <label class="form-check-label" for="exampleRadios1">
+                                   {{trans('front.paginas.checkout.datosFacturacion.form.tipoFacturaCF')}}
+                                  </label>
+                                </div>
+                                <div class="form-check">
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                  <label class="form-check-label" for="exampleRadios2">
+                                   {{trans('front.paginas.checkout.datosFacturacion.form.tipoFacturaA')}}
+                                  </label>
+                                </div>
+                            </div>
+
                             <div class="dropdown">
                                 <button class="btn btn-dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span v-if="!checkout.form.tipo_factura">{{trans('front.paginas.checkout.datosFacturacion.titulo')}}</span>
