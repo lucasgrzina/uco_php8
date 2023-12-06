@@ -234,9 +234,11 @@
         }
 
 
-        _methods.seleccionarTipoFactura = function(tipo) {
+        _methods.seleccionarTipoFactura = function() {
             var _this = this;
-            _this.checkout.form.tipo_factura = tipo;
+            //_this.checkout.form.tipo_factura = tipo;
+            var tipo = _this.checkout.form.tipo_factura;
+            console.debug(tipo);
             if (tipo == 'CF') {
                 _this.checkout.form = _.assign(_this.checkout.form,{
                     //tipo_factura: tipo,
@@ -451,20 +453,20 @@
                             <h2>{{trans('front.paginas.checkout.datosFacturacion.titulo')}}</h2>
                             <div class="content-check">
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" v-model="checkout.form.tipo_factura" :value="'CF'" @change="seleccionarTipoFactura">
                                   <label class="form-check-label" for="exampleRadios1">
                                    {{trans('front.paginas.checkout.datosFacturacion.form.tipoFacturaCF')}}
                                   </label>
                                 </div>
                                 <div class="form-check">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" v-model="checkout.form.tipo_factura" :value="'A'" @change="seleccionarTipoFactura">
                                   <label class="form-check-label" for="exampleRadios2">
                                    {{trans('front.paginas.checkout.datosFacturacion.form.tipoFacturaA')}}
                                   </label>
                                 </div>
                             </div>
 
-                            <div class="dropdown">
+                            <!--div class="dropdown">
                                 <button class="btn btn-dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span v-if="!checkout.form.tipo_factura">{{trans('front.paginas.checkout.datosFacturacion.titulo')}}</span>
                                     <span v-else>(% checkout.form.tipo_factura_desc %)</span>
@@ -474,7 +476,7 @@
                                     <li><a class="dropdown-item" href="javascript:void(0);" @click="seleccionarTipoFactura('CF')">{{trans('front.paginas.checkout.datosFacturacion.form.tipoFacturaCF')}}</a></li>
                                     <li><a class="dropdown-item" href="javascript:void(0);" @click="seleccionarTipoFactura('A')">{{trans('front.paginas.checkout.datosFacturacion.form.tipoFacturaA')}}</a></li>
                                 </ul>
-                            </div>
+                            </div-->
                         </div>
 
                         <form v-if="checkout.form.tipo_factura">
