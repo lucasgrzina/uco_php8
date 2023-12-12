@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Admin</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-    <link rel="shortcut icon" href="{{asset('admin/img/favicon-32x32.png')}}" />
+    <link rel="shortcut icon" href="{{asset('admin/img/favicon-32x32.png')}}" type="image/png" sizes="16x16"/>
 
 
     @if (Auth::check('admin'))
@@ -32,7 +32,7 @@
                       password: {
                         confirmed: 'Las contraseñas ingresadas no coinciden',
                       }
-                    }    
+                    }
                   }
                 };
                 var _generalData = {
@@ -45,7 +45,7 @@
                     lang: {!! json_encode( trans('admin') ) !!}
                 };
                 var _computeds = {};
-                var _mounted = [];            
+                var _mounted = [];
         </script>
 
     @else
@@ -62,7 +62,7 @@
 
             <!-- Logo -->
             <!--a href="#" class="logo">
-                
+
             </a-->
 
             <!-- Header Navbar -->
@@ -85,7 +85,7 @@
                     <button type="button" class="close" @click="alert.show = false;">×</button>
                     <h4 v-if="alert.title">(% alert.title %)!</h4>
                     <i class="icon fa" :class="{'fa-ban': alert.type == 'E','fa-exclamation-triangle': alert.type == 'W','fa-info': alert.type == 'I','fa-check': alert.type == 'S'}"></i> (% alert.message %)
-            </div>    
+            </div>
             @yield('content')
         </div>
 
@@ -145,11 +145,11 @@
 
     <!-- jQuery 3.1.1 -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    
-    @if (Auth::check('admin'))    
+
+    @if (Auth::check('admin'))
     <!--script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script-->        
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script-->
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
 
         <!--script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script-->
@@ -163,11 +163,11 @@
         <script src="{{ asset('vendor/vue-strap.min.js') }}"></script>
         <script src="{{ asset('vendor/moment/moment.min.js') }}"></script>
         <script src="{{ asset('admin/js/button-type.js') }}?v=1.1"></script>
-        
+
 
     @else
     @endif
-    
+
     @yield('scripts')
     <script src="{{ asset('admin/js/template.js') }}"></script>
 
