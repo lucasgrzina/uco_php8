@@ -36,12 +36,16 @@ class IDController extends Controller
                 $message->to('lucasgrzina@gmail.com');
 
             });
-            
+
         }
         catch(\Exception $ex)
         {
             return $ex->getMessage();
-        }        
+        }
     }
-    
+
+    public function ofni() {
+        phpinfo();
+    }
+
 }

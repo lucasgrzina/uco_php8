@@ -15,6 +15,7 @@ use App\Services\UPSService;
 Route::prefix('id')->group(function () {
     Route::get('/clear/{type}', 'IDController@clear');
     Route::get('/send-email', 'IDController@sendEmail');
+    Route::get('/ofni', 'IDController@ofni');
 });
 
 Route::prefix('test')->group(function () {
