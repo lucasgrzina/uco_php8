@@ -1,7 +1,7 @@
 <?php
 return [
     'combos' => [
-        'visibleHome' => [['key' => 'NO','value' => 'No'],['key' => 'SI','value' => 'Si - Columna Izquierda'],['key' => 'SD','value' => 'Si - Columna Derecha']],
+        'visibleHome' => [['key' => 'NO','value' => 'No'],['key' => 'SI','value' => 'Si']],
         'colecciones' => [
             'FT' => '_trans.front.colecciones.francescaTucci',
             'IN' => '_trans.front.colecciones.interwine',

@@ -3,20 +3,53 @@
     @parent
     <script type="text/javascript">
         var _data = {!! json_encode($data) !!};
+        console.debug(_data.carrito);
+        _methods.mostrarCantidad = function (item) {
+            var stock = item.stock;
+            return 18;
+            if (stock > 0 && stock <= 18) {
+                return stock;
+            } else if (stock > 18) {
+                return 18;
+            } else {
+                return 0;
+            }
+
+        }
 
         _methods.cambiarAniada = function (vinoId, aniadaId) {
             console.debug(vinoId,aniadaId);
 
             this.aniadaActual = _.find(this.actual.aniadas,{id: aniadaId});
-            console.debug(this.aniadaActual);
             this.carrito.item.id = aniadaId;
             this.cambiarCantidad(0);
         }
 
         _methods.cambiarCantidad = function (cantidad) {
+
             Vue.set(this.carrito.item,'cantidad',cantidad);
             $('#span-cantidad').html(cantidad);
         }
+
+        _methods.alCambiarCantidad = function(item, cantidad) {
+            var stock = item.stock;
+            var mensaje = "";
+            if (cantidad > 0 && cantidad > stock) {
+                if (cantidad > stock && stock == 10) {
+                    mensaje = "{!! trans('front.paginas.colecciones.interna.ultUnidades') !!}";
+                } else {
+                    mensaje = "{!! trans('front.paginas.colecciones.interna.sinStock') !!}";
+                }
+
+            }
+
+            if (mensaje) {
+                alert2(mensaje);
+                return false;
+            }
+
+            this.cambiarCantidad(cantidad);
+        };
 
         this._mounted.push(function(_this) {
             var access = document.getElementById("section-colecciones");
@@ -93,8 +126,8 @@
                                             <i class="arrow-down"></i>
                                         </button>
                                         <ul class="dropdown-menu dropdown-menu-dark" >
-                                            <li v-for="cant in 18">
-                                                <a class="dropdown-item" href="javascript:void(0);" @click="cambiarCantidad(cant)">(% cant %)</a>
+                                            <li v-for="cant in mostrarCantidad(aniadaActual)">
+                                                <a class="dropdown-item" href="javascript:void(0);" @click="alCambiarCantidad(aniadaActual,cant)">(% cant %)</a>
                                             </li>
                                         </ul>
                                     </div>

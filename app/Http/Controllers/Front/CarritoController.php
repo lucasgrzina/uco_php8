@@ -70,11 +70,18 @@ class CarritoController extends AppBaseController
                 $precio = $lang === 'es' ? $item->precio_pesos : $item->precio_pesos;
 
                 if ($itemCarrito) {
+
                     \Cart::update($request->rowId,['quantity' => [
                         'relative' => false,
                         'value' => $request->cantidad
                     ]]);
                 } else {
+                    $existe = \Cart::get(md5($item->id));
+                    if ($existe) {
+                        \Cart::remove($existe->id);
+                    }
+
+
                     \Cart::add([
                         'id' => md5($item->id), // inique row ID
                         'name' => $nombreItem,
