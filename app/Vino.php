@@ -139,4 +139,8 @@ class Vino extends Model implements TranslatableContract
         });
     }
 
+    public function imagenes()
+    {
+        return $this->hasMany('App\VinoImagen','vino_id');
+    } 
 }

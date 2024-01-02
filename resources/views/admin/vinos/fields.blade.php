@@ -46,6 +46,70 @@
 
 <div class="clearfix"></div>
 <template  v-if="!selectedItem.lang">
+<div class="col-sm-12">
+    {!! Form::label('image_gallery', 'Otras imágenes') !!}
+
+    <div class="box box-default">
+        <div class="box-body no-padding">
+            <table class="table table-bordered">
+                <tr>
+                    <th width="200" align="center" valign="middle">Archivo</th>
+                    <th width="50">Orden</th>
+                    <th width="80"></th>
+                </tr>
+                <tr v-for="(item,index) in selectedItem.imagenes" v-if="item.delete !== true">
+                    <td align="center">
+                        <div class="thumb-wrap">
+                            <div class="thumbnail">
+                                <img :src="item.filename_url" class="img-responsive">
+                            </div>
+                        </div>
+                    </td>
+                    <td style="vertical-align: middle;">
+                        <input type="number" v-model="item.orden" class="form-control">
+                    </td>                    
+                    <td style="vertical-align: middle;" align="center">
+                        <button-type type="remove-list" @click="removeImage(item,index)"></button-type>
+                        
+                    </td>            
+                </tr>
+
+            </table>            
+        </div>
+        <div class="box box-footer no-padding">
+            <table class="table table-condensed no-border m-b-0">
+                <tr>
+                    <td width="200" align="center" valign="middle">
+                        <div class="thumb-wrap">
+                            <file-upload
+                                :multiple="false"
+                                :headers="_fuHeader"
+                                ref="uploadImage"
+                                input-id="image"
+                                v-model="files.imagenes"
+                                post-action="{{ route('uploads.store-file') }}"
+                                @input-file="inputImages"
+                                accept="image/png, image/jpeg"
+                                class="thumbnail">
+                                    <div v-if="!files.formImage.filename" class="">
+                                        <i class="fa fa-folder-open"></i>
+                                        <span>Browse...</span>
+                                    </div>
+                                    <!--img class="img-responsive" src="{{ asset('admin/img/generic-upload.png') }}" v-if="!selectedItem.imagen_url"-->
+                                    <img class="img-responsive" :src="files.formImage.filename_url" v-else>
+                                    <div class="progress m-t-5 m-b-0" v-if="files.imagenes.length > 0 && files.imagenes[0].progress < 100">
+                                        <div class="progress-bar" :style="{ width: files.imagenes[0].progress+'%' }"></div>
+                                    </div>
+                            </file-upload>      
+                        </div>                   
+                    </td>
+                    <td style="vertical-align: middle;"  width="50"><input type="number" v-model="files.formImage.orden" class="form-control"></td>
+                    <td style="vertical-align: middle;" width="80" align="center"><button-type type="add" @click="addImage()"></button-type></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
 <!-- Peso Field -->
 <div class="form-group col-sm-3" :class="{'has-error': errors.has('peso')}">
     {!! Form::label('peso', 'Peso') !!}
@@ -89,4 +153,6 @@
     <switch-button v-model="selectedItem.vendible" theme="bootstrap" type-bold="true"></switch-button>
     <span class="help-block" v-show="errors.has('vendible')">(% errors.first('vendible') %)</span>
 </div>
+
+
 </template>

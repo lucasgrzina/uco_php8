@@ -12,8 +12,54 @@
         Vue.component('file-upload', VueUploadComponent);
         var _data = {!! json_encode($data) !!};
         _data.files = {
-            imagen: []
+            imagen: [],
+            imagenes: [],
+            formImage: {
+                filename: null,
+                filename_url: null,
+                orden: 1,
+                id: 0,
+                delete: false          
+            }            
         };          
+
+        _data.newImage = {
+            filename: null,
+            filename_url: null,
+            orden: 1,
+            id: 0,
+            delete: false          
+        };        
+
+
+        _methods.addImage = function () {
+          if (!this.files.formImage.filename) {
+            alert('Debe cargar una imagen.');
+            return false;
+          }
+          
+          this.selectedItem.imagenes.push(Vue.util.extend({}, this.files.formImage));
+          this.files.formImage = Vue.util.extend({}, this.newImage);
+        };  
+
+        _methods.removeImage = function(item,index) 
+        {
+          item.delete = true;
+        }
+
+        _methods.inputImages = function (n,o) {
+          var _this = this;
+          this.inputFile(n,o,function(file) {
+              //_this.errors.remove('files');
+              _this.files.formImage.filename_url = file.response.path;
+              _this.files.formImage.filename = file.response.file;
+              console.debug(_this.files.formImage);           
+          }, function(file) {
+            //_this.errors.add('light_logo',file.error, 'server');
+          },'uploadImage');
+        }
+
+
 
         _methods.inputImagen = function (n,o) {
           var _this = this;
