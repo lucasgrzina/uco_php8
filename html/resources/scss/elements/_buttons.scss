@@ -254,16 +254,17 @@
     margin-right: 2px;
     font-weight: 700;
     border-width: 1.5px;
-    border-color: #cdcfad;
+    
     background-color: transparent;
     color: $c-darker;
     box-shadow: none;
 
     &.active, &:hover, &:focus{
         color: $c-darker;
-        background-color: $c-bg-btn;
+        background-color: transparent;
         box-shadow: none !important;
         outline: none;
+        border-color: #cdcfad;
     }
 }
 
