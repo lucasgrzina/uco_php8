@@ -1,68 +1,68 @@
 @extends('layouts.front')
 @section('scripts')
-    @parent
-    <script type="text/javascript">
-        var _data = {!! json_encode($data) !!};
-        console.debug(_data.carrito);
-        _methods.mostrarCantidad = function (item) {
-            var stock = item.stock;
+@parent
+<script type="text/javascript">
+    var _data = {!! json_encode($data) !!};
+    console.debug(_data.carrito);
+    _methods.mostrarCantidad = function (item) {
+        var stock = item.stock;
+        return 18;
+        if (stock > 0 && stock <= 18) {
+            return stock;
+        } else if (stock > 18) {
             return 18;
-            if (stock > 0 && stock <= 18) {
-                return stock;
-            } else if (stock > 18) {
-                return 18;
+        } else {
+            return 0;
+        }
+
+    }
+
+    _methods.cambiarAniada = function (vinoId, aniadaId) {
+        console.debug(vinoId,aniadaId);
+
+        this.aniadaActual = _.find(this.actual.aniadas,{id: aniadaId});
+        this.carrito.item.id = aniadaId;
+        this.cambiarCantidad(0);
+    }
+
+    _methods.cambiarCantidad = function (cantidad) {
+
+        Vue.set(this.carrito.item,'cantidad',cantidad);
+        $('#span-cantidad').html(cantidad);
+    }
+
+    _methods.alCambiarCantidad = function(item, cantidad) {
+        var stock = item.stock;
+        var mensaje = "";
+        if (cantidad > 0 && cantidad > stock) {
+            if (cantidad > stock && stock == 10) {
+                mensaje = "{!! trans('front.paginas.colecciones.interna.ultUnidades') !!}";
             } else {
-                return 0;
+                mensaje = "{!! trans('front.paginas.colecciones.interna.sinStock') !!}";
             }
 
         }
 
-        _methods.cambiarAniada = function (vinoId, aniadaId) {
-            console.debug(vinoId,aniadaId);
-
-            this.aniadaActual = _.find(this.actual.aniadas,{id: aniadaId});
-            this.carrito.item.id = aniadaId;
-            this.cambiarCantidad(0);
+        if (mensaje) {
+            alert2(mensaje);
+            return false;
         }
 
-        _methods.cambiarCantidad = function (cantidad) {
+        this.cambiarCantidad(cantidad);
+    };
 
-            Vue.set(this.carrito.item,'cantidad',cantidad);
-            $('#span-cantidad').html(cantidad);
+    this._mounted.push(function(_this) {
+        var access = document.getElementById("section-colecciones");
+        access.scrollIntoView();
+        if (_this.aniadaActual) {
+            _this.cambiarAniada(_this.actual.id, _this.aniadaActual.id);
         }
 
-        _methods.alCambiarCantidad = function(item, cantidad) {
-            var stock = item.stock;
-            var mensaje = "";
-            if (cantidad > 0 && cantidad > stock) {
-                if (cantidad > stock && stock == 10) {
-                    mensaje = "{!! trans('front.paginas.colecciones.interna.ultUnidades') !!}";
-                } else {
-                    mensaje = "{!! trans('front.paginas.colecciones.interna.sinStock') !!}";
-                }
-
-            }
-
-            if (mensaje) {
-                alert2(mensaje);
-                return false;
-            }
-
-            this.cambiarCantidad(cantidad);
-        };
-
-        this._mounted.push(function(_this) {
-            var access = document.getElementById("section-colecciones");
-            access.scrollIntoView();
-            if (_this.aniadaActual) {
-                _this.cambiarAniada(_this.actual.id, _this.aniadaActual.id);
-            }
-
-        });
-    </script>
+    });
+</script>
 @endsection
 @php
-    $actual = $data['actual'];
+$actual = $data['actual'];
 @endphp
 @section('content')
 @include('front.modules.module-full-slider',['items' => $data['slides']])
@@ -70,21 +70,36 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <nav class="navbar navbar-expand navbar-colecciones">
+                <nav class="navbar navbar-expand-md navbar-colecciones">
                     <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navColecciones" aria-controls="navColecciones" aria-expanded="false" aria-label="Toggle navigation">
-                            {{ trans('front.paginas.colecciones.parcelas') }} +
+                        <button style="margin-left: 0; margin-right: auto;" class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navColecciones" aria-controls="navColecciones" aria-expanded="false" aria-label="Toggle navigation">
+                           <div id="nav-lines">
+                              <svg viewbox="0 0 64 64">
+                          
+
+                                <line x1="15" x2="15" y1="16" y2="45" class="nav-line" />
+                                <line x1="0" x2="30" y1="30" y2="30" class="nav-line" />
+
+
+                                <line x1="16" x2="48" y1="16" y2="48" class="cross-line" />
+                                <line x1="16" x2="48" y1="48" y2="16" class="cross-line" />
+
+
+                                <rect class="rect" width="42" height="42" x="11" y="11" />
+                              </svg>
+                            </div>
                         </button>
-                        <div class="collapse navbar-collapse" id="navColecciones">
-                            <ul class="navbar-nav">
-                                @foreach ($data['vinos'] as $item)
+                        <div class="offcanvas offcanvas-start offcanvas-md" tabindex="-1" id="navColecciones" aria-labelledby="offcanvasDarkNavbarLabel">
+                            <div class="offcanvas-body">
+                                <ul class="navbar-nav">
+                                    @foreach ($data['vinos'] as $item)
                                     <li class="nav-item">
                                         <a class="nav-link {{$data['actual']->id == $item->id ? 'active' : ''}}" aria-current="page" href="{{routeIdioma('colecciones.'.$data['routePrefix'],[$item->id,\Str::slug($item->titulo)])}}">{{$item->titulo}}</a>
                                     </li>
-
-                                @endforeach
-                            </ul>
-                        </div>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>                       
                     </div>
                 </nav>
             </div>
@@ -98,66 +113,103 @@
                             <div class="info">
                                 <div class="titulo">
                                     <h1>{{$actual->titulo}}</h1>
+                                </div>
+                                <div class="w-100">
+                                    <button v-for="aniada in actual.aniadas" 
+                                            @click="cambiarAniada(actual.id, aniada.id)" 
+                                            class="btn btn-secondary"
+                                            :class="{ 'active': aniada.id === aniadaActual.id }"
+                                            type="button">
+                                        <span>(% aniada.anio %)</span>
+                                    </button>
+                                </div>
 
-                                    <div class="dropdown">
-                                        <span class="aniadas">{{trans('front.paginas.colecciones.interna.aniadas')}}</span>
-                                        <button class="btn btn-dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span v-if="aniadaActual">(% aniadaActual.anio %)</span>
-                                            <span v-else>{{trans('front.paginas.colecciones.interna.aniadas')}}</span>
-
-
-                                            <i class="arrow-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-dark">
-                                            <li><a v-for="aniada in actual.aniadas" class="dropdown-item" href="javascript:void(0)" @click="cambiarAniada(actual.id,aniada.id)">(% aniada.anio %)</a></li>
-                                        </ul>
+                                <div class="links-producto" style="padding-bottom: 0; margin-top: 15px; justify-content: flex-start;  gap: 11px;">
+                                    <div class="total" style="font-size: 24px; font-weight: 600;">  (% locale == 'es' ? 'AR$ ' + aniadaActual.precio_pesos : 'AR$ ' + aniadaActual.precio_pesos %) </div>
+                                    <div>
+                                        <div class="btn label-stock">                                            
+                                          <span>(% aniadaActual.stock == 0 ? 'AGOTADO ' : 'STOCK: '+aniadaActual.stock %)</span>
+                                        </div><!-- Nuevo label Agotado -->
                                     </div>
                                 </div>
-                                <div class="descripcion"><p>(% aniadaActual ? aniadaActual.descripcion : '' %)</p></div>
-                                <div class="links-producto" v-if="aniadaActual">
 
-                                    <a :href="aniadaActual.ficha_url" target="_blank" class="btn btn-brown" v-if="aniadaActual.ficha">{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</a>
-                                    <div v-if="actual.vendible" class="btn btn-brown total">
-                                        (% locale == 'es' ? 'AR$ ' + aniadaActual.precio_pesos : 'AR$ ' + aniadaActual.precio_pesos %)
-                                    </div>
-                                    <div v-if="actual.vendible" class="dropdown">
-                                        <button class="btn btn-dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span id="span-cantidad">0</span>
-                                            <i class="arrow-down"></i>
-                                        </button>
-                                        <ul class="dropdown-menu dropdown-menu-dark" >
-                                            <li v-for="cant in mostrarCantidad(aniadaActual)">
-                                                <a class="dropdown-item" href="javascript:void(0);" @click="alCambiarCantidad(aniadaActual,cant)">(% cant %)</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                <div class="links-producto" v-if="aniadaActual.stock > 0" style="padding-bottom: 0; margin-top: 10px;">
+                                  <div class="label-info" >
+                                    <span >MEDIOS DE PAGO</span>
+                                  </div>
                                 </div>
-                                <div class="bajada">
-                                    <template  v-if="actual.vendible && aniadaActual">
-                                        <p v-if="aniadaActual.stock <= 10 && aniadaActual.stock > 0" class="destacado mb-3" style="font-weight: bolder;">
-                                            {!! trans('front.paginas.colecciones.interna.ultUnidades') !!}
-                                        </p>
-                                        <p v-if="aniadaActual.stock < 1" class="destacado mb-3" style="font-weight: bolder;">
-                                            {!! trans('front.paginas.colecciones.interna.sinStock') !!}
-                                        </p>
-                                    </template>
-                                    <p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
-                                </div>
-                                <div v-if="actual.vendible" class="shop">
-                                    <p class="destacado mb-3">
-                                        {!! str_replace('_COMPRAS_SUPERIORES_',$data['configuraciones']['COMPRAS_SUPERIORES'],trans('front.paginas.colecciones.interna.porCompras')) !!}
-                                    </p>
-                                    <a href="javascript:void(0)" class="btn btn-brown" style="text-transform: uppercase;font-weight: bold;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
 
+                                <div class="links-producto row" v-if="aniadaActual.stock > 0" style="margin-top: 15px; align-items: baseline;">
+                                  <div class="col-12 col-md-7">
+                                    <div class="d-flex mb-3">
+                                        <div class="input-cantidad">
+                                            <input type="number" placeholder="1" min="1" max="99" >
+                                        </div>
+                                      
+                                      <div class="shop ">
+                                        <a href="javascript:void(0)" class="btn btn-brown m-0" style="text-transform: uppercase;font-weight: bold;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
+
+                                      </div>
+                                    </div>
+                                    
+                                  </div>
+                                  <div class="col-md-5">
+                                    
+                                    <a :href="aniadaActual.ficha_url" class="label-info mb-3" target="_blank"  v-if="aniadaActual.ficha">
+                                        <span>{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</span>
+                                    </a>
+                                    
+                                  </div>
+                                  <div class="col-12">
+                                    <div class="bajada">
+                                        <template  v-if="actual.vendible && aniadaActual">
+                                            <p v-if="aniadaActual.stock <= 10 && aniadaActual.stock > 0" class="destacado mb-3" style="font-weight: bolder;">
+                                                {!! trans('front.paginas.colecciones.interna.ultUnidades') !!}
+                                            </p>
+                                            <p v-if="aniadaActual.stock < 1" class="destacado mb-3" style="font-weight: bolder;">
+                                                {!! trans('front.paginas.colecciones.interna.sinStock') !!}
+                                            </p>
+                                        </template>
+                                        <p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
+                                    </div>
+                                  </div>                                  
                                 </div>
+
+
+                          <div class="descripcion"><p>(% aniadaActual ? aniadaActual.descripcion : '' %)</p></div>
+                          <div class="links-producto" v-if="aniadaActual">
+
+                            <a :href="aniadaActual.ficha_url" target="_blank" class="btn btn-brown" v-if="aniadaActual.ficha">{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</a>
+                            <div v-if="actual.vendible" class="btn btn-brown total">
+                                (% locale == 'es' ? 'AR$ ' + aniadaActual.precio_pesos : 'AR$ ' + aniadaActual.precio_pesos %)
                             </div>
+                            <div v-if="actual.vendible" class="dropdown">
+                                <button class="btn btn-dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span id="span-cantidad">0</span>
+                                    <i class="arrow-down"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-dark" >
+                                    <li v-for="cant in mostrarCantidad(aniadaActual)">
+                                        <a class="dropdown-item" href="javascript:void(0);" @click="alCambiarCantidad(aniadaActual,cant)">(% cant %)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div v-if="actual.vendible" class="shop">
+                            <p class="destacado mb-3">
+                                {!! str_replace('_COMPRAS_SUPERIORES_',$data['configuraciones']['COMPRAS_SUPERIORES'],trans('front.paginas.colecciones.interna.porCompras')) !!}
+                            </p>
+                            
                         </div>
                     </div>
                 </div>
             </div>
-            @endif
         </div>
     </div>
+    @endif
+</div>
+</div>
 </section>
 
 @endsection

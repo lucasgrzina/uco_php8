@@ -243,3 +243,51 @@
     background-color: #2c2b2a;
     color: #fff;
 }
+
+
+.btn-year{
+
+}
+
+
+.btn-secondary{
+    margin-right: 2px;
+    font-weight: 700;
+    border-width: 1.5px;
+    border-color: #cdcfad;
+    background-color: transparent;
+    color: $c-darker;
+    box-shadow: none;
+
+    &.active, &:hover, &:focus{
+        color: $c-darker;
+        background-color: $c-bg-btn;
+        box-shadow: none !important;
+        outline: none;
+    }
+}
+
+.label-stock{
+    padding: 0px 24px; background-color: #f3f3f3; color: #666; border-color: #666;
+    span{
+        font-size: 14px; font-weight: 700;
+    }
+}
+
+.label-info{
+    padding: 0px 24px;  color: #666; border-color: #666;
+    border-style: solid;
+    border-width: 1.5px;
+    border-radius: 4px;
+    padding: 2px 10px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span{
+        font-size: 14px; 
+        font-weight: 400;
+        color: $c-darker;
+        text-transform: uppercase;
+    }
+}

@@ -1442,7 +1442,120 @@ p{
 	padding: 120px 0 30px;
 	@include under($b-lg) {
 		padding: 30px 0;
+		margin-bottom: 15px;
 	}
+
+	
+
+	@media(min-width: 769px) {
+		padding: 0px 0 60px;
+		.offcanvas{
+			visibility: visible;
+			z-index: 10;
+		    position: relative;
+		    float: left;
+		    width: 100%;
+		    left: 0;
+		    right: auto;
+		    transform: none;
+		    border-width: 0;
+		}
+
+
+	}
+	@media(max-width: 768px) {
+		.offcanvas-start{
+			width: 100%;
+			border-width: 0;
+
+			.offcanvas-body{
+				align-items: center;
+    			display: flex;
+    			text-align: center;
+			}
+			transform: translateX(0%);
+			&.show{
+				visibility: visible;
+			}
+		}
+
+		$size: 37px;
+	$primaryColor: #000;
+
+	.navbar-toggler{
+		width: $size;
+		height: $size;
+		padding: 0;
+		position: absolute;
+		top: 22px;
+		left: 18px;
+		z-index: 5000;
+
+		&:not(.collapsed){
+			position: fixed;
+			left: auto;
+			right: 18px;
+			.cross-line {
+				stroke: #000000 !important;
+			}
+		}
+		&:focus{
+			outline: none;
+			border-width: 0;
+			box-shadow: none;
+		}
+
+		#nav-lines {
+			background: transparent;
+			width: $size;
+			height: $size;
+			position: absolute;
+
+			top: 0;
+			left: 0;
+			cursor: pointer;
+
+			.rect {
+				stroke-width: 0;
+				stroke: $primaryColor;
+				fill: transparent;
+				transform-origin: 50% 50%;
+			}
+
+			.cross-line {
+				stroke: $primaryColor;
+				stroke-width: 0;
+				transform-origin: 50% 50%;
+			}
+			.nav-line {
+				stroke: $primaryColor;
+				transform-origin: 50% 50%;
+				stroke-width: 3px;
+			}
+
+		}
+
+
+		&:not(.collapsed){
+			#nav-lines {
+				.cross-line {
+					stroke-width: 2;
+				}
+				.nav-line,#nav-line-1,#nav-line-3 {
+					opacity: 0;
+				}
+
+				&:hover {
+					.cross-line {
+					}
+				}
+			}
+		}
+	}
+
+	}
+
+
 
 	/*@include over($b-lg) {*/
 		.navbar-nav{
@@ -1453,6 +1566,7 @@ p{
 			width: 100%;
             @include under($b-sm) {
                 flex-direction: column!important;
+                gap: 20px;
             }
 		}
 	/*}*/
@@ -1527,6 +1641,11 @@ p{
 			display: flex;
 			align-items: center;
 			gap: 50px;
+
+			@include under($b-md) {
+				flex-direction: column;
+			}
+
 			.image{
 				width: 100%;
 				max-width: 140px;
@@ -1537,6 +1656,18 @@ p{
 
 				@include under($b-lg) {
 					/*display: none;*/
+				}
+			}
+
+			.input-cantidad{
+				margin-right: 10px;
+			    max-width: 65px;
+				input{
+					padding: 3px; text-align: center; width: 100%;
+				}
+				input[type="number"]::-webkit-inner-spin-button,
+				input[type="number"]::-webkit-outer-spin-button {
+				  opacity: 1;
 				}
 			}
 
@@ -1658,6 +1789,10 @@ p{
     background-image: none;
     .container {
         height: auto;
+    }
+
+    @media(max-width: 768px){
+    	padding: 0px 0 140px;
     }
 }
 .section-colecciones.francesca-tucci {
