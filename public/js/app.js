@@ -23,13 +23,27 @@ _methods.toastError = function(mensaje,titulo) {
 
   _methods.carritoAgregarItem = function() {
         var _this = this;
+        var cantidad = 0;
+        
+        try {
+          if (_this.carrito.item.cantidad > 18) {
+            _this.carrito.item.cantidad = 18;
+          }
+          cantidad = parseInt(_this.carrito.item.cantidad);
+        }catch(error) {
+          cantidad = 0;
+        }
+        
 
+
+
+        console.debug(cantidad);
         if (!_this.carrito.item.id) {
             alert2('Debe seleccionar un producto');
             return false;
         }
 
-        if (!_this.carrito.item.cantidad) {
+        if (cantidad < 1) {
             alert2('Debe indicar una cantidad mayor a 0');
             return false;
         }

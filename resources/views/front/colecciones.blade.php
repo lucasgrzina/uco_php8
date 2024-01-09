@@ -1,9 +1,22 @@
 @extends('layouts.front')
+@section('css')
+@parent
+<style>
+.btn-aniadas.active {
+    background:#cdcfad;
+}
+.btn-aniadas:hover {
+    background:#cdcfad;
+
+    /*border-width: 2px;*/
+}
+
+</style>
+@endsection
 @section('scripts')
 @parent
 <script type="text/javascript">
     var _data = {!! json_encode($data) !!};
-    console.debug(_data.carrito);
     _methods.mostrarCantidad = function (item) {
         var stock = item.stock;
         return 18;
@@ -18,7 +31,6 @@
     }
 
     _methods.cambiarAniada = function (vinoId, aniadaId) {
-        console.debug(vinoId,aniadaId);
 
         this.aniadaActual = _.find(this.actual.aniadas,{id: aniadaId});
         this.carrito.item.id = aniadaId;
@@ -50,6 +62,23 @@
 
         this.cambiarCantidad(cantidad);
     };
+
+    _methods.cantMaxima = function(item) {
+        return item.stock <= 18 ? item.stock : 18;
+    }
+
+    _methods.checkCantidad = function(item) {
+        console.debug('checkCantidad');
+        var cantMax = this.cantMaxima(item);
+        console.debug([this.carrito.item.cantidad,cantMax]);
+        if (this.carrito.item.cantidad > cantMax) {
+            this.carrito.item.cantidad = cantMax;
+        }
+        if (this.carrito.item.cantidad == '' || parseInt(this.carrito.item.cantidad) < 1){
+            this.carrito.item.cantidad = 0;
+        }
+
+    }
 
     this._mounted.push(function(_this) {
         var access = document.getElementById("section-colecciones");
@@ -150,12 +179,12 @@ $actual = $data['actual'];
                             
                             <div class="info">
                                 <div class="titulo">
-                                    <h1>{{$actual->titulo}}</h1>
+                                    <h1 class="text-uppercase">{{$actual->titulo}}</h1>
                                 </div>
                                 <div class="w-100">
                                     <button v-for="aniada in actual.aniadas" 
                                             @click="cambiarAniada(actual.id, aniada.id)" 
-                                            class="btn btn-secondary"
+                                            class="btn btn-secondary btn-aniadas"
                                             :class="{ 'active': aniada.id === aniadaActual.id }"
                                             type="button">
                                         <span>(% aniada.anio %)</span>
@@ -164,9 +193,9 @@ $actual = $data['actual'];
 
                                 <div class="links-producto" style="padding-bottom: 0; margin-top: 15px; justify-content: flex-start;  gap: 11px;">
                                     <div class="total" style="font-size: 24px; font-weight: 600;">  (% locale == 'es' ? 'AR$ ' + aniadaActual.precio_pesos : 'AR$ ' + aniadaActual.precio_pesos %) </div>
-                                    <div>
+                                    <div v-show="aniadaActual.stock == 0">
                                         <div class="btn label-stock">                                            
-                                          <span>(% aniadaActual.stock == 0 ? 'AGOTADO ' : 'STOCK: '+aniadaActual.stock %)</span>
+                                          <span class="text-uppercase">{!! trans('front.paginas.colecciones.interna.sinStock') !!}</span>
                                         </div><!-- Nuevo label Agotado -->
                                     </div>
                                 </div>
@@ -178,44 +207,45 @@ $actual = $data['actual'];
                                 </div>
 
                                 <div class="links-producto row" v-if="aniadaActual.stock > 0" style="margin-top: 15px; align-items: baseline;">
-                                  <div class="col-12 col-md-7">
-                                    <div class="d-flex mb-3">
+                                  <div class="col-12 col-md-12">
+                                    <div class="d-flex mb-3 flex-wrap gap-3">
                                         <div class="input-cantidad">
-                                            <input type="number" placeholder="1" min="1" max="99" >
+                                            <input type="number" placeholder="1" :min="1" :max="cantMaxima(aniadaActual)" v-model="carrito.item.cantidad" @blur="checkCantidad(aniadaActual)">
                                         </div>
                                       
-                                      <div class="shop ">
-                                        <a href="javascript:void(0)" class="btn btn-brown m-0" style="text-transform: uppercase;font-weight: bold;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
+                                        <div class="shop">
+                                            <a href="javascript:void(0)" class="btn btn-brown m-0 mr-2" style="text-transform: uppercase;font-weight: bold;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
+                                        </div>
+                                        <div class="shop">
+                                            <a :href="aniadaActual.ficha_url" class="label-info mb-3 btn-ficha d-inline-block" target="_blank"  v-if="aniadaActual.ficha">
+                                                <span>{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</span>
+                                            </a>
+                                        </div>
 
-                                      </div>
                                     </div>
                                     
                                   </div>
-                                  <div class="col-md-5">
-                                    
-                                    <a :href="aniadaActual.ficha_url" class="label-info mb-3" target="_blank"  v-if="aniadaActual.ficha">
-                                        <span>{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</span>
-                                    </a>
-                                    
-                                  </div>
-                                  <div class="col-12">
-                                    <div class="bajada">
-                                        <template  v-if="actual.vendible && aniadaActual">
-                                            <p v-if="aniadaActual.stock <= 10 && aniadaActual.stock > 0" class="destacado mb-3" style="font-weight: bolder;">
-                                                {!! trans('front.paginas.colecciones.interna.ultUnidades') !!}
-                                            </p>
-                                            <p v-if="aniadaActual.stock < 1" class="destacado mb-3" style="font-weight: bolder;">
-                                                {!! trans('front.paginas.colecciones.interna.sinStock') !!}
-                                            </p>
-                                        </template>
-                                        <p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
-                                    </div>
-                                  </div>                                  
+                                  <template  v-if="actual.vendible && aniadaActual">
+                                    <div class="col-12" v-if="aniadaActual.stock <= 10 && aniadaActual.stock > 0">
+                                        <div class="bajada">
+                                            
+                                                <p  class="destacado mb-3" style="font-weight: bolder;">
+                                                    {!! trans('front.paginas.colecciones.interna.ultUnidades') !!}
+                                                </p>
+                                                <!--p v-if="aniadaActual.stock < 1" class="destacado mb-3" style="font-weight: bolder;">
+                                                    {!! trans('front.paginas.colecciones.interna.sinStock') !!}
+                                                </p-->
+                                            
+                                            <!--p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p-->
+                                        </div>
+                                    </div>      
+                                  </template>                            
                                 </div>
 
 
                           <div class="descripcion"><p>(% aniadaActual ? aniadaActual.descripcion : '' %)</p></div>
-                          <div class="links-producto" v-if="aniadaActual">
+                          
+                          <!--div class="links-producto" v-if="aniadaActual">
 
                             <a :href="aniadaActual.ficha_url" target="_blank" class="btn btn-brown" v-if="aniadaActual.ficha">{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</a>
                             <div v-if="actual.vendible" class="btn btn-brown total">
@@ -232,12 +262,16 @@ $actual = $data['actual'];
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div-->
                         
                         <div v-if="actual.vendible" class="shop">
                             <p class="destacado mb-3">
                                 {!! str_replace('_COMPRAS_SUPERIORES_',$data['configuraciones']['COMPRAS_SUPERIORES'],trans('front.paginas.colecciones.interna.porCompras')) !!}
                             </p>
+                          <div class="bajada">
+                              <p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
+                          </div>
+
                             
                         </div>
                     </div>

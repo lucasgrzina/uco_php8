@@ -34,7 +34,7 @@ class VinosRepository extends BaseRepository
     public function porColeccion($coleccion = 'FT') {
         return $this->model->newQuery()
                 ->with(['aniadas' => function($q) {
-                    $q->orderBy('anio','desc');
+                    $q->orderBy('anio','asc');
                 }])
                 ->whereEnabled(true)
                 ->whereColeccion($coleccion)
