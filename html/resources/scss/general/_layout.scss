@@ -1561,8 +1561,8 @@ p{
 		.navbar-nav{
 			display: -webkit-flex;
 			display: flex;
-			-webkit-justify-content: space-between;
-			justify-content: space-between;
+			-webkit-justify-content: center;
+			justify-content: center;
 			width: 100%;
             @include under($b-sm) {
                 flex-direction: column!important;
@@ -1601,12 +1601,13 @@ p{
 			.nav-link{
 				font-family: $f-bold;
 				color: #363126;
-				font-size: 18px;
+				font-size: 14px;
 				@include over($b-lg) {
 					max-width: 150px;
 					text-align: center;
 				}
-				line-height: 22px;
+				line-height: 20px;
+				text-transform:uppercase;
 
 				&.active, &:hover{
 					text-decoration: underline;
@@ -1662,7 +1663,7 @@ p{
 			}
 
 			.input-cantidad{
-				margin-right: 10px;
+				/*margin-right: 10px;*/
 			    max-width: 65px;
 				input{
 					padding: 3px; text-align: center; width: 100%;
@@ -1746,7 +1747,7 @@ p{
                 @include under($b-sm) {
                     display: flex;
                     align-items: flex-start;
-                    flex-direction: column;
+                    /*flex-direction: column;*/
 
                 }
 				.btn{
