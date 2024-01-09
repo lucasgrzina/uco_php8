@@ -109,7 +109,45 @@ $actual = $data['actual'];
                 <div class="producto">
                     <div class="wrapper">
                         <div class="producto-item">
-                            <div class="image"><img src="{{$actual->imagen_url}}" /></div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="image slider-product">
+                                        <div><img src="{{$actual->imagen_url}}" /></div>
+                                        <div>1</div>
+                                        <div><img src="{{$actual->imagen_url}}" /></div>
+                                        <div><img src="{{$actual->imagen_url}}" /></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="image slider-product-nav">
+                                        <div>
+                                            <div class="box-thumb">
+                                                <img src="{{$actual->imagen_url}}" />
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="box-thumb">
+                                                1
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            <div class="box-thumb">
+                                                <img src="{{$actual->imagen_url}}" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="box-thumb">
+                                                <img src="{{$actual->imagen_url}}" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                            
+                            
+                            
                             <div class="info">
                                 <div class="titulo">
                                     <h1>{{$actual->titulo}}</h1>

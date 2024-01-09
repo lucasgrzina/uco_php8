@@ -5,7 +5,7 @@ $(document).ready(function(){
 	});
 
 	if(typeof Cookies.get('ag_uco') == 'undefined' && Cookies.get('ag_uco') != 1 && !hideAgeGate) {
-        myModal.show();
+		myModal.show();
 	}
 
 	$('.module-full-slider .slider').slick({
@@ -68,24 +68,24 @@ $(document).ready(function(){
 		pauseOnHover: false,
 		speed: 800,
 		responsive: [
-			{
-				breakpoint: 992,
-				settings: {
-					slidesToShow: 2,
-					autoplay: true,
-					variableWidth: true,
-					autoplaySpeed: 3000
-				}
-			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 1,
-					autoplay: true,
-					variableWidth: false,
-					autoplaySpeed: 3000
-				}
+		{
+			breakpoint: 992,
+			settings: {
+				slidesToShow: 2,
+				autoplay: true,
+				variableWidth: true,
+				autoplaySpeed: 3000
 			}
+		},
+		{
+			breakpoint: 600,
+			settings: {
+				slidesToShow: 1,
+				autoplay: true,
+				variableWidth: false,
+				autoplaySpeed: 3000
+			}
+		}
 
 		]
 	});
@@ -114,7 +114,7 @@ $(document).ready(function(){
 
 	fadeChildren();
 
-    $('#checkmarkEdad').trigger('click');
+	$('#checkmarkEdad').trigger('click');
 
 	$('#btnSiEdad').click(function() {
 		if (document.getElementById('recordarme-mayor').checked) {
@@ -128,9 +128,9 @@ $(document).ready(function(){
 
 	$(".producto-item .dropdown-menu li a, .table .dropdown-menu li a").click(function(e){
 		e.preventDefault();
-	  var selText = $(this).text();
-	  console.log( selText);
-	  $(this).parents('.dropdown').find('.dropdown-toggle span').html(selText);
+		var selText = $(this).text();
+		console.log( selText);
+		$(this).parents('.dropdown').find('.dropdown-toggle span').html(selText);
 	});
 
 	$('#slider_noticias').slick({
@@ -171,8 +171,25 @@ $(document).ready(function(){
 
 		]
 	});
-
+	sliderProduct();
 });
+
+function sliderProduct(){
+	$('.slider-product').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: true,
+		fade: false,
+		asNavFor: '.slider-product-nav'
+	});
+	$('.slider-product-nav').slick({
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		asNavFor: '.slider-product',
+		focusOnSelect: true
+	});
+}
+
 $( window ).scroll(function() {
 	fadeChildren();
 });
@@ -182,42 +199,42 @@ $( window ).resize(function() {
 
 const renderModal = (content, id) => {
 	modalcontent =
-	  '<div class="modal modal-uco  modal-slim to-contact-modal " data-bs-backdrop="static" id="js_alert_modal" tabindex="-1" role="dialog" aria-labelledby="alert_modalLabel" aria-hidden="true">\
-			<div class="modal-dialog modal-dialog-centered" role="document">\
-			  <div  class="modal-content">\
-				<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">\
-				  <span aria-hidden="true">&times;</span>\
-				</button>\
-				<div class="forms-overflow" >\
-				  ' +
-	  content +
-	  "\
-				</div>\
-			  </div>\
-			</div>\
-		  </div>";
+	'<div class="modal modal-uco  modal-slim to-contact-modal " data-bs-backdrop="static" id="js_alert_modal" tabindex="-1" role="dialog" aria-labelledby="alert_modalLabel" aria-hidden="true">\
+	<div class="modal-dialog modal-dialog-centered" role="document">\
+	<div  class="modal-content">\
+	<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">\
+	<span aria-hidden="true">&times;</span>\
+	</button>\
+	<div class="forms-overflow" >\
+	' +
+	content +
+	"\
+	</div>\
+	</div>\
+	</div>\
+	</div>";
 	return modalcontent;
-  };
+};
 
-  const showAlert = (title , message = null, btn1 = null, btn2 = null) => {
+const showAlert = (title , message = null, btn1 = null, btn2 = null) => {
 	modal = $(
-	  renderModal(
-		'<div class="modal-header">\
+		renderModal(
+			'<div class="modal-header">\
 			' +(title?('<h5 class="modal-title ">' +title + '</h5>'):'') +'\
-		</div>\
-	  	<div class="modal-body">\
-		  <div class="modal-icon-title"><i class="icon icon icon-complete-multicolor"></i></div>\
-		  '+ (message?('<p class="message ">' +message + '</p>'):'') + '</div>\
-		  <div class="modal-footer">\
-			  ' + (btn1?('<button type="button" class="btn-primary faded" '+(btn1['fun']?('onclick="'+btn1['fun']+'"'):'data-bs-dismiss="modal"')+'" >'+btn1['text']+'</button>'):'') +'\
-			  ' + (btn2?('<button type="button" class="btn-primary faded" '+(btn2['fun']?('onclick="'+btn2['fun']+'"'):'data-bs-dismiss="modal"')+'" >'+btn2['text']+'</button>'):'') +'\
-		  </div>'
-	  )
-	);
+			</div>\
+			<div class="modal-body">\
+			<div class="modal-icon-title"><i class="icon icon icon-complete-multicolor"></i></div>\
+			'+ (message?('<p class="message ">' +message + '</p>'):'') + '</div>\
+			<div class="modal-footer">\
+			' + (btn1?('<button type="button" class="btn-primary faded" '+(btn1['fun']?('onclick="'+btn1['fun']+'"'):'data-bs-dismiss="modal"')+'" >'+btn1['text']+'</button>'):'') +'\
+			' + (btn2?('<button type="button" class="btn-primary faded" '+(btn2['fun']?('onclick="'+btn2['fun']+'"'):'data-bs-dismiss="modal"')+'" >'+btn2['text']+'</button>'):'') +'\
+			</div>'
+			)
+		);
 	$("body").append(modal);
 
 	modal.modal("show").on("hide.bs.modal", function () {
-	    $(this).remove();
+		$(this).remove();
 	});
 
-  };
+};
