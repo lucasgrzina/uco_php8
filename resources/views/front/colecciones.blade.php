@@ -145,6 +145,7 @@ $actual = $data['actual'];
                                         <div>1</div>
                                         <div><img src="{{$actual->imagen_url}}" /></div>
                                         <div><img src="{{$actual->imagen_url}}" /></div>
+                                        <div><img src="{{$actual->imagen_url}}" /></div>
                                     </div>
                                 </div>
 
@@ -167,6 +168,13 @@ $actual = $data['actual'];
                                                 <img src="{{$actual->imagen_url}}" />
                                             </div>
                                         </div>
+
+                                        <div>
+                                            <div class="box-thumb">
+                                                <img src="{{$actual->imagen_url}}" />
+                                            </div>
+                                        </div>
+
                                         <div>
                                             <div class="box-thumb">
                                                 <img src="{{$actual->imagen_url}}" />

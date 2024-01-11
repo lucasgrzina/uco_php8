@@ -179,14 +179,14 @@ function sliderProduct(){
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: true,
-		fade: false,
-		asNavFor: '.slider-product-nav'
+		fade: false
 	});
 	$('.slider-product-nav').slick({
-		slidesToShow: 3,
+		slidesToShow: 5,
 		slidesToScroll: 1,
 		asNavFor: '.slider-product',
-		focusOnSelect: true
+		focusOnSelect: true,
+		centerMode: true
 	});
 }
 
