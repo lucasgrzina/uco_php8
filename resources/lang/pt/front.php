@@ -358,7 +358,7 @@ return [
                 'porCompras' => 'Frete grátis em pedidos acima de AR$ _COMPRAS_SUPERIORES_.',
                 'btnAgregar' => 'Adicionar ao carrinho',
                 'sinStock' => 'Sin stock',
-                'ultUnidades' => 'Últimas 10 unidades disponíveis'
+                'ultUnidades' => 'Últimas _CANT_ unidades disponíveis'
             ],
             'root' => [
                 'titulo' => 'Coleções',

@@ -328,7 +328,7 @@ return [
                 'porCompras' => 'Free Shipping on orders over AR$ _COMPRAS_SUPERIORES_.',
                 'btnAgregar' => 'Add to bag',
                 'sinStock' => 'Sin stock',
-                'ultUnidades' => 'Last 10 units available'
+                'ultUnidades' => 'Last _CANT_ units available'
             ],
             'root' => [
                 'titulo' => 'Collections',
