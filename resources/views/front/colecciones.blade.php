@@ -80,6 +80,10 @@
 
     }
 
+    _methods.ultUnidadesMsg = function() {
+        return this.aniadaActual.stock == 0 ? "{{trans('front.paginas.colecciones.interna.sinStock')}}" : "{{trans('front.paginas.colecciones.interna.ultUnidades')}}".replace('_CANT_',this.aniadaActual.stock);
+    }
+
     this._mounted.push(function(_this) {
         var access = document.getElementById("section-colecciones");
         access.scrollIntoView();
@@ -142,44 +146,31 @@ $actual = $data['actual'];
                                 <div class="col-12">
                                     <div class="image slider-product">
                                         <div><img src="{{$actual->imagen_url}}" /></div>
-                                        <div>1</div>
-                                        <div><img src="{{$actual->imagen_url}}" /></div>
-                                        <div><img src="{{$actual->imagen_url}}" /></div>
-                                        <div><img src="{{$actual->imagen_url}}" /></div>
+
+                                        @foreach($actual->imagenes as $img)
+                                            <div><img src="{{$img->filename_url}}" /></div>
+                                        @endforeach
+                                        
+
                                     </div>
                                 </div>
 
-                                <div class="col-12">
+                                <div class="col-12 d-none d-sm-block">
                                     <div class="image slider-product-nav">
                                         <div>
                                             <div class="box-thumb">
                                                 <img src="{{$actual->imagen_url}}" />
                                             </div>
-                                        </div>
-
+                                        </div>                                    
+                                        @foreach($actual->imagenes as $img)
                                         <div>
                                             <div class="box-thumb">
-                                                1
-                                            </div>
-                                        </div>
 
-                                        <div>
-                                            <div class="box-thumb">
-                                                <img src="{{$actual->imagen_url}}" />
-                                            </div>
-                                        </div>
+                                                <img src="{{$img->filename_url}}" />
 
-                                        <div>
-                                            <div class="box-thumb">
-                                                <img src="{{$actual->imagen_url}}" />
                                             </div>
                                         </div>
-
-                                        <div>
-                                            <div class="box-thumb">
-                                                <img src="{{$actual->imagen_url}}" />
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>                            
@@ -201,17 +192,22 @@ $actual = $data['actual'];
 
                                 <div class="links-producto" style="padding-bottom: 0; margin-top: 15px; justify-content: flex-start;  gap: 11px;">
                                     <div class="total" style="font-size: 24px; font-weight: 600;">  (% locale == 'es' ? 'AR$ ' + aniadaActual.precio_pesos : 'AR$ ' + aniadaActual.precio_pesos %) </div>
-                                    <div v-show="aniadaActual.stock == 0">
+                                    <div v-show="aniadaActual.stock <= 10">
                                         <div class="btn label-stock">                                            
-                                          <span class="text-uppercase">{!! trans('front.paginas.colecciones.interna.sinStock') !!}</span>
+                                          <span class="text-uppercase">(% ultUnidadesMsg() %)</span>
                                         </div><!-- Nuevo label Agotado -->
                                     </div>
                                 </div>
 
                                 <div class="links-producto" v-if="aniadaActual.stock > 0" style="padding-bottom: 0; margin-top: 10px;">
-                                  <div class="label-info" >
-                                    <span >MEDIOS DE PAGO</span>
-                                  </div>
+                                  
+                                    <a href="https://www.mercadopago.com.ar/ayuda/19301" target="blank">
+                                        <div class="label-info" >
+                                          <span >MEDIOS DE PAGO</span>
+                                        </div>
+                                    </a>
+                                    
+                                  
                                 </div>
 
                                 <div class="links-producto row" v-if="aniadaActual.stock > 0" style="margin-top: 15px; align-items: baseline;">
@@ -234,19 +230,19 @@ $actual = $data['actual'];
                                     
                                   </div>
                                   <template  v-if="actual.vendible && aniadaActual">
-                                    <div class="col-12" v-if="aniadaActual.stock <= 10 && aniadaActual.stock > 0">
+                                    <!--div class="col-12" v-if="aniadaActual.stock <= 10 && aniadaActual.stock > 0">
                                         <div class="bajada">
                                             
                                                 <p  class="destacado mb-3" style="font-weight: bolder;">
-                                                    {!! trans('front.paginas.colecciones.interna.ultUnidades') !!}
+                                                    (% ultUnidadesMsg() %)
                                                 </p>
-                                                <!--p v-if="aniadaActual.stock < 1" class="destacado mb-3" style="font-weight: bolder;">
+                                                <p v-if="aniadaActual.stock < 1" class="destacado mb-3" style="font-weight: bolder;">
                                                     {!! trans('front.paginas.colecciones.interna.sinStock') !!}
-                                                </p-->
+                                                </p>
                                             
-                                            <!--p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p-->
+                                            <!p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
                                         </div>
-                                    </div>      
+                                    </div-->      
                                   </template>                            
                                 </div>
 

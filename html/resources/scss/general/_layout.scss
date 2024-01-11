@@ -1815,7 +1815,7 @@ p{
                 @include under($b-sm) {
                     display: flex;
                     align-items: flex-start;
-                    /*flex-direction: column;*/
+                    flex-direction: column;
 
 				}
 				.btn{
