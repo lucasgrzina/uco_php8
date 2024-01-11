@@ -186,7 +186,7 @@ function sliderProduct(){
 		slidesToScroll: 1,
 		asNavFor: '.slider-product',
 		focusOnSelect: true,
-		centerMode: true
+		centerMode: false
 	});
 }
 
