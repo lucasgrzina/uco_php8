@@ -85,8 +85,11 @@
     }
 
     this._mounted.push(function(_this) {
-        var access = document.getElementById("section-colecciones");
-        access.scrollIntoView();
+        setTimeout(function() {
+            var access = document.getElementById("section-colecciones");
+            access.scrollIntoView();
+            
+        }, 500);
         if (_this.aniadaActual) {
             _this.cambiarAniada(_this.actual.id, _this.aniadaActual.id);
         }
