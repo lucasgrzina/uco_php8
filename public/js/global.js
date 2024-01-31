@@ -171,7 +171,10 @@ $(document).ready(function(){
 
 		]
 	});
-	sliderProduct();
+    setTimeout(function() {
+        sliderProduct();
+    },500);
+	//sliderProduct();
 });
 
 function sliderProduct(){
