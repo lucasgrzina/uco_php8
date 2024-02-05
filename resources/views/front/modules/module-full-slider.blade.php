@@ -37,7 +37,7 @@
                                 </div>
                                 @endif
                                 @if (isset($item->video) && $item->video)
-                                    <video loop autoplay muted style="position: absolute; z-index: -1;">
+                                    <video loop autoplay muted style="position: absolute; z-index: -1;" playsinline>
                                         <source  src="{{$item->video_url}}" type="video/mp4">
                                     </video>
                                 @endif
