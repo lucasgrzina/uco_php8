@@ -88,7 +88,7 @@
         setTimeout(function() {
             var access = document.getElementById("section-colecciones");
             access.scrollIntoView();
-            
+
         }, 500);
         if (_this.aniadaActual) {
             _this.cambiarAniada(_this.actual.id, _this.aniadaActual.id);
@@ -111,7 +111,7 @@ $actual = $data['actual'];
                         <button style="margin-left: 0; margin-right: auto;" class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navColecciones" aria-controls="navColecciones" aria-expanded="false" aria-label="Toggle navigation">
                            <div id="nav-lines">
                               <svg viewbox="0 0 64 64">
-                          
+
 
                                 <line x1="15" x2="15" y1="16" y2="45" class="nav-line" />
                                 <line x1="0" x2="30" y1="30" y2="30" class="nav-line" />
@@ -135,7 +135,7 @@ $actual = $data['actual'];
                                     @endforeach
                                 </ul>
                             </div>
-                        </div>                       
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -153,7 +153,7 @@ $actual = $data['actual'];
                                         @foreach($actual->imagenes as $img)
                                             <div><img src="{{$img->filename_url}}" /></div>
                                         @endforeach
-                                        
+
 
                                     </div>
                                 </div>
@@ -164,7 +164,7 @@ $actual = $data['actual'];
                                             <div class="box-thumb">
                                                 <img src="{{$actual->imagen_url}}" />
                                             </div>
-                                        </div>                                    
+                                        </div>
                                         @foreach($actual->imagenes as $img)
                                         <div>
                                             <div class="box-thumb">
@@ -176,16 +176,16 @@ $actual = $data['actual'];
                                         @endforeach
                                     </div>
                                 </div>
-                            </div>                            
-                            
-                            
+                            </div>
+
+
                             <div class="info">
                                 <div class="titulo">
                                     <h1 class="text-uppercase">{{$actual->titulo}}</h1>
                                 </div>
                                 <div class="w-100">
-                                    <button v-for="aniada in actual.aniadas" 
-                                            @click="cambiarAniada(actual.id, aniada.id)" 
+                                    <button v-for="aniada in actual.aniadas"
+                                            @click="cambiarAniada(actual.id, aniada.id)"
                                             class="btn btn-secondary btn-aniadas"
                                             :class="{ 'active': aniada.id === aniadaActual.id }"
                                             type="button">
@@ -196,31 +196,31 @@ $actual = $data['actual'];
                                 <div class="links-producto" style="padding-bottom: 0; margin-top: 15px; justify-content: flex-start;  gap: 11px;">
                                     <div class="total" style="font-size: 24px; font-weight: 600;">  (% locale == 'es' ? 'AR$ ' + aniadaActual.precio_pesos : 'AR$ ' + aniadaActual.precio_pesos %) </div>
                                     <div v-show="aniadaActual.stock <= 10">
-                                        <div class="btn label-stock">                                            
+                                        <div class="btn label-stock">
                                           <span class="text-uppercase">(% ultUnidadesMsg() %)</span>
                                         </div><!-- Nuevo label Agotado -->
                                     </div>
                                 </div>
 
                                 <div class="links-producto" v-if="aniadaActual.stock > 0" style="padding-bottom: 0; margin-top: 10px;">
-                                  
+
                                     <a href="https://www.mercadopago.com.ar/ayuda/19301" target="blank">
                                         <div class="label-info" >
                                           <span >MEDIOS DE PAGO</span>
                                         </div>
                                     </a>
-                                    
-                                  
+
+
                                 </div>
 
-                                <div class="links-producto row" v-if="aniadaActual.stock > 0" style="margin-top: 15px; align-items: baseline;">
+                                <div class="links-producto row" style="margin-top: 15px; align-items: baseline;">
                                   <div class="col-12 col-md-12">
                                     <div class="d-flex mb-3 flex-wrap gap-3">
-                                        <div class="input-cantidad">
+                                        <div class="input-cantidad" v-if="aniadaActual.stock > 0">
                                             <input type="number" placeholder="1" :min="1" :max="cantMaxima(aniadaActual)" v-model="carrito.item.cantidad" @blur="checkCantidad(aniadaActual)">
                                         </div>
-                                      
-                                        <div class="shop">
+
+                                        <div class="shop" v-if="aniadaActual.stock > 0">
                                             <a href="javascript:void(0)" class="btn btn-brown m-0 mr-2" style="text-transform: uppercase;font-weight: bold;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
                                         </div>
                                         <div class="shop">
@@ -230,28 +230,28 @@ $actual = $data['actual'];
                                         </div>
 
                                     </div>
-                                    
+
                                   </div>
                                   <template  v-if="actual.vendible && aniadaActual">
                                     <!--div class="col-12" v-if="aniadaActual.stock <= 10 && aniadaActual.stock > 0">
                                         <div class="bajada">
-                                            
+
                                                 <p  class="destacado mb-3" style="font-weight: bolder;">
                                                     (% ultUnidadesMsg() %)
                                                 </p>
                                                 <p v-if="aniadaActual.stock < 1" class="destacado mb-3" style="font-weight: bolder;">
                                                     {!! trans('front.paginas.colecciones.interna.sinStock') !!}
                                                 </p>
-                                            
+
                                             <!p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
                                         </div>
-                                    </div-->      
-                                  </template>                            
+                                    </div-->
+                                  </template>
                                 </div>
 
 
                           <div class="descripcion"><p>(% aniadaActual ? aniadaActual.descripcion : '' %)</p></div>
-                          
+
                           <!--div class="links-producto" v-if="aniadaActual">
 
                             <a :href="aniadaActual.ficha_url" target="_blank" class="btn btn-brown" v-if="aniadaActual.ficha">{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</a>
@@ -270,7 +270,7 @@ $actual = $data['actual'];
                                 </ul>
                             </div>
                         </div-->
-                        
+
                         <div v-if="actual.vendible" class="shop">
                             <p class="destacado mb-3">
                                 {!! str_replace('_COMPRAS_SUPERIORES_',$data['configuraciones']['COMPRAS_SUPERIORES'],trans('front.paginas.colecciones.interna.porCompras')) !!}
@@ -279,7 +279,7 @@ $actual = $data['actual'];
                               <p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
                           </div>
 
-                            
+
                         </div>
                     </div>
                 </div>
