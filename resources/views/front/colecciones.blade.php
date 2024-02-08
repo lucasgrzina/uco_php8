@@ -149,12 +149,11 @@ $actual = $data['actual'];
                                 <div class="col-12">
                                     <div class="image slider-product">
                                         <div><img src="{{$actual->imagen_url}}" /></div>
-
-                                        @foreach($actual->imagenes as $img)
-                                            <div><img src="{{$img->filename_url}}" /></div>
-                                        @endforeach
-
-
+                                        @if (app()->getLocale() === 'es')
+                                            @foreach($actual->imagenes as $img)
+                                                <div><img src="{{$img->filename_url}}" /></div>
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
 
@@ -165,15 +164,17 @@ $actual = $data['actual'];
                                                 <img src="{{$actual->imagen_url}}" />
                                             </div>
                                         </div>
-                                        @foreach($actual->imagenes as $img)
-                                        <div>
-                                            <div class="box-thumb">
+                                        @if (app()->getLocale() === 'es')
+                                            @foreach($actual->imagenes as $img)
+                                            <div>
+                                                <div class="box-thumb">
 
-                                                <img src="{{$img->filename_url}}" />
+                                                    <img src="{{$img->filename_url}}" />
 
+                                                </div>
                                             </div>
-                                        </div>
-                                        @endforeach
+                                            @endforeach
+                                        @endif
                                     </div>
                                 </div>
                             </div>

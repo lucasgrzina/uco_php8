@@ -71,7 +71,7 @@ class CheckoutController extends AppBaseController
             ],
             'info' => [
                 'paises' => Pais::whereEnabled(true)->orderBy('nombre')->select('id','codigo','nombre')->get(),
-                'montoDatosFC' => $configuraciones['MONTO_MIN_AFIP']
+                'montoDatosFC' => isset($configuraciones['MONTO_MIN_AFIP']) ? $configuraciones['MONTO_MIN_AFIP'] : null
             ],
             'modelos' => [
                 'direccion' => [
@@ -141,6 +141,7 @@ class CheckoutController extends AppBaseController
                     }
                 }
             }
+            $pedidosRepo->notificarNuevoPedido($pedido);
         }
 
         if ($pedido->estado_id == -1) {

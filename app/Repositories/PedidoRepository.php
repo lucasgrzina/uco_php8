@@ -3,6 +3,9 @@
 namespace App\Repositories;
 
 use App\Pedido;
+use App\Configuraciones;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Mail;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
@@ -125,6 +128,36 @@ class PedidoRepository extends BaseRepository
 
         }
         return $pedido;
+    }
+
+    public function notificarNuevoPedido($pedido) {
+        $configuraciones = Configuraciones::whereIn('clave',['AVISO_NUEVOS_PEDIDOS'])->pluck('valor','clave')->toArray();
+
+        if(isset($configuraciones['AVISO_NUEVOS_PEDIDOS']) && $configuraciones['AVISO_NUEVOS_PEDIDOS']) {
+            try
+            {
+                logger($configuraciones);
+                $url = route('pedidos.edit',[$pedido->id]);
+                logger($url);
+                $html = "
+                    Un nuevo pedido ha ingresado en la tienda.<br>Para conocer más sobre el mismo, haga click <a href='{$url}'>aquí</a>
+                ";
+                logger($html);
+                \Mail::send([], [], function (Message $message) use ($html,$configuraciones) {
+                    $message->to($configuraciones['AVISO_NUEVOS_PEDIDOS'])
+                    ->subject('Nuevo pedido en tienda')
+                    ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
+                    ->setBody($html, 'text/html');
+                });
+
+            }
+            catch(\Exception $ex)
+            {
+                logger($ex->getMessage());
+                return $ex->getMessage();
+            }
+        }
+
     }
 
 }
