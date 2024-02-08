@@ -149,11 +149,11 @@ $actual = $data['actual'];
                                 <div class="col-12">
                                     <div class="image slider-product">
                                         <div><img src="{{$actual->imagen_url}}" /></div>
-                                        @if (app()->getLocale() === 'es')
+                                        <!--if (app()->getLocale() === 'es')-->
                                             @foreach($actual->imagenes as $img)
                                                 <div><img src="{{$img->filename_url}}" /></div>
                                             @endforeach
-                                        @endif
+                                        <!--endif-->
                                     </div>
                                 </div>
 
@@ -164,7 +164,7 @@ $actual = $data['actual'];
                                                 <img src="{{$actual->imagen_url}}" />
                                             </div>
                                         </div>
-                                        @if (app()->getLocale() === 'es')
+                                        <!--if (app()->getLocale() === 'es')-->
                                             @foreach($actual->imagenes as $img)
                                             <div>
                                                 <div class="box-thumb">
@@ -174,7 +174,7 @@ $actual = $data['actual'];
                                                 </div>
                                             </div>
                                             @endforeach
-                                        @endif
+                                        <!--endif-->
                                     </div>
                                 </div>
                             </div>
