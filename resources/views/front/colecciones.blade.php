@@ -217,8 +217,11 @@ $actual = $data['actual'];
                                 <div class="links-producto row" style="margin-top: 15px; align-items: baseline;">
                                   <div class="col-12 col-md-12">
                                     <div class="d-flex mb-3 flex-wrap gap-3">
+                                       
                                         <div class="input-cantidad" v-if="aniadaActual.stock > 0">
+                                            <button class="btn-cantidad plus" @click="cambiarCantidad(carrito.item.cantidad + 1)">+</button>
                                             <input type="number" placeholder="1" :min="1" :max="cantMaxima(aniadaActual)" v-model="carrito.item.cantidad" @blur="checkCantidad(aniadaActual)">
+                                            <button class="btn-cantidad minus" @click="cambiarCantidad(carrito.item.cantidad - 1)">-</button>
                                         </div>
 
                                         <div class="shop" v-if="aniadaActual.stock > 0">

@@ -1731,14 +1731,45 @@ p{
 
 			.input-cantidad{
 				margin-right: 10px;
-				max-width: 65px;
+				max-width: 200px;
+				display: flex;
 
 				input{
-					padding: 3px; text-align: center; width: 100%;
+					padding: 3px; text-align: center; 
+					width: 50px;
+					border-width: 1px 0;
+					border-style: solid;
+					border-color: #363126;
 				}
 				input[type="number"]::-webkit-inner-spin-button,
 				input[type="number"]::-webkit-outer-spin-button {
-					opacity: 1;
+					opacity:0;
+					 -webkit-appearance: none;
+  					margin: 0;
+				}
+
+				.btn-cantidad{
+					border-radius: 0;
+					border-width: 1px;
+					border-style: solid;
+					border-color: #363126;
+					width: 40px;
+				    background-color: #cdcfad;
+					color: #363126;
+					font-size: 18px;
+					font-weight: bold;
+
+					&.plus{
+						border-radius: 4px 0 0 4px;
+					}
+
+					&.minus{
+						border-radius: 0 4px 4px 0;
+					}
+
+					&:hover{
+						color: #fff;
+					}
 				}
 			}
 
