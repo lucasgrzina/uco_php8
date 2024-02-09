@@ -48,25 +48,5 @@
 	</div>
 </section>
 
-<section class="section-almacenamiento bg-white  m-0" >
-	<div class="container">
-		<div class="col-12"><h2>{!! trans('front.paginas.colecciones.root.almacenamiento.titulo') !!}</h2></div>
-		<div class="col-12">
-			<div class="grid-items slider">
-				@foreach (trans('front.paginas.colecciones.root.almacenamiento.items') as $i => $item)
-				<div class="item">
-					<div class="text">
-						<h5>{!! trans('front.paginas.colecciones.root.almacenamiento.items.'.$i.'.titulo') !!}</h5>
-						<p>{!! trans('front.paginas.colecciones.root.almacenamiento.items.'.$i.'.subtitulo') !!}</p>
-					</div>
-					<img class="img-background" src="{{asset('img/almacenamiento-'. ($i).'.jpg')}}">
-				</div>
-				@endforeach
 
-			</div>
-		</div>
-	</div>
-
-
-</section>
 @endsection

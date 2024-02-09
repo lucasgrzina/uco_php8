@@ -34,13 +34,15 @@
 
         this.aniadaActual = _.find(this.actual.aniadas,{id: aniadaId});
         this.carrito.item.id = aniadaId;
-        this.cambiarCantidad(0);
+        this.cambiarCantidad(this.aniadaActual,0);
     }
 
-    _methods.cambiarCantidad = function (cantidad) {
+    _methods.cambiarCantidad = function (item, cantidad) {
 
-        Vue.set(this.carrito.item,'cantidad',cantidad);
-        $('#span-cantidad').html(cantidad);
+        if (cantidad >= 0 && cantidad <= this.cantMaxima(item)) {
+            Vue.set(this.carrito.item,'cantidad',cantidad);
+        }
+        //$('#span-cantidad').html(cantidad);
     }
 
     _methods.alCambiarCantidad = function(item, cantidad) {
@@ -60,7 +62,7 @@
             return false;
         }
 
-        this.cambiarCantidad(cantidad);
+        this.cambiarCantidad(item,cantidad);
     };
 
     _methods.cantMaxima = function(item) {
@@ -217,11 +219,11 @@ $actual = $data['actual'];
                                 <div class="links-producto row" style="margin-top: 15px; align-items: baseline;">
                                   <div class="col-12 col-md-12">
                                     <div class="d-flex mb-3 flex-wrap gap-3">
-                                       
+
                                         <div class="input-cantidad" v-if="aniadaActual.stock > 0">
-                                            <button class="btn-cantidad plus" @click="cambiarCantidad(carrito.item.cantidad + 1)">+</button>
+                                            <button class="btn-cantidad plus" @click="cambiarCantidad(aniadaActual,carrito.item.cantidad + 1)">+</button>
                                             <input type="number" placeholder="1" :min="1" :max="cantMaxima(aniadaActual)" v-model="carrito.item.cantidad" @blur="checkCantidad(aniadaActual)">
-                                            <button class="btn-cantidad minus" @click="cambiarCantidad(carrito.item.cantidad - 1)">-</button>
+                                            <button class="btn-cantidad minus" @click="cambiarCantidad(aniadaActual,carrito.item.cantidad - 1)">-</button>
                                         </div>
 
                                         <div class="shop" v-if="aniadaActual.stock > 0">
@@ -294,5 +296,31 @@ $actual = $data['actual'];
 </div>
 </div>
 </section>
+<section class="section-almacenamiento bg-white  m-0" >
+	<div class="container">
+		<div class="col-12">
+            <h2>{!! trans('front.paginas.colecciones.root.almacenamiento.titulo') !!}</h2>
 
+        </div>
+        <div class="col-12 text-center">
+            <p>{!! trans('front.paginas.colecciones.root.almacenamiento.subtitulo') !!}</p>
+        </div>
+		<div class="col-12">
+			<div class="grid-items slider">
+				@foreach (trans('front.paginas.colecciones.root.almacenamiento.items') as $i => $item)
+				<div class="item">
+					<div class="text">
+						<h5>{!! trans('front.paginas.colecciones.root.almacenamiento.items.'.$i.'.titulo') !!}</h5>
+						<p>{!! trans('front.paginas.colecciones.root.almacenamiento.items.'.$i.'.subtitulo') !!}</p>
+					</div>
+					<img class="img-background" src="{{asset('img/almacenamiento-'. ($i).'.jpg')}}">
+				</div>
+				@endforeach
+
+			</div>
+		</div>
+	</div>
+
+
+</section>
 @endsection

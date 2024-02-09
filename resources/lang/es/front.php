@@ -384,7 +384,8 @@ return [
                     'btn' => 'DESCUBRÍ'
                 ],
                 'almacenamiento' => [
-                    'titulo' => 'Almacenamiento de los vinos',
+                    'titulo' => 'Nuestras recomendaciones',
+                    'subtitulo' => 'Para maximizar el disfrute de nuestros vinos, les ofrecemos recomendaciones sobre el correcto almacenamiento, garantizando una experiencia excepcional',
                     'items' => [
                         '1' => ['titulo' => 'Oscuridad', 'subtitulo' => 'Mantener los vinos lejos de la luz, ya que los rayos UV pueden afectar su correcta evolución.'],
                         '2' => ['titulo' => 'Guarda', 'subtitulo' => 'Cada vino evoluciona de manera diferente, por lo que se recomienda seguir las instrucciones de su ficha técnica.'],

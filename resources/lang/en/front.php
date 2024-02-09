@@ -344,7 +344,8 @@ return [
                     'btn' => 'DISCOVER MORE'
                 ],
                 'almacenamiento' => [
-                    'titulo' => 'Wine storage',
+                    'titulo' => 'Our recommendations',
+                    'subtitulo' => 'To enhance your enjoyment of our wines, we offer recommendations for proper storage, ensuring an exceptional experience.',
                     'items' => [
                         '1' => ['titulo' => 'Darkness', 'subtitulo' => 'Keep the wines away from light, as UV rays can detract from their adequate development.'],
                         '2' => ['titulo' => 'Horizontal', 'subtitulo' => 'Each wine evolves differently. Please follow the instructions on its technical sheet.'],

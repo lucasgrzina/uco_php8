@@ -374,7 +374,8 @@ return [
                     'btn' => 'DESCUBRA'
                 ],
                 'almacenamiento' => [
-                    'titulo' => 'Armazenamento dos vinhos',
+                    'titulo' => 'Nossas recomendações',
+                    'subtitulo' => 'Para aprimorar seu desfrute de nossos vinhos, oferecemos recomendações para o armazenamento adequado, garantindo uma experiência excepcional',
                     'items' => [
                         '1' => ['titulo' => 'Escuridão', 'subtitulo' => 'Manter os vinhos longe da luz, já que os raios UV podem afetar a sua correta evolução.'],
                         '2' => ['titulo' => 'Horizontal', 'subtitulo' => 'Cada vinho evolui de maneira diferente, por isso, recomenda-se seguir as instruções presentes na ficha técnica.'],

@@ -1445,7 +1445,7 @@ p{
 		margin-bottom: 15px;
 	}
 
-	
+
 
 	@media(min-width: 769px) {
 		padding: 0px 0 60px;
@@ -1635,7 +1635,7 @@ p{
 		}
 		.wrapper{
 			width: 100%;
-			
+
 		}
 
 		.producto-item{
@@ -1650,7 +1650,7 @@ p{
 
 			.image{
 				width: 100%;
-				
+
 				margin: 0 auto;
 				img{
 					width: 100%;
@@ -1680,7 +1680,7 @@ p{
 						height: 30px;
 						display: block;
 						background-size: contain;
-						background-repeat: no-repeat;	
+						background-repeat: no-repeat;
 					}
 
 				}
@@ -1693,7 +1693,7 @@ p{
 						height: 30px;
 						display: block;
 						background-size: contain;
-						background-repeat: no-repeat;	
+						background-repeat: no-repeat;
 					}
 
 				}
@@ -1723,7 +1723,7 @@ p{
 							height: 40px;
 						}
 					}
-					
+
 				}
 
 
@@ -1733,9 +1733,9 @@ p{
 				margin-right: 10px;
 				max-width: 200px;
 				display: flex;
-
+                max-height: 33px;
 				input{
-					padding: 3px; text-align: center; 
+					padding: 3px; text-align: center;
 					width: 50px;
 					border-width: 1px 0;
 					border-style: solid;
@@ -1910,8 +1910,17 @@ p{
 	h2{
 
 		text-align: center;
-		margin-bottom: 50px;
+		margin-bottom: 20px;
 	}
+    p {
+        text-align: center;
+        font-size: 14px;
+        line-height: 18px;
+        margin-bottom: 50px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
 	.grid-items{
 		display: block;
