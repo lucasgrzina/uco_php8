@@ -33,6 +33,7 @@
         <link rel="stylesheet" href="{{asset('vendor/iziToast/iziToast.min.css')}}" integrity="" crossorigin="anonymous" />
         <link rel="stylesheet" href="{{asset('vendor/intlTellnput/css/intlTelInput.css')}}">
         <!-- Custom styles for this template -->
+        
         <link href="{{asset('css/style.css')}}?v=1.11{{uniqid()}}" rel="stylesheet">
         <style>
           /*UTILS*/
@@ -184,6 +185,8 @@
       <script src="{{asset('js/scripts/fadeChildren.js')}}?v=1.03"></script>
       <script src="{{asset('js/isotope-docs.min.js')}}"></script>
       <script src="{{asset('js/packery-mode.pkgd.min.js')}}"></script>
+      <script src="{{asset('js/hover-extended-magnify/extm.min.js')}}"></script>
+      <script src="{{asset('js/zoom-image.js')}}"></script>
       <script src="{{asset('js/sectionScroll.js')}}?v=0.<?php echo(uniqid());?>"></script>
       <script src="{{ asset('vendor/intlTellnput/intlTelInput.js') }}"></script>
 

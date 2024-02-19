@@ -150,10 +150,10 @@ $actual = $data['actual'];
                             <div class="row">
                                 <div class="col-12">
                                     <div class="image slider-product">
-                                        <div><img src="{{$actual->imagen_url}}" /></div>
+                                        <div><img class="item-img" src="{{$actual->imagen_url}}" /></div>
                                         <!--if (app()->getLocale() === 'es')-->
                                             @foreach($actual->imagenes as $img)
-                                                <div><img src="{{$img->filename_url}}" /></div>
+                                                <div><img class="item-img" src="{{$img->filename_url}}" /></div>
                                             @endforeach
                                         <!--endif-->
                                     </div>
@@ -163,7 +163,7 @@ $actual = $data['actual'];
                                     <div class="image slider-product-nav">
                                         <div>
                                             <div class="box-thumb">
-                                                <img src="{{$actual->imagen_url}}" />
+                                                <img  src="{{$actual->imagen_url}}" />
                                             </div>
                                         </div>
                                         <!--if (app()->getLocale() === 'es')-->
@@ -178,11 +178,14 @@ $actual = $data['actual'];
                                             @endforeach
                                         <!--endif-->
                                     </div>
-                                </div>
+                                </div>                                
                             </div>
 
 
                             <div class="info">
+                                <div class="img-zoom-container">
+                                  <div id="myresult" class="img-zoom-result"></div>
+                                </div>
                                 <div class="titulo">
                                     <h1 class="text-uppercase">{{$actual->titulo}}</h1>
                                 </div>

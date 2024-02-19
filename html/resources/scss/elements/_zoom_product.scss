@@ -1,0 +1,33 @@
+.img-zoom-container {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  /*set the size of the lens:*/
+  width: 100px;
+  height: 100px;
+}
+
+.img-zoom-lens:hover {
+ border: 1px solid #cccccc;
+}
+
+
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 400px;
+  height: 400px;
+  position: absolute;
+  left: -130px;
+  top: 80px;
+  z-index: 20;
+  overflow: hidden;
+  background-color: #fff;
+  
+}
