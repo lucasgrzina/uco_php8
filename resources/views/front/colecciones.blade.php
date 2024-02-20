@@ -95,7 +95,12 @@
         if (_this.aniadaActual) {
             _this.cambiarAniada(_this.actual.id, _this.aniadaActual.id);
         }
-
+        $(document).ready(function(){
+            $('.item-img').extm({
+                zoomElement:$('.img-zoom-result'),
+                zoomLevel: 1
+            });
+        });
     });
 </script>
 @endsection
@@ -178,7 +183,7 @@ $actual = $data['actual'];
                                             @endforeach
                                         <!--endif-->
                                     </div>
-                                </div>                                
+                                </div>
                             </div>
 
 
