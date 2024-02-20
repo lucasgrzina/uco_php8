@@ -21,7 +21,7 @@
 .img-zoom-result {
   border: 1px solid #d4d4d4;
   /*set the size of the result div:*/
-  width: 400px;
+  width: 329px;
   height: 400px;
   position: absolute;
   left: -130px;
@@ -29,5 +29,6 @@
   z-index: 20;
   overflow: hidden;
   background-color: #fff;
+  padding: 0 80px;
   
 }

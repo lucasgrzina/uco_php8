@@ -96,9 +96,19 @@
             _this.cambiarAniada(_this.actual.id, _this.aniadaActual.id);
         }
         $(document).ready(function(){
-            $('.item-img').extm({
+         /*   $('.item-img').extm({
                 zoomElement:$('.img-zoom-result'),
                 zoomLevel: 1
+            });*/
+
+            var itemsImg = 0;
+            $( ".item-img" ).each(function( index ) {
+                $(this).extm({
+                    zoomElement:$('#result_'+itemsImg),
+                    zoomLevel: 1
+                });
+
+                itemsImg++;
             });
         });
     });
@@ -189,7 +199,11 @@ $actual = $data['actual'];
 
                             <div class="info">
                                 <div class="img-zoom-container">
-                                  <div id="myresult" class="img-zoom-result"></div>
+                                  <div id="result_0" class="img-zoom-result"></div>
+                                  @foreach($actual->imagenes as $index => $img)
+                                    <div id="result_{{ $index + 1 }}" class="img-zoom-result"></div>
+                                  @endforeach
+
                                 </div>
                                 <div class="titulo">
                                     <h1 class="text-uppercase">{{$actual->titulo}}</h1>
