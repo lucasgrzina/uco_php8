@@ -70,6 +70,11 @@ return [
     'modulos' => [
         'suscripcion' => [
             'titulo' => 'Suscribite para recibir las novedades',
+            'labelNombre' => 'Nombre',
+            'labelApellido' => 'Apellido',
+            'labelEmail' => 'Email',
+            'placeholderNombre' => 'Ingrese su nombre',
+            'placeholderApellido' => 'Ingrese su apellido',
             'placeholderEmail' => 'Ingrese su e-mail',
             'btn' => 'ENVIAR',
             'chk' => 'Al suscribirse, aceptas los <a class="acepto" target="_blank" href="_link_tyc_">términos y condiciones</a>.',

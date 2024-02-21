@@ -68,6 +68,11 @@ return [
     'modulos' => [
         'suscripcion' => [
             'titulo' => 'Assine para receber as novidades.',
+            'labelNombre' => 'Nome',
+            'labelApellido' => 'Sobrenome',
+            'labelEmail' => 'Email',
+            'placeholderNombre' => 'Digite seu nome',
+            'placeholderApellido' => 'Digite seu sobrenome',
             'placeholderEmail' => 'Inserir e-mail',
             'btn' => 'ENVIAR',
             'chk' => 'Ao assinar, você está aceitando os <a class="acepto" target="_blank" href="_link_tyc_">termos e condições.</a>.',

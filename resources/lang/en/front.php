@@ -68,6 +68,11 @@ return [
     'modulos' => [
         'suscripcion' => [
             'titulo' => 'Subscribe to receive news.',
+            'labelNombre' => 'First Name',
+            'labelApellido' => 'Last Name',
+            'labelEmail' => 'Email',
+            'placeholderNombre' => 'Enter your first name',
+            'placeholderApellido' => 'Enter last name',
             'placeholderEmail' => 'Enter your e-mail',
             'btn' => 'Send',
             'chk' => 'By subscribing, you agree to the Terms and Conditions.',
