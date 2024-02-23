@@ -17,10 +17,10 @@ class NewsletterService extends AppBaseController
     public function guardar(CUNewslettersRequest $request) {
         try {
             if ($this->repository->findByField('email',$request->email)->count() < 1) {
-                $salida = $this->repository->create($request->only('email'));
-            } else {
-                throw new \Exception(trans('front.modulos.suscripcion.gracias'), 500);
-            }
+                $salida = $this->repository->create($request->only(['email','nombre','apellido','recibir_info']));
+            }/* else {
+                throw new \Exception(trans('front.modulos.suscripcion.gracias'), 501);
+            }*/
 
             return $this->sendResponse(['message' => trans('front.modulos.suscripcion.gracias')],'');
         } catch (\Exception $e) {

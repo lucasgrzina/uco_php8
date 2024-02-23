@@ -49,8 +49,10 @@ class Newsletters extends Model
 
 
     public $fillable = [
+        'nombre',
+        'apellido',
         'email',
-        //'enabled'
+        'recibir_info'
     ];
 
     /**
@@ -60,7 +62,7 @@ class Newsletters extends Model
      */
     protected $casts = [
         'email' => 'string',
-        //'acepto' => 'boolean'
+        'recibir_info' => 'boolean'
     ];
 
     /**
@@ -69,6 +71,8 @@ class Newsletters extends Model
      * @var array
      */
     public static $rules = [
+        'nombre' => 'required',
+        'apellido' => 'required',
         'email' => 'required|email|max:255',
         'acepto' => 'required|accepted'
     ];

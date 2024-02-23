@@ -36,7 +36,7 @@ class ContactoController extends AppBaseController
                 'tel_numero' => null,
                 'mensaje' => null,
                 'acepto' => false,
-                'recibir_info' => false
+                'recibir_info' => true
             ],
             'url_post_save' => route('service.contacto.guardar')
         ];

@@ -117,8 +117,11 @@
                 url_post_save: '{{route("service.newsletter.guardar")}}',
                 loading: false,
                 form: {
-                  email: null,
-                  submitted: false
+                    nombre: null,
+                    apellido: null,
+                    email: null,
+                    recibir_info: true,
+                    submitted: false
                 }
               }
           };

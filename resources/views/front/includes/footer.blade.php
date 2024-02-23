@@ -24,7 +24,7 @@
                     </div>
                   </div>
                   <div class="row-form">
-                        
+
                         <div class="form-check w-100">
                           <label class="form-check-label" for="acepto" style="z-index:999;">
                             <input class="form-check-input" v-model="newsletter.form.acepto" type="checkbox" name="acepto" id="acepto" :value="true">
@@ -33,11 +33,19 @@
                           </label>
                           <span class="lblmin">{!! str_replace('_link_tyc_',routeIdioma('terminosCondiciones'),trans('front.modulos.suscripcion.chk')) !!}</span>
                         </div>
+                        <div class="form-check w-100">
+                            <label class="form-check-label" for="acepto" style="z-index:999;">
+                              <input class="form-check-input" v-model="newsletter.form.recibir_info" type="checkbox" name="recibir_info" id="recibir_info" :value="true">
+                              <span class="checkmark"></span>
+                                &nbsp;
+                            </label>
+                            <span class="lblmin">{!! trans('front.paginas.contacto.form.recibir') !!}</span>
+                          </div>
                         <button type="button" class="btn-primary" @click="newsletterSubmit()" :disabled="newsletter.loading">
                         {{trans('front.modulos.suscripcion.btn')}}
                         </button>
                   </div>
-                  
+
               </form>
           </div>
       </div>

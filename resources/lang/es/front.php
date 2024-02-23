@@ -78,6 +78,7 @@ return [
             'placeholderEmail' => 'Ingrese su e-mail',
             'btn' => 'ENVIAR',
             'chk' => 'Al suscribirse, aceptas los <a class="acepto" target="_blank" href="_link_tyc_">términos y condiciones</a>.',
+            'chk2' => 'Acepto recibir información promocional',
             'gracias' => 'Bienvenida a Magia de Uco<br>¡Muchas gracias por suscribirte al newsletter!',
             'validacion' => [
                 'email.required' => 'Debe ingresar un email',
