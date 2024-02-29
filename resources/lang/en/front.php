@@ -40,7 +40,7 @@ return [
     ],
     'navMenuFooter' => [
         'links' => [
-            'home' => 'Inicio',
+            'home' => 'Home',
             'legado' => 'Legacy',
             'nuestroCompromiso' => 'Our Commitment',
             'colecciones' => 'Shop',
