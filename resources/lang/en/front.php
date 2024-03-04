@@ -78,9 +78,11 @@ return [
             'chk' => 'By subscribing, you agree to the Terms and Conditions.',
             'gracias' => 'Welcome to Magia de Uco<br>Thank you for signing up to our newsletter!',
             'validacion' => [
-                'email.required' => 'Debe ingresar un email',
-                'acepto.accepted' => 'Debe aceptar las bases y condiciones',
-                'acepto.required' => 'Debe aceptar las bases y condiciones'
+                'nombre.required' => 'The first name field is required',
+                'apellido.required' => 'The last name field is required',
+                'email.required' => 'The email field is required',
+                'acepto.accepted' => 'By subscribing, you agree to the Terms and Conditions.',
+                'acepto.required' => 'By subscribing, you agree to the Terms and Conditions.'
             ]
         ],
         'ageGate' => [

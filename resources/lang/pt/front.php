@@ -78,9 +78,11 @@ return [
             'chk' => 'Ao assinar, você está aceitando os <a class="acepto" target="_blank" href="_link_tyc_">termos e condições.</a>.',
             'gracias' => 'Bem-vindo à Magia de Uco<br>Obrigado por se inscrever em nossa newsletter!',
             'validacion' => [
-                'email.required' => 'Debe ingresar un email',
-                'acepto.accepted' => 'Debe aceptar las bases y condiciones',
-                'acepto.required' => 'Debe aceptar las bases y condiciones'
+                'nombre.required' => 'Digite seu nome',
+                'apellido.required' => 'Digite seu sobrenome',
+                'email.required' => 'Inserir e-mail',
+                'acepto.accepted' => 'Ao assinar, você está aceitando os termos e condições.',
+                'acepto.required' => 'Ao assinar, você está aceitando os termos e condições.'
             ]
         ],
         'ageGate' => [

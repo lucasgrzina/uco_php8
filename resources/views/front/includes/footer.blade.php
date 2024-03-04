@@ -4,7 +4,7 @@
 <section class="section-subscribirse">
   <div class="container">
       <div class="row">
-          <div class="col-12 fade_JS">
+          <div class="col-12 col-sm-10 col-md-8 mx-auto fade_JS">
               <h2>{{trans('front.modulos.suscripcion.titulo')}}</h2>
               <form >
                   <div class="row">
@@ -34,7 +34,7 @@
                           <span class="lblmin">{!! str_replace('_link_tyc_',routeIdioma('terminosCondiciones'),trans('front.modulos.suscripcion.chk')) !!}</span>
                         </div>
                         <div class="form-check w-100">
-                            <label class="form-check-label" for="acepto" style="z-index:999;">
+                            <label class="form-check-label" for="recibir_info" style="z-index:999;">
                               <input class="form-check-input" v-model="newsletter.form.recibir_info" type="checkbox" name="recibir_info" id="recibir_info" :value="true">
                               <span class="checkmark"></span>
                                 &nbsp;

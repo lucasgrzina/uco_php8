@@ -165,6 +165,8 @@ p{
 
 			padding-right: 50px;
 			padding-left: 0;
+            padding-top: 40px;
+            padding-bottom: 40px;
 		}
 		padding-left: 50px;
 		max-width: 400px;
@@ -782,11 +784,11 @@ p{
 	h2{
 		text-align: center;
 		font-family: $f-bold;
-		margin-bottom: 88px;
+		margin-bottom: 40px;
 
 		@include under($b-lg) {
 			font-size: 35px;
-			text-align: left;
+			text-align: center;
 			margin-bottom: 30px;
 			line-height: normal;
 		}
@@ -812,6 +814,7 @@ p{
 		}
 		label{
 			font-size: 14px;
+            font-weight: bold;
 			margin-bottom: 5px;
 		}
 
@@ -821,7 +824,7 @@ p{
 			background-color: transparent;
 			border-width: 0 0 1px;
 			width: 100%;
-			border-color: #363126;
+			border-color: #EDEBD9;
 			text-align: left;
 			font-family: $f-book;
 			font-size: 14px;
@@ -864,10 +867,10 @@ p{
 				height: 18px;
 				width: 18px;
 				background-color: transparent;
-				border-color: #000;
+				border-color: #BCC4A8;
 				border-width: 1px;
 				border-style: solid;
-				border-radius: 0;
+				border-radius: 2px;
 				pointer-events: none;
 				&:after {
 					content: "";
@@ -880,17 +883,18 @@ p{
 					top: 0px;
 					width: 6px;
 					height: 14px;
-					border: solid #656554;
+					border: solid #bcc4a8;
 					border-width: 0 2px 2px 0;
 					-webkit-transform: rotate(45deg);
 					-ms-transform: rotate(45deg);
 					transform: rotate(45deg);
 				}
+
 			}
 
 			&:hover .form-check-input{
 				~ .checkmark {
-					background-color: #ccc;
+					background-color: #EDEBD9;
 				}
 			}
 
@@ -903,9 +907,13 @@ p{
 				width: 0;
 
 				&:checked{
-
+                    ~ .checkmark {
+                        background-color: #EDEBD9;
+                        border-color: #bcc4a8;
+                    }
 					~ .checkmark:after {
 						display: block;
+
 					}
 				}
 

@@ -181,7 +181,7 @@ Route::prefix('mailing/respaldo')->group(function () {
 //Route::middleware(['check.country'])->group(function () {
 Route::get('/cambiar-idioma/{lang}/{desde?}', 'Front\HomeController@cambiarIdioma')->name('cambiarIdioma');
 Route::group(['prefix' => 'servicios'],function () {
-    Route::post('/newsletter/guardar', '\App\Services\NewsletterService@guardar')->name('service.newsletter.guardar');
+    //Route::post('{lang}/newsletter/guardar', '\App\Services\NewsletterService@guardar')->name('service.newsletter.guardar');
     Route::post('/contacto/guardar', '\App\Services\ContactoService@guardar')->name('service.contacto.guardar');
 });
 //});
@@ -242,7 +242,9 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|es|pt']],function 
         Route::get('/registro', 'Front\MiCuentaController@registro')->name('registro');
         Route::post('/registro', 'Auth\RegisterController@register')->name('registro-post');
     });
-
+    Route::group(['prefix' => 'servicios'],function () {
+        Route::post('/newsletter/guardar', '\App\Services\NewsletterService@guardar')->name('service.newsletter.guardar');
+    });
     Route::get('/', 'Front\HomeController@index')->name('home');
     Route::get(trans('front.rutas.legado'), 'Front\LegadoController@index')->name('legado');
     Route::get(trans('front.rutas.nuestroCompromiso').'/{slide?}', 'Front\NuestroCompromisoController@index')->name('nuestroCompromiso');

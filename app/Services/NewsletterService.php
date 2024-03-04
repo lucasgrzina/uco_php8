@@ -14,7 +14,7 @@ class NewsletterService extends AppBaseController
         $this->repository = $repo;
     }
 
-    public function guardar(CUNewslettersRequest $request) {
+    public function guardar($lang,CUNewslettersRequest $request) {
         try {
             if ($this->repository->findByField('email',$request->email)->count() < 1) {
                 $salida = $this->repository->create($request->only(['email','nombre','apellido','recibir_info']));

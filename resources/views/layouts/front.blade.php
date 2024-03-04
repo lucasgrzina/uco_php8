@@ -114,7 +114,7 @@
               usuario: {!! \Auth::check() ? json_encode(Arr::only(\Auth::user()->toArray(),['nombre','apellido','id'])) : 'null' !!},
               locale: '{!! app()->getLocale()!!}',
               newsletter: {
-                url_post_save: '{{route("service.newsletter.guardar")}}',
+                url_post_save: '{{routeIdioma("service.newsletter.guardar")}}',
                 loading: false,
                 form: {
                     nombre: null,
@@ -131,7 +131,7 @@
         <script>
             var hideAgeGate = {{ isset($hideAgeGate) && $hideAgeGate ? 'true' : 'false'}};
             function alert2(msg,title) {
-                var title = typeof title !== 'undefined' ? title : {!! "'" . trans('front.general.alert.atencion') . "'"!!};
+                var title = typeof title !== 'undefined' ? title : 'Magia De Uco';
                 btn1 = {text: "{{trans('front.general.alert.aceptar')}}"};
                 showAlert(title, msg, btn1) ;
             }
