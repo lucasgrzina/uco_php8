@@ -91,7 +91,7 @@
             var access = document.getElementById("section-colecciones");
             access.scrollIntoView();
 
-        }, 500);
+        }, 1000);
         if (_this.aniadaActual) {
             _this.cambiarAniada(_this.actual.id, _this.aniadaActual.id);
         }
