@@ -254,7 +254,7 @@
     margin-right: 2px;
     font-weight: 700;
     border-width: 1.5px;
-    
+
     background-color: transparent;
     color: $c-darker;
     box-shadow: none;
@@ -286,9 +286,28 @@
     align-items: center;
     justify-content: center;
     span{
-        font-size: 14px; 
+        font-size: 14px;
         font-weight: 400;
         color: $c-darker;
         text-transform: uppercase;
     }
+}
+
+.btn-ppal {
+    border: 1px solid #9C9C9B;
+    margin-right: 2px;
+    font-weight: 600;
+    border-width: 1.5px;
+    font-size: 13px;
+    background-color: transparent;
+    color: $c-darker;
+    box-shadow: none;
+
+    &.active, &:hover, &:focus{
+
+        background-color: #cdcfad;
+        box-shadow: none !important;
+        outline: none;
+    }
+
 }

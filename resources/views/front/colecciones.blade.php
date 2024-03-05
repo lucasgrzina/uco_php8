@@ -2,14 +2,7 @@
 @section('css')
 @parent
 <style>
-.btn-aniadas.active {
-    background:#cdcfad;
-}
-.btn-aniadas:hover {
-    background:#cdcfad;
 
-    /*border-width: 2px;*/
-}
 
 </style>
 @endsection
@@ -211,7 +204,7 @@ $actual = $data['actual'];
                                 <div class="w-100">
                                     <button v-for="aniada in actual.aniadas"
                                             @click="cambiarAniada(actual.id, aniada.id)"
-                                            class="btn btn-secondary btn-aniadas"
+                                            class="btn btn-ppal"
                                             :class="{ 'active': aniada.id === aniadaActual.id }"
                                             type="button">
                                         <span>(% aniada.anio %)</span>
@@ -230,7 +223,7 @@ $actual = $data['actual'];
                                 <div class="links-producto" v-if="aniadaActual.stock > 0" style="padding-bottom: 0; margin-top: 10px;">
 
                                     <a href="https://www.mercadopago.com.ar/ayuda/19301" target="blank">
-                                        <div class="label-info" >
+                                        <div class="btn btn-ppal" >
                                           <span >MEDIOS DE PAGO</span>
                                         </div>
                                     </a>
@@ -249,10 +242,10 @@ $actual = $data['actual'];
                                         </div>
 
                                         <div class="shop" v-if="aniadaActual.stock > 0">
-                                            <a href="javascript:void(0)" class="btn btn-brown m-0 mr-2" style="text-transform: uppercase;font-weight: bold;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
+                                            <a href="javascript:void(0)" class="btn btn-ppal m-0 mr-2" style="text-transform: uppercase;font-weight: 900;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
                                         </div>
                                         <div class="shop">
-                                            <a :href="aniadaActual.ficha_url" class="label-info mb-3 btn-ficha d-inline-block" target="_blank"  v-if="aniadaActual.ficha">
+                                            <a :href="aniadaActual.ficha_url" class="btn btn-ppal mb-3 text-uppercase d-inline-block" target="_blank"  v-if="aniadaActual.ficha">
                                                 <span>{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</span>
                                             </a>
                                         </div>

@@ -134,8 +134,8 @@ p{
 		&.col-text-end {
 			justify-content: end;
 			-webkit-justify-content: flex-end;
-			align-items: flex-end;
-			-webkit-align-items: flex-end;
+			/*align-items: flex-end;
+			-webkit-align-items: flex-end;*/
 		}
 		display: flex;
 		align-items:center;
@@ -169,7 +169,7 @@ p{
             padding-bottom: 40px;
 		}
 		padding-left: 50px;
-		max-width: 400px;
+		max-width: 500px;
 		@include under($b-md) {
 			padding-bottom: 24px;
 			padding-left: 0;
@@ -1769,7 +1769,7 @@ p{
 					border-style: solid;
 					border-color: #363126;
 					width: 40px;
-				    background-color: #cdcfad;
+				    background-color: transparent;
 					color: #363126;
 					font-size: 18px;
 					font-weight: bold;
@@ -1783,7 +1783,8 @@ p{
 					}
 
 					&:hover{
-						color: #fff;
+						/*color: #fff;*/
+                        background-color: #cdcfad;
 					}
 				}
 			}
