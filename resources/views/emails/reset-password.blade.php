@@ -164,7 +164,7 @@
                                                 <td>
                                                     <div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #f5f5f5; border-width:0 55px 55px 55px;     border-style: solid; font-weight: 400; padding:0; background-color: #ffffff; text-align: center;">
                                                         <img src="{{asset('img/mailings/'.trans('emails.recuperar.imagenes.recupera'))}}" border="0" width="100%;" height="auto" >
-                                                        
+
 
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; padding: 15px; margin: 0 auto;">
                                                             {!! trans('emails.recuperar.linea1') !!} {{$clave}}
@@ -335,7 +335,7 @@
 
                                                                                                     <td>
 
-                                                                                                        <a href="https://linkedin.com/" target="_blank">
+                                                                                                        <a href="https://ar.linkedin.com/company/magiadeuco" target="_blank">
                                                                                                             <img src="{{asset('img/mailings/ico_linkedin.png')}}" width="27" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 27px; height: 32px;">
                                                                                                         </a>
 
