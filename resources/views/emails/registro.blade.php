@@ -466,6 +466,14 @@
 
 																								</td>
 
+																								<td>
+
+																									<a href="https://twitter.com/" target="_blank">
+																										<img src="{{asset('img/mailings/ico_twitter.png')}}" width="27" height="32" border="0" style="border: 0 none; display: block; margin: 0 auto; width: 27px; height: 32px;">
+																									</a>
+
+																								</td>
+
 
 																							</tr>
 
