@@ -104,6 +104,14 @@ class HomeSliderController extends CrudAdminController
         return view($this->viewPrefix.'cu')->with('data',$this->data);
     }
 
+    public function editLang($id, $lang)
+    {
+        parent::edit($id,$lang);
+        $this->data['info'] = [
+            'secciones' => array_keys(config('constantes.headers'))
+        ];
+        return view($this->viewPrefix.'cu')->with('data',$this->data);
+    }
 
     public function update($id, CUHomeSliderRequest $request)
     {
