@@ -55,7 +55,7 @@ class CheckoutController extends AppBaseController
             'form' => [
                 'registrado_id' => auth()->user()->id,
                 'email' => auth()->user()->email,
-                'recibir' => auth()->user()->newsletter()->count() > 0,
+                'recibir' => true,
                 'envio_retiro' => 'E',
                 'envio_retiro_id' => null,
                 'tipo_factura' => null,
