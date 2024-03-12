@@ -285,7 +285,7 @@ class CheckoutController extends AppBaseController
             $pedido = $pedidosRepo->altaDesdeCarrito($dataPedido, $items);
 
             if ($request->get('recibir',0)) {
-                $srvNewsletter->guardar(new CUNewslettersRequest($request->only('email')));
+                $srvNewsletter->guardar(app()->getLocale(),new CUNewslettersRequest($request->only('email')));
             }
 
             if ($pedido->tipo_factura == 'A') {
