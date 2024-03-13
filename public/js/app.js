@@ -43,8 +43,9 @@ _methods.toastError = function(mensaje,titulo) {
             return false;
         }
 
+        console.debug(_generalData.trans);
         if (cantidad < 1) {
-            alert2('Debe indicar una cantidad mayor a 0');
+            alert2(_generalData.trans.paginas.colecciones.interna.mayorCero);
             return false;
         }
 

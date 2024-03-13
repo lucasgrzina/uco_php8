@@ -364,7 +364,9 @@ return [
                 'porCompras' => 'Envio gratuito en compras superiores a AR$ _COMPRAS_SUPERIORES_.',
                 'btnAgregar' => 'Añadir al shop',
                 'sinStock' => 'Agotado',
-                'ultUnidades' => 'Últimas _CANT_ unidades disponibles'
+                'ultUnidades' => 'Últimas _CANT_ unidades disponibles',
+                'mayorCero' => 'Debe indicar una cantidad mayor a 0.',
+                'metodoPago' => 'Método de pago'
             ],
             'root' => [
                 'titulo' => 'Colecciones',

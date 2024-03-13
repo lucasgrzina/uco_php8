@@ -79,10 +79,27 @@
         return this.aniadaActual.stock == 0 ? "{{trans('front.paginas.colecciones.interna.sinStock')}}" : "{{trans('front.paginas.colecciones.interna.ultUnidades')}}".replace('_CANT_',this.aniadaActual.stock);
     }
 
+    function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+    };
+    }
+
     this._mounted.push(function(_this) {
         setTimeout(function() {
+            const windowInnerWidth  = window.innerWidth;
             var access = document.getElementById("section-colecciones");
-            access.scrollIntoView();
+            if (windowInnerWidth > 1024) {
+                const coord = getOffset(access);
+                coord.top-= 100;
+                window.scrollTo(coord);
+            } else {
+                
+                access.scrollIntoView();
+            }
+            
 
         }, 1000);
         if (_this.aniadaActual) {
@@ -224,7 +241,7 @@ $actual = $data['actual'];
 
                                     <a href="https://www.mercadopago.com.ar/ayuda/19301" target="blank">
                                         <div class="btn btn-ppal" >
-                                          <span >MEDIOS DE PAGO</span>
+                                          <span class="text-uppercase">{!! trans('front.paginas.colecciones.interna.metodoPago') !!}</span>
                                         </div>
                                     </a>
 

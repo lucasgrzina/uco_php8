@@ -51,6 +51,9 @@
 <section class="section-almacenamiento bg-white  m-0" >
 	<div class="container">
 		<div class="col-12"><h2>{!! trans('front.paginas.colecciones.root.almacenamiento.titulo') !!}</h2></div>
+        <div class="col-12 text-center">
+            <p>{!! trans('front.paginas.colecciones.root.almacenamiento.subtitulo') !!}</p>
+        </div>		
 		<div class="col-12">
 			<div class="grid-items slider">
 				@foreach (trans('front.paginas.colecciones.root.almacenamiento.items') as $i => $item)
