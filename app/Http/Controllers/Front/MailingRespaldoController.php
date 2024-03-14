@@ -21,6 +21,7 @@ class MailingRespaldoController extends AppBaseController
 
     public function registro($id,$locale='es')
     {
+        app()->setLocale($locale);
         $registrado = Registrado::find($id);
         $markdown = new Markdown(view(), config('mail.markdown'));
 
