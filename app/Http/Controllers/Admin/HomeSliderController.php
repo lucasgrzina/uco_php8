@@ -106,10 +106,13 @@ class HomeSliderController extends CrudAdminController
 
     public function editLang($id, $lang)
     {
+        \App::setLocale($lang);
         parent::edit($id,$lang);
+        $this->data['selectedItem'] = array_merge($this->data['selectedItem']->toArray(),['lang' => $lang]);
         $this->data['info'] = [
             'secciones' => array_keys(config('constantes.headers'))
         ];
+        //dd($this->data);
         return view($this->viewPrefix.'cu')->with('data',$this->data);
     }
 

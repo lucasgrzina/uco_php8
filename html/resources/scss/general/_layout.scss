@@ -680,8 +680,11 @@ p{
 					letter-spacing: 0.3px;
 				}
 				p{
-					font-family: $f-book;
+					font-family: $f-book!important;
 					color: #030303;
+				}
+                span{
+					font-family: $f-book!important;
 				}
 			}
 		}
@@ -1669,14 +1672,16 @@ p{
 				margin: 0 auto;
 				img{
 					width: 100%;
-					max-width: 100px;
+					max-width: 290px;
 				}
 
 				@include under($b-lg) {
 					/*display: none;*/
 				}
 			}
-
+            .slick-next {
+                right: -15px!important;
+            }
 			.slider-product {
 				max-width: 300px;
 
