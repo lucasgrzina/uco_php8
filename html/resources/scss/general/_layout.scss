@@ -1671,8 +1671,9 @@ p{
 
 				margin: 0 auto;
 				img{
-					width: 100%;
+					/*width: 100%;*/
 					max-width: 290px;
+                    height: 500px;
 				}
 
 				@include under($b-lg) {
