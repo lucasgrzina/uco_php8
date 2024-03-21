@@ -672,6 +672,9 @@ p{
 					justify-content: center;
 					display: flex;
 				}
+                h1,h2,h3,h4,h5,h6 {
+                    font-weight: initial;
+                }
 				h3{
 					font-family: $f-bold;
 					color: #030303;
