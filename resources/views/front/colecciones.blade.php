@@ -96,10 +96,10 @@
                 coord.top-= 100;
                 window.scrollTo(coord);
             } else {
-                
+
                 access.scrollIntoView();
             }
-            
+
 
         }, 1000);
         if (_this.aniadaActual) {
@@ -237,7 +237,7 @@ $actual = $data['actual'];
                                     </div>
                                 </div>
 
-                                <div class="links-producto" v-if="aniadaActual.stock > 0" style="padding-bottom: 0; margin-top: 10px;">
+                                <div class="links-producto" v-if="actual.vendible && aniadaActual && aniadaActual.stock > 0" style="padding-bottom: 0; margin-top: 10px;">
 
                                     <a href="https://www.mercadopago.com.ar/ayuda/19301" target="blank">
                                         <div class="btn btn-ppal" >
@@ -249,7 +249,7 @@ $actual = $data['actual'];
                                 </div>
 
                                 <div class="links-producto row" style="margin-top: 15px; align-items: baseline;">
-                                  <div class="col-12 col-md-12">
+                                  <div v-if="actual.vendible && aniadaActual" class="col-12 col-md-12">
                                     <div class="d-flex mb-3 flex-wrap gap-3">
 
                                         <div class="input-cantidad" v-if="aniadaActual.stock > 0">
