@@ -12,7 +12,16 @@
         <meta property="og:title" content="Magia de Uco" />
         <meta property="og:image" content="" />
         <!-- Favicon-->
-        <link rel="icon" type="image/jpg" href="{{asset('img/ico/64 x 64 .png')}}" />
+        <link rel="shortcut icon" href="{{asset('img/ico/favicon.ico')}}"/>
+        <link rel="icon" sizes="16x16 32x32" href="{{asset('img/ico/favicon.ico')}}"/>
+        <link rel="mask-icon" href="{{asset('img/ico/favicon.svg')}}" color="#17181A"/>
+        <link rel="icon" href="{{asset('img/ico/favicon.ico')}}"/>
+        <link rel="apple-touch-icon-precomposed" href="{{asset('img/ico/apple-icon-60x60.png')}}"/>
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="{{asset('img/ico/apple-icon-152x152.png')}}"/>
+        <link rel="apple-touch-icon-precomposed" sizes="167x167" href="{{asset('img/ico/apple-icon-152x152.png')}}"/>
+        <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{asset('img/ico/apple-icon-180x180.png')}}"/>
+
+        <!--link rel="icon" type="image/jpg" href="{{asset('img/ico/64 x 64 .png')}}" /-->
         <link rel="apple-touch-icon" sizes="57x57" href="{{asset('img/ico/apple-icon-57x57.png')}}">
         <link rel="apple-touch-icon" sizes="60x60" href="{{asset('img/ico/apple-icon-60x60.png')}}">
         <link rel="apple-touch-icon" sizes="72x72" href="{{asset('img/ico/apple-icon-72x72.png')}}">
