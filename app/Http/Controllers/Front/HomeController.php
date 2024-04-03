@@ -45,7 +45,7 @@ class HomeController extends AppBaseController
         {
             app()->setLocale($lang);
             $cookie = \Cookie::make('uco_idioma', $lang, 518400);
-
+            logger($desde);
             $desdePartes = explode('.',$desde);
             $desde = $desdePartes[0];
 
@@ -84,6 +84,14 @@ class HomeController extends AppBaseController
                     break;
                 case 'politicasPrivacidad':
                     $to .= trans('front.rutas.pp');
+                    break;
+                case 'novedades':
+                    $params = explode('|',request()->get('params'));
+                    if (count($params) > 1) {
+                        $to.= trans("front.rutas.{$desde}").'/'.$params[1];
+                    } else {
+                        $to.= trans("front.rutas.{$desde}");
+                    }
                     break;
                 default:
                     $to .= trans('front.rutas.'.$desde);
