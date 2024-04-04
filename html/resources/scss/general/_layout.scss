@@ -585,6 +585,11 @@ p{
 
 	a{
 		margin-bottom: 25px;
+        text-decoration: none!important;
+	}
+
+    a:hover{
+        text-decoration: underline!important;
 	}
 
 	@include under($b-md) {
