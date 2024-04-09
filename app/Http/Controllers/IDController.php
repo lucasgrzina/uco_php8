@@ -31,7 +31,7 @@ class IDController extends Controller
         {
             Mail::raw('Ya estás participando', function($message)
             {
-                $message->from('tienda@luigibosca.com', 'Felicitaciones');
+                //$message->from('tienda@luigibosca.com', 'Felicitaciones');
 
                 $message->to('lucasgrzina@gmail.com');
 
