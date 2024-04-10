@@ -588,8 +588,12 @@ p{
         text-decoration: none!important;
 	}
 
-    a:hover{
+    a:hover:not(.btn-primary){
         text-decoration: underline!important;
+	}
+
+    a:hover p{
+        text-decoration: none!important;
 	}
 
 	@include under($b-md) {
@@ -1469,6 +1473,7 @@ p{
 	@include under($b-lg) {
 		padding: 30px 0;
 		margin-bottom: 15px;
+        margin-top: 80px;
 	}
 
 
