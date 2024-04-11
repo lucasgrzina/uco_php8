@@ -572,12 +572,35 @@ p{
 		}
 
 	}
+    &.home {
+        a {
 
+            &:hover {
+                h3 {
+                    text-decoration: underline!important;
+                }
+                /*&:not(.btn-primary) {
+                    text-decoration: underline;
+                }
+                p {
+                    text-decoration: none!important;
+                }*/
+            }
+        }
+    }
 	&.big{
 		background-color: #ffffff;
 		margin-bottom: 0;
 
+        a {
+            text-decoration: none!important;
+            &:hover {
+                &:not(.btn-primary) {
 
+                    text-decoration: underline!important;
+                }
+            }
+        }
 	}
 	h2{
 		margin-bottom: 43px;
@@ -585,16 +608,14 @@ p{
 
 	a{
 		margin-bottom: 25px;
-        text-decoration: none!important;
-	}
 
-    a:hover:not(.btn-primary){
-        text-decoration: underline!important;
 	}
-
-    a:hover p{
+    p {
         text-decoration: none!important;
-	}
+    }
+
+    /**/
+
 
 	@include under($b-md) {
 		.container{
