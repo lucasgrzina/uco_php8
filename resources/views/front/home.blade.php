@@ -153,7 +153,7 @@
 </section-->
 
 @if (isset($data['novedades']) && count($data['novedades']) > 0)
-	<section class="section-novedades " >
+	<section class="section-novedades home" >
 		<div class="container">
 			<div class="row">
                 <div class="col-lg-4">
@@ -171,7 +171,7 @@
                                     <div class="info fade_JS">
                                         <span class="date">{{$item['fecha_corta']}}</span>
                                         <h3>{{$item['titulo']}}</h3>
-                                        <p>{!!$item['bajada']!!}</p>
+                                        <p style="text-decoration: none!important;">{!!$item['bajada']!!}</p>
                                     </div>
                                 </a>
                             @endforeach

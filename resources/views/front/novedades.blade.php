@@ -7,7 +7,7 @@
     @parent
     <script type="text/javascript">
         var _data = {!! json_encode($data) !!};
-        
+
         _methods.verNotaCompleta = function() {
             this.novedades.notaCompleta = true;
         }
@@ -18,11 +18,11 @@
 @endsection
 @section('content')
 @include('front.modules.module-full-slider',['items' => $data['slides']])
-<section class="section-novedades big">
+<section class="section-novedades big nota">
 	<div class="container">
 		<div class="row ">
 			<div class="col-12 ">
-				<div class="grid-novedades only-1">	
+				<div class="grid-novedades only-1">
 					<div class="item item-1">
 						<img src="{{$data['novedades']['actual']->foto_url}}">
 						<div class="info">
@@ -30,7 +30,7 @@
 							<h3>{{$data['novedades']['actual']->titulo}}</h3>
 							<p>{{$data['novedades']['actual']->bajada}}</p>
                             {!! $data['novedades']['actual']->cuerpo !!}
-							
+
 						</div>
 					</div>
 				</div>
@@ -49,14 +49,14 @@
                                     <h3>{{$item->titulo}}</h3>
                                     <p>{{$item->bajada}}</p>
                                 </div>
-                            </a>                            
+                            </a>
                         @endforeach
 					</div>
 				</div>
-			</div>                
+			</div>
             endif-->
 
-			
+
 		</div>
         @if (count($data['novedades']['items']) > 0)
 		<div class="row mt-5">
@@ -72,12 +72,12 @@
                                     <span class="date">{{formatoFechaNota($item->fecha)}}</span>
                                     <h3>{{$item->titulo}}</h3>
                                 </div>
-                            </a>                            
+                            </a>
                         </div>
-                    @endforeach                    
+                    @endforeach
 
 
-					
+
 						<!--a href="#" class="item item-1">
 							<img src="assets/img/novedad-1.jpg">
 							<div class="info">
@@ -152,4 +152,4 @@
         @endif
 	</div>
 </section>
-@endsection  
+@endsection
