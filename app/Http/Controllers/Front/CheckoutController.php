@@ -194,6 +194,7 @@ class CheckoutController extends AppBaseController
             //logInfo([$request->pais->codigo, $request->cp]);
 
             $pais = Pais::find($request->pais_id);
+
             $respuesta = $this->upsService->cotizarEnvio($pais->codigo, $request->cp, $request->calle, $request->ciudad, $productos);
             $salida = $respuesta;
 

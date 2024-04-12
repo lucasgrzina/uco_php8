@@ -1,106 +1,157 @@
 <?php
 namespace App\Services;
 
-use App\Http\Controllers\AppBaseController;
-use App\Packaging;
-use \Ups\Entity\Shipment;
 use Exception;
+use App\Packaging;
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Uri;
+use App\Http\Controllers\AppBaseController;
 use Illuminate\Database\Eloquent\Collection;
 
 class UPSService extends AppBaseController
 {
+    protected $ratingClient;
+    protected $client;
+    protected $config;
     public function __construct()
     {
-
+        $this->config = config('ups');
+        $this->client = new Client([
+            'verify' => false,
+            'defaults' => [
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-Type' => 'application/json'
+                ],
+                'timeout' => 30000
+            ]
+        ]);
     }
 
     public function cotizarEnvio($codigoPais, $codigoPostal, $calle, $ciudad, $productos)
     {
-        $rate = new \Ups\Rate(config('ups.UPS_ACCESS_KEY'), config('ups.UPS_USERID'), config('ups.UPS_PASSWORD'), config('ups.UPS_INTEGRATION'));
         try {
-            $shipment = new \Ups\Entity\Shipment();
-
-            $shipper = $shipment->getShipper();
-            $shipper->setShipperNumber(config('ups.UPS_USERID'));
-            $shipper->setName(config('ups.DIRECCION_DESDE.NOMBRE'));
-            $shipper->setAttentionName(config('ups.DIRECCION_DESDE.NOMBRE'));
-            $shipperAddress = $shipper->getAddress();
-            $shipperAddress->setAddressLine1(config('ups.DIRECCION_DESDE.DIRECCION'));
-            $shipperAddress->setPostalCode(config('ups.DIRECCION_DESDE.CODIGO_POSTAL'));
-            $shipperAddress->setCity(config('ups.DIRECCION_DESDE.PROVINCIA'));
-            $shipperAddress->setCountryCode(config('ups.DIRECCION_DESDE.PAIS'));
-            $shipper->setAddress($shipperAddress);
-            $shipper->setEmailAddress(config('ups.EMAIL'));
-            $shipper->setPhoneNumber(config('ups.TELEFONO'));
-            $shipment->setShipper($shipper);
-
-            $address = new \Ups\Entity\Address();
-            $address->setAttentionName(config('ups.DIRECCION_DESDE.NOMBRE'));
-            $address->setAddressLine1(config('ups.DIRECCION_DESDE.DIRECCION'));
-            $address->setCity(config('ups.DIRECCION_DESDE.PROVINCIA'));
-            $address->setCountryCode(config('ups.DIRECCION_DESDE.PAIS'));
-            $address->setPostalCode(config('ups.DIRECCION_DESDE.CODIGO_POSTAL'));
-
-            $shipFrom = new \Ups\Entity\ShipFrom();
-            $shipFrom->setAddress($address);
-
-            $shipment->setShipFrom($shipFrom);
-
-            $address = new \Ups\Entity\Address();
-            $address->setAttentionName('Hasta');
-            $address->setAddressLine1($calle);
-            $address->setCity($ciudad);
-            $address->setCountryCode($codigoPais);
-            $address->setPostalCode($codigoPostal);
-
-            $shipTo = new \Ups\Entity\ShipTo();
-            $shipTo->setAddress($address);
-
-            $shipment->setShipTo($shipTo);
-
+            $upsUserId = config('ups.UPS_USERID');
+            $packages = [];
+            $totalWeight = 0;
             $cajasEnvio = $this->calcularCajas($productos);
-            $peso = 0;
             foreach($cajasEnvio as $caja)
             {
-                $package = new \Ups\Entity\Package();
-                $package->getPackagingType()->setCode(\Ups\Entity\PackagingType::PT_PACKAGE);
-                $package->getPackageWeight()->setWeight($caja->peso);
-                $peso += $caja->peso;
-                // if you need this (depends of the shipper country)
-                $weightUnit = new \Ups\Entity\UnitOfMeasurement;
-                $weightUnit->setCode("KGS");
-                $package->getPackageWeight()->setUnitOfMeasurement($weightUnit);
-
-                $dimensions = new \Ups\Entity\Dimensions();
-                $dimensions->setHeight($caja->alto);
-                $dimensions->setWidth($caja->ancho);
-                $dimensions->setLength($caja->largo);
-
-                $unit = new \Ups\Entity\UnitOfMeasurement;
-                $unit->setCode("CM");
-
-                $dimensions->setUnitOfMeasurement($unit);
-                $package->setDimensions($dimensions);
-
-                $shipment->addPackage($package);
+                $package = [
+                    "PackagingType" => ["Code" => "02", "Description" => "Package"],
+                    "Dimensions" => [
+                        "UnitOfMeasurement" => ["Code" => "CM"],
+                        "Length" => $caja->largo,
+                        "Width" => $caja->ancho,
+                        "Height" => $caja->alto,
+                    ],
+                    "PackageWeight" => [
+                        "UnitOfMeasurement" => ["Code" => "KGS"],
+                        "Weight" => "{$caja->peso}",
+                    ],
+                ];
+                $totalWeight+= (float)$caja->peso;
+                $packages[] = $package;
             }
 
-            $service = new \Ups\Entity\Service;
-            $service->setCode(\Ups\Entity\Service::S_SAVER);
-            $service->setDescription($service->getName());
-            $shipment->setService($service);
+            $body = [
+                "RateRequest" => [
+                    "Request" => [
+                        "RequestOption" => "Rate",
+                        "SubVersion" => "v2205",
+                        "TransactionReference" => ["CustomerContext" => 'Rate'],
+                    ],
+                    "Shipment" => [
+                        "ShipmentRatingOptions" => ["NegotiatedRatesIndicator" => "Y"],
+                        "Shipper" => [
+                            "Name" => config('ups.DIRECCION_DESDE.NOMBRE'),
+                            "ShipperNumber" => "{$upsUserId}",
+                            "Address" => [
+                                "AddressLine" => config('ups.DIRECCION_DESDE.DIRECCION'),
+                                "City" => config('ups.DIRECCION_DESDE.PROVINCIA'),
+                                //"StateProvinceCode" => config('ups.DIRECCION_DESDE.PROVINCIA'),
+                                "PostalCode" => config('ups.DIRECCION_DESDE.CODIGO_POSTAL'),
+                                "CountryCode" => config('ups.DIRECCION_DESDE.PAIS'),
+                            ],
+                        ],
+                        "ShipTo" => [
+                            "Name" => $calle,
+                            "Address" => [
+                                "AddressLine" =>$calle,
+                                "City" => $ciudad,
+                                //"StateProvinceCode" => $ciudad,
+                                "PostalCode" => $codigoPostal,
+                                "CountryCode" => $codigoPais,
+                            ],
+                        ],
+                        "ShipFrom" => [
+                            "Name" => config('ups.DIRECCION_DESDE.NOMBRE'),
+                            "Address" => [
+                                "AddressLine" => config('ups.DIRECCION_DESDE.DIRECCION'),
+                                "City" => config('ups.DIRECCION_DESDE.PROVINCIA'),
+                                //"StateProvinceCode" => config('ups.DIRECCION_DESDE.PROVINCIA'),
+                                "PostalCode" => config('ups.DIRECCION_DESDE.CODIGO_POSTAL'),
+                                "CountryCode" => config('ups.DIRECCION_DESDE.PAIS'),
+                            ],
+                        ],
+                        "ShipmentTotalWeight" => [
+                            "UnitOfMeasurement" => [
+                                "Code" => "KGS",
+                                "Description" => "KILOS",
+                            ],
+                            "Weight" => "{$totalWeight}",
+                        ],
+                        //"NumOfPieces" => "1",
+                        "Package" => $packages,
+                        "PaymentDetails" => [
+                            "ShipmentCharge" => [
+                                "Type" => "01",
+                                "BillShipper" => ["AccountNumber" => "{$upsUserId}"],
+                            ],
+                        ],
+                        "DeliveryTimeInformation" => [
+                            "PackageBillType" => "03"
+                        ],
+                    ],
+                ],
+            ];
 
-            $rateInformation = new \Ups\Entity\RateInformation;
-            $rateInformation->setNegotiatedRatesIndicator(1);
-            $rateInformation->setRateChartIndicator(1);
-            $shipment->setRateInformation($rateInformation);
-            $resultado = $rate->getRate($shipment);
+            $respuesta = [];
+            // Get shipment info
+
+            $token = $this->getAccessToken();
+
+            $uri = new Uri($this->config['URL_RATING']);
+
+            $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
+                'Content-Type' => 'application/json',
+                'Authorization' => 'Bearer '.$token
+            ],json_encode($body,JSON_HEX_QUOT));
+
+
+            try {
+                $response = $this->client->send($request);
+                $resultado = json_decode($response->getBody());
+
+            }  catch (\Exception $ex) {
+                $response = json_decode($ex->getResponse()->getBody()->getContents(), true);
+                throw new \Exception($ex->getMessage(), 1);
+
+                //\Log::channel('consola')->info("UPS - ". $ex->getMessage());
+                //dd("SAP - ". $ex->getMessage());
+            }
+
+
+
 
             $dolarOficial = obtenerDolarUPS();
             return [
                 'cotizacion' => $dolarOficial,
-                'pesos' => ($resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue * $dolarOficial),
-                'dolares' => $resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue
+                'pesos' => $resultado->RateResponse->RatedShipment->NegotiatedRateCharges->TotalCharge->MonetaryValue * $dolarOficial,
+                'dolares' => $resultado->RateResponse->RatedShipment->NegotiatedRateCharges->TotalCharge->MonetaryValue
+                //'pesos' => ($resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue * $dolarOficial),
+                //'dolares' => $resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue
             ];
         } catch (Exception $e) {
             throw $e;
@@ -175,144 +226,165 @@ class UPSService extends AppBaseController
 
     public function generarEnvio($numeroOrden, $productos, $direccion, $ciudad, $codigoPais, $codigoPostal, $nombreDestinatario, $apellidoDestinatario, $emailDestinatario, $telefonoDestinatario)
     {
-        $shipment = new \Ups\Entity\Shipment();
-
-        $shipper = $shipment->getShipper();
-        $shipper->setShipperNumber(config('ups.UPS_USERID'));
-        $shipper->setName(config('ups.DIRECCION_DESDE.NOMBRE'));
-        $shipper->setAttentionName(config('ups.DIRECCION_DESDE.NOMBRE'));
-        $shipperAddress = $shipper->getAddress();
-        $shipperAddress->setAddressLine1(config('ups.DIRECCION_DESDE.DIRECCION'));
-        $shipperAddress->setPostalCode(config('ups.DIRECCION_DESDE.CODIGO_POSTAL'));
-        $shipperAddress->setCity(config('ups.DIRECCION_DESDE.PROVINCIA'));
-        $shipperAddress->setCountryCode(config('ups.DIRECCION_DESDE.PAIS'));
-        $shipper->setAddress($shipperAddress);
-        $shipper->setEmailAddress(config('ups.EMAIL'));
-        $shipper->setPhoneNumber(config('ups.TELEFONO'));
-        $shipment->setShipper($shipper);
-
-        $address = new \Ups\Entity\Address();
-        $address->setAddressLine1($direccion);
-        $address->setCity($ciudad);
-        $address->setCountryCode($codigoPais);
-        $address->setPostalCode($codigoPostal);
-        $shipTo = new \Ups\Entity\ShipTo();
-        $shipTo->setAddress($address);
-        $shipTo->setCompanyName($nombreDestinatario . ' ' . $apellidoDestinatario);
-        $shipTo->setAttentionName($nombreDestinatario . ' ' . $apellidoDestinatario);
-        $shipTo->setEmailAddress($emailDestinatario);
-        $shipTo->setPhoneNumber($telefonoDestinatario);
-        $shipment->setShipTo($shipTo);
-
-        $address = new \Ups\Entity\Address();
-        $address->setAddressLine1(config('ups.DIRECCION_DESDE.DIRECCION'));
-        $address->setPostalCode(config('ups.DIRECCION_DESDE.CODIGO_POSTAL'));
-        $address->setCity(config('ups.DIRECCION_DESDE.PROVINCIA'));
-        $address->setCountryCode(config('ups.DIRECCION_DESDE.PAIS'));
-        $shipFrom = new \Ups\Entity\ShipFrom();
-        $shipFrom->setAddress($address);
-        $shipFrom->setName(config('ups.DIRECCION_DESDE.NOMBRE'));
-        $shipFrom->setAttentionName($shipFrom->getName());
-        $shipFrom->setCompanyName($shipFrom->getName());
-        $shipFrom->setEmailAddress(config('ups.EMAIL'));
-        $shipFrom->setPhoneNumber(config('ups.TELEFONO'));
-        $shipment->setShipFrom($shipFrom);
-
-        $address = new \Ups\Entity\Address();
-        $address->setAddressLine1($direccion);
-        $address->setCity($ciudad);
-        $address->setCountryCode($codigoPais);
-        $address->setPostalCode($codigoPostal);
-        $soldTo = new \Ups\Entity\SoldTo;
-        $soldTo->setAddress($address);
-        $soldTo->setAttentionName($nombreDestinatario . ' ' . $apellidoDestinatario);
-        $soldTo->setCompanyName($soldTo->getAttentionName());
-        $soldTo->setEmailAddress($emailDestinatario);
-        $soldTo->setPhoneNumber($telefonoDestinatario);
-        $shipment->setSoldTo($soldTo);
-
-        $service = new \Ups\Entity\Service;
-        $service->setCode(\Ups\Entity\Service::S_SAVER);
-        $service->setDescription($service->getName());
-        $shipment->setService($service);
-
-        $shipment->setDescription('Orden - '.$numeroOrden);
-
+        $upsUserId = config('ups.UPS_USERID');
+        $packages = [];
+        $totalWeight = 0;
         $cajasEnvio = $this->calcularCajas($productos);
-
         foreach($cajasEnvio as $caja)
         {
-            $package = new \Ups\Entity\Package();
-            $package->getPackagingType()->setCode(\Ups\Entity\PackagingType::PT_PACKAGE);
-            $package->getPackageWeight()->setWeight($caja->peso);
-            $weightUnit = new \Ups\Entity\UnitOfMeasurement;
-            $weightUnit->setCode("KGS");
-            $package->getPackageWeight()->setUnitOfMeasurement($weightUnit);
-
-            $dimensions = new \Ups\Entity\Dimensions();
-            $dimensions->setHeight($caja->alto);
-            $dimensions->setWidth($caja->ancho);
-            $dimensions->setLength($caja->largo);
-
-            $unit = new \Ups\Entity\UnitOfMeasurement;
-            $unit->setCode("CM");
-
-            $dimensions->setUnitOfMeasurement($unit);
-            $package->setDimensions($dimensions);
-            $package->setDescription('Vinos - FRAGIL');
-
-            $shipment->addPackage($package);
+            $package = [
+                "Description" => "Vinos - FRAGIL",
+                "Packaging" => ["Code" => "02", "Description" => "Package"],
+                "Dimensions" => [
+                    "UnitOfMeasurement" => ["Code" => "CM"],
+                    "Length" => $caja->largo,
+                    "Width" => $caja->ancho,
+                    "Height" => $caja->alto,
+                ],
+                "PackageWeight" => [
+                    "UnitOfMeasurement" => ["Code" => "KGS"],
+                    "Weight" => "{$caja->peso}",
+                ],
+            ];
+            $totalWeight+= (float)$caja->peso;
+            $packages[] = $package;
         }
 
-        $referenceNumber = new \Ups\Entity\ReferenceNumber;
-        $referenceNumber->setCode(\Ups\Entity\ReferenceNumber::CODE_INVOICE_NUMBER);
-        $referenceNumber->setValue($numeroOrden);
-        $shipment->setReferenceNumber($referenceNumber);
+        $body = [
+            "ShipmentRequest" => [
+                "Request" => [
+                    "RequestOption" => "nonvalidate",
+                    "SubVersion" => "v2205",
+                    "TransactionReference" => [
+                        "CustomerContext" => 'Orden - '.$numeroOrden
+                    ],
+                ],
+                "Shipment" => [
+                    "Description" => 'Orden - '.$numeroOrden,
+                    "Shipper" => [
+                        "Name" => config('ups.DIRECCION_DESDE.NOMBRE'),
+                        "AttentionName" => config('ups.DIRECCION_DESDE.NOMBRE'),
+                        "ShipperNumber" => "{$upsUserId}",
+                        "Address" => [
+                            "AddressLine" => config('ups.DIRECCION_DESDE.DIRECCION'),
+                            "City" => config('ups.DIRECCION_DESDE.PROVINCIA'),
+                            //"StateProvinceCode" => config('ups.DIRECCION_DESDE.PROVINCIA'),
+                            "PostalCode" => config('ups.DIRECCION_DESDE.CODIGO_POSTAL'),
+                            "CountryCode" => config('ups.DIRECCION_DESDE.PAIS'),
+                        ],
+                    ],
+                    "ShipTo" => [
+                        "Name" => $nombreDestinatario . ' ' . $apellidoDestinatario,
+                        "AttentionName" => $nombreDestinatario . ' ' . $apellidoDestinatario,
+                        "Address" => [
+                            "AddressLine" => $direccion,
+                            "City" => $ciudad,
+                            //"StateProvinceCode" => $ciudad,
+                            "PostalCode" => $codigoPostal,
+                            "CountryCode" => $codigoPais,
+                        ],
+                    ],
+                    "ShipFrom" => [
+                        "Name" => config('ups.DIRECCION_DESDE.NOMBRE'),
+                        "Address" => [
+                            "AddressLine" => config('ups.DIRECCION_DESDE.DIRECCION'),
+                            "City" => config('ups.DIRECCION_DESDE.PROVINCIA'),
+                            //"StateProvinceCode" => config('ups.DIRECCION_DESDE.PROVINCIA'),
+                            "PostalCode" => config('ups.DIRECCION_DESDE.CODIGO_POSTAL'),
+                            "CountryCode" => config('ups.DIRECCION_DESDE.PAIS'),
+                        ],
+                    ],
+                    "Service" => [
+                        "Code" => "65",
+                        "Description" => "Saver"
+                    ],
+                    "Package" => $packages,
+                    "PaymentInformation" => [
+                        "ShipmentCharge" => [
+                            "Type" => "01",
+                            "BillShipper" => ["AccountNumber" => "{$upsUserId}"]
+                        ],
+                    ],
+                    "ShipmentRatingOptions" => ["NegotiatedRatesIndicator" => "Y"],
+                    "ShipmentTotalWeight" => [
+                        "UnitOfMeasurement" => [
+                            "Code" => "KGS",
+                            "Description" => "KILOS",
+                        ],
+                        "Weight" => "{$totalWeight}"
+                    ],
 
-        //dd($shipment);
-        $shipment->setPaymentInformation(new \Ups\Entity\PaymentInformation('prepaid', (object) ['AccountNumber' => $shipper->getShipperNumber()]));
 
-        // Ask for negotiated rates (optional)
-        $rateInformation = new \Ups\Entity\RateInformation;
-        $rateInformation->setNegotiatedRatesIndicator(true);
-        $shipment->setRateInformation($rateInformation);
+                ],
+            ],
+        ];
 
         $dolarOficial = obtenerDolarUPS();
 
         $respuesta = [];
         // Get shipment info
+
+        $token = $this->getAccessToken();
+        $uri = new Uri($this->config['URL_SHIPMENT']);
+
+        $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
+            'Content-Type' => 'application/json',
+            'Authorization' => 'Bearer '.$token
+        ],json_encode($body,JSON_HEX_QUOT));
+
         try {
-            $api = new \Ups\Shipping(config('ups.UPS_ACCESS_KEY'), config('ups.UPS_USERID'), config('ups.UPS_PASSWORD'), config('ups.UPS_INTEGRATION'));
+            $response = $this->client->send($request);
+            $resultado = json_decode($response->getBody());
 
-            $confirm = $api->confirm(\Ups\Shipping::REQ_VALIDATE, $shipment);
+        }  catch (\Exception $ex) {
+            $response = json_decode($ex->getResponse()->getBody()->getContents(), true);
+            throw new \Exception($ex->getMessage(), 1);
 
-            if ($confirm) {
-                $accept = $api->accept($confirm->ShipmentDigest);
-                $respuesta = [
-                    'tracking_number' => $confirm->ShipmentIdentificationNumber,
-                    'digest' => $confirm->ShipmentDigest,
-                    'etiqueta' => $accept->PackageResults->LabelImage->GraphicImage,
-                    'cotizacion_usd' => $dolarOficial,
-                    'pesos' => ($confirm->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue * $dolarOficial)  * 1.21,
-                    'dolares' => $confirm->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue,
-                ];
+            //\Log::channel('consola')->info("UPS - ". $ex->getMessage());
+            //dd("SAP - ". $ex->getMessage());
+        }
 
-                //logger(json_decode( json_encode($accept), true));
-                 // Accept holds the label and additional information
-                /*$label_file = $numeroOrden. ".jpg";
 
-                $base64_string = $accept->PackageResults->LabelImage->GraphicImage;
+        $respuesta = [
+            'tracking_number' => $resultado->ShipmentResponse->ShipmentResults->ShipmentIdentificationNumber,
+            //'digest' => $resultado->ShipmentResponse->ShipmentDigest,
+            'etiqueta' => $resultado->ShipmentResponse->ShipmentResults->PackageResults[0]->ShippingLabel->GraphicImage,
+            'cotizacion_usd' => $dolarOficial,
+            'pesos' => ($resultado->ShipmentResponse->ShipmentResults->NegotiatedRateCharges->TotalCharge->MonetaryValue * $dolarOficial)  * 1.21,
+            'dolares' => $resultado->ShipmentResponse->ShipmentResults->NegotiatedRateCharges->TotalCharge->MonetaryValue,
+        ];
 
-                $ifp = fopen(public_path('etiquetas/'.$label_file), 'wb');
 
-                fwrite($ifp, base64_decode($base64_string));
+        return $respuesta;
 
-                fclose($ifp);*/
-            }
+    }
 
-            return $respuesta;
-        } catch (\Exception $e) {
-            dd($e->getMessage());
+    public function getAccessToken() {
+        $uri = new Uri($this->config['URL_AUTH']);
+
+        //$authCredentials = base64_encode($this->config['UPS_CLIENT_ID'].':'.$this->config['UPS_SECRET_ID']);
+
+        $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
+            'Content-Type' => 'application/x-www-form-urlencoded',
+            'Authorization' => 'Basic '.base64_encode($this->config['UPS_CLIENT_ID'].':'.$this->config['UPS_SECRET_ID'])
+        ]);
+
+        $options = [
+            'form_params' => [
+                'grant_type' => 'client_credentials'
+        ]];
+
+        try {
+            $response = $this->client->send($request,$options);
+            return json_decode($response->getBody())->access_token;
+        }  catch (\Exception $ex) {
+            \Log::channel('consola')->info("SAP - ". $ex->getMessage());
+            //dd("SAP - ". $ex->getMessage());
+        }
+
+        if($response->getStatusCode() != 200) {
+            \Log::channel('consola')->info("SAP - No hubo loggin - ". $response->getStatusCode());
+            die();
         }
     }
 }

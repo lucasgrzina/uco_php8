@@ -118,6 +118,8 @@ class PedidoController extends CrudAdminController
                 ,''
             );
 
+
+
             $model->ups_tracking_number = $respuesta['tracking_number'];
             $model->ups_etiqueta = $respuesta['etiqueta'];
             $model->ups_info = \Arr::except($respuesta,['tracking_number','etiqueta']);

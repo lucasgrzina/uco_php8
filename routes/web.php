@@ -25,6 +25,8 @@ Route::prefix('test')->group(function () {
         //return randomPassword2();
         return "hola";
     });
+    Route::get('/ups-auth', 'TestController@upsAuth');
+    Route::get('/ups-cotizar', 'TestController@upsCotizar');
 });
 
 Route::prefix('combos')->group(function () {

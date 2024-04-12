@@ -5,14 +5,16 @@ namespace App\Http\Controllers;
 
 use App\Pedido;
 
+use MercadoPago;
 use App\Services\MPService;
+use App\Services\UPSService;
 use App\Helpers\StorageHelper;
 use App\Services\ApiRolService;
 use App\Services\ApiSmsService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
-use MercadoPago;
+
 class TestController extends AppBaseController
 {
     public function doppler() {
@@ -103,5 +105,14 @@ class TestController extends AppBaseController
         //\Log::info(StorageHelper::url(env('AMAZON_S3_FOLDER').'/tmp/1612980492-2021-01-18-16-32-localhost.png','uploads'));
         $files = StorageHelper::archivos(env('AMAZON_S3_FOLDER').'/tmp');
         return $files;
+    }
+
+    public function upsAuth(UPSService $srv) {
+        return response()->json($srv->getAccessToken(), 200);
+    }
+
+    public function upsCotizar(UPSService $srv) {
+
+        return response()->json($srv->generarEnvio(), 200);
     }
 }

@@ -249,18 +249,20 @@ $actual = $data['actual'];
                                 </div>
 
                                 <div class="links-producto row" style="margin-top: 15px; align-items: baseline;">
-                                  <div v-if="actual.vendible && aniadaActual" class="col-12 col-md-12">
+                                  <div class="col-12 col-md-12">
                                     <div class="d-flex mb-3 flex-wrap gap-3">
+                                        <template v-if="actual.vendible && aniadaActual">
+                                            <div class="input-cantidad" v-if="aniadaActual.stock > 0">
+                                                <button class="btn-cantidad plus" @click="cambiarCantidad(aniadaActual,carrito.item.cantidad - 1)">-</button>
+                                                <input type="number" placeholder="1" :min="1" :max="cantMaxima(aniadaActual)" v-model="carrito.item.cantidad" @blur="checkCantidad(aniadaActual)">
+                                                <button class="btn-cantidad minus" @click="cambiarCantidad(aniadaActual,carrito.item.cantidad + 1)">+</button>
+                                            </div>
 
-                                        <div class="input-cantidad" v-if="aniadaActual.stock > 0">
-                                            <button class="btn-cantidad plus" @click="cambiarCantidad(aniadaActual,carrito.item.cantidad - 1)">-</button>
-                                            <input type="number" placeholder="1" :min="1" :max="cantMaxima(aniadaActual)" v-model="carrito.item.cantidad" @blur="checkCantidad(aniadaActual)">
-                                            <button class="btn-cantidad minus" @click="cambiarCantidad(aniadaActual,carrito.item.cantidad + 1)">+</button>
-                                        </div>
+                                            <div class="shop" v-if="aniadaActual.stock > 0">
+                                                <a href="javascript:void(0)" class="btn btn-ppal m-0 mr-2" style="text-transform: uppercase;font-weight: 900;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
+                                            </div>
 
-                                        <div class="shop" v-if="aniadaActual.stock > 0">
-                                            <a href="javascript:void(0)" class="btn btn-ppal m-0 mr-2" style="text-transform: uppercase;font-weight: 900;" @click="carritoAgregarItem()">{!!trans('front.paginas.colecciones.interna.btnAgregar')!!}</a>
-                                        </div>
+                                        </template>
                                         <div class="shop">
                                             <a :href="aniadaActual.ficha_url" class="btn btn-ppal mb-3 text-uppercase d-inline-block" target="_blank"  v-if="aniadaActual.ficha">
                                                 <span>{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</span>

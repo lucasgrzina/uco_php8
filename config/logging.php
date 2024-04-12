@@ -33,7 +33,10 @@ return [
     |                    "custom", "stack"
     |
     */
-
+    'deprecations' => [
+        'channel' => env('LOG_DEPRECATIONS_CHANNEL', 'null'),
+        'trace' => false,
+    ],
     'channels' => [
         'stack' => [
             'driver' => 'stack',
@@ -96,14 +99,19 @@ return [
             'handler' => NullHandler::class,
         ],
 
-        'emergency' => [
+        /*'emergency' => [
             'path' => storage_path('logs/laravel.log'),
-        ],
+        ],*/
 
         'consola' => [
             'driver' => 'single',
             'path' => storage_path('logs/consola.log'),
             'level' => 'debug',
+        ],
+
+        'deprecations' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/php-deprecation-warnings.log'),
         ],
     ],
 

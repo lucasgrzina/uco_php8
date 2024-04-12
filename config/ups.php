@@ -1,9 +1,13 @@
 <?php
 
 return [
+    'URL_AUTH' => env('UPS_URL_AUTH'),
+    'URL_RATING' => env('UPS_URL_RATING'),
+    'URL_SHIPMENT' => env('UPS_URL_SHIPMENT'),
     'UPS_USERID' => 925047,
-    'UPS_PASSWORD' => 'Argentina2022@',
-    'UPS_ACCESS_KEY'=> '3DC606478418E381',
+    'UPS_PASSWORD' => 'Argentina2022!',
+    'UPS_CLIENT_ID'=> env('UPS_CLIENT_ID'),
+    'UPS_SECRET_ID'=> env('UPS_SECRET_ID'),
     'UPS_INTEGRATION'=> true,
     'DIRECCION_DESDE' => [
         'NOMBRE' => 'NEUBELL',
