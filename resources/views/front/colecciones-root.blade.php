@@ -22,7 +22,7 @@
 			<div class="col-md-5 col-text">
 				<div class="wrap-text fade_JS">
 					<h2>{!! trans('front.paginas.colecciones.root.magiaDeUcoNotable.titulo') !!}</h2>
-					<p>{!! trans('front.paginas.colecciones.root.magiaDeUcoNotable.subtitulo') !!}</p>
+					<!--p>{!! trans('front.paginas.colecciones.root.magiaDeUcoNotable.subtitulo') !!}</p-->
 					<a href="{{routeIdioma('colecciones.magiaUcoNotable')}}" class="btn-primary btn-marron-claro" style="float: right;">{!! trans('front.paginas.colecciones.root.magiaDeUcoNotable.btn') !!}</a>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 			<div class="col-md-5 col-text">
 				<div class="wrap-text fade_JS">
 					<h2 class="d-none d-md-block">{!! trans('front.paginas.colecciones.root.magiaDeUco.titulo') !!}</h2>
-					<p class="d-none d-md-block">{!! trans('front.paginas.colecciones.root.magiaDeUco.subtitulo') !!}</p>
+					<!--p class="d-none d-md-block">{!! trans('front.paginas.colecciones.root.magiaDeUco.subtitulo') !!}</p-->
 					<a href="{{routeIdioma('colecciones.magiaUco')}}" class="btn-primary btn-marron">{!! trans('front.paginas.colecciones.root.magiaDeUco.btn') !!}</a>
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 		<div class="col-12"><h2>{!! trans('front.paginas.colecciones.root.almacenamiento.titulo') !!}</h2></div>
         <div class="col-12 text-center">
             <p>{!! trans('front.paginas.colecciones.root.almacenamiento.subtitulo') !!}</p>
-        </div>		
+        </div>
 		<div class="col-12">
 			<div class="grid-items slider">
 				@foreach (trans('front.paginas.colecciones.root.almacenamiento.items') as $i => $item)
