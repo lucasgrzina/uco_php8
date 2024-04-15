@@ -38,7 +38,7 @@
 
 			<div class="col-md-5 col-text">
 				<div class="wrap-text fade_JS">
-					<h2 class="d-none d-md-block">{!! trans('front.paginas.colecciones.root.magiaDeUco.titulo') !!}</h2>
+					<h2>{!! trans('front.paginas.colecciones.root.magiaDeUco.titulo') !!}</h2>
 					<!--p class="d-none d-md-block">{!! trans('front.paginas.colecciones.root.magiaDeUco.subtitulo') !!}</p-->
 					<a href="{{routeIdioma('colecciones.magiaUco')}}" class="btn-primary btn-marron">{!! trans('front.paginas.colecciones.root.magiaDeUco.btn') !!}</a>
 				</div>
