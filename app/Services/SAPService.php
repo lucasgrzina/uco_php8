@@ -269,7 +269,7 @@ class SAPService extends AppBaseController
         $venta["DocDueDate"] = "DateTime.Now";
         $venta["DocCurrency"] = "ARS";
         $venta["DocType"] = "dDocument_Items";
-        $venta["PointOfIssueCode"] = "0047";
+        $venta["PointOfIssueCode"] = env('SAP_POINT_ISSUE_CODE');
         $venta["Letter"] = "fLetterB";
         $venta["Comments"] = "Documento generado por e-commerce";
 
