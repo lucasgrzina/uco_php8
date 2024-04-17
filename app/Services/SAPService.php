@@ -513,8 +513,9 @@ class SAPService extends AppBaseController
             $credict["PaymentMethodCode"] =  3;
             $venta["PaymentCreditCards"]= [];
             array_push($venta["PaymentCreditCards"], $credict);
-//dd(json_encode($venta));
 
+
+            \Log::channel('consola')->info("SAP - sincronizarPagos - Pedido: ". json_encode($pedido));
             \Log::channel('consola')->info("SAP - sincronizarPagos - IncomingPayments: ". json_encode($venta));
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/IncomingPayments");
 
@@ -526,6 +527,7 @@ class SAPService extends AppBaseController
             try {
                 $response = $this->client->send($request);
                 $venta = json_decode($response->getBody());
+                \Log::channel('consola')->info("SAP - sincronizarPagos - Response: ". json_encode($venta));
                 $pedido->error_sincronizacion_sap = '';
                 $pedido->sincronizo_pago = 1;
                 $pedido->save();
