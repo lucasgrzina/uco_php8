@@ -457,7 +457,7 @@ class SAPService extends AppBaseController
         }
 
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/SQLQueries('ConsultarTC')/List");
-
+        \Log::channel('consola')->info("SAP - sincronizarPagos - tarjetas url: ". "https://{$this->host}:{$this->port}/b1s/v1/SQLQueries('ConsultarTC')/List");
         $request = new Psr7\Request('GET', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
             'Content-Type' => 'application/json',
             'Cookie' => 'B1SESSION='.$login->SessionId
