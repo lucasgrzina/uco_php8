@@ -409,7 +409,8 @@ class SAPService extends AppBaseController
     {
         $pedidosPendientes = Pedido::whereSincronizoSap(false)->get();
 
-      //  \Log::channel('consola')->info("SAP - Ventas");
+
+        \Log::channel('consola')->info("SAP - sincronizarVentas: " . json_encode($pedidosPendientes));
 
         if(count($pedidosPendientes) == 0) {
         //    \Log::channel('consola')->info("SAP - Sin Ventas");
