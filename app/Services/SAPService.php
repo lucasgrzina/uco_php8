@@ -162,14 +162,16 @@ class SAPService extends AppBaseController
         ]);
 
         try {
+            \Log::channel('consola')->info('SAP - consultarCliente: ' . json_encode($param));
             $response = $this->client->send($request);
             //\Log::channel('consola')->info('cliente');
             //\Log::channel('consola')->info($response->getBody());
             $cliente = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
+            \Log::channel('consola')->info("SAP - consultarCliente". $ex->getResponse()->getBody()->getContents());
             dd($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
-            \Log::channel('consola')->info("SAP - ". $ex->getMessage());
+            \Log::channel('consola')->info("SAP - consultarCliente". $ex->getMessage());
         }
 
         return count($cliente->value) > 0 && $cliente->value[0]->CardCode == $codigo;
@@ -244,10 +246,11 @@ class SAPService extends AppBaseController
         }
 
         try {
+            \Log::channel('consola')->info('SAP - altaCliente: ' . json_encode($cliente));
             $response = $this->client->send($request);
             $cliente = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
-            \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
+            \Log::channel('consola')->info('SAP - altaCliente: ' . $ex->getResponse()->getBody()->getContents());
             return false;
         }  catch (\Exception $ex) {
             \Log::channel('consola')->info("SAP - ". $ex->getMessage());
