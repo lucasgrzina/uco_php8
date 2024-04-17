@@ -449,7 +449,7 @@ class SAPService extends AppBaseController
     {
         $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoSap(true)->whereSincronizoPago(false)->get();
 
-        \Log::channel('consola')->info("SAP - sincronizarPagos");
+        \Log::channel('consola')->info("SAP - sincronizarPagos - Pedidos: ". json_encode($pedidosPendientes));
         $login = $this->login();
 
         if(count($pedidosPendientes) == 0) {
@@ -457,7 +457,6 @@ class SAPService extends AppBaseController
         }
 
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/SQLQueries('ConsultarTC')/List");
-        \Log::channel('consola')->info("SAP - sincronizarPagos - tarjetas url: ". "https://{$this->host}:{$this->port}/b1s/v1/SQLQueries('ConsultarTC')/List");
         $request = new Psr7\Request('GET', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
             'Content-Type' => 'application/json',
             'Cookie' => 'B1SESSION='.$login->SessionId
@@ -465,7 +464,6 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $tarjetas = json_decode($response->getBody());
-            \Log::channel('consola')->info("SAP - sincronizarPagos - tarjetas: ". json_encode($tarjetas));
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             \Log::channel('consola')->error("SAP - sincronizarPagos - ConsultarTC: ". $ex->getResponse()->getBody()->getContents());
             //dd($ex->getResponse()->getBody()->getContents());
