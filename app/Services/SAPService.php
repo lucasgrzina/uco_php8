@@ -302,6 +302,13 @@ class SAPService extends AppBaseController
 
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/Invoices");
 
+        Log::channel('consola')->info([
+            'Command' => 'altaVenta',
+            'url' => "https://{$this->host}:{$this->port}/b1s/v1/Invoices",
+            'Cookie' => 'B1SESSION='.$login->SessionId,
+            'data' => json_encode($venta)
+        ]);
+
         $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
             'Content-Type' => 'application/json',
             'Cookie' => 'B1SESSION='.$login->SessionId
@@ -451,15 +458,14 @@ class SAPService extends AppBaseController
             'Content-Type' => 'application/json',
             'Cookie' => 'B1SESSION='.$login->SessionId
         ]);
-
         try {
             $response = $this->client->send($request);
             $tarjetas = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
-            \Log::channel('consola')->info("SAP - ". $ex->getResponse()->getBody()->getContents());
+            \Log::channel('consola')->error("SAP - sincronizarPagos - ConsultarTC: ". $ex->getResponse()->getBody()->getContents());
             //dd($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
-            \Log::channel('consola')->info("SAP - ". $ex->getMessage());
+            \Log::channel('consola')->error("SAP - sincronizarPagos - ConsultarTC: ". $ex->getMessage());
         }
 
         $tarjetasArr = [];
@@ -503,7 +509,8 @@ class SAPService extends AppBaseController
             $venta["PaymentCreditCards"]= [];
             array_push($venta["PaymentCreditCards"], $credict);
 //dd(json_encode($venta));
-            \Log::channel('consola')->info(json_encode($venta));
+
+            \Log::channel('consola')->info("SAP - sincronizarPagos - IncomingPayments: ". json_encode($venta));
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/IncomingPayments");
 
             $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
