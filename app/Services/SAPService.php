@@ -445,7 +445,7 @@ class SAPService extends AppBaseController
     {
         $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoSap(true)->whereSincronizoPago(false)->get();
 
-        \Log::channel('consola')->info("SAP - Pagos");
+        \Log::channel('consola')->info("SAP - sincronizarPagos");
         $login = $this->login();
 
         if(count($pedidosPendientes) == 0) {
@@ -461,6 +461,7 @@ class SAPService extends AppBaseController
         try {
             $response = $this->client->send($request);
             $tarjetas = json_decode($response->getBody());
+            \Log::channel('consola')->info("SAP - sincronizarPagos - tarjetas: ". json_encode($tarjetas));
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             \Log::channel('consola')->error("SAP - sincronizarPagos - ConsultarTC: ". $ex->getResponse()->getBody()->getContents());
             //dd($ex->getResponse()->getBody()->getContents());
