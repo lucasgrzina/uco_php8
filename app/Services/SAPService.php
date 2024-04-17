@@ -162,9 +162,9 @@ class SAPService extends AppBaseController
         ]);
 
         try {
-            \Log::channel('consola')->info('SAP - consultarCliente: ' . json_encode($param));
+            //\Log::channel('consola')->info('SAP - consultarCliente: ' . json_encode($param));
             $response = $this->client->send($request);
-            \Log::channel('consola')->info('SAP - consultarCliente: Resp '. $response->getBody());
+            //\Log::channel('consola')->info('SAP - consultarCliente: Resp '. $response->getBody());
             $cliente = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             \Log::channel('consola')->info("SAP - consultarCliente". $ex->getResponse()->getBody()->getContents());
@@ -264,6 +264,7 @@ class SAPService extends AppBaseController
 
     public function altaVenta($pedido)
     {
+        \Log::channel('consola')->info('altaVenta pedido ' . $pedido->id);
         $login = $this->login();
 
         $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
@@ -307,17 +308,19 @@ class SAPService extends AppBaseController
 
         $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/Invoices");
 
-        Log::channel('consola')->info([
+        /*Log::channel('consola')->info([
             'Command' => 'altaVenta',
             'url' => "https://{$this->host}:{$this->port}/b1s/v1/Invoices",
             'Cookie' => 'B1SESSION='.$login->SessionId,
             'data' => json_encode($venta)
-        ]);
+        ]);*/
 
         $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
             'Content-Type' => 'application/json',
             'Cookie' => 'B1SESSION='.$login->SessionId
         ], json_encode($venta));
+
+        \Log::channel('consola')->info('altaVenta request: ' . json_encode($venta));
 
         try {
             $response = $this->client->send($request);
