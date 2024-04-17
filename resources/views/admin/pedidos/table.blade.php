@@ -49,8 +49,7 @@
                     </template>
                     <template v-else>
                         <span v-if="item.error_sincronizacion_sap" class="label label-danger">
-                            NO <br>
-                            (% item.error_sincronizacion_sap %)
+                            NO - (% item.error_sincronizacion_sap %)
                         </span>
 
                     </template>
