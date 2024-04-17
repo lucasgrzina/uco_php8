@@ -164,8 +164,7 @@ class SAPService extends AppBaseController
         try {
             \Log::channel('consola')->info('SAP - consultarCliente: ' . json_encode($param));
             $response = $this->client->send($request);
-            //\Log::channel('consola')->info('cliente');
-            //\Log::channel('consola')->info($response->getBody());
+            \Log::channel('consola')->info('SAP - consultarCliente: Resp '. $response->getBody());
             $cliente = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             \Log::channel('consola')->info("SAP - consultarCliente". $ex->getResponse()->getBody()->getContents());
@@ -230,7 +229,8 @@ class SAPService extends AppBaseController
             }
 
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/BusinessPartners('{$codigoCliente}')");
-
+            \Log::channel('consola')->info('SAP - patchCliente: ' . "https://{$this->host}:{$this->port}/b1s/v1/BusinessPartners('{$codigoCliente}')");
+            \Log::channel('consola')->info('SAP - patchCliente: ' . json_encode($cliente));
             $request = new Psr7\Request('PATCH', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
                 'Content-Type' => 'application/json',
                 'Cookie' => 'B1SESSION='.$login->SessionId
@@ -238,6 +238,8 @@ class SAPService extends AppBaseController
 
         } else {
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/BusinessPartners");
+            \Log::channel('consola')->info('SAP - postCliente: ' . "https://{$this->host}:{$this->port}/b1s/v1/BusinessPartners");
+            \Log::channel('consola')->info('SAP - postCliente: ' . json_encode($cliente));
 
             $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
                 'Content-Type' => 'application/json',
@@ -246,14 +248,14 @@ class SAPService extends AppBaseController
         }
 
         try {
-            \Log::channel('consola')->info('SAP - altaCliente: ' . json_encode($cliente));
+
             $response = $this->client->send($request);
             $cliente = json_decode($response->getBody());
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
-            \Log::channel('consola')->info('SAP - altaCliente: ' . $ex->getResponse()->getBody()->getContents());
+            \Log::channel('consola')->info('SAP - respCliente: ' . $ex->getResponse()->getBody()->getContents());
             return false;
         }  catch (\Exception $ex) {
-            \Log::channel('consola')->info("SAP - ". $ex->getMessage());
+            \Log::channel('consola')->info("SAP - respCliente: ". $ex->getMessage());
             return false;
         }
         //\Log::channel('consola')->info("SAP - Fin Cliente");
