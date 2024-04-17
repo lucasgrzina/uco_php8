@@ -326,16 +326,17 @@ class SAPService extends AppBaseController
             $response = $this->client->send($request);
 
             $venta = json_decode($response->getBody());
-
+            \Log::channel('consola')->info('altaVenta response: ' . json_encode($venta));
             $pedido->documento_sap = $venta->DocEntry;
             $pedido->sincronizo_sap = true;
             $pedido->save();
         }  catch (\GuzzleHttp\Exception\RequestException $ex) {
             $error = json_decode($ex->getResponse()->getBody()->getContents());
+            \Log::channel('consola')->error('altaVenta error: ' . json_encode($error));
             $pedido->error_sincronizacion_sap = $error->error->message->value;
             $pedido->save();
-            \Log::channel('consola')->info($ex->getResponse()->getBody()->getContents());
         }  catch (\Exception $ex) {
+            \Log::channel('consola')->error('altaVenta error: ' . $ex->getMessage());
             $pedido->error_sincronizacion_sap = $ex->getMessage();
             $pedido->save();
         }
