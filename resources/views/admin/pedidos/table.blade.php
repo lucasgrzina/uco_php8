@@ -49,12 +49,10 @@
                     </template>
                     <template v-else>
                         <span v-if="item.error_sincronizacion_sap" class="label label-danger">
-                            NO
-                        </span>
-                        <br>
-                        <span  class="label label-danger">
+                            NO <br>
                             (% item.error_sincronizacion_sap %)
                         </span>
+
                     </template>
                 </td>
                 <td>(% item.created_at | dateFormat %)</td>
