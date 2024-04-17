@@ -412,9 +412,6 @@ class SAPService extends AppBaseController
     {
         $pedidosPendientes = Pedido::whereSincronizoSap(false)->get();
 
-
-        \Log::channel('consola')->info("SAP - sincronizarVentas: " . json_encode($pedidosPendientes));
-
         if(count($pedidosPendientes) == 0) {
         //    \Log::channel('consola')->info("SAP - Sin Ventas");
             $this->sincronizarPagos();
@@ -449,7 +446,6 @@ class SAPService extends AppBaseController
     {
         $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoSap(true)->whereSincronizoPago(false)->get();
 
-        \Log::channel('consola')->info("SAP - sincronizarPagos - Pedidos: ". json_encode($pedidosPendientes));
         $login = $this->login();
 
         if(count($pedidosPendientes) == 0) {
@@ -513,7 +509,7 @@ class SAPService extends AppBaseController
             array_push($venta["PaymentCreditCards"], $credict);
 
 
-            \Log::channel('consola')->info("SAP - sincronizarPagos - Pedido: ". json_encode($pedido));
+            \Log::channel('consola')->info("SAP - sincronizarPagos - Pedido ID: ". $pedido->id);
             \Log::channel('consola')->info("SAP - sincronizarPagos - IncomingPayments: ". json_encode($venta));
             $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/IncomingPayments");
 
