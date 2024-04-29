@@ -63,6 +63,7 @@ class UPSService extends AppBaseController
                         "TransactionReference" => ["CustomerContext" => 'Rate'],
                     ],
                     "Shipment" => [
+                        "NegotiatedRatesIndicator" => "Y",
                         "ShipmentRatingOptions" => ["NegotiatedRatesIndicator" => "Y"],
                         "Shipper" => [
                             "Name" => config('ups.DIRECCION_DESDE.NOMBRE'),
@@ -141,8 +142,6 @@ class UPSService extends AppBaseController
                 //\Log::channel('consola')->info("UPS - ". $ex->getMessage());
                 //dd("SAP - ". $ex->getMessage());
             }
-
-            \Log::channel('consola')->info($body);
 
 
             $dolarOficial = obtenerDolarUPS();
