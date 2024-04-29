@@ -142,7 +142,7 @@ class UPSService extends AppBaseController
                 //dd("SAP - ". $ex->getMessage());
             }
 
-
+            \Log::channel('consola')->info((array)$resultado);
 
 
             $dolarOficial = obtenerDolarUPS();
