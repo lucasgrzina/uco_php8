@@ -9,7 +9,14 @@ return [
     'UPS_CLIENT_ID'=> env('UPS_CLIENT_ID'),
     'UPS_SECRET_ID'=> env('UPS_SECRET_ID'),
     'UPS_INTEGRATION'=> true,
-    'DIRECCION_DESDE' => [
+    'DIRECCION_DESDE_MZA' => [
+        'NOMBRE' => 'NEUBELL',
+        'DIRECCION' => 'MORON 123',
+        'PROVINCIA' => 'Mendoza',
+        'PAIS' => 'AR',
+        'CODIGO_POSTAL' => '5500'
+    ],
+    'DIRECCION_DESDE_BSAS' => [
         'NOMBRE' => 'NEUBELL',
         'DIRECCION' => 'MORON 123',
         'PROVINCIA' => 'Mendoza',

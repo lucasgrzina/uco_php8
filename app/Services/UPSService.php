@@ -14,6 +14,12 @@ class UPSService extends AppBaseController
     protected $ratingClient;
     protected $client;
     protected $config;
+    protected $cpMza = [];
+    protected $shipperMza = [];
+    protected $shipperBsAs = [];
+    protected $upsUserIdMza;
+    protected $upsUserIdBsAs;
+
     public function __construct()
     {
         $this->config = config('ups');
@@ -27,15 +33,66 @@ class UPSService extends AppBaseController
                 'timeout' => 30000
             ]
         ]);
+        $this->cpMza = [
+            '5500',
+            '5501',
+            '5502',
+            '5503',
+            '5505',
+            '5507',
+            '5508',
+            '5509',
+            '5510',
+            '5511',
+            '5513',
+            '5514',
+            '5515',
+            '5518',
+            '5519',
+            '5520',
+            '5521',
+            '5522',
+            '5524'
+        ];
+
+        $this->upsUserIdMza = config('ups.UPS_USERID');
+        $this->upsUserIdBsAs = config('ups.UPS_USERID');
+
+        $this->shipperMza = [
+            "Name" => config('ups.DIRECCION_DESDE_MZA.NOMBRE'),
+            "AttentionName" => config('ups.DIRECCION_DESDE_MZA.NOMBRE'),
+            "ShipperNumber" => "{$this->upsUserIdMza}",
+            "Address" => [
+                "AddressLine" => config('ups.DIRECCION_DESDE_MZA.DIRECCION'),
+                "City" => config('ups.DIRECCION_DESDE_MZA.PROVINCIA'),
+                //"StateProvinceCode" => config('ups.DIRECCION_DESDE.PROVINCIA'),
+                "PostalCode" => config('ups.DIRECCION_DESDE_MZA.CODIGO_POSTAL'),
+                "CountryCode" => config('ups.DIRECCION_DESDE_MZA.PAIS'),
+            ]
+        ];
+
+        $this->shipperBsAs = [
+            "Name" => config('ups.DIRECCION_DESDE_BSAS.NOMBRE'),
+            "AttentionName" => config('ups.DIRECCION_DESDE_BSAS.NOMBRE'),
+            "ShipperNumber" => "{$this->upsUserIdBsAs}",
+            "Address" => [
+                "AddressLine" => config('ups.DIRECCION_DESDE_BSAS.DIRECCION'),
+                "City" => config('ups.DIRECCION_DESDE_BSAS.PROVINCIA'),
+                //"StateProvinceCode" => config('ups.DIRECCION_DESDE_BSAS.PROVINCIA'),
+                "PostalCode" => config('ups.DIRECCION_DESDE_BSAS.CODIGO_POSTAL'),
+                "CountryCode" => config('ups.DIRECCION_DESDE_BSAS.PAIS'),
+            ]
+        ];
     }
 
     public function cotizarEnvio($codigoPais, $codigoPostal, $calle, $ciudad, $productos)
     {
         try {
-            $upsUserId = config('ups.UPS_USERID');
+            $upsUserId = $this->esCPMza($codigoPostal) ? $this->upsUserIdMza : $this->upsUserIdBsAs;
             $packages = [];
             $totalWeight = 0;
             $cajasEnvio = $this->calcularCajas($productos);
+
             foreach($cajasEnvio as $caja)
             {
                 $package = [
@@ -65,17 +122,7 @@ class UPSService extends AppBaseController
                     "Shipment" => [
                         "NegotiatedRatesIndicator" => "Y",
                         "ShipmentRatingOptions" => ["NegotiatedRatesIndicator" => "Y"],
-                        "Shipper" => [
-                            "Name" => config('ups.DIRECCION_DESDE.NOMBRE'),
-                            "ShipperNumber" => "{$upsUserId}",
-                            "Address" => [
-                                "AddressLine" => config('ups.DIRECCION_DESDE.DIRECCION'),
-                                "City" => config('ups.DIRECCION_DESDE.PROVINCIA'),
-                                //"StateProvinceCode" => config('ups.DIRECCION_DESDE.PROVINCIA'),
-                                "PostalCode" => config('ups.DIRECCION_DESDE.CODIGO_POSTAL'),
-                                "CountryCode" => config('ups.DIRECCION_DESDE.PAIS'),
-                            ],
-                        ],
+                        "Shipper" => $this->esCPMza($codigoPostal) ? $this->shipperMza : $this->shipperBsAs,
                         "ShipTo" => [
                             "Name" => $calle,
                             "Address" => [
@@ -86,16 +133,7 @@ class UPSService extends AppBaseController
                                 "CountryCode" => $codigoPais,
                             ],
                         ],
-                        "ShipFrom" => [
-                            "Name" => config('ups.DIRECCION_DESDE.NOMBRE'),
-                            "Address" => [
-                                "AddressLine" => config('ups.DIRECCION_DESDE.DIRECCION'),
-                                "City" => config('ups.DIRECCION_DESDE.PROVINCIA'),
-                                //"StateProvinceCode" => config('ups.DIRECCION_DESDE.PROVINCIA'),
-                                "PostalCode" => config('ups.DIRECCION_DESDE.CODIGO_POSTAL'),
-                                "CountryCode" => config('ups.DIRECCION_DESDE.PAIS'),
-                            ],
-                        ],
+                        "ShipFrom" => $this->esCPMza($codigoPostal) ? \Arr::except($this->shipperMza,['ShipperNumber','AttentionName']) : \Arr::except($this->shipperBsAs,['ShipperNumber','AttentionName']),
                         "ShipmentTotalWeight" => [
                             "UnitOfMeasurement" => [
                                 "Code" => "KGS",
@@ -225,7 +263,7 @@ class UPSService extends AppBaseController
 
     public function generarEnvio($numeroOrden, $productos, $direccion, $ciudad, $codigoPais, $codigoPostal, $nombreDestinatario, $apellidoDestinatario, $emailDestinatario, $telefonoDestinatario)
     {
-        $upsUserId = config('ups.UPS_USERID');
+        $upsUserId = $this->esCPMza($codigoPostal) ? $this->upsUserIdMza : $this->upsUserIdBsAs;
         $packages = [];
         $totalWeight = 0;
         $cajasEnvio = $this->calcularCajas($productos);
@@ -260,18 +298,7 @@ class UPSService extends AppBaseController
                 ],
                 "Shipment" => [
                     "Description" => 'Orden - '.$numeroOrden,
-                    "Shipper" => [
-                        "Name" => config('ups.DIRECCION_DESDE.NOMBRE'),
-                        "AttentionName" => config('ups.DIRECCION_DESDE.NOMBRE'),
-                        "ShipperNumber" => "{$upsUserId}",
-                        "Address" => [
-                            "AddressLine" => config('ups.DIRECCION_DESDE.DIRECCION'),
-                            "City" => config('ups.DIRECCION_DESDE.PROVINCIA'),
-                            //"StateProvinceCode" => config('ups.DIRECCION_DESDE.PROVINCIA'),
-                            "PostalCode" => config('ups.DIRECCION_DESDE.CODIGO_POSTAL'),
-                            "CountryCode" => config('ups.DIRECCION_DESDE.PAIS'),
-                        ],
-                    ],
+                    "Shipper" => $this->esCPMza($codigoPostal) ? $this->shipperMza : $this->shipperBsAs,
                     "ShipTo" => [
                         "Name" => $nombreDestinatario . ' ' . $apellidoDestinatario,
                         "AttentionName" => $nombreDestinatario . ' ' . $apellidoDestinatario,
@@ -283,16 +310,7 @@ class UPSService extends AppBaseController
                             "CountryCode" => $codigoPais,
                         ],
                     ],
-                    "ShipFrom" => [
-                        "Name" => config('ups.DIRECCION_DESDE.NOMBRE'),
-                        "Address" => [
-                            "AddressLine" => config('ups.DIRECCION_DESDE.DIRECCION'),
-                            "City" => config('ups.DIRECCION_DESDE.PROVINCIA'),
-                            //"StateProvinceCode" => config('ups.DIRECCION_DESDE.PROVINCIA'),
-                            "PostalCode" => config('ups.DIRECCION_DESDE.CODIGO_POSTAL'),
-                            "CountryCode" => config('ups.DIRECCION_DESDE.PAIS'),
-                        ],
-                    ],
+                    "ShipFrom" => $this->esCPMza($codigoPostal) ? \Arr::except($this->shipperMza,['ShipperNumber','AttentionName']) : \Arr::except($this->shipperBsAs,['ShipperNumber','AttentionName']),
                     "Service" => [
                         "Code" => "65",
                         "Description" => "Saver"
@@ -385,5 +403,9 @@ class UPSService extends AppBaseController
             \Log::channel('consola')->info("SAP - No hubo loggin - ". $response->getStatusCode());
             die();
         }
+    }
+
+    protected function esCPMza ($codigoPostal) {
+        return in_array($codigoPostal,$this->cpMza);
     }
 }
