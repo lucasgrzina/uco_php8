@@ -138,8 +138,10 @@
 
 
 					<p class="mb-form">{!! str_replace('_link_pp_',routeIdioma('politicasPrivacidad'),trans('front.paginas.contacto.disclaimer')) !!}</p>
+					<div class="text-center">
+						<button type="button" class="btn btn-primary" @click="contactoSubmit()" :disabled="form.loading">{!! trans('front.paginas.contacto.btn') !!}</button>
+					</div>
 
-					<button type="button" class="btn btn-primary" @click="contactoSubmit()" :disabled="form.loading">{!! trans('front.paginas.contacto.btn') !!}</button>
 				</form>
 			</div>
 
