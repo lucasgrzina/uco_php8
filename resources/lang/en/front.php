@@ -233,6 +233,12 @@ return [
                     'quality' => 'QUALITY',
                     'viticulture' => 'REGENERATIVE VITICULTURE',
                     'our-people' => 'OUR PEOPLE',
+                ],
+                'secciones' => [
+                    'certificaciones' => 'certifications',
+                    'calidad' => 'quality',
+                    'viticultura' => 'viticulture',
+                    'nuestra-gente' => 'our-people',
                 ]
             ],
             'colecciones' => [

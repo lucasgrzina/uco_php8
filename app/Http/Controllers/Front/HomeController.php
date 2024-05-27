@@ -45,7 +45,7 @@ class HomeController extends AppBaseController
         {
             app()->setLocale($lang);
             $cookie = \Cookie::make('uco_idioma', $lang, 518400);
-            logger($desde);
+
             $desdePartes = explode('.',$desde);
             $desde = $desdePartes[0];
 
@@ -53,6 +53,40 @@ class HomeController extends AppBaseController
             switch ($desde) {
                 case 'home':
                     $to = trans('front.rutas.'.$desde);
+                    break;
+                 case 'nuestroCompromiso':
+                    //dd([$desde,trans("front.rutas.{$desde}.{$desdePartes[1]}"),request()->all()]);
+                    $params = explode('|',request()->get('params'));
+
+                    if (count($params) > 1) {
+                        switch($params[1]) {
+                            case 'certificacoes':
+                                case 'certifications':
+                                    case 'certificaciones':
+                                        $keySeccion = 'certificaciones';
+                                        break;
+                            case 'calidad':
+                                case 'quality':
+                                    case 'qualidade':
+                                        $keySeccion = 'calidad';
+                                        break;
+                            case 'viticultura':
+                                case 'viticulture':
+                                    $keySeccion = 'viticultura';
+                                    break;
+
+                            case 'nuestra-gente':
+                                case 'our-people':
+                                    case 'nossa-gente':
+                                        $keySeccion = 'nuestra-gente';
+                                        break;
+                        }
+                        $keySeccion = trans("front.paginas.home.compromiso.secciones.{$keySeccion}");
+                        $to.= trans("front.rutas.{$desde}").'/'.$keySeccion;
+                    } else {
+                        $to.= trans("front.rutas.{$desde}");
+                    }
+                    logger($to);
                     break;
                 case 'colecciones':
                     //dd([$desde,trans("front.rutas.{$desde}.{$desdePartes[1]}"),request()->all()]);

@@ -255,6 +255,12 @@ return [
                     'calidad' => 'CALIDAD',
                     'viticultura' => 'VITICULTURA REGENERATIVA',
                     'nuestra-gente' => 'NUESTRA GENTE',
+                ],
+                'secciones' => [
+                    'certificaciones' => 'certificaciones',
+                    'calidad' => 'calidad',
+                    'viticultura' => 'viticultura',
+                    'nuestra-gente' => 'nuestra-gente',
                 ]
             ],
             'colecciones' => [
