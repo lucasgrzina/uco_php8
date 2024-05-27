@@ -1,5 +1,21 @@
 <?php
 return [
+    'mes' => [
+        'corto' => [
+            '01' => 'JAN',
+            '02' => 'FEB',
+            '03' => 'MAR',
+            '04' => 'APR',
+            '05' => 'MAY',
+            '06' => 'JUN',
+            '07' => 'JUL',
+            '08' => 'AUG',
+            '09' => 'SEP',
+            '10' => 'OCT',
+            '11' => 'NOV',
+            '12' => 'DEC',
+        ]
+    ],
     'rutas' => [
         'home' => 'en',
         'legado' => 'legacy',
@@ -284,7 +300,7 @@ return [
         ],
         'contacto' => [
             'titulo' => 'Magia de Uco experience',
-            'subtitulo' => 'We are working so that you can enjoy your experience. We will be posting updates soon. ',
+            'subtitulo' => 'We are working so that you can enjoy your experience. We will be posting updates soon. For inquiries or additional information, please complete the form below.',
             'donde' => 'Where to find us',
             'contactanos' => 'Contact Us',
             'form' => [

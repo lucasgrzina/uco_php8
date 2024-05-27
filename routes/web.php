@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 */
 
+use Carbon\Carbon;
 use App\Services\UPSService;
 
 Route::prefix('id')->group(function () {
@@ -235,6 +236,7 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|es|pt']],function 
         if (in_array($locale, config('translatable.locales'))) {
             app()->setLocale($locale);
             Date::setLocale($locale);
+            Carbon::setLocale($locale);
         }
     }
     Route::middleware(['guest'])->group(function () {

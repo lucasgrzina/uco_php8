@@ -104,9 +104,13 @@ class Nota extends Model implements TranslatableContract
         return \FUHelper::fullUrl($this->targetDir,$this->foto);
     }
 
+
     public function getFechaCortaAttribute($value)
     {
-        return strtoupper(Carbon::parse($this->attributes['fecha'])->format('d.M'));
+        //$format = config('app.locale') == 'en' ? 'M.d.y' : 'd.M.y';
+        $fecha = explode('.',strtoupper(Carbon::parse($this->attributes['fecha'])->format('m.d.y')));
+        $fecha[0] = trans('front.mes.corto.'.$fecha[0]);
+        return config('app.locale') == 'en' ? "{$fecha[0]}.{$fecha[1]}.{$fecha[2]}" : "{$fecha[1]}.{$fecha[0]}.{$fecha[2]}";
     }
 
     protected static function boot()

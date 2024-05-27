@@ -46,7 +46,7 @@
                     @foreach ($data['items'] as $item)
 					<div>
 						<div class="content-image">
-							<img class="image" src="{{asset($item['imagen'])}}">
+							<img class="image" src="{{isset($item['imagen_interna']) && $item['imagen_interna'] ? asset($item['imagen_interna']) : asset($item['imagen'])}}">
 						</div>
 
 						<div class="content-text bg-gris-claro">

@@ -26,7 +26,7 @@
 					<div class="item item-1">
 						<img src="{{$data['novedades']['actual']->foto_url}}">
 						<div class="info">
-							<span class="date">{{formatoFechaNota($data['novedades']['actual']->fecha)}}</span>
+							<span class="date">{{($data['novedades']['actual']->fecha_corta)}}</span>
 							<h3>{{$data['novedades']['actual']->titulo}}</h3>
 							<p>{{$data['novedades']['actual']->bajada}}</p>
                             {!! $data['novedades']['actual']->cuerpo !!}
@@ -69,7 +69,7 @@
                             <a href="{{routeIdioma('novedades',[$item->id])}}" class="item item-1">
                                 <img src="{{$item->foto_url}}">
                                 <div class="info">
-                                    <span class="date">{{formatoFechaNota($item->fecha)}}</span>
+                                    <span class="date">{{($item->fecha_corta)}}</span>
                                     <h3>{{$item->titulo}}</h3>
                                 </div>
                             </a>

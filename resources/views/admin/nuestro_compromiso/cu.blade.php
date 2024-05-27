@@ -15,7 +15,8 @@
         var _data = {!! json_encode($data) !!};
 
         _data.files = {
-            imagen_home: []
+            imagen_home: [],
+            imagen_interna: [],
         };
 
         _methods.inputImagenHome = function (n,o) {
@@ -28,6 +29,17 @@
           }, function(file) {
             //_this.errors.add('light_logo',file.error, 'server');
           },'uploadImagenHome');
+        }
+        _methods.inputImagenInterna = function (n,o) {
+          var _this = this;
+          this.inputFile(n,o,function(file) {
+                console.debug(file);
+              //_this.errors.remove('files');
+              _this.selectedItem.imagen_interna_url = file.response.path;
+              _this.selectedItem.imagen_interna = file.response.file;
+          }, function(file) {
+            //_this.errors.add('light_logo',file.error, 'server');
+          },'uploadImagenInterna');
         }
     </script>
     <script type="text/javascript" src="{{ asset('vendor/vee-validate.min.js') }}"></script>

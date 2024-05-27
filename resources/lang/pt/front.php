@@ -1,5 +1,21 @@
 <?php
 return [
+    'mes' => [
+        'corto' => [
+            '01' => 'JAN',
+            '02' => 'FEV',
+            '03' => 'MAR',
+            '04' => 'APR',
+            '05' => 'MAI',
+            '06' => 'JUN',
+            '07' => 'JUL',
+            '08' => 'AGO',
+            '09' => 'SET',
+            '10' => 'OUT',
+            '11' => 'NOV',
+            '12' => 'DEZ',
+        ]
+    ],
     'rutas' => [
         'home' => 'pt',
         'legado' => 'legado',
@@ -313,7 +329,7 @@ return [
         ],
         'contacto' => [
             'titulo' => 'Experiência Magia de Uco',
-            'subtitulo' => 'Estamos trabalhando para que você possa desfrutar a sua experiência. Em breve publicaremos novidades.',
+            'subtitulo' => 'Estamos trabalhando para que você possa desfrutar a sua experiência. Em breve publicaremos novidades. Para dúvidas ou informações adicionais, por favor, preencha o formulário abaixo.',
             'donde' => 'Onde encontrar os nossos vinhos',
             'contactanos' => 'Contactanos',
             'form' => [

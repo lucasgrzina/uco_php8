@@ -31,4 +31,8 @@ class NuestroCompromisoRepository extends BaseRepository
         return NuestroCompromiso::class;
     }
 
+    public function getFotosInternas() {
+        return $this->model->orderBy('id')->select('imagen_interna','codigo')->get();
+    }
+
 }

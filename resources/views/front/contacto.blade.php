@@ -66,17 +66,17 @@
 <section class="section-contacto-map bg-gris-claro">
 	<div class="container">
 		<div class="row ">
-			<div class="col-lg-6  fade_JS col-text">
+			<div class="col-lg-12  fade_JS col-text">
 				<div class="wrap-text ">
 					<h2>{!! trans('front.paginas.contacto.titulo') !!}</h2>
 					<p>{!! trans('front.paginas.contacto.subtitulo') !!}</p>
 				</div>
 			</div>
 
-			<div class="col-lg-6 col-map fade_JS">
+			<!--div class="col-lg-6 col-map fade_JS">
 				<h2>{!! trans('front.paginas.contacto.donde') !!}</h2>
 				<div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.9070125035905!2d-69.19128188484052!3d-33.60771708072918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967c3a1f7968f645%3A0xa442f1d32cd4415b!2sRuta%20Provincial%2094%20%26%20Clodomiro%20Silva%2C%20Mendoza!5e0!3m2!1sen!2sar!4v1666896168565!5m2!1sen!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-			</div>
+			</div-->
 
 		</div>
 
@@ -139,11 +139,20 @@
 
 					<p class="mb-form">{!! str_replace('_link_pp_',routeIdioma('politicasPrivacidad'),trans('front.paginas.contacto.disclaimer')) !!}</p>
 
-					<button type="button" class="btn btn-form" @click="contactoSubmit()" :disabled="form.loading">{!! trans('front.paginas.contacto.btn') !!}</button>
+					<button type="button" class="btn btn-primary" @click="contactoSubmit()" :disabled="form.loading">{!! trans('front.paginas.contacto.btn') !!}</button>
 				</form>
 			</div>
 
 		</div>
+        <div class="row mt-5">
+            <div class="col-12 fade_JS">
+				<h2>{!! trans('front.paginas.contacto.donde') !!}</h2>
+
+			</div>
+            <div class="col-sm-6 col-map fade_JS">
+                <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.9070125035905!2d-69.19128188484052!3d-33.60771708072918!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967c3a1f7968f645%3A0xa442f1d32cd4415b!2sRuta%20Provincial%2094%20%26%20Clodomiro%20Silva%2C%20Mendoza!5e0!3m2!1sen!2sar!4v1666896168565!5m2!1sen!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            </div>
+        </div>
 	</div>
 </section>
 

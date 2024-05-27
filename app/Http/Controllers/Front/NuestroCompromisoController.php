@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Repositories\LegadosRepository;
 use App\Repositories\HomeSliderRepository;
 use App\Http\Controllers\AppBaseController;
+use App\Repositories\NuestroCompromisoRepository;
 
 class NuestroCompromisoController extends AppBaseController
 {
@@ -16,15 +17,36 @@ class NuestroCompromisoController extends AppBaseController
      * @return void
      */
     protected $repository;
-    public function __construct()
+    public function __construct(NuestroCompromisoRepository $repo)
     {
+        $this->repository = $repo;
     }
 
     public function index(Request $request,HomeSliderRepository $sliderRepo,$locale = null,$slide=null)
     {
         //dd(app()->getLocale());
-
+        $imagenesSlides = $this->repository->getFotosInternas();
         $itemsSlide = trans('front.paginas.nuestroCompromiso.modulo2.slider');
+
+        //dd($imagenesSlides->toArray());
+        foreach ($imagenesSlides as $imagen) {
+            $slideNro = false;
+            switch ($imagen->codigo) {
+                case 'gente':
+                    $slideNro = 1;
+                    break;
+                case 'viticula':
+                    $slideNro = 2;
+                    break;
+                case 'calidad':
+                    $slideNro = 3;
+                    break;
+            }
+            if ($slideNro !== false) {
+                $itemsSlide[$slideNro]['imagen'] = $imagen->imagen_interna ? $imagen->imagen_interna_url : null;
+            }
+        }
+
         $goTo = '';
         $offset = 0;
         if ($slide == 'viticultura' || $slide == 'viticulture') {
@@ -32,6 +54,7 @@ class NuestroCompromisoController extends AppBaseController
             $itemsSlide = [
                 $itemsSlide[2],$itemsSlide[3],$itemsSlide[1]
             ];
+
         } else if ($slide == 'calidad' || $slide == 'quality' || $slide == 'qualidade') {
             $goTo = 'calidad';
             $itemsSlide = [
@@ -45,13 +68,11 @@ class NuestroCompromisoController extends AppBaseController
             $offset = 0;
         }
 
-
         $data = [
             'slides' => $sliderRepo->porSeccion('nuestroCompromiso'),
             'items' => $itemsSlide,
             'goToSeccion' => $goTo,
-            'offset' => $offset
-
+            'offset' => $offset,
         ];
 
 

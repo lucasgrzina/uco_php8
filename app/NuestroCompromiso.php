@@ -41,7 +41,7 @@ class NuestroCompromiso extends Model
      * files, targetDir, tmpDir, disk
      */
 
-    public $files = ['imagen_home'];
+    public $files = ['imagen_home','imagen_interna'];
     public $targetDir = 'nuestro_compromiso';
 
 
@@ -80,13 +80,16 @@ class NuestroCompromiso extends Model
      *
      * @var array
      */
-    protected $appends = ['imagen_home_url'];
+    protected $appends = ['imagen_home_url','imagen_interna_url'];
 
     public function getImagenHomeUrlAttribute($value)
     {
         return \FUHelper::fullUrl($this->targetDir,$this->imagen_home);
     }
-
+    public function getImagenInternaUrlAttribute($value)
+    {
+        return $this->imagen_interna ? \FUHelper::fullUrl($this->targetDir,$this->imagen_interna) : null;
+    }
 
 
 

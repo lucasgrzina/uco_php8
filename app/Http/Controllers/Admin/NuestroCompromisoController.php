@@ -72,6 +72,9 @@ class NuestroCompromisoController extends CrudAdminController
                 'titulo' => null,
                 'imagen_home' => null,
                 'imagen_home_url' => null,
+                'imagen_interna' => null,
+                'imagen_interna_url' => null,
+
         ]);
 
         return view($this->viewPrefix.'cu')->with('data',$this->data);

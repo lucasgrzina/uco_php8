@@ -694,13 +694,15 @@ p{
 					width: 106px;
 					height: 31px;
 					font-size: 17px;
-					background-color: #fff;
-					color: #8E8063;
+					background-color: rgba(250, 250, 249, 0.7);
+                    opacity: 1;
+					color: #363126;
 					text-transform: uppercase;
 					font-family: $f-book;
 					align-items: center;
 					justify-content: center;
 					display: flex;
+                    font-weight: 600;
 				}
 				h3{
 					font-family: $f-bold;
@@ -790,13 +792,14 @@ p{
 					width: 106px;
 					height: 31px;
 					font-size: 17px;
-					background-color: #fff;
-					color: #8E8063;
+					background-color: rgb(255 255 255 / 69%);
+					color: #363126;
 					text-transform: uppercase;
 					font-family: $f-book;
 					align-items: center;
 					justify-content: center;
 					display: flex;
+                    font-weight: 600;
 				}
 				h3{
 					font-family: $f-bold;
@@ -1061,17 +1064,17 @@ p{
 		padding: 60px 0 0 0;
 
 		h2{
-			color: #8E8063;
+			/*color: #8E8063;*/
 
 
 		}
 		p{
 			color: #363126;
-			max-width: 410px;
+			/*max-width: 410px;*/
 		}
 		@include over($b-md) {
             /*padding: 60px 35px 0 0;*/
-            padding: 220px 35px 0 0;
+            padding: 200px 35px;
             float: left;
         }
 
@@ -1091,7 +1094,7 @@ p{
 	h2{
 		text-align: left;
 		margin-bottom: 88px;
-		color: #8E8063;
+		/*color: #8E8063;*/
 		@include under($b-lg) {
 			font-size: 35px;
 			text-align: left;
@@ -1107,8 +1110,8 @@ p{
 			background-color: transparent;
 			border-radius: 0;
 			border-width: 0 0 1px 0;
-			border-color: #8e8063;
-			color: #8e8063;
+			/*border-color: #8e8063;*/
+			/*color: #8e8063;*/
 			font-size: 21px;
 			width: 100%;
 		}
@@ -1122,7 +1125,7 @@ p{
 		}
 
 		.form-floating>label{
-			color: #8e8063;
+			color: #212529;
 			font-size: 15px;
 		}
 
@@ -1137,23 +1140,23 @@ p{
 
 		.mb-form{
 			margin-bottom: 40px;
-			color: #BCAF94;
+			color: #212529;
 		}
 
 		::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-			color: #8e8063;
+			color: #212529;
 			opacity: .65;
 			font-size: 15px;
 		}
 
 		:-ms-input-placeholder { /* Internet Explorer 10-11 */
-			color: #8e8063;
+			color: #212529;
 			opacity: .65;
 			font-size: 15px;
 		}
 
 		::-ms-input-placeholder { /* Microsoft Edge */
-			color: #8e8063;
+			color: #212529;
 			opacity: .65;
 			font-size: 15px;
 		}
@@ -1169,7 +1172,7 @@ p{
 		padding-left: 35px;
 		margin-bottom: 12px;
 		cursor: pointer;
-		color: #8e8063;
+		/*color: #8e8063;*/
 		font-size: 15px;
 		-webkit-user-select: none;
 		-moz-user-select: none;
@@ -1195,19 +1198,23 @@ p{
 		position: absolute;
 		top: 0;
 		left: 0;
-		height: 25px;
-		width: 25px;
-		background-color: #8E8063;
+		height: 20px;
+		width: 20px;
+		background-color: rgba(0, 0, 0, 0);
+		border-color: #bcc4a8;
+		border: 1px solid #bcc4a8;
+		border-radius: 2px;
 	}
 
 	/* On mouse-over, add a grey background color */
 	.container:hover input ~ .checkmark {
-		background-color: #ccc;
+		background-color: #edebd9;
 	}
 
 	/* When the checkbox is checked, add a blue background */
 	.container input:checked ~ .checkmark {
-		background-color: #8E8063;
+		background-color: #edebd9;
+		border-color: #bcc4a8;
 	}
 
 	/* Create the checkmark/indicator (hidden when not checked) */
@@ -1224,11 +1231,11 @@ p{
 
 	/* Style the checkmark/indicator */
 	.container .checkmark:after {
-		left: 9px;
-		top: 5px;
+		left: 7px;
+		top: 3px;
 		width: 5px;
 		height: 10px;
-		border: solid white;
+		border: solid #bcc4a8;
 		border-width: 0 3px 3px 0;
 		-webkit-transform: rotate(45deg);
 		-ms-transform: rotate(45deg);
