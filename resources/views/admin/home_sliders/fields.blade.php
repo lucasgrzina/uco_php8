@@ -1,6 +1,79 @@
 <template  v-if="!selectedItem.lang">
     <!-- ImagenMobile Field -->
-    <div class="form-group col-sm-4" :class="{'has-error': errors.has('imagen_mobile')}">
+    <div class="form-group col-sm-12">
+        <h3>Desktop</h3>
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-info"></i> Atención!</h4>
+            En caso de cargar un video y una imagen al mismo tiempo, el sistema le dará prioridad a la visualización del video.
+        </div>
+    </div>
+
+
+    <!-- Video Field -->
+    <div class="form-group col-sm-6" :class="{'has-error': errors.has('video')}">
+        {!! Form::label('video', 'Video') !!}
+        <div class="">
+            <button-type v-if="selectedItem.video" type="remove-list" @click="removeFile('video')"></button-type>
+            <file-upload
+
+                :multiple="false"
+                :headers="_fuHeader"
+                ref="uploadVideo"
+                input-id="video"
+                v-model="files.video"
+                post-action="{{ route('uploads.store-file') }}"
+                @input-file="inputVideo"
+                class="">
+                    <img class="img-responsive" src="{{ asset('admin/img/generic-upload.png') }}" v-if="!selectedItem.video" style="max-width: 100px;">
+                    <div style="width: 100%; text-align: left;"  v-else>
+                        <i class="fa fa-file" style="font-size: 25px; margin-right: 5px;"> </i>
+                        <span>(% selectedItem.video_url %)</span>
+                    </div>
+                    <div class="progress m-t-5 m-b-0" v-if="files.video.length > 0">
+                        <div class="progress-bar" :style="{ width: files.video[0].progress+'%' }"></div>
+                    </div>
+            </file-upload>
+        </div>
+        <span class="help-block" v-show="errors.has('video')">(% errors.first('video') %)</span>
+    </div>
+    <!-- ImagenWeb Field -->
+    <div class="form-group col-sm-6" :class="{'has-error': errors.has('imagen_desktop')}">
+        {!! Form::label('imagen_desktop', 'Imagen') !!}
+        <div class="thumb-wrap">
+            <button-type v-if="selectedItem.imagen_desktop" type="remove-list" @click="removeFile('imagen_desktop')"></button-type>
+            <file-upload
+
+                :multiple="false"
+                :headers="_fuHeader"
+                ref="uploadImagenDesktop"
+                extensions="gif,jpg,jpeg,png,webp,svg"
+                accept="image/png,image/gif,image/jpeg,image/webp,image/svg"
+                input-id="imagen_desktop"
+                v-model="files.imagen_desktop"
+                post-action="{{ route('uploads.store-file') }}"
+                @input-file="inputImagenDesktop"
+                class="thumbnail">
+                    <img class="img-responsive" src="{{ asset('admin/img/generic-upload.png') }}" v-if="!selectedItem.imagen_desktop">
+                    <img class="img-responsive" :src="selectedItem.imagen_desktop_url" v-else>
+                    <div class="progress m-t-5 m-b-0" v-if="files.imagen_desktop.length > 0">
+                        <div class="progress-bar" :style="{ width: files.imagen_desktop[0].progress+'%' }"></div>
+                    </div>
+            </file-upload>
+        </div>
+        <span class="help-block" v-show="errors.has('imagen_desktop')">(% errors.first('imagen_desktop') %)</span>
+    </div>
+    <div class="form-group col-sm-12">
+        <hr>
+        <h3>Mobile</h3>
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-info"></i> Atención!</h4>
+            En caso de haber cargado un video en la sección "Desktop" y una imagen para su visualización en mobile, el sistema le dará prioridad a la imagen mobile cargada (performance en la carga). Si deséa que se visualice el vide cargado en "Desktop", debe quitar la imagen mobile.
+        </div>
+
+    </div>
+    <div class="form-group col-sm-6" :class="{'has-error': errors.has('imagen_mobile')}">
         {!! Form::label('imagen_mobile', 'Imagen Mobile') !!}
         <div class="thumb-wrap">
             <button-type v-if="selectedItem.imagen_mobile" type="remove-list" @click="removeFile('imagen_mobile')"></button-type>
@@ -25,59 +98,10 @@
         </div>
         <span class="help-block" v-show="errors.has('imagen_mobile')">(% errors.first('imagen_mobile') %)</span>
     </div>
-    <!-- ImagenWeb Field -->
-    <div class="form-group col-sm-4" :class="{'has-error': errors.has('imagen_desktop')}">
-        {!! Form::label('imagen_desktop', 'Imagen Desktop') !!}
-        <div class="thumb-wrap">
-            <button-type v-if="selectedItem.imagen_desktop" type="remove-list" @click="removeFile('imagen_desktop')"></button-type>
-            <file-upload
-
-                :multiple="false"
-                :headers="_fuHeader"
-                ref="uploadImagenDesktop"
-                extensions="gif,jpg,jpeg,png,webp,svg"
-                accept="image/png,image/gif,image/jpeg,image/webp,image/svg"
-                input-id="imagen_desktop"
-                v-model="files.imagen_desktop"
-                post-action="{{ route('uploads.store-file') }}"
-                @input-file="inputImagenDesktop"
-                class="thumbnail">
-                    <img class="img-responsive" src="{{ asset('admin/img/generic-upload.png') }}" v-if="!selectedItem.imagen_desktop">
-                    <img class="img-responsive" :src="selectedItem.imagen_desktop_url" v-else>
-                    <div class="progress m-t-5 m-b-0" v-if="files.imagen_desktop.length > 0">
-                        <div class="progress-bar" :style="{ width: files.imagen_desktop[0].progress+'%' }"></div>
-                    </div>
-            </file-upload>
-        </div>
-        <span class="help-block" v-show="errors.has('imagen_desktop')">(% errors.first('imagen_desktop') %)</span>
+    <div class="form-group col-sm-12">
+    <hr>
     </div>
-    <!-- Video Field -->
-    <div class="form-group col-sm-4" :class="{'has-error': errors.has('video')}">
-        {!! Form::label('video', 'Video') !!}
-        <div class="">
-            <button-type v-if="selectedItem.video" type="remove-list" @click="removeFile('video')"></button-type>
-            <file-upload
-
-                :multiple="false"
-                :headers="_fuHeader"
-                ref="uploadVideo"
-                input-id="video"
-                v-model="files.video"
-                post-action="{{ route('uploads.store-file') }}"
-                @input-file="inputVideo"
-                class="">
-                    <img class="img-responsive" src="{{ asset('admin/img/generic-upload.png') }}" v-if="!selectedItem.video" style="max-width: 100px;">
-                    <div style="width: 100%; text-align: left;"  v-else>
-                        <i class="fa fa-file" style="font-size: 25px; margin-right: 5px;"> </i>
-                       <span>(% selectedItem.video_url %)</span>
-                    </div>
-                    <div class="progress m-t-5 m-b-0" v-if="files.video.length > 0">
-                        <div class="progress-bar" :style="{ width: files.video[0].progress+'%' }"></div>
-                    </div>
-            </file-upload>
-        </div>
-        <span class="help-block" v-show="errors.has('video')">(% errors.first('video') %)</span>
-    </div>
+    <div class="clearfix"></div>
 </template>
 
 <div class="form-group col-sm-3" :class="{'has-error': errors.has('seccion')}">

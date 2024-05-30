@@ -6,7 +6,10 @@
                 <div class="slider">
                     @foreach ($items as $item)
                         @if (isset($item->video) && $item->video)
-                            <div class="slide">
+                            <div class="slide {{isset($item->slider_class) && $item->slider_class ? $item->slider_class : ''}}" style="
+                                --background-desktop: url('{{assetComodin($item->imagen_desktop_url)}}');
+                                --background-mobile: url('{{isset($item->imagen_mobile) && $item->imagen_mobile ? assetComodin($item->imagen_mobile_url) : assetComodin($item->imagen_desktop_url)}}')"
+                                >
                         @else
                             <div class="slide {{isset($item->slider_class) && $item->slider_class ? $item->slider_class : ''}}" style="
                                 --background-desktop: url('{{assetComodin($item->imagen_desktop_url)}}');
@@ -37,7 +40,7 @@
                                 </div>
                                 @endif
                                 @if (isset($item->video) && $item->video)
-                                    <video loop autoplay muted style="position: absolute; z-index: -1;" playsinline>
+                                    <video class="{{isset($item->imagen_mobile) && $item->imagen_mobile ? 'd-none d-sm-block' : ''}}" loop autoplay muted style="position: absolute; z-index: -1;" playsinline>
                                         <source  src="{{$item->video_url}}" type="video/mp4">
                                     </video>
                                 @endif
