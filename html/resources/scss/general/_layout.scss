@@ -824,7 +824,7 @@ p{
 		text-align: center;
 		font-family: $f-bold;
 		margin-bottom: 40px;
-
+        color: $c-dark;
 		@include under($b-lg) {
 			font-size: 35px;
 			text-align: center;
@@ -855,6 +855,7 @@ p{
 			font-size: 14px;
             font-weight: bold;
 			margin-bottom: 5px;
+            color: $c-dark
 		}
 
 		input[type="text"], input[type="mail"]{

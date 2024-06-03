@@ -17,7 +17,7 @@
 %txt {
 	font-size: 16px;
 	font-family: $f-book;
-	color: $c-dark;
+	color: $c-black;
 	line-height: 25px;
 
 	a{
@@ -54,7 +54,7 @@
 	font-size: 44px;
 	line-height: 44px;
 	letter-spacing: -0.7px;
-	color: $c-dark;
+	color: $c-black;
 	font-family: $f-bold;
 	@include under($b-md) {
 		font-size: 40px;
