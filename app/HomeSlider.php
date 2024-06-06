@@ -45,7 +45,7 @@ class HomeSlider extends Model implements TranslatableContract
      * files, targetDir, tmpDir, disk
      */
 
-    public $files = ['imagen_mobile','imagen_desktop','video'];
+    public $files = ['imagen_mobile','imagen_desktop','video','video_mobile'];
     public $targetDir = 'home_sliders';
 
 
@@ -58,6 +58,7 @@ class HomeSlider extends Model implements TranslatableContract
         'imagen_mobile',
         'imagen_desktop',
         'video',
+        'video_mobile',
         'titulo',
         'subtitulo',
         'boton_titulo',
@@ -101,7 +102,7 @@ class HomeSlider extends Model implements TranslatableContract
      *
      * @var array
      */
-    protected $appends = ['imagen_mobile_url','imagen_desktop_url','video_url'];
+    protected $appends = ['imagen_mobile_url','imagen_desktop_url','video_url','video_mobile_url'];
 
 
     public function getImagenMobileUrlAttribute($value)
@@ -119,6 +120,10 @@ class HomeSlider extends Model implements TranslatableContract
         return \FUHelper::fullUrl($this->targetDir,$this->video);
     }
 
+    public function getVideoMobileUrlAttribute($value)
+    {
+        return \FUHelper::fullUrl($this->targetDir,$this->video_mobile);
+    }
 
 
     protected static function boot()

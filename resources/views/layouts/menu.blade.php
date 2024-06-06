@@ -24,7 +24,9 @@
 </li>
 @endif
 
-
+<li class="{{ Request::is('registrados*') ? 'active' : '' }}">
+    <a href="{!! route('registrados.index') !!}"><i class="fa fa-edit"></i><span>Registrados</span></a>
+</li>
 <li class="{{ Request::is('legados*') ? 'active' : '' }}">
     <a href="{!! route('legados.index') !!}"><i class="fa fa-edit"></i><span>Legados</span></a>
 </li>

@@ -60,7 +60,7 @@ body[data-section="registro"] {
                     filter: invert(1);
 					width: 100%;
 					@include over($b-md) {
-						filter: invert(54%) sepia(26%) saturate(398%) hue-rotate(2deg) brightness(88%) contrast(83%);
+						/*filter: invert(54%) sepia(26%) saturate(398%) hue-rotate(2deg) brightness(88%) contrast(83%);*/
 					}
 				}
 			}
@@ -83,10 +83,10 @@ body[data-section="registro"] {
 					background-color: transparent !important;
 					border-width: 1px;
 					border-radius: 0;
-					border-color: #8e8063;
+					border-color: #363126;
 					font-size: 14px;
 					font-family: $f-book;
-					color: #8e8063;
+					color: $c_black;
 					background-clip: text;
 					-webkit-background-clip: text;
 
@@ -115,7 +115,8 @@ body[data-section="registro"] {
 				}
 
 				.form-floating>label{
-					color: #8e8063;
+                    font-weight: 600;
+					color: $c_black;
 				    padding: 11px 14px;
     				font-size: 14px;
 
@@ -134,12 +135,12 @@ body[data-section="registro"] {
 					font-weight: normal;
 					color: #fff;
 					a{
-						color: #8e8063;
+						color: $c_black;
 						text-decoration: none;
 
 
 						@include under($b-md) {
-							color: #2C2B2B;
+							color: $c_black;
 						}
 					}
 				}

@@ -14,8 +14,9 @@
         _data.files = {
             imagen_desktop: [],
             imagen_mobile: [],
-            video: []
-        };          
+            video: [],
+            video_mobile: [],
+        };
 
         _methods.inputImagenDesktop = function (n,o) {
           var _this = this;
@@ -23,32 +24,44 @@
                 console.debug(file);
               //_this.errors.remove('files');
               _this.selectedItem.imagen_desktop_url = file.response.path;
-              _this.selectedItem.imagen_desktop = file.response.file;          
+              _this.selectedItem.imagen_desktop = file.response.file;
           }, function(file) {
             //_this.errors.add('light_logo',file.error, 'server');
           },'uploadImagenDesktop');
-        }         
+        }
 
         _methods.inputImagenMobile = function (n,o) {
           var _this = this;
           this.inputFile(n,o,function(file) {
               _this.selectedItem.imagen_mobile_url = file.response.path;
-              _this.selectedItem.imagen_mobile = file.response.file;          
+              _this.selectedItem.imagen_mobile = file.response.file;
           }, function(file) {
             //_this.errors.add('light_logo',file.error, 'server');
           },'uploadImagenMobile');
-        }     
-        
+        }
+
         _methods.inputVideo = function (n,o) {
           var _this = this;
           this.inputFile(n,o,function(file) {
-            _this.selectedItem.video_url     = file.response.path;      
-            _this.selectedItem.video         = file.response.file;   
+            _this.selectedItem.video_url     = file.response.path;
+            _this.selectedItem.video         = file.response.file;
 
           }, function(file) {
             //_this.errors.add('light_cv',file.error, 'server');
           },'uploadVideo');
-        }           
+        }
+
+        _methods.inputVideoMobile = function (n,o) {
+          var _this = this;
+          this.inputFile(n,o,function(file) {
+            _this.selectedItem.video_url_mobile     = file.response.path;
+            _this.selectedItem.video_mobile         = file.response.file;
+
+          }, function(file) {
+            //_this.errors.add('light_cv',file.error, 'server');
+          },'uploadVideoMobile');
+        }
+
     </script>
     <script type="text/javascript" src="{{ asset('vendor/vee-validate.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('admin/crud/js/cu.js') }}"></script>
@@ -70,7 +83,7 @@
             <div class="box-footer text-right">
                 <button-type type="save" :promise="store"></button-type>
                 <button-type type="cancel" @click="cancel()"></button-type>
-            </div>            
-        </div>    
+            </div>
+        </div>
     </div>
 @endsection

@@ -23,7 +23,7 @@
 				<div class="wrap-text fade_JS">
 					<h2>{!! trans('front.paginas.colecciones.root.magiaDeUcoNotable.titulo') !!}</h2>
 					<!--p>{!! trans('front.paginas.colecciones.root.magiaDeUcoNotable.subtitulo') !!}</p-->
-					<a href="{{routeIdioma('colecciones.magiaUcoNotable')}}" class="btn-primary btn-marron-claro" style="float: right;">{!! trans('front.paginas.colecciones.root.magiaDeUcoNotable.btn') !!}</a>
+					<a href="{{routeIdioma('colecciones.magiaUcoNotable')}}" class="btn-primary btn-marron" style="float: right;">{!! trans('front.paginas.colecciones.root.magiaDeUcoNotable.btn') !!}</a>
 				</div>
 			</div>
 		</div>

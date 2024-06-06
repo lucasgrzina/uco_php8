@@ -95,6 +95,10 @@ Route::prefix('/admin')->group(function () {
         Route::post('newsletters/filter', 'Admin\NewslettersController@filter')->name('newsletters.filter');
         Route::resource('newsletters', 'Admin\NewslettersController');
 
+        Route::post('registrados/change-enabled', 'Admin\RegistradoController@changeEnabled')->name('registrados.change-enabled');
+        Route::post('registrados/filter', 'Admin\RegistradoController@filter')->name('registrados.filter');
+        Route::resource('registrados', 'Admin\RegistradoController');
+
         Route::get('contactos/edit/{id}/{lang}', 'Admin\ContactosController@editLang')->name('contactos.edit-lang');
         Route::post('contactos/change-enabled', 'Admin\ContactosController@changeEnabled')->name('contactos.change-enabled');
         Route::post('contactos/filter', 'Admin\ContactosController@filter')->name('contactos.filter');

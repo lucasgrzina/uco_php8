@@ -262,11 +262,13 @@ p{
 			&.slick-prev{
 				background-image: url(../img/arrow-prev.svg);
 				left: 0;
+                filter: brightness(0.1);
 			}
 
 			&.slick-next {
 				right: 0;
 				background-image: url(../img/arrow-next.svg);
+                filter: brightness(0.1);
 			}
 
 			&:before{
@@ -553,7 +555,7 @@ p{
 		font-size: 35px;
 		line-height: 50px;
 		letter-spacing: -0.7px;
-		color: $c-dark;
+		color: $c-black;
 		font-family: $f-bold;
 		@include under($b-md) {
 			font-size: 28px;
@@ -564,7 +566,7 @@ p{
 }
 .section-novedades{
 	padding: 99px 0 44px;
-	margin-bottom: 142px;
+	/*margin-bottom: 142px;*/
 	background-color: #FAFAF9;
 	.sidebar{
 		@include under($b-md) {
@@ -853,7 +855,7 @@ p{
 		}
 		label{
 			font-size: 14px;
-            font-weight: bold;
+            font-weight: 600;
 			margin-bottom: 5px;
             color: $c-dark
 		}
@@ -864,7 +866,7 @@ p{
 			background-color: transparent;
 			border-width: 0 0 1px;
 			width: 100%;
-			border-color: #EDEBD9;
+			border-color: #CDCFAD;
 			text-align: left;
 			font-family: $f-book;
 			font-size: 14px;
@@ -894,7 +896,7 @@ p{
 			margin-bottom: 12px;
 			cursor: pointer;
 			font-family: $f-book;
-			font-size: 11px;
+			font-size: 12px;
 			-webkit-user-select: none;
 			-moz-user-select: none;
 			-ms-user-select: none;
@@ -968,6 +970,11 @@ p{
 				top: 2px;
 				position: relative;
 				letter-spacing: 0.8px;
+                font-size: 14px;
+                @include under($b-md) {
+                    font-size: 12px;
+                }
+
 			}
 		}
 
@@ -1476,6 +1483,7 @@ p{
 
 	.icon{
 		margin-bottom: 15px;
+        filter: brightness(0.1);
 	}
 
 	p{
@@ -1864,7 +1872,7 @@ p{
 					font-family: 'Goudy',sans-serif;
 				}
 				h1{
-					color: #363126;
+					color: $c_black;
 					/*font-size: 50px;*/
 					font-size: 40px;
 					font-family: $f-bold;
@@ -1896,7 +1904,7 @@ p{
 					line-height: 27px;*/
 					font-size: 14px;
 					line-height: 22px;
-					color: #363126;
+					color: $c_black;
 				}
 			}
 
@@ -1961,7 +1969,7 @@ p{
 	}
 
 	@media(max-width: 768px){
-		padding: 0px 0 140px;
+		padding: 0px 0 70px;
 	}
 }
 .section-colecciones.francesca-tucci {
@@ -2123,7 +2131,7 @@ p{
 					height: 100%;
 					&:before{
 						background: transparent;
-						border-color: #8e8063;
+						border-color: $c_dark;
 						border-width: 2px;
 						border-style: solid;
 						position: relative;
@@ -2137,7 +2145,7 @@ p{
 					button{
 						&:after{
 							content: ' ';
-							background: #8e8063;
+							background: $c_dark;
 							width: 10px;
 							height: 10px;
 							position: absolute;
@@ -2175,8 +2183,8 @@ p{
 				text-align: center;
 
 				&.active, &:active, &:hover  {
-					background-color: #363126;
-					color: #fff;
+					background-color: $c-dark!important;
+					color: #fff!important;
 				}
 			}
 		}

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Response;
-use App\Paises;
 use App\Registrado;
 use Illuminate\Http\Request;
 use App\Mail\SendCredentialsMail;
@@ -60,7 +59,7 @@ class RegistradoController extends AppBaseController
             'url_edit' => route($this->routePrefix.'.edit',['_ID_']),
             'url_show' => route($this->routePrefix.'.show',['_ID_']),
             'url_change_enabled' => route($this->routePrefix.'.change-enabled'),
-            'url_enable_registered' => route($this->routePrefix.'.enable-registered'),
+            //'url_enable_registered' => route($this->routePrefix.'.enable-registered'),
             'url_destroy' => route($this->routePrefix.'.destroy',['_ID_']),
             'url_reset_password' => url('password/email')
         ];
@@ -69,7 +68,7 @@ class RegistradoController extends AppBaseController
 
 
         $data['info'] = [
-            'paises' => Paises::whereEnabled(true)->orderBy('nombre')->get()
+            //'paises' => Paises::whereEnabled(true)->orderBy('nombre')->get()
         ];
 
         $data['filters']['pais_id'] = null;
@@ -84,7 +83,7 @@ class RegistradoController extends AppBaseController
         {
             $this->registradoRepository->pushCriteria(new RegistradoCriteria($request));
             $this->registradoRepository->pushCriteria(new RequestCriteria($request));
-            $collection = $this->registradoRepository->with(['updater', 'pais'])->paginate($request->get('per_page'))->toArray();
+            $collection = $this->registradoRepository->paginate($request->get('per_page'))->toArray();
 
             $data = [
                 'list' => $collection['data'],

@@ -94,8 +94,8 @@
 
     .btn-finalizar{
     	float: right;
-    	color: #fff;
-    	background-color: #8e8063;
+    	/*color: #fff;
+    	background-color: #8e8063;*/
     }
 
     .table{
@@ -223,28 +223,28 @@
 
 			td, th{
 				background-color: transparent;
-				color: #8e8063;
+				color: #000;
 				:hover,:visited,:active {
-					color: #8e8063!important;
+					color: #000!important;
 				}
 			}
 		}
 
 		.btn-dropdown{
 			background-color: transparent;
-			color: #8e8063;
+			color: #000;
 			border-width: 1px;
 			border-style: solid;
-			border-color: #8e8063;
+			border-color: #000;
 			font-family: $f-book;
 			font-weight: bold;
 
 			.arrow-down{
 				border-width: 1px;
 				border-style: solid;
-				border-color: #8e8063;
+				border-color: #000;
 				background-color: transparent;
-
+                filter: brightness(0.1);
 				background-image: url(../img/arrow-down-brown.svg);
 
 			}

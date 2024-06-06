@@ -191,7 +191,7 @@ header {
 
 									a{
 
-										color: #707070;
+										color: #000;
 										&:hover{
 											text-decoration: underline;
 										}
@@ -242,7 +242,7 @@ header {
 					margin-bottom: 8px;
 				}
 				.nav-link{
-					color: $c-dark;
+					color: $c-black;
 					font-size: 24px;
 				}
 			}
@@ -480,7 +480,7 @@ header {
 		li{
 			a{
 				font-size: 11px;
-				color: #8E8063;
+				color: #000;
 
 				&:hover, &:focus{
 					text-decoration: underline;

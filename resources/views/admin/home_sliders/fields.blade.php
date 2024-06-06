@@ -73,6 +73,34 @@
         </div>
 
     </div>
+
+    <!-- Video Field -->
+    <div class="form-group col-sm-6" :class="{'has-error': errors.has('video_mobile')}">
+        {!! Form::label('video_mobile', 'Video mobile') !!}
+        <div class="">
+            <button-type v-if="selectedItem.video_mobile" type="remove-list" @click="removeFile('video_mobile')"></button-type>
+            <file-upload
+
+                :multiple="false"
+                :headers="_fuHeader"
+                ref="uploadVideoMobile"
+                input-id="videoMobile"
+                v-model="files.video_mobile"
+                post-action="{{ route('uploads.store-file') }}"
+                @input-file="inputVideoMobile"
+                class="">
+                    <img class="img-responsive" src="{{ asset('admin/img/generic-upload.png') }}" v-if="!selectedItem.video_mobile" style="max-width: 100px;">
+                    <div style="width: 100%; text-align: left;"  v-else>
+                        <i class="fa fa-file" style="font-size: 25px; margin-right: 5px;"> </i>
+                        <span>(% selectedItem.video_mobile_url %)</span>
+                    </div>
+                    <div class="progress m-t-5 m-b-0" v-if="files.video_mobile.length > 0">
+                        <div class="progress-bar" :style="{ width: files.video_mobile[0].progress+'%' }"></div>
+                    </div>
+            </file-upload>
+        </div>
+        <span class="help-block" v-show="errors.has('video_mobile')">(% errors.first('video_mobile') %)</span>
+    </div>
     <div class="form-group col-sm-6" :class="{'has-error': errors.has('imagen_mobile')}">
         {!! Form::label('imagen_mobile', 'Imagen Mobile') !!}
         <div class="thumb-wrap">

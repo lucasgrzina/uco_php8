@@ -35,6 +35,7 @@ body[data-section="checkout"] {
 			color: #363126;
 			background-clip: text;
 			-webkit-background-clip: text;
+            border-color: #363126;
 		}
 
 		textarea{
@@ -82,13 +83,13 @@ body[data-section="checkout"] {
 
 	.content-check{
 		padding-left: 24px;
-    	padding-bottom: 13px;	
+    	padding-bottom: 13px;
     	.form-check-input{
     		&:checked{
     			background-color: #cdcfad;
     			border-color: #cdcfad;
     		}
-    	}    	
+    	}
 	}
 
 	.direccion{

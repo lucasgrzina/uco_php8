@@ -164,11 +164,13 @@
 
 .btn-white{
     background-color: #fff;
-    color: #363126;
+    color: #000;
     font-size: 14px;
     padding: 7px 17px;
     letter-spacing: 0;
-
+    border: 2px solid #cdcfad;
+    border-radius: 2px;
+    font-weight: 600;
     &:hover, &:focus{
         box-shadow: none;
         outline: none;
@@ -190,9 +192,9 @@
 
 .btn-registro{
 
-    color: #F2F0DE;
-    background-color: #8e8063;
-    border-color: #8e8063;
+    color: #363126;
+    background-color: #CDCFAD;
+    border-color: #BCC4A8;
      font-size: 14px;
     line-height: normal;
     letter-spacing: 0px;
@@ -211,12 +213,12 @@
     }
 
     &:hover{
-        background-color: $c-green;
-        -webkit-box-shadow: 0 0.5em 0.5em -0.4em $c-green;
+        /*background-color: $c-green;
+        -webkit-box-shadow: 0 0.5em 0.5em -0.4em $c-green;*/
         box-shadow: 0 0.5em 0.5em -0.4em $c-green;
         -webkit-transform: translateY(-0.25em);
         transform: translateY(-0.25em);
-        color: #fff;
+        /*color: #fff;*/
 
 
     }
