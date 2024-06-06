@@ -48,7 +48,7 @@ class ContactoService extends AppBaseController
             });*/
 
             \Mail::send([], [], function (Message $message) use ($html) {
-                $message->to('lucasgrzina@gmail.com')
+                $message->to('info@magiadeuco.com')
                 ->subject('Nuevo contacto')
                 //->from('my@email.com')
                 ->setBody($html, 'text/html');
