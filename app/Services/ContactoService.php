@@ -2,10 +2,11 @@
 namespace App\Services;
 
 
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Mail;
 use App\Repositories\ContactosRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\Admin\CUContactosRequest;
-use Illuminate\Support\Facades\Mail;
 
 class ContactoService extends AppBaseController
 {
