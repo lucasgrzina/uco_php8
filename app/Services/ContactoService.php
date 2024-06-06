@@ -30,20 +30,27 @@ class ContactoService extends AppBaseController
         try
         {
             $html = "
-                <strong>Nombre:</strong> {{$model->nombre}}<br>
-                <strong>Apellido:</strong> {{$model->apellido}}<br>
-                <strong>Email:</strong> {{$model->email}}<br>
-                <strong>Pais:</strong> {{$model->pais}}<br>
-                <strong>Teléfono:</strong> {{$model->tel_prefijo}} {{$model->tel_numero}}<br>
-                <strong>Mensaje:</strong> {{$model->mensaje}}<br>
+                <strong>Nombre:</strong> {$model->nombre}<br>
+                <strong>Apellido:</strong> {$model->apellido}<br>
+                <strong>Email:</strong> {$model->email}<br>
+                <strong>Pais:</strong> {$model->pais}<br>
+                <strong>Teléfono:</strong> {$model->tel_prefijo} {$model->tel_numero}<br>
+                <strong>Mensaje:</strong> {$model->mensaje}<br>
             ";
 
-            Mail::raw($html, function($message)
+            /*Mail::raw($html, function($message)
             {
                 //$message->from('tienda@luigibosca.com', 'Felicitaciones');
 
                 $message->to('lucasgrzina@gmail.com');
 
+            });*/
+
+            \Mail::send([], [], function (Message $message) use ($html) {
+                $message->to('lucasgrzina@gmail.com')
+                ->subject('Nuevo contacto')
+                //->from('my@email.com')
+                ->setBody($html, 'text/html');
             });
 
         }
