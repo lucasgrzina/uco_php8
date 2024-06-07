@@ -485,7 +485,7 @@ class SAPService extends AppBaseController
             $codigo = 0;
 
             if($pedido->tipo_tarjeta == 'amex') {
-                $codigo = 15;
+                $codigo = 14;
             }
 
             if($pedido->tipo_tarjeta == 'master') {
