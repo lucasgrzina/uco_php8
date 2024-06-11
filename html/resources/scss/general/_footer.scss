@@ -35,7 +35,7 @@ footer {
 			max-width: 223px;
 
 			a{
-				font-size: 35px;
+				font-size: 30px;
 			}
 		}
 	}
@@ -74,11 +74,12 @@ footer {
 	}
 
 	.legales{
-		color: #1D1D1B;
+		color: #363126;
 		text-align: center;
 		margin: 5px auto;
 		font-size: 13px;
 		font-family: $f-book;
+        font-weight: 600;
 	}
 	.legales-links{
 		margin: 40px auto;
@@ -89,7 +90,7 @@ footer {
 		a{
 			font-family: $f-book;
 			font-size: 11px;
-			color: #1D1D1B;
+			color: #363126;
 			padding: 5px;
             &:hover {
                 text-decoration: underline;

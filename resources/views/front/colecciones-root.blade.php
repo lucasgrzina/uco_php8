@@ -13,7 +13,7 @@
 
 @section('content')
 @include('front.modules.module-full-slider',['items' => $data['slides']])
-<section class="section-full-image  my-2 inverse" >
+<section class="section-full-image  inverse" style="margin-top: 2px;margin-bottom: 2px;">
 	<div class="bg-content w-100 h-100 " style="background-image: url({{asset('img/header-shop-magiadeuconotable.jpg')}});">
 	<div class="container " >
 		<div class="row">

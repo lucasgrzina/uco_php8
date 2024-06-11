@@ -528,7 +528,7 @@ p{
 	li{
 		border-style: solid;
 		border-width: 1px 0 0;
-		border-color: #000;
+		border-color: #CDCFAD;
 		a{
 			font-size: 18px;
 			padding: 10px 0;
@@ -1122,6 +1122,7 @@ p{
 			/*color: #8e8063;*/
 			font-size: 21px;
 			width: 100%;
+            border-color: #CDCFAD;
 		}
 
 		.iti--separate-dial-code .iti__selected-flag{
@@ -1206,8 +1207,8 @@ p{
 		position: absolute;
 		top: 0;
 		left: 0;
-		height: 20px;
-		width: 20px;
+		height: 18px;
+		width: 18px;
 		background-color: rgba(0, 0, 0, 0);
 		border-color: #bcc4a8;
 		border: 1px solid #bcc4a8;
@@ -1222,7 +1223,7 @@ p{
 	/* When the checkbox is checked, add a blue background */
 	.container input:checked ~ .checkmark {
 		background-color: #edebd9;
-		border-color: #bcc4a8;
+		border-color: #363126;
 	}
 
 	/* Create the checkmark/indicator (hidden when not checked) */
@@ -1239,15 +1240,15 @@ p{
 
 	/* Style the checkmark/indicator */
 	.container .checkmark:after {
-		left: 7px;
-		top: 3px;
-		width: 5px;
-		height: 10px;
-		border: solid #bcc4a8;
-		border-width: 0 3px 3px 0;
-		-webkit-transform: rotate(45deg);
-		-ms-transform: rotate(45deg);
-		transform: rotate(45deg);
+        left: 5px;
+        top: 0px;
+        width: 6px;
+        height: 14px;
+        border: solid #bcc4a8;
+        border-width: 0 2px 2px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
 	}
 }
 
@@ -1371,7 +1372,9 @@ p{
 
 			&.slick-next {
 				right: 25px;
-				background-image: url(../img/arrow-next.svg);
+				/*background-image: url(../img/arrow-next.svg);*/
+                background-image: url(../img/arrow-prev.svg);
+                transform: rotateY(180deg) translate(0px, -20px);
 			}
 
 			&:before{
@@ -1483,7 +1486,6 @@ p{
 
 	.icon{
 		margin-bottom: 15px;
-        filter: brightness(0.1);
 	}
 
 	p{
@@ -2237,11 +2239,12 @@ body[data-section="mis-pedidos"]{
 		border: 1px solid #363126;
 	}
 	.form-check .container input:checked~.checkmark {
-		background-color: transparent;
+        background-color: #edebd9;
+        border-color: #bcc4a8;
 	}
 	.form-check .container .checkmark:after {
-		border: solid #363126;
-		border-width: 0 3px 3px 0;
+		border: solid #bcc4a8;
+		border-width: 0 2px 2px 0;
 	}
 }
 
