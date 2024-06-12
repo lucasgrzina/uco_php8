@@ -262,13 +262,12 @@ p{
 			&.slick-prev{
 				background-image: url(../img/arrow-prev.svg);
 				left: 0;
-                filter: brightness(0.1);
 			}
 
 			&.slick-next {
 				right: 0;
-				background-image: url(../img/arrow-next.svg);
-                filter: brightness(0.1);
+				background-image: url(../img/arrow-prev.svg);
+                transform: rotateY(180deg) translate(0px, -32px);
 			}
 
 			&:before{
