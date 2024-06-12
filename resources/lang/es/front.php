@@ -358,7 +358,7 @@ return [
             personales” (Artículo 3° de la Resolución 14/2018 de la Agencia de Acceso a la Información Pública)
             Por favor lea nuestras <a class="acepto" target="_blank" href="_link_pp_">Política de privacidad</a>',
             'btn' => 'ENVIAR',
-            'gracias' => 'Gracias por suscribirte',
+            'gracias' => '¡Muchas gracias por contactarte con nosotros!<br>Revisaremos tu solicitud para brindarte una respuesta lo antes posible.',
             'validacion' => [
                 'email.required' => 'Debe ingresar un email',
                 'acepto.accepted' => 'Debe aceptar los términos y condiciones y Política de privacidad',

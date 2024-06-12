@@ -365,7 +365,7 @@ return [
             da Resolução 14/2018 da Agência de Acesso à Informação Pública).
             Por favor, leia as nossas <a class="acepto" target="_blank" href="_link_pp_">Políticas de Privacidade</a>.',
             'btn' => 'ENVIAR',
-            'gracias' => 'Gracias por suscribirte',
+            'gracias' => 'Muito obrigado por entrar em contato conosco!<br>Revisaremos sua solicitação para lhe fornecer uma resposta o mais rápido possível.',
             'validacion' => [
                 'email.required' => 'Debe ingresar un email',
                 'acepto.accepted' => 'Debe aceptar los términos y condiciones y Política de privacidad',

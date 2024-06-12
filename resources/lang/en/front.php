@@ -335,7 +335,7 @@ return [
             Resolution 14/2018 of the Agency of Access to Public Information).
             Please read our <a class="acepto" target="_blank" href="_link_pp_">Privacy Policy</a>.',
             'btn' => 'Submit',
-            'gracias' => 'Thanks for subscribe',
+            'gracias' => 'Thank you very much for reaching out to us!<br>We will review your request and get back to you as soon as possible.',
             'validacion' => [
                 'email.required' => 'Debe ingresar un email',
                 'acepto.accepted' => 'Debe aceptar los términos y condiciones y Política de privacidad',

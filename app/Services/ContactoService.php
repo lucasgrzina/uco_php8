@@ -35,7 +35,7 @@ class ContactoService extends AppBaseController
                 <strong>Apellido:</strong> {$model->apellido}<br>
                 <strong>Email:</strong> {$model->email}<br>
                 <strong>Pais:</strong> {$model->pais}<br>
-                <strong>Teléfono:</strong> {$model->tel_prefijo} {$model->tel_numero}<br>
+                <strong>Teléfono:</strong> {$model->tel_numero}<br>
                 <strong>Mensaje:</strong> {$model->mensaje}<br>
             ";
 

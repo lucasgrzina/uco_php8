@@ -109,7 +109,7 @@
 
 					<div class="input-group  mb-form">
                         <input type="hidden" name="tel_prefijo" id="tel_prefijo" v-model="form.tel_prefijo">
-						<input type="telefono" id="phone" class="form-control" iplaceholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+						<input type="telefono" id="phone" class="form-control" iplaceholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" v-model="form.tel_numero">
 						<!--vue-tel-input v-model="form.tel_numero" class="form-control"></vue-tel-input-->
 					</div>
 
