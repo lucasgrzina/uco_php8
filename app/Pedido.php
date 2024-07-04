@@ -140,7 +140,7 @@ class Pedido extends Model
      *
      * @var array
      */
-    protected $appends = ['estado'];
+    protected $appends = ['estado','despacho'];
 
     public function getEstadoAttribute($value)
     {
@@ -155,6 +155,18 @@ class Pedido extends Model
                 return trans('front.pedidos.estados.pendiente');
                 break;
         }
+    }
+    public function getDespachoAttribute($value)
+    {
+        $return = '';
+        if ($this->attributes['cp']) {
+            if (esCPMza($this->attributes['cp'])) {
+                $return = 'Mendoza';
+            } else {
+                $return = 'BS.AS.';
+            }
+        }
+        return $return;
     }
 
     public function registrado()

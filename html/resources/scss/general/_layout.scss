@@ -82,6 +82,7 @@ p{
 		}
 		p{
 			margin-bottom: 0;
+            text-align: justify;
 		}
 		a{
 			margin-top: 63px;
@@ -177,6 +178,7 @@ p{
 
 		p{
 			color: #363126;
+            text-align: justify;
 		}
 	}
 
@@ -1286,6 +1288,7 @@ p{
 		p{
 			margin-bottom: 0;
 			line-height: 25px;
+            text-align: justify;
 		}
 		a{
 			margin-top: 63px;
@@ -1464,6 +1467,7 @@ p{
 			p{
 				font-size: 15px;
 				line-height: 27px;
+                text-align: justify;
 			}
 		}
 	}
@@ -1489,6 +1493,7 @@ p{
 
 	p{
 		color: #fff;
+        text-align: justify;
 		@include under($b-lg) {
 			margin-bottom: 40px;
 		}
@@ -1870,7 +1875,7 @@ p{
 					left: 0px;
 					font-size: 17px;
 					font-weight: 600;
-					font-family: 'Goudy',sans-serif;
+					font-family: 'The Youngest Serif Book',sans-serif;
 				}
 				h1{
 					color: $c_black;

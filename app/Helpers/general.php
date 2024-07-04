@@ -1,8 +1,9 @@
 <?php
 
 use Carbon\Carbon;
-use GuzzleHttp\Client;
 use GuzzleHttp\Psr7;
+use GuzzleHttp\Client;
+use App\Configuraciones;
 use GuzzleHttp\Psr7\Uri;
 
 function routeIdioma($name,$params = []) {
@@ -51,7 +52,34 @@ if (!function_exists('formatoImporte')) {
 }
 
 function obtenerDolarUPS() {
-    return config('constantes.dolarUPS');
+    $configuraciones = Configuraciones::whereIn('clave',['DOLAR_UPS'])->pluck('valor','clave')->toArray();
+    $formateado = isset($configuraciones['DOLAR_UPS']) && $configuraciones['DOLAR_UPS'] ? str_replace(",",".",$configuraciones['DOLAR_UPS']) : config('constantes.dolarUPS');
+    return $formateado;
+}
+
+function esCPMza($codigoPostal) {
+    $cpMza = [
+        '5500',
+        '5501',
+        '5502',
+        '5503',
+        '5505',
+        '5507',
+        '5508',
+        '5509',
+        '5510',
+        '5511',
+        '5513',
+        '5514',
+        '5515',
+        '5518',
+        '5519',
+        '5520',
+        '5521',
+        '5522',
+        '5524'
+    ];
+    return in_array($codigoPostal,$cpMza);
 }
 
 function obtenerDolarOficial() {

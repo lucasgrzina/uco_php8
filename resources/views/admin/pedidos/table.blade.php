@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th @click="orderBy('id')" class="td-id" :class="cssOrderBy('id')">Nro</th>
+                <th>Despacho</th>
                 <th>Cliente</th>
                 <th>Tipo factura</th>
                 <th>Estado</th>
@@ -17,6 +18,7 @@
         <tbody>
             <tr v-for="item in list" v-if="paging.total > 0">
                 <td>(% item.id %)</td>
+                <td>(% item.despacho %)</td>
                 <td>
                     (% item.nombre + ' ' + item.apellido %)<br>
                     (% item.email %)

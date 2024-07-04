@@ -216,7 +216,8 @@ Route::get('/ups/envio', function () {
     dd($srv->cotizarEnvio('AR', '1429', $productos));
 });
 Route::get('/dolar/oficial', function (){
-    echo(obtenerDolarOficial());
+    //echo(obtenerDolarOficial());
+    return obtenerDolarUPS();
 });
 
 Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|es|pt']],function (){

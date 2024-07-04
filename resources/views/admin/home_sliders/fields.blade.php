@@ -66,11 +66,11 @@
     <div class="form-group col-sm-12">
         <hr>
         <h3>Mobile</h3>
-        <div class="alert alert-info alert-dismissible">
+        <!--div class="alert alert-info alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
             <h4><i class="icon fa fa-info"></i> Atención!</h4>
             En caso de haber cargado un video en la sección "Desktop" y una imagen para su visualización en mobile, el sistema le dará prioridad a la imagen mobile cargada (performance en la carga). Si deséa que se visualice el vide cargado en "Desktop", debe quitar la imagen mobile.
-        </div>
+        </div-->
 
     </div>
 

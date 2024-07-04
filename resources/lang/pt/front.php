@@ -310,7 +310,7 @@ return [
                 'items' => [
                     '1' => ['icono' => 'img/icon1.svg','titulo' => 'BOAS PRÁTICAS AGRÍCOLAS','subtitulo' => 'Temos certificações BPA (GLOBAL GAP) desde a nossa primeira safra até a atualidade sem interrupções.'],
                     '2' => ['icono' => 'img/icon2.svg','titulo' => 'BOAS PRÁTICAS DE FABRICAÇÃO','subtitulo' => 'Temos certificações BPM desde a nossa primeira elaboração até a atualidade sem interrupções.'],
-                    '3' => ['icono' => 'img/icon3.svg','titulo' => 'MENÇÃO ESPECIAL POR ARGENTINA','subtitulo' => '“Produção de uvas de alta qualidade usando um processo produtivo sustentável que cuida do meio físico, biológico, socioeconômico e cultural.”'],
+                    '3' => ['icono' => 'img/icon3.svg','titulo' => 'MENÇÃO ESPECIAL POR ARGENINTA','subtitulo' => '“Produção de uvas de alta qualidade usando um processo produtivo sustentável que cuida do meio físico, biológico, socioeconômico e cultural.”'],
                     '4' => ['icono' => 'img/icon7.svg','titulo' => 'CAMPOLIMPIO','subtitulo' => 'Gestão adequada de embalagens de produtos fitosanitários que garantem a não contaminação do ambiente através do programa nacional CampoLimpio.'],
                     '5' => ['icono' => 'img/icon5.svg','titulo' => 'COINCE','subtitulo' => 'Gestão adequada de resíduos e agentes contaminantes, reciclagem e reutilização.'],
                     '6' => ['icono' => 'img/icon4.svg','titulo' => 'ÁGUA MINERAL NATURAL DE MANANCIAL LIVBRE DE SÓDIO:','subtitulo' => 'Magia de Uco conta com uma fonte de água mineral natural de manancial livre de sódio, utilizada de maneira eficiente para regar as nossas vinhas gota a gota. Factibilidade outorgada pela província de Mendoza (abril de 2008).'],

@@ -335,7 +335,7 @@ class UPSService extends AppBaseController
                 ],
             ],
         ];
-        logger(json_encode($body));
+        //logger(json_encode($body));
 
         $dolarOficial = obtenerDolarUPS();
 
@@ -362,7 +362,8 @@ class UPSService extends AppBaseController
             //dd("SAP - ". $ex->getMessage());
         }
 
-        logger(json_encode($resultado->ShipmentResponse->ShipmentResults));
+        //logger(json_encode($resultado->ShipmentResponse->ShipmentResults));
+        //logger(['dolarUPS',$dolarOficial]);
         $respuesta = [
             'tracking_number' => $resultado->ShipmentResponse->ShipmentResults->ShipmentIdentificationNumber,
             //'digest' => $resultado->ShipmentResponse->ShipmentDigest,

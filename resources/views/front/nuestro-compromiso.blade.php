@@ -79,7 +79,7 @@
             @foreach (trans('front.paginas.nuestroCompromiso.certificaciones.items') as $item)
 			<div class="col-md-4 mb-item">
 				<img class="icon" src="{{asset($item['icono'])}}">
-				<h3>{{ucfirst(strtolower($item['titulo']))}}</h3>
+				<h3>{{str_replace('argeninta','ArgenInta',ucfirst(strtolower($item['titulo'])))}}</h3>
 				<p  style="color: #030303;">{{$item['subtitulo']}}</p>
 			</div>
             @endforeach
