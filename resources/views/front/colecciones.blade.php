@@ -157,22 +157,22 @@ $actual = $data['actual'];
                         <div class="offcanvas offcanvas-start offcanvas-md" tabindex="-1" id="navColecciones" aria-labelledby="offcanvasDarkNavbarLabel">
                             <div class="offcanvas-body">
                                 <ul class="navbar-nav">
-                                    <li class="nav-item nav-item-titulo">
+                                    <li class="nav-item nav-item-titulo d-md-none">
                                         {{trans('front.paginas.colecciones.magiaUco.titulo')}}
                                     </li>
 
                                     @foreach ($data['todosVinos']['MU'] as $item)
                                     <li class="nav-item">
-                                        <a class="nav-link {{$data['actual']->id == $item->id ? 'active' : ''}}" aria-current="page" href="{{routeIdioma('colecciones.'.$data['routePrefix'],[$item->id,\Str::slug($item->titulo)])}}">{{$item->titulo}}</a>
+                                        <a class="nav-link {{ $data['routePrefix'] == 'magiaUcoNotable' ? 'd-md-none':''}}  {{$data['actual']->id == $item->id ? 'active' : ''}}" aria-current="page" href="{{routeIdioma('colecciones.'.$data['routePrefix'],[$item->id,\Str::slug($item->titulo)])}}">{{$item->titulo}}</a>
                                     </li>
                                     @endforeach
 
-                                    <li class="mt-4 nav-item nav-item-titulo">
+                                    <li class="mt-4 nav-item nav-item-titulo d-md-none">
                                         {{trans('front.paginas.colecciones.magiaUcoNotable.titulo')}}
                                     </li>
                                     @foreach ($data['todosVinos']['MN'] as $item)
                                     <li class="nav-item">
-                                        <a class="nav-link {{$data['actual']->id == $item->id ? 'active' : ''}}" aria-current="page" href="{{routeIdioma('colecciones.'.$data['routePrefix'],[$item->id,\Str::slug($item->titulo)])}}">{{$item->titulo}}</a>
+                                        <a class="nav-link {{ $data['routePrefix'] == 'magiaUco' ? 'd-md-none':''}} {{$data['actual']->id == $item->id ? 'active' : ''}}" aria-current="page" href="{{routeIdioma('colecciones.'.$data['routePrefix'],[$item->id,\Str::slug($item->titulo)])}}">{{$item->titulo}}</a>
                                     </li>
                                     @endforeach
 
