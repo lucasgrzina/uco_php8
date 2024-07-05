@@ -1557,21 +1557,25 @@ p{
 		$primaryColor: #000;
 
 		.navbar-toggler{
-			width: $size;
+			/*width: $size;*/
 			height: $size;
 			padding: 0;
 			position: absolute;
 			top: 22px;
 			left: 18px;
-			z-index: 5000;
-
+			z-index: 11;
+            padding-left: 20px;
 			&:not(.collapsed){
 				position: fixed;
 				left: auto;
 				right: 18px;
+                z-index: 50000;
 				.cross-line {
 					stroke: #000000 !important;
 				}
+                .lbl-descubri {
+                    display: none;
+                }
 			}
 			&:focus{
 				outline: none;
@@ -1640,7 +1644,7 @@ p{
 			width: 100%;
 			@include under($b-sm) {
 				flex-direction: column!important;
-				gap: 20px;
+				gap: 4px;
 			}
 		}
 	/*}*/
@@ -1649,7 +1653,7 @@ p{
 			justify-content: end;
 
 			.navbar-toggler{
-				font-size: 16px;
+				font-size: 13px;
 			}
 		}
 	}
@@ -1672,6 +1676,15 @@ p{
 		}
 
 		.nav-item{
+            &.nav-item-titulo {
+                display: none;
+				@include under($b-md) {
+                    display: block;
+                    font-family: "The Youngest Serif Book", sans-serif;
+                    font-weight: 700;
+				}
+            }
+
 			.nav-link{
 				font-family: $f-bold;
 				color: #363126;
@@ -1686,11 +1699,67 @@ p{
 				&.active, &:hover{
 					text-decoration: underline;
 				}
+
+                @include under($b-md) {
+                    text-transform: initial;
+                    padding: 3px;
+                }
 			}
 		}
 	}
 
 
+}
+
+.input-cantidad{
+    margin-right: 10px;
+    max-width: 200px;
+    display: flex;
+    max-height: 33px;
+
+    &.cart-input {
+        margin-right: 0;
+        justify-content: flex-end;
+    }
+
+    input{
+        padding: 3px; text-align: center;
+        width: 50px;
+        border-width: 1px 0;
+        border-style: solid;
+        border-color: #363126;
+    }
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        opacity:0;
+         -webkit-appearance: none;
+          margin: 0;
+    }
+
+    .btn-cantidad{
+        border-radius: 0;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #363126;
+        width: 40px;
+        background-color: transparent;
+        color: #363126;
+        font-size: 18px;
+        font-weight: bold;
+
+        &.plus{
+            border-radius: 4px 0 0 4px;
+        }
+
+        &.minus{
+            border-radius: 0 4px 4px 0;
+        }
+
+        &:hover{
+            /*color: #fff;*/
+            background-color: #cdcfad;
+        }
+    }
 }
 
 .section-colecciones{

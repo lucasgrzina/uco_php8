@@ -181,6 +181,7 @@ Route::prefix('mailing/respaldo')->group(function () {
     Route::get('/registro/{id}/{locale?}', 'Front\MailingRespaldoController@registro')->name('mailingRespaldo.registro');
     Route::get('/recuperar/{id}/{locale?}', 'Front\MailingRespaldoController@recuperar')->name('mailingRespaldo.recuperar');
     Route::get('/pedido/{id}/{locale?}', 'Front\MailingRespaldoController@pedido')->name('mailingRespaldo.pedido');
+    Route::get('/confirmar-pass/{id}/{locale?}', 'Front\MailingRespaldoController@confirmarPass')->name('mailingRespaldo.confirmarPass');
 });
 
 

@@ -104,6 +104,8 @@ class MiCuentaController extends AppBaseController
             $registrado->password = $request->password;
             $registrado->save();
             DB::commit();
+
+            $registrado->sendPasswordConfirmationNotification();
             return $this->sendResponse([],'');
         } catch (\Exception $e) {
             DB::rollback();

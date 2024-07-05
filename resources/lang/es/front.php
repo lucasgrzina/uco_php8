@@ -388,7 +388,8 @@ return [
                 'sinStock' => 'Agotado',
                 'ultUnidades' => 'Últimas _CANT_ unidades disponibles',
                 'mayorCero' => 'Debe indicar una cantidad mayor a 0.',
-                'metodoPago' => 'Método de pago'
+                'metodoPago' => 'Método de pago',
+                'btnDescubri' => 'Descubrí otras variedades'
             ],
             'root' => [
                 'titulo' => 'Colecciones',
@@ -598,7 +599,7 @@ return [
                 'total' => 'Total',
             ],
             'misDatos' => [
-                'titulo' => 'Mis datos',
+                'titulo' => 'Mis Datos',
                 'form' => [
                     'usuario' => 'USUARIO',
                     'email' => 'CORREO ELECTRÓNICO',
@@ -606,7 +607,7 @@ return [
                 'btnGuardar' => 'GUARDAR',
             ],
             'cambiarPassword' => [
-                'titulo' => 'Cambiar contraseña',
+                'titulo' => 'Cambiar Contraseña',
                 'form' => [
                     'password' => 'CONTRASEÑA',
                     'confirmarPassword' => 'CONFIRMAR CONTRASEÑA',

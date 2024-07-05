@@ -66,9 +66,12 @@ body[data-section="registro"] {
 			}
 
             .titulo {
-                color: #8e8063;
+
                 font-size: 30px;
                 line-height: normal;
+                font-family: $f-book;
+                color: $c_black;
+                opacity: .65;
                 @include under($b-md) {
                     color: #fff;
                 }

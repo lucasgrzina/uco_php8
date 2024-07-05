@@ -40,7 +40,8 @@
           </li>
 
           <li class="nav-item has-submenu">
-            <a class="nav-link" href="{{routeIdioma('colecciones')}}">{{trans('front.navMenuFooter.links.colecciones')}}</a>
+            <a class="nav-link d-none d-xl-block" href="{{routeIdioma('colecciones')}}">{{trans('front.navMenuFooter.links.colecciones')}}</a>
+            <a class="nav-link d-xl-none" href="javascript:void(0);">{{trans('front.navMenuFooter.links.colecciones')}}</a>
 
             <div class="submenu">
               <div class="images">
@@ -49,7 +50,7 @@
               </div>
               <div class="menu">
                 <ul>
-                  <li><!--a href="{{routeIdioma('colecciones')}}">{{trans('front.navMenuFooter.links.colecciones')}}</a></li-->
+                  <li class="d-xl-none"><a href="{{routeIdioma('colecciones')}}">{{trans('front.navMenuFooter.links.colecciones')}}</a></li>
                     <!--li><a href="{{routeIdioma('colecciones.tucci')}}">{{trans('front.navMenuFooter.links.francescaTucci')}}</a></li-->
                   <!--li><a href="{{routeIdioma('colecciones.interwine')}}">{{trans('front.navMenuFooter.links.interwine')}}</a></li-->
                   <li><a href="{{routeIdioma('colecciones.magiaUco')}}" id="prod-opc-1" class="prod-opc">{{trans('front.navMenuFooter.links.magiaUco')}}</a></li>

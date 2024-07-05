@@ -8,6 +8,7 @@ use App\RegistradoDireccion;
 use Yajra\Auditable\AuditableTrait;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\NotificacionPedido;
+use App\Notifications\MailConfirmPassword;
 use App\Notifications\NotificacionRegistro;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Notifications\MailRequestPasswordToken;
@@ -100,6 +101,16 @@ class Registrado extends Authenticatable
             $this->notify(new NotificacionPedido($this,$pedido));
         } catch (\Exception $e) {
             \Log::error('*******SEND EMAIL ERROR (enviarNotificacionPedido): ' . $e->getMessage());
+        }
+    }
+
+    public function sendPasswordConfirmationNotification()
+    {
+        try {
+            //app()->setLocale(request()->segment(0));
+            $this->notify(new MailConfirmPassword($this));
+        } catch (\Exception $e) {
+            \Log::error('*******SEND EMAIL ERROR: ' . $e->getMessage());
         }
     }
     /*public function setUsuarioAttribute($value)

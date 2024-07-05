@@ -330,7 +330,14 @@ class UPSService extends AppBaseController
                         ],
                         "Weight" => "{$totalWeight}"
                     ],
-
+                    "ShipmentServiceOptions" => [
+                        "Notification" => [
+                            "NotificationCode" => "6",
+                            "EMail" => [
+                                "EMailAddress" => $emailDestinatario
+                            ]
+                        ]
+                    ]
 
                 ],
             ],

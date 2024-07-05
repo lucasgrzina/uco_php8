@@ -4,6 +4,40 @@
     <script type="text/javascript">
         var _data = {!! json_encode($data) !!};
 
+        _methods.cambiarCantidad = function (item, nro) {
+            var _this = this;
+            console.debug(item);
+            var cantidad = item.quantity + nro;
+            console.debug(cantidad);
+            if (cantidad >= 0 && cantidad <= _this.cantMaxima(item)) {
+                Vue.set(item,'quantity',cantidad);
+                _this.carritoModificarItem(item,cantidad)
+            }
+        //$('#span-cantidad').html(cantidad);
+        }
+
+
+        _methods.cantMaxima = function(item) {
+            return 18;
+        }
+
+        _methods.checkCantidad = function(item) {
+            /*console.debug('checkCantidad');
+            var cantMax = this.cantMaxima(item);
+            console.debug([item.quantity,cantMax]);
+            if (item.quantity > cantMax) {
+                Vue.set(item,'quantity',parseInt(cantMax));
+                _this.carritoModificarItem(item,item.quantity);
+                //this.carrito.item.cantidad = cantMax;
+            }
+            if (item.quantity == '' || parseInt(item.quantity) < 1){
+                Vue.set(item,'quantity',1);
+                _this.carritoModificarItem(item,item.quantity);
+                //this.carrito.item.cantidad = 0;
+            }*/
+
+        }
+
         this._mounted.push(function(_this) {
         });
     </script>
@@ -43,7 +77,13 @@
                             </td>
                             <td class="align-middle" style="text-align: right;"><span>(% item.price | currency %)</span></td>
                             <td class="align-middle" style="text-align: right;">
-                                <div class="dropdown">
+                                <div class="input-cantidad cart-input">
+                                    <button class="btn-cantidad plus" @click="cambiarCantidad(item,-1)">-</button>
+                                    <input type="number" placeholder="1" readonly :min="1" :max="cantMaxima(item)" v-model="item.quantity" @blur="checkCantidad(item)">
+                                    <button class="btn-cantidad minus" @click="cambiarCantidad(item,1)">+</button>
+                                </div>
+
+                                <!--div class="dropdown">
                                     <button class="btn btn-dropdown dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                         <span>(% item.quantity %)</span>
                                         <i class="arrow-down"></i>
@@ -51,7 +91,7 @@
                                     <ul class="dropdown-menu dropdown-menu-dark">
                                         <li v-for="cant in 20"><a class="dropdown-item" href="javascript:void(0)" @click="carritoModificarItem(item,cant)">(% cant %)</a></li>
                                     </ul>
-                                </div>
+                                </div-->
                             </td>
                             <td class="align-middle" style="text-align: right;"><span>(%(item.quantity * item.price) | currency%)</span></td>
                             <td class="align-middle" style="text-align: right;"><a href="javascript:void(0)" style="color: #000;  position: relative; display: block;" @click="carritoQuitarItem(item,index)">{{trans('front.paginas.carrito.eliminar')}}</a></td>

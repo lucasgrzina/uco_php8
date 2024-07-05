@@ -105,6 +105,12 @@ class ColeccionesController extends AppBaseController
     {
         //dd(\Route::getCurrentRoute()->parameters());
         $vinos = $vinosRepo->porColeccion('MU');
+        $vinosAdic = $vinosRepo->porColeccion('MN');
+        $todosVinos = [
+            'MU' => $vinos,
+            'MN' => $vinosAdic,
+        ];
+
         $actual = null;
         $configuraciones = Configuraciones::whereIn('clave',['COMPRAS_SUPERIORES'])->pluck('valor','clave')->toArray();
         //dd($configuraciones);
@@ -121,6 +127,7 @@ class ColeccionesController extends AppBaseController
         $data = [
             'slides' => $sliderRepo->porSeccion('coleccionesMagiaUco'),
             'vinos' => $vinos,
+            'todosVinos' => $todosVinos,
             'actual' => $actual,
             'aniadaActual' => $actual ? $actual->aniadas->first() : null,
             'loading' => false,
@@ -140,6 +147,11 @@ class ColeccionesController extends AppBaseController
     {
         //dd(app()->getLocale());
         $vinos = $vinosRepo->porColeccion('MN');
+        $vinosAdic = $vinosRepo->porColeccion('MU');
+        $todosVinos = [
+            'MU' => $vinosAdic,
+            'MN' => $vinos,
+        ];
         $actual = null;
         $configuraciones = Configuraciones::whereIn('clave',['COMPRAS_SUPERIORES'])->pluck('valor','clave')->toArray();
         //dd($configuraciones);
@@ -156,6 +168,7 @@ class ColeccionesController extends AppBaseController
         $data = [
             'slides' => $sliderRepo->porSeccion('coleccionesMagiaUcoNotable'),
             'vinos' => $vinos,
+            'todosVinos' => $todosVinos,
             'actual' => $actual,
             'aniadaActual' => $actual ? $actual->aniadas->first() : null,
             'loading' => false,

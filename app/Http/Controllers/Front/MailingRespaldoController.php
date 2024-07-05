@@ -81,4 +81,22 @@ class MailingRespaldoController extends AppBaseController
         return $markdown->render('emails.registro-confirmado', ['registrado' => $registrado, 'respaldo' => true]);
 
     }
+
+    public function confirmarPass($id,$locale='es')
+    {
+        app()->setLocale($locale);
+        $registrado = Registrado::find($id);
+        $markdown = new Markdown(view(), config('mail.markdown'));
+
+        try
+        {
+            //$registrado->sendPasswordResetNotification('holis');
+        }
+        catch(\Exception $ex)
+        {
+            \Log::error($ex->getMessage());
+        }
+        return $markdown->render('emails.confirm-password', ['user' => $registrado, 'respaldo' => true]);
+
+    }
 }
