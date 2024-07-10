@@ -151,7 +151,7 @@ $actual = $data['actual'];
                                 <rect class="rect" width="42" height="42" x="11" y="11" />
                               </svg>
                             </div>
-                            <span class="lbl-descubri">{{trans('front.paginas.colecciones.interna.btnDescubri')}}</span>
+                            <span class="lbl-descubri" style="color:#111;">{{trans('front.paginas.colecciones.interna.btnDescubri')}}</span>
 
                         </button>
                         <div class="offcanvas offcanvas-start offcanvas-md" tabindex="-1" id="navColecciones" aria-labelledby="offcanvasDarkNavbarLabel">
