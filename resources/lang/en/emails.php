@@ -44,7 +44,7 @@ return [
     ],
     'confirmarPass' => [
         'linea1' => 'We are pleased to inform you that your password change has been successfully completed!',
-        'linea2' => 'To view or update additional information, please <a style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:11px; line-height:16px; text-align:left; color:#8e8063!important" href="'.env('APP_URL').'/en'.'">log in</a> to your account.',
+        'linea2' => 'To view or update additional information, please <a style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:11px; line-height:16px; text-align:left; color:#CDCFAD!important" href="'.env('APP_URL').'/en'.'">log in</a> to your account.',
         'linea3' => 'If you did not request this password change, please disregard this email.',
         'linea4' => 'Thank you for trusting<br>Magia de Uco!',
         'imagenes' => [

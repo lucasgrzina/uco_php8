@@ -43,7 +43,7 @@ return [
     ],
     'confirmarPass' => [
         'linea1' => 'Temos o prazer de informar que a alteração da sua senha foi realizada com sucesso!',
-        'linea2' => 'Para visualizar ou atualizar informações adicionais, por favor, <a style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:11px; line-height:16px; text-align:left; color:#8e8063!important" href="'.env('APP_URL').'/en'.'">faça login</a> na sua conta.',
+        'linea2' => 'Para visualizar ou atualizar informações adicionais, por favor, <a style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:11px; line-height:16px; text-align:left; color:#CDCFAD!important" href="'.env('APP_URL').'/en'.'">faça login</a> na sua conta.',
         'linea3' => 'Se você não solicitou essa alteração de senha, por favor, desconsidere este e-mail.',
         'linea4' => 'Obrigado por confiar na<br>Magia de Uco!',
         'imagenes' => [

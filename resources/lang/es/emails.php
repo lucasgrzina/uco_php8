@@ -43,7 +43,7 @@ return [
     ],
     'confirmarPass' => [
         'linea1' => '¡Tu cambio de contraseña<br>se ha realizado con éxito!',
-        'linea2' => 'Para ver o cambiar información adicional podés <a style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:11px; line-height:16px; text-align:left; color:#8e8063!important" href="'.env('APP_URL').'/es'.'">ingresar a tu cuenta.</a>',
+        'linea2' => 'Para ver o cambiar información adicional podés <a style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:11px; line-height:16px; text-align:left; color:#CDCFAD!important" href="'.env('APP_URL').'/es'.'">ingresar a tu cuenta.</a>',
         'linea3' => 'Si usted no ha solicitado este cambio de contraseña, por favor, desestime este correo electrónico',
         'linea4' => '¡Muchas gracias por confiar<br>en Magia de Uco!',
         'imagenes' => [
