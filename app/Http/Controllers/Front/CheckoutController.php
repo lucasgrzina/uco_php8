@@ -168,7 +168,8 @@ class CheckoutController extends AppBaseController
         try {
             $salida = [];
 
-            $montoEnvioGratis = config('constantes.montoEnvioGratis',false);
+            $configuraciones = Configuraciones::whereIn('clave',['COMPRAS_SUPERIORES'])->pluck('valor','clave')->toArray();
+            $montoEnvioGratis = (float)str_replace('.','',$configuraciones['COMPRAS_SUPERIORES']);
             if ($montoEnvioGratis && \Cart::getTotal() >= $montoEnvioGratis) {
                 return $this->sendResponse([
                     'cotizacion' => 0,

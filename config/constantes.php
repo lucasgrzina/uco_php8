@@ -46,6 +46,6 @@ return [
         'home' => []
     ],
     'montoDatosFC' => 92720,
-    'montoEnvioGratis' => 35000,
+    'montoEnvioGratis' => 80000,
     'dolarUPS' => 40.71
 ];
