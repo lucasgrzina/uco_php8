@@ -18,10 +18,10 @@ return [
     ],
     'DIRECCION_DESDE_BSAS' => [
         'NOMBRE' => 'NEUBELL',
-        'DIRECCION' => 'MORON 123',
-        'PROVINCIA' => 'Mendoza',
+        'DIRECCION' => 'EL SALVADOR 278',
+        'PROVINCIA' => 'BUENOS AIRES',
         'PAIS' => 'AR',
-        'CODIGO_POSTAL' => '5500'
+        'CODIGO_POSTAL' => '1667'
     ],
     'EMAIL' => '',
     'TELEFONO' => ''

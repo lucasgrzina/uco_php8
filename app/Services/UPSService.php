@@ -167,11 +167,13 @@ class UPSService extends AppBaseController
                 'Content-Type' => 'application/json',
                 'Authorization' => 'Bearer '.$token
             ],json_encode($body,JSON_HEX_QUOT));
-
+            //logger($uri);
+            //logger(json_encode($body,JSON_HEX_QUOT));
 
             try {
                 $response = $this->client->send($request);
                 $resultado = json_decode($response->getBody());
+                ///logger(json_encode($resultado,JSON_HEX_QUOT));
 
             }  catch (\Exception $ex) {
                 $response = json_decode($ex->getResponse()->getBody()->getContents(), true);
