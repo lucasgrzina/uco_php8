@@ -126,7 +126,7 @@
 												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #f5f5f5; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #f5f5f5; text-align: center;">
 													<img src="{{asset('img/mailings/camion-png.png')}}" width="124" height="79" border="0" style="display:block; margin: 0 auto; width: 124px; height: 79px;">
 
-													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
+													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#CDCFAD; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
 														{!! trans('emails.pedido.info') !!}
 													</div>
 
@@ -153,7 +153,7 @@
 										<tr>
 											<td align="center">
 												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #ffffff; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #ffffff; text-align: center;"><img src="{{asset('img/mailings//lupa.jpg')}}" width="124" height="111" border="0" style="display:block; margin: 0 auto; width: 124px; height: 111px;">
-													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
+													<div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#CDCFAD; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
 														{!! trans('emails.pedido.infoEnvio') !!}
 													</div>
 													<div style="width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; padding: 0; margin-top: 5px; margin-bottom: 0px; text-align: center;">

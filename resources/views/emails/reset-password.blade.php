@@ -169,7 +169,7 @@
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; padding: 15px; margin: 0 auto;">
                                                             {!! trans('emails.recuperar.linea1') !!} {{$clave}}
                                                         </div>
-                                                        <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#8e8063; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
+                                                        <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#CDCFAD; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
                                                             {!! trans('emails.recuperar.linea2') !!}
                                                         </div>
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:24px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">

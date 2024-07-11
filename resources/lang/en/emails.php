@@ -6,7 +6,7 @@ return [
         'tyc' => 'Terms & conditions',
     ],
     'registro' => [
-        'texto' => 'From now on, you can access your profile by entering your username <span style="color: #8E8063;">@USUARIO</span> and your password.',
+        'texto' => 'From now on, you can access your profile by entering your username <span style="color: #CDCFAD;">@USUARIO</span> and your password.',
         'btn_texto' => 'ENTER THE SITE',
         'imagenes' => [
             'te-damos-la-bienvenida' => 'header-bienvenida-eng.jpg',

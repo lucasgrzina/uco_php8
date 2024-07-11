@@ -175,7 +175,7 @@
 										<tr>
 											<td align="center">
 												<div style="font-family: Helvetica, Arial, sans-serif;font-size: 21px; line-height: 20px; color: #FF5A00; border-color: #f5f5f5; border-width:0;     border-style: solid; font-weight: 400; padding:10px 10px; background-color: #f5f5f5; text-align: center;">
-													<div style="width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#8E8063; font-weight: normal; text-align: center; margin: 0 auto; ">
+													<div style="width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:21px; line-height:24px; text-align:left; color:#CDCFAD; font-weight: normal; text-align: center; margin: 0 auto; ">
 														{{$registrado->usuario}}
 													</div>
 

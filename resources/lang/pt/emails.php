@@ -6,7 +6,7 @@ return [
         'tyc' => 'Términos y condiciones'
     ],
     'registro' => [
-        'texto' => 'Para ter acesso ao seu perfil, você poderá ingressar o seu nome de usuário <span style="color: #8E8063;">@USUARIO</span> e a sua senha.',
+        'texto' => 'Para ter acesso ao seu perfil, você poderá ingressar o seu nome de usuário <span style="color: #CDCFAD;">@USUARIO</span> e a sua senha.',
         'btn_texto' => 'ENTRE NO SITE',
         'imagenes' => [
             'te-damos-la-bienvenida' => 'header-bienvenida-port.jpg',
