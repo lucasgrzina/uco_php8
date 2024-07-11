@@ -169,7 +169,7 @@
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:18px; text-align:left; color:#000000; font-weight: normal; text-align: center; padding: 15px; margin: 0 auto;">
                                                             {!! trans('emails.confirmarPass.linea1') !!}
                                                         </div>
-                                                        <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:11px; line-height:16px; text-align:left; color:#8e8063!important; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
+                                                        <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:11px; line-height:16px; text-align:left; color:#CDCFAD!important; font-weight: normal; text-align: center; margin: 0 auto; padding: 5px;">
                                                             {!! trans('emails.confirmarPass.linea2') !!}
                                                         </div>
                                                         <div style="max-width: 350px; width: 100%; font-family: Helvetica, Arial, sans-serif; font-size:13px; line-height:18px; text-align:left; color:#000000; font-weight: normal; text-align: center; margin: 0 auto; padding: 15px;">
