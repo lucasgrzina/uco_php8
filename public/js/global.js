@@ -5,7 +5,7 @@ $(document).ready(function(){
 	});
 
 	if(typeof Cookies.get('ag_uco') == 'undefined' && Cookies.get('ag_uco') != 1 && !hideAgeGate) {
-		myModal.show();
+		// myModal.show();
 	}
 
 	$('.module-full-slider .slider').slick({

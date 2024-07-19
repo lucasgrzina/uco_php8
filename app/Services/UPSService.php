@@ -173,7 +173,7 @@ class UPSService extends AppBaseController
             try {
                 $response = $this->client->send($request);
                 $resultado = json_decode($response->getBody());
-                ///logger(json_encode($resultado,JSON_HEX_QUOT));
+                //logger(json_encode($resultado,JSON_HEX_QUOT));
 
             }  catch (\Exception $ex) {
                 $response = json_decode($ex->getResponse()->getBody()->getContents(), true);

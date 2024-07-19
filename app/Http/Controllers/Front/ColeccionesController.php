@@ -132,6 +132,7 @@ class ColeccionesController extends AppBaseController
             'aniadaActual' => $actual ? $actual->aniadas->first() : null,
             'loading' => false,
             'routePrefix' => 'magiaUco',
+            'routePrefixOtro' => 'magiaUcoNotable',
             'configuraciones' =>$configuraciones
         ];
 
@@ -173,6 +174,7 @@ class ColeccionesController extends AppBaseController
             'aniadaActual' => $actual ? $actual->aniadas->first() : null,
             'loading' => false,
             'routePrefix' => 'magiaUcoNotable',
+            'routePrefixOtro' => 'magiaUco',
             'configuraciones' =>$configuraciones
         ];
 

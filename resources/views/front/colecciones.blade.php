@@ -80,11 +80,11 @@
     }
 
     function getOffset(el) {
-    const rect = el.getBoundingClientRect();
-    return {
-        left: rect.left + window.scrollX,
-        top: rect.top + window.scrollY
-    };
+        const rect = el.getBoundingClientRect();
+        return {
+            left: rect.left + window.scrollX,
+            top: rect.top + window.scrollY
+        };
     }
 
     this._mounted.push(function(_this) {
@@ -163,7 +163,7 @@ $actual = $data['actual'];
 
                                     @foreach ($data['todosVinos']['MU'] as $item)
                                     <li class="nav-item">
-                                        <a class="nav-link {{ $data['routePrefix'] == 'magiaUcoNotable' ? 'd-md-none':''}}  {{$data['actual']->id == $item->id ? 'active' : ''}}" aria-current="page" href="{{routeIdioma('colecciones.'.$data['routePrefix'],[$item->id,\Str::slug($item->titulo)])}}">{{$item->titulo}}</a>
+                                        <a class="nav-link {{ $data['routePrefix'] == 'magiaUcoNotable' ? 'd-md-none':''}}  {{$data['actual']->id == $item->id ? 'active' : ''}}" aria-current="page" href="{{routeIdioma('colecciones.'.($data['routePrefix'] === 'magiaUco' ? $data['routePrefix'] : $data['routePrefixOtro']),[$item->id,\Str::slug($item->titulo)])}}">{{$item->titulo}}</a>
                                     </li>
                                     @endforeach
 
@@ -172,7 +172,7 @@ $actual = $data['actual'];
                                     </li>
                                     @foreach ($data['todosVinos']['MN'] as $item)
                                     <li class="nav-item">
-                                        <a class="nav-link {{ $data['routePrefix'] == 'magiaUco' ? 'd-md-none':''}} {{$data['actual']->id == $item->id ? 'active' : ''}}" aria-current="page" href="{{routeIdioma('colecciones.'.$data['routePrefix'],[$item->id,\Str::slug($item->titulo)])}}">{{$item->titulo}}</a>
+                                        <a class="nav-link {{ $data['routePrefix'] == 'magiaUco' ? 'd-md-none':''}} {{$data['actual']->id == $item->id ? 'active' : ''}}" aria-current="page" href="{{routeIdioma('colecciones.'.($data['routePrefix'] === 'magiaUcoNotable' ? $data['routePrefix'] : $data['routePrefixOtro']),[$item->id,\Str::slug($item->titulo)])}}">{{$item->titulo}}</a>
                                     </li>
                                     @endforeach
 
