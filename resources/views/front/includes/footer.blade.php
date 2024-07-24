@@ -78,9 +78,9 @@
               </div>
           </div>
 
-          <div class="col-12">
+          <!--div class="col-12">
               <img class="firulete" src="{{asset('img/firulete-2.svg')}}">
-          </div>
+          </div-->
           <div class="col-12"><p class="legales">{{trans('front.navMenuFooter.legales')}}</p></div>
           <div class="col-12">
               <div class="legales-links">
