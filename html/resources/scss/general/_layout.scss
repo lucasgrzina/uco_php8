@@ -1494,7 +1494,7 @@ p{
 
 	.icon{
 		margin-bottom: 15px;
-        height: 60px;
+        height: 45px;
 	}
 
 	p{
@@ -1516,12 +1516,13 @@ p{
 		}
 	}
 
-	@include over($b-lg) {
-		.mb-item{
-			margin-bottom: 40px;
 
-		}
-	}
+		.mb-item{
+            @include over($b-md) {
+			margin-bottom: 50px;
+
+		    }
+	    }
 
 	.slick-dots{
 		@include under($b-md){
