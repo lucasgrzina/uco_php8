@@ -49,7 +49,7 @@
 					<div class="text">
 						<h2>{!! $item['titulo'] !!}</h2>
 					</div>
-					<img class="img-background" src="http://localhost/uco_php8/public/img/nuestro-compromiso-1.jpg">
+					<img class="img-background" src="{{isset($item['imagen_interna']) && $item['imagen_interna'] ? asset($item['imagen_interna']) : asset($item['imagen'])}}">
 
 					<div class="text">
 
