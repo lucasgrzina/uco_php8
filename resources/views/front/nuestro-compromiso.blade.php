@@ -44,24 +44,48 @@
 
         <div class="col-12">
 			<div class="grid-items slider-gente">
-				@foreach ($data['items'] as $item)
+				@foreach ($data['items'] as $key=>$item)
 				<div class="item">
 					<div class="text">
 						<h2>{!! $item['titulo'] !!}</h2>
 					</div>
 					<img class="img-background" src="{{isset($item['imagen_interna']) && $item['imagen_interna'] ? asset($item['imagen_interna']) : asset($item['imagen'])}}">
 
-					<div class="text">
-
+					<div class="text v-desktop">
 						<p>{!! $item['subtitulo'] !!}</p>
 					</div>
+
+					<div class="text v-mobile">
+						<p>{!! $item['subtitulo'] !!}</p>
+						<a href="#" class="open-modal" data-bs-toggle="modal" data-bs-target="#modal_slide_{{$key}}">Ver más</a>
+					</div>
+
+					
 
 				</div>
 				@endforeach
 
 			</div>
 		</div>
-
+		@foreach ($data['items'] as $key=>$item)
+		<!-- Modal -->
+		<div class="modal fade" id="modal_slide_{{$key}}" tabindex="-1" aria-labelledby="slide_modal_label_{{$key}}" aria-hidden="true">
+		  <div class="modal-dialog  modal-dialog-scrollable modal-fullscreen-sm-down">
+		    <div class="modal-content modal-slide">
+		      <div class="modal-header">
+		        <h1 class="modal-title fs-5" id="slide_modal_label_{{$key}}">{!! $item['titulo'] !!}</h1>
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		        <p>{!! $item['subtitulo'] !!}</p>
+		      </div>
+		      <div class="modal-footer d-none">
+		        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		@endforeach
 		</div>
 	</div>
 </section>

@@ -1485,23 +1485,23 @@ p{
 		color: #030303;
 		font-size: 22px;
 		line-height: 27px;
-        text-align: left;
+		text-align: left;
 
-        @include under($b-sm) {
-            text-align: center;
-        }
+		@include under($b-sm) {
+			text-align: center;
+		}
 	}
 
 	.icon{
 		margin-bottom: 15px;
-        height: 45px;
+		height: 45px;
 	}
 
 	p{
 		color: #fff;
 		text-align: justify;
 		@include under($b-sm) {
-            text-align: center;
+			text-align: center;
 			margin-bottom: 0;
 			padding: 0 15px;
 		}
@@ -1517,12 +1517,12 @@ p{
 	}
 
 
-		.mb-item{
-            @include over($b-md) {
+	.mb-item{
+		@include over($b-md) {
 			margin-bottom: 50px;
 
-		    }
-	    }
+		}
+	}
 
 	.slick-dots{
 		@include under($b-md){
@@ -2278,7 +2278,10 @@ p{
 		.grid-items {
 			.item {
 				background-color: #c4c4c4;
+
+				
 				.text{
+
 					h5{
 						color: #F2F0DE;
 						font-size: 30px;
@@ -2308,11 +2311,39 @@ p{
 
 			.slick-dots{
 				top: 520px;
+
+				@include under($b-md){
+					top: 505px;
+			        position: absolute;
+        			height: 41px;
+				}
 			}
 			.item {
 				flex-direction: column;
 				height: auto;
 
+				.v-mobile{
+					display: none;
+				}
+
+				.v-desktop{
+					display: block;
+				}
+
+				@include under($b-md){
+					h2{
+						margin-bottom: 5px;
+						font-size: 28px;
+					}
+
+					.v-mobile{
+						display: block;
+					}
+
+					.v-desktop{
+						display: none;
+					}
+				}
 				.img-background{
 					max-width: 700px;
 					height: 417px;
@@ -2327,7 +2358,24 @@ p{
 						max-width: 100%;
 					}
 				}
+
+				.open-modal{
+					font-weight: 600;
+					text-decoration: underline;
+				    padding: 10px 15px;
+				}
 			}
+		}
+	}
+
+	.modal-slide{
+		.modal-title{
+			margin-bottom: 5px;
+			font-size: 28px !important;
+			font-weight: normal;
+			font-family: $f-bold;
+			letter-spacing: normal;
+
 		}
 	}
 }
