@@ -2310,10 +2310,10 @@ p{
 
 
 			.slick-dots{
-				top: 520px;
+				top: 440px;
 
 				@include under($b-md){
-					top: 505px;
+					top: 440px;
 			        position: absolute;
         			height: 41px;
 				}
@@ -2329,9 +2329,14 @@ p{
 				.v-desktop{
 					display: block;
 				}
-
+                h2{
+                    padding-top: 60px;
+                    margin-bottom: 5px;
+                    font-size: 28px;
+                }
 				@include under($b-sm){
 					h2{
+                        padding-top: 60px;
 						margin-bottom: 5px;
 						font-size: 28px;
 					}
@@ -2354,7 +2359,7 @@ p{
 					max-width: 100%;
 
 					p{
-						padding-top: 50px;
+						padding-top: 20px;
 						max-width: 100%;
 					}
 				}

@@ -46,20 +46,18 @@
 			<div class="grid-items slider-gente">
 				@foreach ($data['items'] as $key=>$item)
 				<div class="item">
-					<div class="text">
-						<h2>{!! $item['titulo'] !!}</h2>
-					</div>
 					<img class="img-background" src="{{isset($item['imagen_interna']) && $item['imagen_interna'] ? asset($item['imagen_interna']) : asset($item['imagen'])}}">
 
 					<div class="text v-desktop">
+                        <h2>{!! $item['titulo'] !!}</h2>
 						<p>{!! $item['subtitulo'] !!}</p>
 					</div>
-
 					<div class="text v-mobile">
-						<p style="margin-bottom: 0;">
+                        <h2>{!! $item['titulo'] !!}</h2>
+						<p style="margin-bottom: 10px;">
                             {!! $item['subtituloCorto'] !!}
-                            <a href="#" style="white-space: nowrap;" class="open-modal" data-bs-toggle="modal" data-bs-target="#modal_slide_{{$key}}">Ver más</a>
                         </p>
+                        <a href="#" style="white-space: nowrap;text-decoration:none;" class="open-modal" data-bs-toggle="modal" data-bs-target="#modal_slide_{{$key}}">Ver más</a>
 
 					</div>
 
