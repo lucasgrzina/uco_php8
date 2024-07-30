@@ -56,11 +56,14 @@
 					</div>
 
 					<div class="text v-mobile">
-						<p>{!! $item['subtitulo'] !!}</p>
-						<a href="#" class="open-modal" data-bs-toggle="modal" data-bs-target="#modal_slide_{{$key}}">Ver más</a>
+						<p style="margin-bottom: 0;">
+                            {!! $item['subtituloCorto'] !!}
+                            <a href="#" style="white-space: nowrap;" class="open-modal" data-bs-toggle="modal" data-bs-target="#modal_slide_{{$key}}">Ver más</a>
+                        </p>
+
 					</div>
 
-					
+
 
 				</div>
 				@endforeach
@@ -69,8 +72,8 @@
 		</div>
 		@foreach ($data['items'] as $key=>$item)
 		<!-- Modal -->
-		<div class="modal fade" id="modal_slide_{{$key}}" tabindex="-1" aria-labelledby="slide_modal_label_{{$key}}" aria-hidden="true">
-		  <div class="modal-dialog  modal-dialog-scrollable modal-fullscreen-sm-down">
+		<div class="modal modal-generico fade" id="modal_slide_{{$key}}" tabindex="-1" aria-labelledby="slide_modal_label_{{$key}}" aria-hidden="true">
+		  <div class="modal-dialog  modal-dialog-scrollable modal-fullscreen-md-down">
 		    <div class="modal-content modal-slide">
 		      <div class="modal-header">
 		        <h1 class="modal-title fs-5" id="slide_modal_label_{{$key}}">{!! $item['titulo'] !!}</h1>

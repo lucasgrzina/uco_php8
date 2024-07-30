@@ -2279,7 +2279,7 @@ p{
 			.item {
 				background-color: #c4c4c4;
 
-				
+
 				.text{
 
 					h5{
@@ -2330,7 +2330,7 @@ p{
 					display: block;
 				}
 
-				@include under($b-md){
+				@include under($b-sm){
 					h2{
 						margin-bottom: 5px;
 						font-size: 28px;
@@ -2371,7 +2371,7 @@ p{
 	.modal-slide{
 		.modal-title{
 			margin-bottom: 5px;
-			font-size: 28px !important;
+			font-size: 24px !important;
 			font-weight: normal;
 			font-family: $f-bold;
 			letter-spacing: normal;
