@@ -187,7 +187,7 @@ class UPSService extends AppBaseController
             $dolarOficial = obtenerDolarUPS();
             return [
                 'cotizacion' => $dolarOficial,
-                'pesos' => $resultado->RateResponse->RatedShipment->NegotiatedRateCharges->TotalCharge->MonetaryValue * $dolarOficial,
+                'pesos' => ($resultado->RateResponse->RatedShipment->NegotiatedRateCharges->TotalCharge->MonetaryValue * $dolarOficial) * 1.21,
                 'dolares' => $resultado->RateResponse->RatedShipment->NegotiatedRateCharges->TotalCharge->MonetaryValue
                 //'pesos' => ($resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue * $dolarOficial),
                 //'dolares' => $resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue

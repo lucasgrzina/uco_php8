@@ -74,7 +74,7 @@
 		<!-- Modal -->
 		<div class="modal modal-generico fade" id="modal_slide_{{$key}}" tabindex="-1" aria-labelledby="slide_modal_label_{{$key}}" aria-hidden="true">
 		  <div class="modal-dialog  modal-dialog-scrollable modal-fullscreen-md-down">
-		    <div class="modal-content modal-slide">
+		    <div class="modal-content modal-slide" style="background-color: #fafaf9;">
 		      <div class="modal-header">
 		        <h1 class="modal-title fs-5" id="slide_modal_label_{{$key}}">{!! $item['titulo'] !!}</h1>
 		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

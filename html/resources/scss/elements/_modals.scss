@@ -88,6 +88,9 @@
                 .modal-header, .modal-body, .modal-footer{
                     border-width: 0;
                 }
+                .btn-close {
+                    opacity: 1!important;
+                }
                 .modal-header {
                     .btn-close {
                         position: absolute;
