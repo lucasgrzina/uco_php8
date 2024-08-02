@@ -188,6 +188,7 @@ class UPSService extends AppBaseController
             return [
                 'cotizacion' => $dolarOficial,
                 'pesos' => ($resultado->RateResponse->RatedShipment->NegotiatedRateCharges->TotalCharge->MonetaryValue * $dolarOficial) * 1.21,
+                'pesosSinIva' => $resultado->RateResponse->RatedShipment->NegotiatedRateCharges->TotalCharge->MonetaryValue * $dolarOficial,
                 'dolares' => $resultado->RateResponse->RatedShipment->NegotiatedRateCharges->TotalCharge->MonetaryValue
                 //'pesos' => ($resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue * $dolarOficial),
                 //'dolares' => $resultado->RatedShipment[0]->NegotiatedRates->NetSummaryCharges->GrandTotal->MonetaryValue
