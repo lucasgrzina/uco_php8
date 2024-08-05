@@ -28,6 +28,7 @@ Route::prefix('test')->group(function () {
     });
     Route::get('/ups-auth', 'TestController@upsAuth');
     Route::get('/ups-cotizar', 'TestController@upsCotizar');
+    Route::get('/mp-check-pedido/{pedidoId}', 'TestController@mpCheckPedido');
 });
 
 Route::prefix('combos')->group(function () {

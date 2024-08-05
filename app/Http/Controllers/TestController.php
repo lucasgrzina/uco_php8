@@ -13,6 +13,7 @@ use App\Services\ApiRolService;
 use App\Services\ApiSmsService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use App\Repositories\PedidoRepository;
 use Illuminate\Support\Facades\Storage;
 
 class TestController extends AppBaseController
@@ -114,5 +115,19 @@ class TestController extends AppBaseController
     public function upsCotizar(UPSService $srv) {
 
         return response()->json($srv->generarEnvio(), 200);
+    }
+
+    public function mpCheckPedido($pedidoId,PedidoRepository $pedidosRepo,MPService $mpService) {
+        try
+        {
+            $pedido = $pedidosRepo->find($pedidoId);
+            $pedido = $pedidosRepo->actualizarPago($pedido);
+            //$mpPago = $mpService->buscarPagoPorPedidoId($pedido->id);
+            return $this->sendResponse($pedido, trans('admin.success'));
+        }
+        catch(\Exception $ex)
+        {
+            \Log::info($ex->getMessage());
+        }
     }
 }
