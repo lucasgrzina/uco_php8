@@ -58,9 +58,9 @@
 					<div class="text v-mobile" style="margin-top: 40px;">
 						<p style="margin-bottom: 10px;text-align:justify;">
                             {!! $item['subtituloCorto'] !!}
-                            <a href="#" style="white-space: nowrap;text-decoration:none;" class="open-modal" data-bs-toggle="modal" data-bs-target="#modal_slide_{{$key}}">Ver más</a>
-                        </p>
 
+                        </p>
+                        <a href="#" style="white-space: nowrap;text-decoration:none;" class="open-modal" data-bs-toggle="modal" data-bs-target="#modal_slide_{{$key}}">Ver más</a>
 
 					</div>
 
