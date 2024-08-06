@@ -10,18 +10,18 @@ return [
     'UPS_SECRET_ID'=> env('UPS_SECRET_ID'),
     'UPS_INTEGRATION'=> true,
     'DIRECCION_DESDE_MZA' => [
-        'NOMBRE' => 'NEUBELL',
+        'NOMBRE' => 'ALBERTO BONIFACIO BUDETTA SA',
         'DIRECCION' => 'MORON 123',
         'PROVINCIA' => 'Mendoza',
         'PAIS' => 'AR',
         'CODIGO_POSTAL' => '5500'
     ],
     'DIRECCION_DESDE_BSAS' => [
-        'NOMBRE' => 'NEUBELL',
+        'NOMBRE' => 'ALBERTO BONIFACIO BUDETTA SA',
         'DIRECCION' => 'EL SALVADOR 278',
         'PROVINCIA' => 'BUENOS AIRES',
         'PAIS' => 'AR',
-        'CODIGO_POSTAL' => '1667'
+        'CODIGO_POSTAL' => '1621'
     ],
     'EMAIL' => '',
     'TELEFONO' => ''
