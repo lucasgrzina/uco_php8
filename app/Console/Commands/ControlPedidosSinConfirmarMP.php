@@ -61,7 +61,13 @@ class ControlPedidosSinConfirmarMP extends BaseCommand
         foreach($resp as $pedido)
         {
             try {
-                $pedido = repo('Pedido')->actualizarPago($pedido,true);
+                if ($pedido->tipo_factura == 'CF') {
+                    $pedido = repo('Pedido')->actualizarPago($pedido,true);
+                    if ($pedido->pp_status == 'aprobado') {
+                        repo('Pedido')->notificarNuevoPedido($pedido);
+                    }
+                }
+
             } catch (\Exception $e) {
                 \Log::error('cron:control-pedidos-sin-confirmar-mp: '.$e->getMessage());
             }
