@@ -60,7 +60,9 @@
                             {!! $item['subtituloCorto'] !!}
 
                         </p>
-                        <a href="#" style="white-space: nowrap;text-decoration:none;" class="open-modal" data-bs-toggle="modal" data-bs-target="#modal_slide_{{$key}}">Ver más</a>
+                        <a href="#" style="white-space: nowrap;text-decoration:none;" class="open-modal" data-bs-toggle="modal" data-bs-target="#modal_slide_{{$key}}">
+                            {!! trans('front.paginas.nuestroCompromiso.modulo2.verMas') !!}
+                        </a>
 
 					</div>
 
