@@ -46,11 +46,11 @@ class ControlPedidosSinConfirmarMP extends BaseCommand
      */
     public function handle()
     {
-        $days = -10;
+        $days = -2;
 
         $now = \Carbon\Carbon::now();
 
-        $resp = Pedido::whereNotNull('pp_preference_id')->where('pp_status','<>', 'aprobado')
+        $resp = Pedido::whereNotNull('pp_preference_id')/*->where('pp_status','<>', 'aprobado')*/
                 ->where(function ($q) {
                     $q->where('pp_status', 'pendiente')->orWhereNull('pp_status');
                 })
@@ -61,7 +61,7 @@ class ControlPedidosSinConfirmarMP extends BaseCommand
         foreach($resp as $pedido)
         {
             try {
-                $pedido = repo('Pedido')->actualizarPago($pedido);
+                $pedido = repo('Pedido')->actualizarPago($pedido,true);
             } catch (\Exception $e) {
                 \Log::error('cron:control-pedidos-sin-confirmar-mp: '.$e->getMessage());
             }

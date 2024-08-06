@@ -3,8 +3,9 @@
 namespace App\Console;
 
 use App\Console\Commands\SincronizarSAP;
-use App\Console\Commands\SincronizarVentasSAP;
 use Illuminate\Console\Scheduling\Schedule;
+use App\Console\Commands\SincronizarVentasSAP;
+use App\Console\Commands\ControlPedidosSinConfirmarMP;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
@@ -16,7 +17,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         SincronizarSAP::class,
-        SincronizarVentasSAP::class
+        SincronizarVentasSAP::class,
+        ControlPedidosSinConfirmarMP::class
     ];
 
     /**
@@ -29,6 +31,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command(SincronizarSAP::class)->everyTenMinutes()->withoutOverlapping();
         $schedule->command(SincronizarVentasSAP::class)->everyFiveMinutes()->withoutOverlapping();
+        $schedule->command(ControlPedidosSinConfirmarMP::class)->everyFiveMinutes()->withoutOverlapping();
     }
 
     /**

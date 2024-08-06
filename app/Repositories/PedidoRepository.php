@@ -86,7 +86,7 @@ class PedidoRepository extends BaseRepository
 
     }
 
-    public function actualizarPago($pedido) {
+    public function actualizarPago($pedido,$notificarCliente=false) {
         $mpPago = servicio('MP')->buscarPagoPorPedidoId($pedido->id);
         //dd($mpPago);
         if($mpPago) {
@@ -107,6 +107,10 @@ class PedidoRepository extends BaseRepository
 
                 if (!$pedido->ups_tracking_number) {
                     $this->generarEnvio($pedido);
+                }
+
+                if ($notificarCliente) {
+                    $pedido->registrado->enviarNotificacionPedido($pedido);
                 }
             }else{
                 switch($mpPago->status) {
@@ -136,13 +140,10 @@ class PedidoRepository extends BaseRepository
         if(isset($configuraciones['AVISO_NUEVOS_PEDIDOS']) && $configuraciones['AVISO_NUEVOS_PEDIDOS']) {
             try
             {
-                logger($configuraciones);
                 $url = route('pedidos.edit',[$pedido->id]);
-                logger($url);
                 $html = "
                     Un nuevo pedido ha ingresado en la tienda.<br>Para conocer más sobre el mismo, haga click <a href='{$url}'>aquí</a>
                 ";
-                logger($html);
                 \Mail::send([], [], function (Message $message) use ($html,$configuraciones) {
                     $message->to($configuraciones['AVISO_NUEVOS_PEDIDOS'])
                     ->subject('Nuevo pedido en tienda')

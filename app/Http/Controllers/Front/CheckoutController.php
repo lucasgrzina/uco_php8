@@ -133,7 +133,7 @@ class CheckoutController extends AppBaseController
         if ($pedido->estado_id == 0) {
             if ($pedido->tipo_factura == 'CF') {
                 if ($request->has('preference_id')) {
-                    $pedido = $pedidosRepo->actualizarPago($pedido);
+                    $pedido = $pedidosRepo->actualizarPago($pedido, false);
                     try {
                         $pedido->registrado->enviarNotificacionPedido($pedido);
                     } catch (\Exception $e) {
