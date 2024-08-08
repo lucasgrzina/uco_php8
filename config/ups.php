@@ -4,7 +4,7 @@ return [
     'URL_AUTH' => env('UPS_URL_AUTH'),
     'URL_RATING' => env('UPS_URL_RATING'),
     'URL_SHIPMENT' => env('UPS_URL_SHIPMENT'),
-    'UPS_USERID' => 925047,
+    'UPS_USERID' => env('UPS_USERID'),
     'UPS_PASSWORD' => 'Argentina2022!',
     'UPS_CLIENT_ID'=> env('UPS_CLIENT_ID'),
     'UPS_SECRET_ID'=> env('UPS_SECRET_ID'),
