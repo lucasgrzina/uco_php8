@@ -366,6 +366,8 @@ class UPSService extends AppBaseController
 
         }  catch (\Exception $ex) {
             $response = json_decode($ex->getResponse()->getBody()->getContents(), true);
+            logger("UPS => Error al generar etiqueta");
+            logger(json_encode($body,JSON_HEX_QUOT));
             throw new \Exception($ex->getMessage(), 1);
 
             //\Log::channel('consola')->info("UPS - ". $ex->getMessage());
