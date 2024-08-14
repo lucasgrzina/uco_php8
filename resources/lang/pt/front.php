@@ -483,10 +483,12 @@ return [
                 'domicilioDest' => 'Endereço do destinatário',
                 'nombre' => 'Nome',
                 'apellido' => 'Sobrenome',
-                'calle' => 'Endereço completo',
+                'calle' => 'Rua nome e numero',
                 'ciudad' => 'Cidade',
                 'provincia' => 'Estado',
-                'cp' => 'CEP'
+                'cp' => 'CEP',
+                'departamento' => 'Apt',
+                'infoAdicional' => 'Informação adicional'
             ],
             'datosDestinatario' => [
                 'titulo' => 'Endereço do destinatário',

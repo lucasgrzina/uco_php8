@@ -60,9 +60,18 @@ class PedidoRepository extends BaseRepository
                 }
             }
 
+            $direccionUps = [];
+            $direccionUps[] = $model->direccion;
+            if ($model->departamento) {
+                $direccionUps[] = $model->departamento;
+            }
+            if ($model->info_adicional) {
+                $direccionUps[] = $model->info_adicional;
+            }
+
             $respuesta = servicio('UPS')->generarEnvio($model->id
                 ,$model->items
-                ,$model->direccion
+                ,$direccionUps
                 ,$model->ciudad
                 ,$model->pais->codigo
                 ,$model->cp

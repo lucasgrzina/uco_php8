@@ -40,13 +40,13 @@ class RegistradoRepository extends BaseRepository
         if ($data['principal']) {
             $model->direcciones()->update(['principal' => false]);
         }
-
+        logger($data);
         if ($data['id'] > 0) {
             $direccion = $model->direcciones()->whereId($data['id'])->update($data);
         } else {
             $direccion = $model->direcciones()->create($data);
         }
-        
+
         return $direccion;
     }
 }

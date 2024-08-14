@@ -452,7 +452,9 @@ return [
                 'calle' => 'Street and Number ',
                 'ciudad' => 'City',
                 'provincia' => 'Province ',
-                'cp' => 'Zip Code'
+                'cp' => 'Zip Code',
+                'departamento' => 'Unit/Apartment',
+                'infoAdicional' => 'Additional information'
             ],
             'datosDestinatario' => [
                 'titulo' => 'Recipient’s Address',

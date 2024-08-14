@@ -235,7 +235,7 @@ class MiCuentaController extends AppBaseController
         } catch (\Exception $e) {
             DB::rollback();
             logger($e->getMessage());
-            $this->sendError($e->getMessage(),$e->getCode());
+            $this->sendError($e->getMessage(),500);
         }
     }
 }

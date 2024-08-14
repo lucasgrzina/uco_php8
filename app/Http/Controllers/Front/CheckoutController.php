@@ -83,6 +83,8 @@ class CheckoutController extends AppBaseController
                     'ciudad' => null,
                     'cp' => null,
                     'provincia' => null,
+                    'departamento' => null,
+                    'info_adicional' => null,
                     'pais_id' => 3,
                     'pais' => null,
                     'principal' => true
@@ -258,6 +260,9 @@ class CheckoutController extends AppBaseController
                 'provincia' => $direccionEnvio->provincia,
                 'pais_id' => $direccionEnvio->pais_id,
                 'cp' => $direccionEnvio->cp,
+                'departamento' => $direccionEnvio->departamento,
+                'info_adicional' => $direccionEnvio->info_adicional,
+
                 //'email' => $request->email,
                 //'tipo_factura' => 'CF',
                 //'nombre' => 'Lucas',
@@ -282,6 +287,8 @@ class CheckoutController extends AppBaseController
                 'cp_fc',
                 'provincia_fc',
                 'pais_id_fc',
+                'departamento',
+                'info_adicional'
             ]));
 
             $pedido = $pedidosRepo->altaDesdeCarrito($dataPedido, $items);

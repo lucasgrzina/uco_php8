@@ -93,7 +93,9 @@ class Pedido extends Model
         'pp_preference_id',
         'pp_status',
         'pp_status_desc',
-        'tarjeta_cuotas'
+        'tarjeta_cuotas',
+        'departamento',
+        'info_adicional'
         //'enabled'
     ];
 

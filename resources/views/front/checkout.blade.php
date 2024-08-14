@@ -363,28 +363,33 @@
                                 <form>
                                     <!-- Email input -->
                                     <div class="form-floating  mb-form">
-                                        <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.nombre" placeholder="Nombre*">
+                                        <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.nombre" placeholder="{{trans('front.paginas.checkout.datosEnvio.nombre')}}*" maxlength="15">
                                         <label for="calleInput">{{trans('front.paginas.checkout.datosEnvio.nombre')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
-                                        <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.apellido" placeholder="Apellido*">
+                                        <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.apellido" placeholder="{{trans('front.paginas.checkout.datosEnvio.apellido')}}*" maxlength="25">
                                         <label for="calleInput">{{trans('front.paginas.checkout.datosEnvio.apellido')}}*</label>
                                     </div>
 
 
                                     <div class="form-floating  mb-form">
-                                        <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.calle" placeholder="Calle y número*">
+                                        <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.calle" placeholder="{{trans('front.paginas.checkout.datosEnvio.calle')}}*" maxlength="35">
                                         <label for="calleInput">{{trans('front.paginas.checkout.datosEnvio.calle')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
-                                        <input type="text" class="form-control"  v-model="checkout.direcciones.itemSeleccionado.ciudad" placeholder=">Ciudad*">
+                                        <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.departamento" placeholder="{{trans('front.paginas.checkout.datosEnvio.departamento')}}" maxlength="35">
+                                        <label for="calleInput">{{trans('front.paginas.checkout.datosEnvio.departamento')}}</label>
+                                    </div>
+
+                                    <div class="form-floating  mb-form">
+                                        <input type="text" class="form-control"  v-model="checkout.direcciones.itemSeleccionado.ciudad" placeholder="{{trans('front.paginas.checkout.datosEnvio.ciudad')}}*" maxlength="30">
                                         <label for="ciudadInput">{{trans('front.paginas.checkout.datosEnvio.ciudad')}}*</label>
                                     </div>
 
                                     <div class="form-floating  mb-form">
-                                        <input type="text" class="form-control"  v-model="checkout.direcciones.itemSeleccionado.provincia" placeholder=">Provincia*">
+                                        <input type="text" class="form-control"  v-model="checkout.direcciones.itemSeleccionado.provincia" placeholder="{{trans('front.paginas.checkout.datosEnvio.provincia')}}*" maxlength="35">
                                         <label for="provinciaInput">{{trans('front.paginas.checkout.datosEnvio.provincia')}}*</label>
                                     </div>
 
@@ -397,10 +402,14 @@
                                     </div-->
 
                                     <div class="form-floating  mb-form">
-                                        <input type="text" class="form-control"  v-model="checkout.direcciones.itemSeleccionado.cp" placeholder=">Código Postal*">
+                                        <input type="text" class="form-control"  v-model="checkout.direcciones.itemSeleccionado.cp" placeholder="{{trans('front.paginas.checkout.datosEnvio.cp')}}*" maxlength="9">
                                         <label for="zipcodeInput">{{trans('front.paginas.checkout.datosEnvio.cp')}}*</label>
                                     </div>
 
+                                    <div class="form-floating  mb-form">
+                                        <input type="text" class="form-control" v-model="checkout.direcciones.itemSeleccionado.info_adicional" maxlength="35"  placeholder="{{trans('front.paginas.checkout.datosEnvio.infoAdicional')}}">
+                                        <label for="calleInput">{{trans('front.paginas.checkout.datosEnvio.infoAdicional')}}</label>
+                                    </div>
 
                                     <button type="button" class="btn btn-form f-right" @click="cerrarDireccion()">{{trans('front.paginas.checkout.btnCancelar')}}</button>
                                     <button type="button" class="btn btn-form f-right" style="margin-right: 10px;" @click="guardarDireccion()">{{trans('front.paginas.checkout.btnGuardar')}}</button>

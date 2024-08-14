@@ -106,9 +106,19 @@ class PedidoController extends CrudAdminController
                 }
             }
 
+
+            $direccionUps = [];
+            $direccionUps[] = $model->direccion;
+            if ($model->departamento) {
+                $direccionUps[] = $model->departamento;
+            }
+            if ($model->info_adicional) {
+                $direccionUps[] = $model->info_adicional;
+            }
+
             $respuesta = $upsService->generarEnvio($id
                 ,$model->items
-                ,$model->direccion
+                ,$direccionUps
                 ,$model->ciudad
                 ,$model->pais->codigo
                 ,$model->cp

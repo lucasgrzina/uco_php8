@@ -492,7 +492,9 @@ return [
                 'calle' => 'Calle y número ',
                 'ciudad' => 'Ciudad',
                 'provincia' => 'Provincia',
-                'cp' => 'Código Postal'
+                'cp' => 'Código Postal',
+                'departamento' => 'Departamento/Lote',
+                'infoAdicional' => 'Información adicional'
             ],
             'datosDestinatario' => [
                 'titulo' => 'Datos del destinatario',

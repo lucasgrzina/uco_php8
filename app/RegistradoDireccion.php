@@ -41,7 +41,9 @@ class RegistradoDireccion extends Model
         'cp',
         'provincia',
         'pais_id',
-        'principal'
+        'principal',
+        'departamento',
+        'info_adicional'
     ];
 
     /**
