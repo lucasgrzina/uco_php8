@@ -451,7 +451,7 @@ return [
                 'apellido' => 'Last Name',
                 'calle' => 'Street and Number ',
                 'ciudad' => 'City',
-                'provincia' => 'Province ',
+                'provincia' => 'State ',
                 'cp' => 'Zip Code',
                 'departamento' => 'Unit/Apartment',
                 'infoAdicional' => 'Additional information'
