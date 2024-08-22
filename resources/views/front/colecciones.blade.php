@@ -242,6 +242,10 @@ $actual = $data['actual'];
                                             type="button">
                                         <span>(% aniada.anio %)</span>
                                     </button>
+                                    <a :href="aniadaActual.ficha_url" class="btn btn-ppal text-uppercase d-inline-block d-sm-none" target="_blank"  v-if="aniadaActual.ficha">
+                                        <span>{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</span>
+                                    </a>
+
                                 </div>
 
                                 <div class="links-producto" style="padding-bottom: 0; margin-top: 15px; justify-content: flex-start;  gap: 11px;">
@@ -253,7 +257,7 @@ $actual = $data['actual'];
                                     </div>
                                 </div>
 
-                                <div class="links-producto" v-if="actual.vendible && aniadaActual && aniadaActual.stock > 0" style="padding-bottom: 0; margin-top: 10px;">
+                                <div class="links-producto d-none d-sm-inline-block" v-if="actual.vendible && aniadaActual && aniadaActual.stock > 0" style="padding-bottom: 0; margin-top: 10px;">
 
                                     <a href="https://www.mercadopago.com.ar/ayuda/19301" target="blank">
                                         <div class="btn btn-ppal" >
@@ -266,7 +270,7 @@ $actual = $data['actual'];
 
                                 <div class="links-producto row" style="margin-top: 15px; align-items: baseline;">
                                   <div class="col-12 col-md-12">
-                                    <div class="d-flex mb-3 flex-wrap gap-3">
+                                    <div class="d-flex mb-0 flex-wrap gap-3">
                                         <template v-if="actual.vendible && aniadaActual">
                                             <div class="input-cantidad" v-if="aniadaActual.stock > 0">
                                                 <button class="btn-cantidad plus" @click="cambiarCantidad(aniadaActual,carrito.item.cantidad - 1)">-</button>
@@ -280,33 +284,32 @@ $actual = $data['actual'];
 
                                         </template>
                                         <div class="shop">
-                                            <a :href="aniadaActual.ficha_url" class="btn btn-ppal mb-3 text-uppercase d-inline-block" target="_blank"  v-if="aniadaActual.ficha">
+                                            <a :href="aniadaActual.ficha_url" class="btn btn-ppal mb-3 text-uppercase d-none d-sm-inline-block" target="_blank"  v-if="aniadaActual.ficha">
                                                 <span>{{trans('front.paginas.colecciones.interna.fichaTecnica')}}</span>
                                             </a>
                                         </div>
+                                        <div v-if="actual.vendible" class="shop">
+                                            <p class="destacado mb-1">
+                                                {!! str_replace('_COMPRAS_SUPERIORES_',$data['configuraciones']['COMPRAS_SUPERIORES'],trans('front.paginas.colecciones.interna.porCompras')) !!}
+                                            </p>
+                                        </div>
+                                        <div class="d-sm-none d-inline-block" v-if="actual.vendible && aniadaActual && aniadaActual.stock > 0" style="padding-bottom: 0; margin-top: 0px;">
 
+                                            <a href="https://www.mercadopago.com.ar/ayuda/19301" target="blank">
+                                                <div class="btn btn-ppal" >
+                                                  <span class="text-uppercase">{!! trans('front.paginas.colecciones.interna.metodoPago') !!}</span>
+                                                </div>
+                                            </a>
+
+
+                                        </div>
                                     </div>
 
                                   </div>
-                                  <template  v-if="actual.vendible && aniadaActual">
-                                    <!--div class="col-12" v-if="aniadaActual.stock <= 10 && aniadaActual.stock > 0">
-                                        <div class="bajada">
-
-                                                <p  class="destacado mb-3" style="font-weight: bolder;">
-                                                    (% ultUnidadesMsg() %)
-                                                </p>
-                                                <p v-if="aniadaActual.stock < 1" class="destacado mb-3" style="font-weight: bolder;">
-                                                    {!! trans('front.paginas.colecciones.interna.sinStock') !!}
-                                                </p>
-
-                                            <!p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
-                                        </div>
-                                    </div-->
-                                  </template>
                                 </div>
 
 
-                          <div class="descripcion"><p>(% aniadaActual ? aniadaActual.descripcion : '' %)</p></div>
+                          <div class="descripcion pt-0"><p>(% aniadaActual ? aniadaActual.descripcion : '' %)</p></div>
 
                           <!--div class="links-producto" v-if="aniadaActual">
 
@@ -328,9 +331,9 @@ $actual = $data['actual'];
                         </div-->
 
                         <div v-if="actual.vendible" class="shop">
-                            <p class="destacado mb-3">
+                            <!--p class="destacado mb-3">
                                 {!! str_replace('_COMPRAS_SUPERIORES_',$data['configuraciones']['COMPRAS_SUPERIORES'],trans('front.paginas.colecciones.interna.porCompras')) !!}
-                            </p>
+                            </p-->
                           <div class="bajada">
                               <p>{!!trans('front.paginas.colecciones.interna.porCantidades')!!}</p>
                           </div>
