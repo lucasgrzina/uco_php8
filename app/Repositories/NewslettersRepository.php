@@ -20,7 +20,9 @@ class NewslettersRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'email' => 'like'
+        'nombre' => 'like',
+        'apellido' => 'like',
+        'email' => 'like',
     ];
 
     /**

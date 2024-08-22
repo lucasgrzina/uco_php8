@@ -66,6 +66,8 @@ class Contactos extends Model
         'tel_numero',
         'mensaje',
         'recibir_info',
+        'estatus_1',
+        'estatus_2',
         //'enabled'
     ];
 
@@ -84,6 +86,8 @@ class Contactos extends Model
         'tel_numero' => 'string',
         'mensaje' => 'string',
         'recibir_info' => 'boolean',
+        'estatus_1' => 'boolean',
+        'estatus_2' => 'boolean',
         //'enabled' => 'boolean'
     ];
 

@@ -19,7 +19,7 @@
 @endsection
 
 @section('content-header')
-{!! AdminHelper::contentHeader('Newsletters',trans('admin.list'),'new','create()') !!}
+{!! AdminHelper::contentHeader('Newsletters',trans('admin.list'),null,null) !!}
 @endsection
 
 @section('content')
@@ -30,6 +30,13 @@
                 <div class="form-inline">
                     @include('admin.includes.crud.index-filters-input')
                     <!-- cualquier otro campo -->
+                    <div class="form-group">
+                        <select v-model="filters.recibir_info" class="form-control input-sm" name="enabled" >
+                            <option :value="1">Si</option>
+                            <option :value="0">No</option>
+                            <option :value="null">Todos</option>
+                        </select>
+                    </div>
                     @include('admin.includes.crud.index-filters-btn')
                 </div>
             </div>
@@ -44,7 +51,7 @@
                     @include('admin.includes.crud.index-pagination')
                 </div>
             </div>
-            @include('admin.includes.crud.index-loading')            
+            @include('admin.includes.crud.index-loading')
         </div>
     </div>
 @endsection

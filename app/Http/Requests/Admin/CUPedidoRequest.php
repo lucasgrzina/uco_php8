@@ -25,8 +25,12 @@ class CUPedidoRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Pedido::$rules;
-        //$rules['name'] = str_replace('{:id}', $this->get('id') , $rules['name']); 
+        if (isset($this->accion) && $this->accion == "cambiarValor") {
+            $rules =  [];
+        } else {
+            $rules = Pedido::$rules;
+        }
+
         return $rules;
     }
 }

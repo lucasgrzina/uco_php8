@@ -11,6 +11,9 @@
                 <th>Total</th>
                 <th>SAP</th>
                 <th>Fecha</th>
+                <th align="center">Estatus 1</th>
+                <th align="center">Estatus 2</th>
+                <th align="center">Estatus 3</th>
                 <!--th class="td-enabled">{{ trans('admin.table.enabled') }}</th-->
                 <th class="td-actions">{{ trans('admin.table.actions') }}</th>
             </tr>
@@ -60,6 +63,21 @@
                 <!--td class="td-enabled">
                     <switch-button v-model="item.enabled" theme="bootstrap" type-bold="true" @onChange="onChangeEnabled(item)"></switch-button>
                 </td-->
+                <td>
+                    <span class="btn btn-sm" :class="{'label-success': item.estatus_1,'label-gris': !item.estatus_1}">
+                        En preparación
+                    </span>
+                </td>
+                <td>
+                    <button @click="cambiarEstatus(item, 'estatus_2')" class="btn btn-sm" :class="{'label-success': item.estatus_2,'label-gris': !item.estatus_2}">
+                        Empaquetado
+                    </button>
+                </td>
+                <td>
+                    <button @click="cambiarEstatus(item, 'estatus_3')" class="btn btn-sm" :class="{'label-success': item.estatus_3,'label-gris': !item.estatus_3}">
+                        Entregado
+                    </button>
+                </td>
                 <td class="td-actions">
                     @if(auth()->user()->hasRole('Superadmin') || auth()->user()->can('editar-'.$data['action_perms']))
                         <button-type type="edit-list" @click="edit(item)"></button-type>

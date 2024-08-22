@@ -13,6 +13,11 @@
 		//Vue.use(window['vue-tel-input']);
         _methods.contactoSubmit = function (scope){
             var _this = this;
+
+            if (_this.loading) {
+                return false;
+            }
+
             _this.form.submitted = true;
             _this.loading = true;
 

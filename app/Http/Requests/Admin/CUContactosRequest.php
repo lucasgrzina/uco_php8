@@ -25,12 +25,16 @@ class CUContactosRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Contactos::$rules;
-        //$rules['name'] = str_replace('{:id}', $this->get('id') , $rules['name']); 
+        if (isset($this->accion) && $this->accion == "cambiarValor") {
+            $rules =  [];
+        } else {
+            $rules = Contactos::$rules;
+        }
+        //$rules['name'] = str_replace('{:id}', $this->get('id') , $rules['name']);
         return $rules;
     }
     public function messages()
     {
         return trans('front.paginas.contacto.validacion');
-    }    
+    }
 }

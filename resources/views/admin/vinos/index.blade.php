@@ -33,8 +33,18 @@
         <div class="box box-default box-page-list">
             <div class="box-body box-filter">
                 <div class="form-inline">
-                    @include('admin.includes.crud.index-filters-input')
+
                     <!-- cualquier otro campo -->
+                    <div class="form-group">
+                        <input type="text" class="form-control input-sm" v-model="filters.titulo"  placeholder="titulo..." @keyup.enter="filter">
+                    </div>
+                    <div class="form-group">
+                        <input style="max-width: 70px;" type="text" class="form-control input-sm" v-model="filters.peso"  placeholder="peso..." @keyup.enter="filter">
+                        <input style="max-width: 70px;" type="text" class="form-control input-sm" v-model="filters.largo"  placeholder="largo..." @keyup.enter="filter">
+                        <input style="max-width: 70px;" type="text" class="form-control input-sm" v-model="filters.ancho"  placeholder="ancho..." @keyup.enter="filter">
+                        <input style="max-width: 70px;" type="text" class="form-control input-sm" v-model="filters.alto"  placeholder="alto..." @keyup.enter="filter">
+                    </div>
+
                     @include('admin.includes.crud.index-filters-btn')
                 </div>
             </div>
@@ -49,7 +59,7 @@
                     @include('admin.includes.crud.index-pagination')
                 </div>
             </div>
-            @include('admin.includes.crud.index-loading')            
+            @include('admin.includes.crud.index-loading')
         </div>
     </div>
 @endsection

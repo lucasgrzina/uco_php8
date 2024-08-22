@@ -23,7 +23,9 @@ class PedidoRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-
+        "nombre" => "like",
+        "apellido" => "like",
+        "email" => "like"
     ];
 
     /**

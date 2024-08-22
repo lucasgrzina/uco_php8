@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>{{ isset($tituloPagina) ? $tituloPagina : 'Home' }} | {{env('APP_NAME')}}</title>
+        <title>{{ isset($tituloPagina) ? $tituloPagina : 'Home' }} | Magia de Uco - Sitio oficial</title>
         <meta property="og:title" content="Magia de Uco" />
         <meta property="og:image" content="" />
         <!-- Favicon-->

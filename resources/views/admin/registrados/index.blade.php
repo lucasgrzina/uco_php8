@@ -28,7 +28,9 @@
         <div class="box box-default box-page-list">
             <div class="box-body box-filter">
                 <div class="form-inline">
-                    @include('admin.includes.crud.index-filters-input')
+                    <div class="form-group">
+                        <input type="text" class="form-control input-sm" v-model="filters.search"  placeholder="ingrese usuario o email..." @keyup.enter="filter">
+                    </div>
                     <!-- cualquier otro campo -->
                     @include('admin.includes.crud.index-filters-btn')
                 </div>

@@ -21,8 +21,7 @@ class RegistradoRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'nombre' => 'like',
-        'apellido' => 'like',
+        'usuario' => 'like',
         'email' => 'like'
     ];
 
@@ -40,7 +39,6 @@ class RegistradoRepository extends BaseRepository
         if ($data['principal']) {
             $model->direcciones()->update(['principal' => false]);
         }
-        logger($data);
         if ($data['id'] > 0) {
             $direccion = $model->direcciones()->whereId($data['id'])->update($data);
         } else {

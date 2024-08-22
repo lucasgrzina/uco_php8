@@ -646,9 +646,40 @@ p{
     						font-size: 55px;
 
     						@include under($b-md) {
-    							font-size: 50px;
+    							font-size: 30px;
+    						}
+
+                            @include under($b-sm) {
+    							font-size: 18px;
     						}
     					}
+                        .btn-ampliar {
+                            display: none;
+                        }
+                        @include under($b-sm) {
+                            .body-wrap {
+                                .btn-ampliar {
+                                    display: inline-block;
+                                }
+                            }
+                            .vista-resumen {
+                                -webkit-box-orient: vertical;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 10;
+                                overflow: hidden;
+
+
+                                .body-inner p{
+                                    overflow: hidden;
+                                    max-width: 100%;
+                                    text-overflow: ellipsis;
+                                    width: fit-content;
+                                    white-space: nowrap;
+                                }
+
+
+                            }
+                        }
     				}
     			}
     		}

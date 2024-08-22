@@ -20,10 +20,12 @@ class ContactosRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'nombre',
-        'apellido',
-        'email',
-        'pais'
+        'nombre' => 'like',
+        'apellido' => 'like',
+        'email' => 'like',
+        'pais' => 'like',
+        'tel_numero' => 'like',
+        'mensaje' => 'like',
     ];
 
     /**

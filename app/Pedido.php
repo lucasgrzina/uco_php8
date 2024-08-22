@@ -95,8 +95,10 @@ class Pedido extends Model
         'pp_status_desc',
         'tarjeta_cuotas',
         'departamento',
-        'info_adicional'
-        //'enabled'
+        'info_adicional',
+        'estatus_1',
+        'estatus_2',
+        'estatus_3',
     ];
 
     /**
@@ -123,8 +125,10 @@ class Pedido extends Model
         'sincronizo_sap' => 'boolean',
         'error_sincronizacion_sap' => 'string',
         'documento_sap' => 'integer',
-        'tarjeta_cuotas' => 'integer'
-        //'enabled' => 'boolean'
+        'tarjeta_cuotas' => 'integer',
+        'estatus_1' => 'boolean',
+        'estatus_2' => 'boolean',
+        'estatus_3' => 'boolean'
     ];
 
     /**

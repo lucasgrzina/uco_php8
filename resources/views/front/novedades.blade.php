@@ -12,6 +12,11 @@
             this.novedades.notaCompleta = true;
         }
 
+        _methods.ampliarContenidoNovedad = function () {
+            $(".body-inner").toggleClass("vista-resumen");
+            $(".btn-ampliar").addClass("d-none");
+        }
+
         this._mounted.push(function(_this) {
         });
     </script>
@@ -29,33 +34,23 @@
 							<span class="date">{{($data['novedades']['actual']->fecha_corta)}}</span>
 							<h3>{{$data['novedades']['actual']->titulo}}</h3>
 							<p>{{$data['novedades']['actual']->bajada}}</p>
-                            {!! $data['novedades']['actual']->cuerpo !!}
+                            <div class="body-wrap">
+                                <div class="body-inner vista-resumen">
+                                    {!! $data['novedades']['actual']->cuerpo !!}
+                                </div>
+
+                                <div class="text-center">
+                                    <a href="javascript:void(0);" class="btn-ampliar mt-3" style="white-space: nowrap;text-decoration:none;" @click="ampliarContenidoNovedad()">
+                                        {!! trans('front.paginas.nuestroCompromiso.modulo2.verMas') !!}
+                                    </a>
+                                </div>
+
+                            </div>
 
 						</div>
 					</div>
 				</div>
 			</div>
-            <!--if (count($data['novedades']['destacados']) > 0)
-			<div class="col-lg-3">
-				<div class="sidebar">
-					<h4>Te puede interesar</h4>
-
-					<div class="grid-novedades sidebar ">
-                        @foreach ($data['novedades']['destacados'] as $item)
-                            <a href="{{routeIdioma('novedades',[$item->id])}}" class="item item-1">
-                                <img src="{{$item->foto_url}}">
-                                <div class="info">
-                                    <span class="date">{{formatoFechaNota($item->fecha)}}</span>
-                                    <h3>{{$item->titulo}}</h3>
-                                    <p>{{$item->bajada}}</p>
-                                </div>
-                            </a>
-                        @endforeach
-					</div>
-				</div>
-			</div>
-            endif-->
-
 
 		</div>
         @if (count($data['novedades']['items']) > 0)

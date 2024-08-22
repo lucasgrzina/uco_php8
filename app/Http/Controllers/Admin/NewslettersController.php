@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Admin\CrudAdminController;
-use App\Http\Requests\Admin\CUNewslettersRequest;
-use App\Repositories\NewslettersRepository;
-use Illuminate\Http\Request;
-use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use Illuminate\Http\Request;
+use App\Repositories\NewslettersRepository;
+use App\Repositories\Criteria\ContactosCriteria;
+use Prettus\Repository\Criteria\RequestCriteria;
+use App\Http\Requests\Admin\CUNewslettersRequest;
+use App\Http\Controllers\Admin\CrudAdminController;
 
 class NewslettersController extends CrudAdminController
 {
@@ -26,29 +27,44 @@ class NewslettersController extends CrudAdminController
     public function index()
     {
         parent::index();
+        $this->data['filters']['recibir_info'] = null;
+        $this->data['filters']['export_xls'] = true;
 
         return view($this->viewPrefix.'index')->with('data',$this->data);
     }
 
     public function filter(Request $request)
     {
+        $data = $this->_filter($request, false);
+
+        return $this->sendResponse($data, trans('admin.success'));
+    }
+
+    protected function _filter($request,$export=false) {
         try
         {
+            $this->repository->pushCriteria(new ContactosCriteria($request));
             $this->repository->pushCriteria(new RequestCriteria($request));
-            $collection = $this->repository->paginate($request->get('per_page'))->toArray();
 
-            $this->data = [
-                'list' => $collection['data'],
-                'paging' => \Arr::only($collection,['total','current_page','last_page'])
-            ];
+            if ($export) {
+                $data = $this->repository->all()->toArray();
+
+            } else {
+                $collection = $this->repository->paginate($request->get('per_page'))->toArray();
+
+                $data = [
+                    'list' => $collection['data'],
+                    'paging' => \Arr::only($collection,['total','current_page','last_page'])
+                ];
+            }
+
+            return $data;
 
         }
         catch (\Exception $ex)
         {
             return $this->sendError($ex->getMessage(),500);
         }
-
-        return $this->sendResponse($this->data, trans('admin.success'));
     }
 
     public function show($id)
@@ -90,5 +106,26 @@ class NewslettersController extends CrudAdminController
         $model = $this->_update($id, $request);
 
         return $this->sendResponse($model,trans('admin.success'));
+    }
+
+    public function exportXls(Request $request)
+    {
+
+        $data = $this->_filter($request,true);
+        $name = 'Newsletter';
+        $header = [
+            'id' => 'ID',
+            'nombre' => 'Nombre',
+            'apellido' => 'Apellido',
+            'email' => 'Email',
+            'recibir_info' => 'Recibir info',
+            'created_at' => 'Alta',
+        ];
+        $format = [
+            /*'registrado_id' => function($col,$row) {
+                return $row['registrado']['nombre'] . ' ' . $row['registrado']['apellido'];
+            }*/
+        ];
+        return $this->_exportXls($data,$header,$format,$name);
     }
 }

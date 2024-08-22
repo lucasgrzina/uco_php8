@@ -94,20 +94,24 @@ Route::prefix('/admin')->group(function () {
         Route::get('newsletters/edit/{id}/{lang}', 'Admin\NewslettersController@editLang')->name('newsletters.edit-lang');
         Route::post('newsletters/change-enabled', 'Admin\NewslettersController@changeEnabled')->name('newsletters.change-enabled');
         Route::post('newsletters/filter', 'Admin\NewslettersController@filter')->name('newsletters.filter');
+        Route::get('newsletters/exportar/{type}', 'Admin\NewslettersController@export')->name('newsletters.export');
         Route::resource('newsletters', 'Admin\NewslettersController');
 
         Route::post('registrados/change-enabled', 'Admin\RegistradoController@changeEnabled')->name('registrados.change-enabled');
         Route::post('registrados/filter', 'Admin\RegistradoController@filter')->name('registrados.filter');
+        Route::get('registrados/exportar/{type}', 'Admin\RegistradoController@exportXls')->name('registrados.export');
         Route::resource('registrados', 'Admin\RegistradoController');
 
         Route::get('contactos/edit/{id}/{lang}', 'Admin\ContactosController@editLang')->name('contactos.edit-lang');
         Route::post('contactos/change-enabled', 'Admin\ContactosController@changeEnabled')->name('contactos.change-enabled');
         Route::post('contactos/filter', 'Admin\ContactosController@filter')->name('contactos.filter');
+        Route::get('contactos/exportar/{type}', 'Admin\ContactosController@export')->name('contactos.export');
         Route::resource('contactos', 'Admin\ContactosController');
 
         Route::get('vinos/edit/{id}/{lang}', 'Admin\VinosController@editLang')->name('vinos.edit-lang');
         Route::post('vinos/change-enabled', 'Admin\VinosController@changeEnabled')->name('vinos.change-enabled');
         Route::post('vinos/filter', 'Admin\VinosController@filter')->name('vinos.filter');
+        Route::get('vinos/exportar/{type}', 'Admin\VinosController@export')->name('vinos.export');
         Route::resource('vinos', 'Admin\VinosController');
 
         Route::get('aniadas/edit/{id}/{lang}', 'Admin\AniadaController@editLang')->name('aniadas.edit-lang');
@@ -126,6 +130,7 @@ Route::prefix('/admin')->group(function () {
         Route::post('pedidos/generar-envio/{id}', 'Admin\PedidoController@generarEnvio')->name('pedidos.generar-envio');
         Route::post('pedidos/change-enabled', 'Admin\PedidoController@changeEnabled')->name('pedidos.change-enabled');
         Route::post('pedidos/filter', 'Admin\PedidoController@filter')->name('pedidos.filter');
+        Route::get('pedidos/exportar/{type}', 'Admin\PedidoController@export')->name('pedidos.export');
         Route::resource('pedidos', 'Admin\PedidoController');
 
         Route::get('packagings/edit/{id}/{lang}', 'Admin\PackagingController@editLang')->name('packagings.edit-lang');

@@ -82,6 +82,31 @@ function esCPMza($codigoPostal) {
     return in_array($codigoPostal,$cpMza);
 }
 
+function cPMza() {
+    $cpMza = [
+        '5500',
+        '5501',
+        '5502',
+        '5503',
+        '5505',
+        '5507',
+        '5508',
+        '5509',
+        '5510',
+        '5511',
+        '5513',
+        '5514',
+        '5515',
+        '5518',
+        '5519',
+        '5520',
+        '5521',
+        '5522',
+        '5524'
+    ];
+    return $cpMza;
+}
+
 function obtenerDolarOficial() {
     if (env('APP_ENV','local') === 'local') {
         return (float)env('COTIZACION_DOLAR','176.83');

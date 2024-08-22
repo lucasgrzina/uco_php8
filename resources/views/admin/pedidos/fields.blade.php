@@ -25,23 +25,30 @@
     <span class="form-control">(% selectedItem.direccion %)</span>
 </div>
 <div class="form-group col-sm-4">
+    {!! Form::label('departamento', 'Depto') !!}
+    <span class="form-control">(% selectedItem.departamento %)</span>
+</div>
+<div class="form-group col-sm-3">
     {!! Form::label('registrado_id', 'Ciudad') !!}
     <span class="form-control">(% selectedItem.ciudad %)</span>
 </div>
-<div class="form-group col-md-4">
+<div class="form-group col-md-3">
     {!! Form::label('registrado_id', 'CP') !!}
     <span class="form-control">(% selectedItem.cp %)</span>
 </div>
 
-<div class="form-group col-md-4">
+<div class="form-group col-md-3">
     {!! Form::label('registrado_id', 'Provincia') !!}
     <span class="form-control">(% selectedItem.provincia %)</span>
 </div>
-<div class="form-group col-md-4">
+<div class="form-group col-md-3">
     {!! Form::label('registrado_id', 'País') !!}
     <span class="form-control">(% selectedItem.pais ? selectedItem.pais.nombre : '--' %)</span>
 </div>
-
+<div class="form-group col-md-12">
+    {!! Form::label('info_adicional', 'Info Adicional') !!}
+    <span class="form-control">(% selectedItem.info_adicional %)</span>
+</div>
 
 <div class="col-sm-12">
     <hr>

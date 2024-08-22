@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Response;
+use Carbon\Carbon;
 use App\Registrado;
 use Illuminate\Http\Request;
+use App\Exports\GeneralExport;
 use App\Mail\SendCredentialsMail;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Repositories\RegistradoRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\Admin\CURegistradoRequest;
@@ -42,6 +45,7 @@ class RegistradoController extends AppBaseController
                 'confirmado' => null,
                 'orderBy' => 'id',
                 'sortedBy' => 'desc',
+                'export_xls' => true
             ],
             'paging' => [
                 'current_page' => 0,
@@ -61,7 +65,8 @@ class RegistradoController extends AppBaseController
             'url_change_enabled' => route($this->routePrefix.'.change-enabled'),
             //'url_enable_registered' => route($this->routePrefix.'.enable-registered'),
             'url_destroy' => route($this->routePrefix.'.destroy',['_ID_']),
-            'url_reset_password' => url('password/email')
+            'url_reset_password' => url('password/email'),
+            'url_export' => route($this->routePrefix.'.export')
         ];
 
 
@@ -79,24 +84,37 @@ class RegistradoController extends AppBaseController
 
     public function filter(Request $request)
     {
+        $data = $this->_filter($request, false);
+
+        return $this->sendResponse($data, trans('admin.success'));
+    }
+
+    protected function _filter($request,$export=false) {
         try
         {
             $this->registradoRepository->pushCriteria(new RegistradoCriteria($request));
             $this->registradoRepository->pushCriteria(new RequestCriteria($request));
-            $collection = $this->registradoRepository->paginate($request->get('per_page'))->toArray();
 
-            $data = [
-                'list' => $collection['data'],
-                'paging' => \Arr::only($collection,['total','current_page','last_page'])
-            ];
+            if ($export) {
+                $data = $this->registradoRepository->all()->toArray();
+
+            } else {
+                $collection = $this->registradoRepository->paginate($request->get('per_page'))->toArray();
+
+                $data = [
+                    'list' => $collection['data'],
+                    'paging' => \Arr::only($collection,['total','current_page','last_page'])
+                ];
+
+            }
+
+            return $data;
 
         }
         catch (\Exception $ex)
         {
             return $this->sendError($ex->getMessage(),500);
         }
-
-        return $this->sendResponse($data, trans('admin.success'));
     }
 
     /**
@@ -290,5 +308,29 @@ class RegistradoController extends AppBaseController
 
     public function rechazadosAPendientes () {
         Registrado::whereConfirmado(0)->update(['confirmado' => 2]);
+    }
+
+    public function exportXls(Request $request)
+    {
+        $data = $this->_filter($request,true);
+        $name = 'Registrados';
+        $header = [
+            'id' => 'ID',
+            'usuario' => 'Usuario',
+            'email' => 'Email',
+            'created_at' => 'Alta',
+        ];
+        $format = [
+            /*'registrado_id' => function($col,$row) {
+                return $row['registrado']['nombre'] . ' ' . $row['registrado']['apellido'];
+            }*/
+        ];
+        return $this->_exportXls($data,$header,$format,$name);
+    }
+
+    protected function _exportXls($data,$header = [],$format = [],$name='export')
+    {
+        $_name = $name . '_'. Carbon::now()->format('Ymd') . '.xlsx';
+        return Excel::download(new GeneralExport($data,$header,$format),$_name);
     }
 }
