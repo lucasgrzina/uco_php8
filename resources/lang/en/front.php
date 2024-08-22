@@ -575,7 +575,8 @@ return [
         ],
         'novedades' => [
             'titulo' => 'News',
-            'masRecientes' => 'Recents News'
+            'masRecientes' => 'Recents News',
+            'seguirLeyendo' => 'Continue reading'
         ],
         'carrito' => [
             'titulo' => 'Cart',

@@ -41,7 +41,7 @@
 
                                 <div class="text-center">
                                     <a href="javascript:void(0);" class="btn-ampliar mt-3" style="white-space: nowrap;text-decoration:none;" @click="ampliarContenidoNovedad()">
-                                        {!! trans('front.paginas.nuestroCompromiso.modulo2.verMas') !!}
+                                        {!! trans('front.paginas.novedades.seguirLeyendo') !!}
                                     </a>
                                 </div>
 

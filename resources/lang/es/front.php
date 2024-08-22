@@ -620,7 +620,8 @@ return [
         ],
         'novedades' => [
             'titulo' => 'Novedades',
-            'masRecientes' => 'Novedades más recientes'
+            'masRecientes' => 'Novedades más recientes',
+            'seguirLeyendo' => 'Seguir leyendo'
         ],
         'carrito' => [
             'titulo' => 'Carrito',
