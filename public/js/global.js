@@ -1,11 +1,15 @@
 var edadRecordarme = false;
+var modalEdad = null;
 $(document).ready(function(){
-	var myModal = new bootstrap.Modal(document.getElementById('edadModal'), {
+	modalEdad = new bootstrap.Modal(document.getElementById('edadModal'), {
 		keyboard: false
 	});
 
 	if(typeof Cookies.get('ag_uco') == 'undefined' && Cookies.get('ag_uco') != 1 && !hideAgeGate) {
-		// myModal.show();
+		setTimeout(function() {
+            modalEdad.show();
+        },1000);
+
 	}
 
 	$('.module-full-slider .slider').slick({
@@ -150,7 +154,7 @@ $(document).ready(function(){
 			Cookies.set('ag_uco' , '1', { expires: 1 });
 		}
 		console.log(document.getElementById('recordarme-mayor').checked);
-		myModal.hide();
+		modalEdad.hide();
 	});
 
 	$(".producto-item .dropdown-menu li a, .table .dropdown-menu li a").click(function(e){
