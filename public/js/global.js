@@ -1,11 +1,12 @@
 var edadRecordarme = false;
 var modalEdad = null;
+var nombreCookieAG = _prefCookie + 'ag_uco';
 $(document).ready(function(){
 	modalEdad = new bootstrap.Modal(document.getElementById('edadModal'), {
 		keyboard: false
 	});
 
-	if(typeof Cookies.get('ag_uco') == 'undefined' && Cookies.get('ag_uco') != 1 && !hideAgeGate) {
+	if(typeof Cookies.get(nombreCookieAG) == 'undefined' && Cookies.get(nombreCookieAG) != 1 && !hideAgeGate) {
 		setTimeout(function() {
             modalEdad.show();
         },1000);
@@ -149,9 +150,9 @@ $(document).ready(function(){
 
 	$('#btnSiEdad').click(function() {
 		if (document.getElementById('recordarme-mayor').checked) {
-			Cookies.set('ag_uco' , '1', { expires: 365 });
+			Cookies.set(nombreCookieAG , '1', { expires: 365 });
 		} else {
-			Cookies.set('ag_uco' , '1');
+			Cookies.set(nombreCookieAG , '1');
 		}
 		console.log(document.getElementById('recordarme-mayor').checked);
 		modalEdad.hide();

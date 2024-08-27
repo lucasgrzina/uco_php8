@@ -101,6 +101,7 @@
 
         @yield('css')
         <script type="text/javascript">
+            var _prefCookie = '{{ env("APP_ENV") }}_';
           var _csrfToken = '{!! csrf_token() !!}';
           var _methods = {};
           var _components = {};
