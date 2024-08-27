@@ -151,7 +151,7 @@ $(document).ready(function(){
 		if (document.getElementById('recordarme-mayor').checked) {
 			Cookies.set('ag_uco' , '1', { expires: 365 });
 		} else {
-			Cookies.set('ag_uco' , '1', { expires: 1 });
+			Cookies.set('ag_uco' , '1');
 		}
 		console.log(document.getElementById('recordarme-mayor').checked);
 		modalEdad.hide();

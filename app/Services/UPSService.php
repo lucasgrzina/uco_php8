@@ -33,34 +33,14 @@ class UPSService extends AppBaseController
                 'timeout' => 30000
             ]
         ]);
-        $this->cpMza = [
-            '5500',
-            '5501',
-            '5502',
-            '5503',
-            '5505',
-            '5507',
-            '5508',
-            '5509',
-            '5510',
-            '5511',
-            '5513',
-            '5514',
-            '5515',
-            '5518',
-            '5519',
-            '5520',
-            '5521',
-            '5522',
-            '5524'
-        ];
+        $this->cpMza = cPMza();
 
         $this->upsUserIdMza = config('ups.UPS_USERID');
         $this->upsUserIdBsAs = config('ups.UPS_USERID');
 
         $this->shipperMza = [
-            "Name" => config('ups.DIRECCION_DESDE_MZA.NOMBRE'),
-            "AttentionName" => config('ups.DIRECCION_DESDE_MZA.NOMBRE'),
+            "Name" => config('ups.UPS_NOMBRE_FANTASIA'),
+            //"AttentionName" => config('ups.UPS_NOMBRE_FANTASIA'),
             "ShipperNumber" => "{$this->upsUserIdMza}",
             "Address" => [
                 "AddressLine" => config('ups.DIRECCION_DESDE_MZA.DIRECCION'),
@@ -72,8 +52,8 @@ class UPSService extends AppBaseController
         ];
 
         $this->shipperBsAs = [
-            "Name" => config('ups.DIRECCION_DESDE_BSAS.NOMBRE'),
-            "AttentionName" => config('ups.DIRECCION_DESDE_BSAS.NOMBRE'),
+            "Name" => config('ups.UPS_NOMBRE_FANTASIA'),
+            //"AttentionName" => config('ups.UPS_NOMBRE_FANTASIA'),
             "ShipperNumber" => "{$this->upsUserIdBsAs}",
             "Address" => [
                 "AddressLine" => config('ups.DIRECCION_DESDE_BSAS.DIRECCION'),

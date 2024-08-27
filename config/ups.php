@@ -9,6 +9,7 @@ return [
     'UPS_CLIENT_ID'=> env('UPS_CLIENT_ID'),
     'UPS_SECRET_ID'=> env('UPS_SECRET_ID'),
     'UPS_INTEGRATION'=> true,
+    'UPS_NOMBRE_FANTASIA'=> 'MAGIA DE UCO',
     'DIRECCION_DESDE_MZA' => [
         'NOMBRE' => 'ALBERTO BONIFACIO BUDETTA SA',
         'DIRECCION' => 'MORON 123',
