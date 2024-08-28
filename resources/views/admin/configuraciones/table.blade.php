@@ -24,7 +24,7 @@
                 <td>(% item.apellido %)</td>
                 <td>(% item.email %)</td>
                 <td>(% item.pais %)</td>
-                <td>(% item.tel_numero %)</td>
+                <td style="white-space:nowrap;">+(% item.tel_prefijo + " " + item.tel_numero %)</td>
                 <td>(% item.mensaje %)</td>
                 <td align="center">
                     <span class="label" :class="{'label-success':item.recibir_info,'label-danger':!item.recibir_info,}">

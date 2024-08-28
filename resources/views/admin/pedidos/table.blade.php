@@ -34,7 +34,7 @@
                     </a>
                     <a v-else href="javascript:void(0);" @click="generarEnvio(item)">Generar</a>
                 </td>
-                <td>(% item.total | currency %)</td>
+                <td style="white-space: nowrap;">(% item.total | currency %)</td>
                 <td>
                     <template v-if="item.sincronizo_sap">
                         <span v-if="item.documento_sap" class="label label-success">

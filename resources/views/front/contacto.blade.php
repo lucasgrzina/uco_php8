@@ -18,6 +18,7 @@
                 return false;
             }
 
+            _this.form.tel_prefijo = iti.getSelectedCountryData().dialCode;
             _this.form.submitted = true;
             _this.loading = true;
 
