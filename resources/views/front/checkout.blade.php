@@ -625,6 +625,26 @@
 								</tr>
 							</tbody>
 						</table>
+                        <table id="tabla-precios" class="table table-borderless totals">
+							<tbody>
+								<tr>
+									<td class="subtotal">{{trans('front.paginas.checkout.cantidad')}}</td>
+									<td class="subtotal"><span class="price">(% carrito.total | currency %)</span></td>
+								</tr>
+								<tr>
+									<td class="envio">{{trans('front.paginas.checkout.costoEnvio')}}</td>
+									<td class="envio">
+                                        <span v-show="!checkout.cotizando_envio" class="price">(% locale == 'es' ? checkout.form.total_envio : checkout.form.total_envio | currency %)</span>
+                                        <span v-show="checkout.cotizando_envio" class="price">--</span>
+                                    </td>
+
+								</tr>
+								<tr>
+									<td><b>{{trans('front.paginas.checkout.total')}}</b></td>
+									<td><span class="price"><b>(% locale == 'es' ? checkout.form.total : checkout.form.total | currency %)</b></span></td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
                 <span class="mt-2" style="font-size: 10px;display: inline-block;text-align:justify;">{!!trans('front.paginas.checkout.envioSoloArgentina')!!}</span>
