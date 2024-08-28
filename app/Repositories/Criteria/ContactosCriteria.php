@@ -33,6 +33,14 @@ class ContactosCriteria implements CriteriaInterface
         {
             $model = $model->where('recibir_info',$this->request->get('recibir_info'));
         }
+        if ($this->request->has('estatus_1') && $this->request->get('estatus_1',null) !== null)
+        {
+            $model = $model->where('estatus_1',$this->request->estatus_1);
+        }
+        if ($this->request->has('estatus_2') && $this->request->get('estatus_2',null) !== null)
+        {
+            $model = $model->where('estatus_2',$this->request->estatus_2);
+        }
         return $model;
     }
 }

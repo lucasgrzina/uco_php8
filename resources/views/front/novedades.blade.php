@@ -40,7 +40,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <a href="javascript:void(0);" class="btn-ampliar mt-3" style="white-space: nowrap;text-decoration:none;" @click="ampliarContenidoNovedad()">
+                                    <a href="javascript:void(0);" class="btn-ampliar mt-3" style="white-space: nowrap;text-decoration:none;font-weight: bold;" @click="ampliarContenidoNovedad()">
                                         {!! trans('front.paginas.novedades.seguirLeyendo') !!}
                                     </a>
                                 </div>

@@ -31,6 +31,8 @@ class ContactosController extends CrudAdminController
         parent::index();
         $this->data['url_save'] = route($this->routePrefix.'.update',['_ID_']);
         $this->data['filters']['recibir_info'] = null;
+        $this->data['filters']['estatus_1'] = null;
+        $this->data['filters']['estatus_2'] = null;
         $this->data['filters']['export_xls'] = true;
         return view($this->viewPrefix.'index')->with('data',$this->data);
     }

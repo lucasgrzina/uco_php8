@@ -608,7 +608,7 @@
 						<table class="table table-borderless totals">
 							<tbody>
 								<tr>
-									<td class="subtotal">{{trans('front.paginas.checkout.cantidad')}}</td>
+									<td class="subtotal">{{trans('front.paginas.carrito.subtotal')}}</td>
 									<td class="subtotal"><span class="price">(% carrito.total | currency %)</span></td>
 								</tr>
 								<tr>
@@ -628,7 +628,7 @@
                         <table id="tabla-precios" class="table table-borderless totals">
 							<tbody>
 								<tr>
-									<td class="subtotal">{{trans('front.paginas.checkout.cantidad')}}</td>
+									<td class="subtotal">{{trans('front.paginas.carrito.subtotal')}}</td>
 									<td class="subtotal"><span class="price">(% carrito.total | currency %)</span></td>
 								</tr>
 								<tr>

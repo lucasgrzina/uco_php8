@@ -47,16 +47,41 @@
         <div class="box box-default box-page-list">
             <div class="box-body box-filter">
                 <div class="form-inline">
-                    @include('admin.includes.crud.index-filters-input')
                     <!-- cualquier otro campo -->
                     <div class="form-group">
+                        <label>Recibir info</label><br>
                         <select v-model="filters.recibir_info" class="form-control input-sm" name="enabled" >
                             <option :value="1">Si</option>
                             <option :value="0">No</option>
                             <option :value="null">Todos</option>
                         </select>
                     </div>
-                    @include('admin.includes.crud.index-filters-btn')
+                    <div class="form-group">
+                        <label>Estatus 1</label><br>
+                        <select v-model="filters.estatus_1" class="form-control input-sm" name="enabled" >
+                            <option :value="1">Leído</option>
+                            <option :value="0">No leído</option>
+                            <option :value="null">Todos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Estatus 2</label><br>
+                        <select v-model="filters.estatus_2" class="form-control input-sm" name="enabled" >
+                            <option :value="1">Respondido</option>
+                            <option :value="0">No respondido</option>
+                            <option :value="null">Todos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Busqueda general</label><br>
+                        <input type="text" class="form-control input-sm" v-model="filters.search"  placeholder="{{ trans('admin.search') }}" @keyup.enter="filter">
+                    </div>
+
+                    <div class="form-group">
+                        <label>&nbsp;</label><br>
+                        <button-type type="filter" @click="filter()"></button-type>
+                        <button-type v-if="filters.export_xls" type="export" @click="exportTo('xls')"></button-type>
+                    </div>
                 </div>
             </div>
             <div class="box-body box-list no-padding">
