@@ -27,7 +27,7 @@
                     (% item.email %)
                 </td>
                 <td>(% item.tipo_factura == 'A' ? 'Factura A' : 'CF' %)</td>
-                <td>(% item.estado %)</td>
+                <td style="white-space:nowrap;">(% item.estado %)</td>
                 <td>
                     <a v-if="item.ups_tracking_number" :href="url_ver_etiqueta.replace('_ID_',item.id)" target="_blank">
                         <i class="fa fa-print"></i> Ver
