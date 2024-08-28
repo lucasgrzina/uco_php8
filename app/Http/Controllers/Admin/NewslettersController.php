@@ -122,9 +122,9 @@ class NewslettersController extends CrudAdminController
             'created_at' => 'Alta',
         ];
         $format = [
-            /*'registrado_id' => function($col,$row) {
-                return $row['registrado']['nombre'] . ' ' . $row['registrado']['apellido'];
-            }*/
+            'recibir_info' => function($col,$row) {
+                return $col ? "SI" : "NO";
+            }
         ];
         return $this->_exportXls($data,$header,$format,$name);
     }

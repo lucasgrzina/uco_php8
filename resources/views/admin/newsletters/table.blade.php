@@ -6,7 +6,7 @@
                 <th>Nombre</th>
                 <th>Apellido</th>
                 <th>Email</th>
-                <th>Ricibir info</th>
+                <th style="white-space:nowrap;">Ricibir info</th>
                 <th>Alta</th>
                 <!--th class="td-enabled">{{ trans('admin.table.enabled') }}</th-->
                 <th class="td-actions">{{ trans('admin.table.actions') }}</th>
@@ -15,9 +15,9 @@
         <tbody>
             <tr v-for="item in list" v-if="paging.total > 0">
                 <td>(% item.id %)</td>
-                <td>(% item.nombre %)</td>
-                <td>(% item.apellido %)</td>
-                <td>(% item.email %)</td>
+                <td style="white-space:nowrap;">(% item.nombre %)</td>
+                <td style="white-space:nowrap;">(% item.apellido %)</td>
+                <td style="white-space:nowrap;">(% item.email %)</td>
 
                 <td>
                     <span v-if="item.recibir_info" class="label label-success">

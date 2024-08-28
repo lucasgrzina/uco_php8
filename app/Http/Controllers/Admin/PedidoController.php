@@ -90,7 +90,8 @@ class PedidoController extends CrudAdminController
                     "tipo_factura" => $item->tipo_factura,
                     "estado" => $item->estado,
                     "created_at" => $item->created_at,
-                    "vino" => $linea->aniada && $linea->aniada->vino ? $linea->aniada->vino->titulo . "(" . $linea->aniada->anio . ")" : "",
+                    "vino" => $linea->aniada && $linea->aniada->vino ? $linea->aniada->vino->titulo : "",
+                    "aniada" => $linea->aniada && $linea->aniada->vino ? $linea->aniada->anio : "",
                     "cantidad" => $linea->cantidad,
                     "precio_unitario" => $linea->precio_pesos,
                     "total" => $item->total,
@@ -151,7 +152,8 @@ class PedidoController extends CrudAdminController
             'pais_id_fc' => "Pais FC",
 
 
-            'vino' => 'Vino/Añada',
+            'vino' => 'Vino',
+            'aniada' => 'Añada',
             'cantidad' => 'Cantidad',
             'precio_unitario' => 'Precio Unitario',
             'subtotal' => 'Subtotal',

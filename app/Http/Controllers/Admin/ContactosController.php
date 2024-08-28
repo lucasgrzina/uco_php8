@@ -119,13 +119,19 @@ class ContactosController extends CrudAdminController
             'apellido' => 'Apellido',
             'email' => 'Email',
             'pais' => 'País',
+            'tel_prefijo' => 'Prefijo',
             'tel_numero' => 'Teléfono',
-            'mensaje' => 'Mensaje'
+            'recibir_info' => 'Recibir info',
+            'mensaje' => 'Mensaje',
+
         ];
         $format = [
-            /*'registrado_id' => function($col,$row) {
-                return $row['registrado']['nombre'] . ' ' . $row['registrado']['apellido'];
-            }*/
+            'tel_prefijo' => function($col,$row) {
+                return $row['tel_prefijo'] ? "+" . $row['tel_prefijo'] : "";
+            },
+            'recibir_info' => function($col,$row) {
+                return $col ? "SI" : "NO";
+            }
         ];
         return $this->_exportXls($data,$header,$format,$name);
     }

@@ -99,7 +99,7 @@ Route::prefix('/admin')->group(function () {
 
         Route::post('registrados/change-enabled', 'Admin\RegistradoController@changeEnabled')->name('registrados.change-enabled');
         Route::post('registrados/filter', 'Admin\RegistradoController@filter')->name('registrados.filter');
-        Route::get('registrados/exportar/{type}', 'Admin\RegistradoController@exportXls')->name('registrados.export');
+        Route::get('registrados/exportar', 'Admin\RegistradoController@exportXls')->name('registrados.export');
         Route::resource('registrados', 'Admin\RegistradoController');
 
         Route::get('contactos/edit/{id}/{lang}', 'Admin\ContactosController@editLang')->name('contactos.edit-lang');

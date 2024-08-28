@@ -7,11 +7,12 @@
                 <th>Apellido</th>
                 <th>Email</th>
                 <th>País</th>
+                <th>Prefijo</th>
                 <th>Teléfono</th>
                 <th>Mensaje</th>
-                <th align="center">Recibir Info</th>
-                <th align="center">Estatus 1</th>
-                <th align="center">Estatus 2</th>
+                <th align="center" style="white-space:nowrap;">Recibir Info</th>
+                <th align="center" style="white-space:nowrap;">Estatus 1</th>
+                <th align="center" style="white-space:nowrap;">Estatus 2</th>
                 <!--th class="td-enabled">{{ trans('admin.table.enabled') }}</th-->
                 <th class="td-actions">{{ trans('admin.table.actions') }}</th>
             </tr>
@@ -20,11 +21,12 @@
             <tr v-for="item in list" v-if="paging.total > 0">
                 <td>(% item.id %)</td>
                 <!--td><img v-if="item.foto" :src="item.foto_url" style="max-width: 50px;"></td-->
-                <td>(% item.nombre %)</td>
-                <td>(% item.apellido %)</td>
-                <td>(% item.email %)</td>
+                <td style="white-space:nowrap;">(% item.nombre %)</td>
+                <td style="white-space:nowrap;">(% item.apellido %)</td>
+                <td style="white-space:nowrap;">(% item.email %)</td>
                 <td>(% item.pais %)</td>
-                <td style="white-space:nowrap;">+(% item.tel_prefijo + " " + item.tel_numero %)</td>
+                <td>(% item.tel_prefijo ? "+" + item.tel_prefijo : "" %)</td>
+                <td style="white-space:nowrap;">+(% item.tel_numero %)</td>
                 <td>(% item.mensaje %)</td>
                 <td align="center">
                     <span class="label" :class="{'label-success':item.recibir_info,'label-danger':!item.recibir_info,}">
@@ -41,7 +43,7 @@
                         Respondido
                     </button>
                 </td>
-                <td class="td-actions">
+                <td class="td-actions" style="white-space:nowrap;">
                     @if(auth()->user()->hasRole('Superadmin') || auth()->user()->can('editar-'.$data['action_perms']))
                         <button-type type="edit-list" @click="edit(item)"></button-type>
                         <a class="btn btn-xs btn-default" @click="editLang(item,'en')">EN</a>

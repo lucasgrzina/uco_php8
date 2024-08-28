@@ -89,24 +89,24 @@
                     <div class="form-group">
                         <label>Estatus 1</label><br>
                         <select v-model="filters.estatus_1" class="form-control input-sm" name="enabled" >
-                            <option :value="1">Si</option>
-                            <option :value="0">No</option>
+                            <option :value="1">En preparación</option>
+                            <option :value="0">Sin preparar</option>
                             <option :value="null">Todos</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Estatus 2</label><br>
                         <select v-model="filters.estatus_2" class="form-control input-sm" name="enabled" >
-                            <option :value="1">Si</option>
-                            <option :value="0">No</option>
+                            <option :value="1">Empaquetado</option>
+                            <option :value="0">Sin empaquetar</option>
                             <option :value="null">Todos</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label>Estatus 3</label><br>
                         <select v-model="filters.estatus_3" class="form-control input-sm" name="enabled" >
-                            <option :value="1">Si</option>
-                            <option :value="0">No</option>
+                            <option :value="1">Entregado</option>
+                            <option :value="0">Sin entregar</option>
                             <option :value="null">Todos</option>
                         </select>
                     </div>

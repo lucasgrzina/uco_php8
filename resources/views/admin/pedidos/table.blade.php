@@ -5,7 +5,7 @@
                 <th @click="orderBy('id')" class="td-id" :class="cssOrderBy('id')">Nro</th>
                 <th>Despacho</th>
                 <th>Cliente</th>
-                <th>Tipo factura</th>
+                <th style="white-space:nowrap;">Tipo factura</th>
                 <th>Estado</th>
                 <th>Envío</th>
                 <th>Total</th>
@@ -22,7 +22,7 @@
             <tr v-for="item in list" v-if="paging.total > 0">
                 <td>(% item.id %)</td>
                 <td>(% item.despacho %)</td>
-                <td>
+                <td style="white-space:nowrap;">
                     (% item.nombre + ' ' + item.apellido %)<br>
                     (% item.email %)
                 </td>
