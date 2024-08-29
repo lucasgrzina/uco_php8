@@ -416,7 +416,13 @@ class SAPService extends AppBaseController
 
     public function sincronizarVentas()
     {
-        $pedidosPendientes = Pedido::whereSincronizoSap(false)->get();
+        $pedidosPendientes = Pedido::whereSincronizoSap(false)->where(function($q) {
+            $q->where(function($q) {
+                $q->whereTipoFactura("CF")->wherePpStatus("aprobado");
+            })->orWhere("tipo_factura","A");
+        })->get();
+
+        \Log::channel('consola')->info($pedidosPendientes->toArray());
 
         if(count($pedidosPendientes) == 0) {
         //    \Log::channel('consola')->info("SAP - Sin Ventas");
@@ -451,7 +457,6 @@ class SAPService extends AppBaseController
     public function sincronizarPagos()
     {
         $pedidosPendientes = Pedido::where('tipo_factura', '<>', 'A')->where('pp_status', 'aprobado')->whereSincronizoSap(true)->whereSincronizoPago(false)->get();
-
         $login = $this->login();
 
         if(count($pedidosPendientes) == 0) {
@@ -480,70 +485,78 @@ class SAPService extends AppBaseController
         }
 
 
-        foreach($pedidosPendientes as $pedido)
-        {
-            $codigo = 0;
+            foreach($pedidosPendientes as $pedido)
+            {
+                try {
+                    $codigo = 0;
 
-            if($pedido->tipo_tarjeta == 'amex') {
-                $codigo = 14;
+                    if($pedido->tipo_tarjeta == 'amex') {
+                        $codigo = 14;
+                    }
+
+                    if($pedido->tipo_tarjeta == 'master') {
+                        $codigo = 3;
+                    }
+                    if( $codigo == 0 ) {
+                        $codigo = array_key_exists(strtoupper($pedido->tipo_tarjeta), $tarjetasArr) ? $tarjetasArr[strtoupper($pedido->tipo_tarjeta)] : 2;
+                    }
+
+                    \Log::channel('consola')->info("SAP - sincronizarPagos - Pedido Fecha exp tarj: ". $pedido->tarjeta_exp);
+
+                    $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
+                    $venta["CardCode"] = $codigoCliente;
+                    $venta["PaymentInvoices"] = [];
+                    array_push($venta["PaymentInvoices"], ["DocEntry" => $pedido->documento_sap]);
+                    $credict = [];
+                    $credict["CreditCard"] = $codigo;
+                    $credict["CreditCardNumber"] = $pedido->tarjeta;
+                    $credict["CardValidUntil"] = $pedido->tarjeta_exp ? Carbon::parse('1/'.$pedido->tarjeta_exp)->endOfMonth()->format('Y-m-d') : null;
+                    $credict["VoucherNum"] = (string) $pedido->documento_sap;
+                    $credict["CreditSum"] = (float)$pedido->total;
+                    $credict["NumOfPayments"] = $pedido->tarjeta_cuotas;
+                    $credict["CreditCur"] =  "ARS";
+                    $credict["NumOfCreditPayments"] = 1;
+                    $credict["CreditType"] =  "cr_InternetTransaction";
+                    $credict["SplitPayments"] =  "tYES";
+                    $credict["PaymentMethodCode"] =  1;
+                    $venta["PaymentCreditCards"]= [];
+                    array_push($venta["PaymentCreditCards"], $credict);
+
+
+                    \Log::channel('consola')->info("SAP - sincronizarPagos - Pedido ID: ". $pedido->id);
+                    \Log::channel('consola')->info("SAP - sincronizarPagos - IncomingPayments: ". json_encode($venta));
+                    $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/IncomingPayments");
+
+                    $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
+                        'Content-Type' => 'application/json',
+                        'Cookie' => 'B1SESSION='.$login->SessionId
+                    ], json_encode($venta));
+
+                    try {
+                        $response = $this->client->send($request);
+                        $venta = json_decode($response->getBody());
+                        \Log::channel('consola')->info("SAP - sincronizarPagos - Response: ". json_encode($venta));
+                        $pedido->error_sincronizacion_sap = "";
+                        $pedido->sincronizo_pago = 1;
+                        $pedido->save();
+                    }  catch (\GuzzleHttp\Exception\RequestException $ex) {
+                        $error = json_decode($ex->getResponse()->getBody()->getContents());
+                        \Log::channel('consola')->error("SAP - sincronizarPagos: ". $error->error->message->value);
+                        $pedido->error_sincronizacion_sap = $pedido->error_sincronizacion_sap . "||" . $error->error->message->value;
+                        $pedido->save();
+                    }  catch (\Exception $ex) {
+                        \Log::channel('consola')->error("SAP - sincronizarPagos: ". $ex->getMessage());
+                        $pedido->error_sincronizacion_sap = $pedido->error_sincronizacion_sap . "||" . $ex->getMessage();
+                        $pedido->save();
+                    }
+                } catch (\Exception $ex) {
+                    \Log::channel('consola')->error("SAP - sincronizarPagos - Al generar pago para subir: ". $ex->getMessage());
+                    $pedido->error_sincronizacion_sap = $pedido->error_sincronizacion_sap . "||" . $ex->getMessage();
+                    $pedido->save();
+                }
+                //\Log::channel('consola')->info("SAP - Fin Pagos");
             }
 
-            if($pedido->tipo_tarjeta == 'master') {
-                $codigo = 3;
-            }
-            if( $codigo == 0 ) {
-                $codigo = array_key_exists(strtoupper($pedido->tipo_tarjeta), $tarjetasArr) ? $tarjetasArr[strtoupper($pedido->tipo_tarjeta)] : 2;
-            }
-
-            $codigoCliente = "C".($pedido->tipo_factura == 'A' ? $pedido->cuit : $pedido->dni_fc);
-            $venta["CardCode"] = $codigoCliente;
-            $venta["PaymentInvoices"] = [];
-            array_push($venta["PaymentInvoices"], ["DocEntry" => $pedido->documento_sap]);
-            $credict = [];
-            $credict["CreditCard"] = $codigo;
-            $credict["CreditCardNumber"] = $pedido->tarjeta;
-            $credict["CardValidUntil"] = Carbon::parse('1/'.$pedido->tarjeta_exp)->endOfMonth()->format('Y-m-d');
-            $credict["VoucherNum"] = (string) $pedido->documento_sap;
-            $credict["CreditSum"] = (float)$pedido->total;
-            $credict["NumOfPayments"] = $pedido->tarjeta_cuotas;
-            $credict["CreditCur"] =  "ARS";
-            $credict["NumOfCreditPayments"] = 1;
-            $credict["CreditType"] =  "cr_InternetTransaction";
-            $credict["SplitPayments"] =  "tYES";
-            $credict["PaymentMethodCode"] =  1;
-            $venta["PaymentCreditCards"]= [];
-            array_push($venta["PaymentCreditCards"], $credict);
-
-
-            \Log::channel('consola')->info("SAP - sincronizarPagos - Pedido ID: ". $pedido->id);
-            \Log::channel('consola')->info("SAP - sincronizarPagos - IncomingPayments: ". json_encode($venta));
-            $uri = new Uri("https://{$this->host}:{$this->port}/b1s/v1/IncomingPayments");
-
-            $request = new Psr7\Request('POST', $uri->withQuery(\GuzzleHttp\Psr7\Query::build([])), [
-                'Content-Type' => 'application/json',
-                'Cookie' => 'B1SESSION='.$login->SessionId
-            ], json_encode($venta));
-
-            try {
-                $response = $this->client->send($request);
-                $venta = json_decode($response->getBody());
-                \Log::channel('consola')->info("SAP - sincronizarPagos - Response: ". json_encode($venta));
-                $pedido->error_sincronizacion_sap = '';
-                $pedido->sincronizo_pago = 1;
-                $pedido->save();
-            }  catch (\GuzzleHttp\Exception\RequestException $ex) {
-                $error = json_decode($ex->getResponse()->getBody()->getContents());
-                \Log::channel('consola')->error("SAP - sincronizarPagos: ". $error->error->message->value);
-                $pedido->error_sincronizacion_sap = $error->error->message->value;
-                $pedido->save();
-            }  catch (\Exception $ex) {
-                \Log::channel('consola')->error("SAP - sincronizarPagos: ". $ex->getMessage());
-                $pedido->error_sincronizacion_sap = $ex->getMessage();
-                $pedido->save();
-            }
-
-            //\Log::channel('consola')->info("SAP - Fin Pagos");
-        }
     }
 
     public function obtenerProvinciaSAP($provincia) {
