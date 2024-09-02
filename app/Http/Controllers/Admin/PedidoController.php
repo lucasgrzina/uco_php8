@@ -121,7 +121,7 @@ class PedidoController extends CrudAdminController
         }
 
 
-        $name = 'Vinos';
+        $name = 'Pedidos';
         $header = [
             'id' => 'Nro',
             'despacho' => 'Despacho',
