@@ -9,6 +9,7 @@
                 <th>País</th>
                 <th>Prefijo</th>
                 <th>Teléfono</th>
+                <th>Alta</th>
                 <th>Mensaje</th>
                 <th align="center" style="white-space:nowrap;">Recibir Info</th>
                 <th align="center" style="white-space:nowrap;">Estatus 1</th>
@@ -27,7 +28,9 @@
                 <td>(% item.pais %)</td>
                 <td>(% item.tel_prefijo ? "+" + item.tel_prefijo : "" %)</td>
                 <td style="white-space:nowrap;">(% item.tel_numero %)</td>
+                <td>(% item.created_at | dateFormat %)</td>
                 <td>(% item.mensaje %)</td>
+
                 <td align="center">
                     <span class="label" :class="{'label-success':item.recibir_info,'label-danger':!item.recibir_info,}">
                         (% item.recibir_info ? 'SI' : 'NO' %)

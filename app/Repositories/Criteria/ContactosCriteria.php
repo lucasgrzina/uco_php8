@@ -41,6 +41,13 @@ class ContactosCriteria implements CriteriaInterface
         {
             $model = $model->where('estatus_2',$this->request->estatus_2);
         }
+
+        if ($this->request->has('fecha_desde') && $this->request->get('fecha_desde',null) !== null){
+            $model = $model->whereDate('created_at','>=',\Str::limit($this->request->get('fecha_desde'),10,''));
+        }
+        if ($this->request->has('fecha_hasta') && $this->request->get('fecha_hasta',null) !== null){
+            $model = $model->whereDate('created_at','<=',\Str::limit($this->request->get('fecha_hasta'),10,''));
+        }
         return $model;
     }
 }

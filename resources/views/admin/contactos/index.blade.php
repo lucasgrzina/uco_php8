@@ -47,6 +47,15 @@
         <div class="box box-default box-page-list">
             <div class="box-body box-filter">
                 <div class="form-inline">
+
+                    <div class="form-group">
+                        <label>Desde</label><br>
+                        <input type="date" v-model="filters.fecha_desde" name="fecha_desde" class="form-control input-sm" :placeholder="'Fecha (desde)'">
+                    </div>
+                    <div class="form-group">
+                        <label>Hasta</label><br>
+                        <input type="date" v-model="filters.fecha_hasta" name="fecha_hasta" class="form-control input-sm" :placeholder="'Fecha (hasta)'">
+                    </div>
                     <!-- cualquier otro campo -->
                     <div class="form-group">
                         <label>Recibir info</label><br>

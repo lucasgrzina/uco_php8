@@ -45,6 +45,8 @@ class RegistradoController extends AppBaseController
                 'confirmado' => null,
                 'orderBy' => 'id',
                 'sortedBy' => 'desc',
+                "fecha_desde" => null,
+                "fecha_hasta" => null,
                 'export_xls' => true
             ],
             'paging' => [

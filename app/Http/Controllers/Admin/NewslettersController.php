@@ -28,6 +28,8 @@ class NewslettersController extends CrudAdminController
     {
         parent::index();
         $this->data['filters']['recibir_info'] = null;
+        $this->data['filters']['fecha_desde'] = null;
+        $this->data['filters']['fecha_hasta'] = null;
         $this->data['filters']['export_xls'] = true;
 
         return view($this->viewPrefix.'index')->with('data',$this->data);

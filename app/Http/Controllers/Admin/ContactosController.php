@@ -34,6 +34,8 @@ class ContactosController extends CrudAdminController
         $this->data['filters']['estatus_1'] = null;
         $this->data['filters']['estatus_2'] = null;
         $this->data['filters']['export_xls'] = true;
+        $this->data['filters']['fecha_desde'] = null;
+        $this->data['filters']['fecha_hasta'] = null;
         return view($this->viewPrefix.'index')->with('data',$this->data);
     }
 

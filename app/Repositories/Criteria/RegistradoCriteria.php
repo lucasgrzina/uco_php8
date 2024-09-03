@@ -31,7 +31,13 @@ class RegistradoCriteria implements CriteriaInterface
     {
         if ($this->request->has('pais_id') && $this->request->get('pais_id',null) !== null)
         {
-            $model->where('pais_id',$this->request->pais_id);
+            $model = $model->where('pais_id',$this->request->pais_id);
+        }
+        if ($this->request->has('fecha_desde') && $this->request->get('fecha_desde',null) !== null){
+            $model = $model->whereDate('created_at','>=',\Str::limit($this->request->get('fecha_desde'),10,''));
+        }
+        if ($this->request->has('fecha_hasta') && $this->request->get('fecha_hasta',null) !== null){
+            $model = $model->whereDate('created_at','<=',\Str::limit($this->request->get('fecha_hasta'),10,''));
         }
 
         return $model;
