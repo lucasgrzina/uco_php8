@@ -3,8 +3,37 @@
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/intlTelInput.js"></script>
 @section('css')
     @parent
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" rel="stylesheet">
+    <style>
+        label.focused {
+            opacity: .65;
+            transform: scale(.85) translateY(-.5rem) translateX(.15rem);
+        }
+        .dropdown-country {
+            padding-top: 30px;
+            display: flex;
+            width: 100%;
+        }
+        .dropdown-country .dropdown-menu {
+            height: auto;
+            max-height: initial;
 
-	<!--link href="{asset('css/home.css')}" rel="stylesheet" /-->
+        }
+        .dropdown-country .dropdown-menu li .dropdown-item.active,
+        .dropdown-country .dropdown-menu li .dropdown-item:active,
+        .dropdown-country .dropdown-menu li .dropdown-item:hover {
+            background-color: rgba(0, 0, 0, 0.05)!important;
+            color: #212529!important;
+        }
+        .dropdown-country button{
+            width: 100%;
+            border: 0;
+            border-bottom: 1px solid;
+            border-color: #cdcfad;
+            border-radius: 0;
+            font-weight: 100;
+        }
+    </style>
 @endsection
 @section('scripts')
     @parent
@@ -59,12 +88,26 @@
 
 			// store the instance variable so we can access it in the console e.g. window.iti.getNumber()
 			window.iti = iti;
+            //$.fn.selectpicker.Constructor.BootstrapVersion = '4';
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', function() {
+                // Obtener el código de la bandera y el nombre del país seleccionados
+                const flag = this.getAttribute('data-flag');
+                const country = this.getAttribute('data-country');
 
+                // Actualizar el botón con la bandera y el nombre seleccionados
+                document.getElementById('selectedFlag').className = `flag-icon flag-icon-${flag} me-2`;
+                document.getElementById('selectedCountry').textContent = country;
+            });
+            });
 		})
         //console.debug(window.iti);
 
 
     </script>
+    <script>
+
+      </script>
 @endsection
 @section('content')
 <!-- CONTENT -->
@@ -109,8 +152,42 @@
 					</div>
 
 					<div class="form-floating  mb-form">
-						<input type="text" class="form-control" id="paisInput" placeholder="{!! trans('front.paginas.contacto.form.placeholderPais') !!}" v-model="form.pais" required>
-						<label for="emailInput">{!! trans('front.paginas.contacto.form.pais') !!}</label>
+                        <label class="focused" for="emailInput">{!! trans('front.paginas.contacto.form.pais') !!}</label>
+                        <div class="dropdown dropdown-country">
+                            <button class="btn btn-secondary dropdown-toggle d-flex align-items-center" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                              <span id="selectedFlag" class="flag-icon flag-icon-ar me-2"></span>
+                              <span id="selectedCountry">Argentina</span>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-flag="ar" data-country="Argentina">
+                                  <span class="flag-icon flag-icon-ar me-2"></span> Argentina
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);" data-flag="us" data-country="Estados Unidos">
+                                  <span class="flag-icon flag-icon-us me-2"></span> Estados Unidos
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-flag="br" data-country="Brasil">
+                                  <span class="flag-icon flag-icon-br me-2"></span> Brasil
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-flag="fr" data-country="Francia">
+                                  <span class="flag-icon flag-icon-fr me-2"></span> Francia
+                                </a>
+                              </li>
+                              <li>
+                                <a class="dropdown-item d-flex align-items-center" href="#" data-flag="de" data-country="Alemania">
+                                  <span class="flag-icon flag-icon-de me-2"></span> Alemania
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+						<!--input type="text" class="form-control" id="paisInput" placeholder="{!! trans('front.paginas.contacto.form.placeholderPais') !!}" v-model="form.pais" required-->
+
 					</div>
 
 					<div class="input-group  mb-form">

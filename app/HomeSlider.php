@@ -37,7 +37,7 @@ class HomeSlider extends Model implements TranslatableContract
      * Translatable
      */
 
-    public $translatedAttributes  = ['titulo','subtitulo','boton_titulo','boton_url'];
+    public $translatedAttributes  = ['titulo','subtitulo','boton_titulo','boton_url',"titulo_align_desktop","titulo_align_mobile","subtitulo_align_desktop","subtitulo_align_mobile"];
 
     /**
      * Uploadable

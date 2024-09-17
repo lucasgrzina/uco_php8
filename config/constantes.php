@@ -7,6 +7,12 @@ return [
             'IN' => '_trans.front.colecciones.interwine',
             'MU' => '_trans.front.colecciones.magiaUco',
             'MN' => '_trans.front.colecciones.magiaUcoNotable',
+        ],
+        "alineaciones" => [
+            ["key" => "left", "value" => "Izquierda"],
+            ["key" => "right", "value" => "Derecha"],
+            ["key" => "center", "value" => "Centrado"],
+            ["key" => "justify", "value" => "Justificado"],
         ]
     ],
     'headers' => [
