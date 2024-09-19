@@ -1146,6 +1146,9 @@ p{
 	}
 
 	form{
+		.dropdown-item-country{
+			cursor: pointer;
+		}
 		.form-control, .iti{
 			background-color: transparent;
 			border-radius: 0;

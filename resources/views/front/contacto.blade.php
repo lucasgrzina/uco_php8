@@ -16,7 +16,7 @@
         }
         .dropdown-country .dropdown-menu {
             height: auto;
-            max-height: initial;
+            
 
         }
         .dropdown-country .dropdown-menu li .dropdown-item.active,
@@ -78,29 +78,44 @@
 
     <script type="text/javascript">
 		$(function() {
-			var input = document.querySelector("#phone");
-			var iti = window.intlTelInput(input, {
-				hiddenInput: "tel_prefijo",
-				separateDialCode: true,
-				initialCountry: 'ar',
-				utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/utils.js",
-			});
+    var input = document.querySelector("#phone");
+    var iti = window.intlTelInput(input, {
+        hiddenInput: "tel_prefijo",
+        separateDialCode: true,
+        initialCountry: 'ar',
+        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17.0.3/build/js/utils.js",
+    });
 
-			// store the instance variable so we can access it in the console e.g. window.iti.getNumber()
-			window.iti = iti;
-            //$.fn.selectpicker.Constructor.BootstrapVersion = '4';
-            document.querySelectorAll('.dropdown-item').forEach(item => {
-            item.addEventListener('click', function() {
-                // Obtener el código de la bandera y el nombre del país seleccionados
-                const flag = this.getAttribute('data-flag');
-                const country = this.getAttribute('data-country');
+    // Guardar la instancia para acceder a ella desde la consola
+    window.iti = iti;
 
-                // Actualizar el botón con la bandera y el nombre seleccionados
-                document.getElementById('selectedFlag').className = `flag-icon flag-icon-${flag} me-2`;
-                document.getElementById('selectedCountry').textContent = country;
-            });
-            });
-		})
+    // Obtener la lista de países del plugin intlTelInput
+    const countryData = window.intlTelInputGlobals.getCountryData();
+
+    // Llenar el dropdown con la lista de países
+    const countryList = document.getElementById('countryList');
+    countryData.forEach(country => {
+        let listItem = document.createElement('li');
+        listItem.innerHTML = `<div class="dropdown-item d-flex align-items-center dropdown-item-country"  data-flag="${country.iso2}" data-country="${country.name}"><span class="flag-icon flag-icon-${country.iso2} me-2"></span> ${country.name}</div>`;
+        countryList.appendChild(listItem);
+    });
+
+    // Manejo de selección de país en el combo
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', function() {
+            // Obtener el código de la bandera y el nombre del país seleccionados
+            const flag = this.getAttribute('data-flag');
+            const country = this.getAttribute('data-country');
+
+            // Actualizar el botón con la bandera y el nombre seleccionados
+            document.getElementById('selectedFlag').className = `flag-icon flag-icon-${flag} me-2`;
+            document.getElementById('selectedCountry').textContent = country;
+
+            // Cambiar el país inicial en el input de teléfono
+            iti.setCountry(flag);  // Esto actualiza el país en el input de teléfono
+        });
+    });
+});
         //console.debug(window.iti);
 
 
@@ -158,37 +173,16 @@
                               <span id="selectedFlag" class="flag-icon flag-icon-ar me-2"></span>
                               <span id="selectedCountry">Argentina</span>
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#" data-flag="ar" data-country="Argentina">
-                                  <span class="flag-icon flag-icon-ar me-2"></span> Argentina
-                                </a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);" data-flag="us" data-country="Estados Unidos">
-                                  <span class="flag-icon flag-icon-us me-2"></span> Estados Unidos
-                                </a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#" data-flag="br" data-country="Brasil">
-                                  <span class="flag-icon flag-icon-br me-2"></span> Brasil
-                                </a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#" data-flag="fr" data-country="Francia">
-                                  <span class="flag-icon flag-icon-fr me-2"></span> Francia
-                                </a>
-                              </li>
-                              <li>
-                                <a class="dropdown-item d-flex align-items-center" href="#" data-flag="de" data-country="Alemania">
-                                  <span class="flag-icon flag-icon-de me-2"></span> Alemania
-                                </a>
-                              </li>
+                            <ul class="dropdown-menu iti__country-list" id="countryList" aria-labelledby="dropdownMenuButton" >
+                               
                             </ul>
+                            
                           </div>
 						<!--input type="text" class="form-control" id="paisInput" placeholder="{!! trans('front.paginas.contacto.form.placeholderPais') !!}" v-model="form.pais" required-->
 
 					</div>
+
+                    
 
 					<div class="input-group  mb-form">
                         <input type="hidden" name="tel_prefijo" id="tel_prefijo" v-model="form.tel_prefijo">
