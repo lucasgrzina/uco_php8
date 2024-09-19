@@ -156,13 +156,13 @@
 	<section class="section-novedades home" >
 		<div class="container">
 			<div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-12">
                     <div class="wrap-text fade_JS">
-                            <h2>{!! trans('front.paginas.home.novedades.titulo') !!}</h2>
-                            <a href="{{routeIdioma('novedades')}}" class="btn-primary">{!! trans('front.paginas.home.novedades.btn') !!}</a>
+                            <h2 class="text-center">{!! trans('front.paginas.home.novedades.titulo') !!}</h2>
+                            
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="grid-novedades">
                         @if(isset($data['novedades']['SD']))
                             @foreach (array_slice($data['novedades']['SD'],0,2) as $i => $item)
@@ -178,7 +178,7 @@
                         @endif
                         @if(isset($data['novedades']['SI']))
                             @foreach (array_slice($data['novedades']['SI'],0,4) as $i => $item)
-                                <a href="{{routeIdioma('novedades',[$item['id']])}}" class="item item-1}}">
+                                <a href="{{routeIdioma('novedades',[$item['id']])}}" class="item item-1">
                                     <img src="{{$item['foto_url']}}">
                                     <div class="info fade_JS">
                                         <span class="date">{{$item['fecha_corta']}}</span>
@@ -191,6 +191,13 @@
 
                     </div>
 
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="wrap-text fade_JS">
+                          
+                            <a href="{{routeIdioma('novedades')}}" class="btn-primary m-auto d-table">{!! trans('front.paginas.home.novedades.btn') !!}</a>
+                    </div>
                 </div>
 
 		    </div>
