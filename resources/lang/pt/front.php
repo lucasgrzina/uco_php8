@@ -283,7 +283,7 @@ return [
             ],
             'novedades' => [
                 'titulo' => 'Novidades',
-                'btn' => 'SAIBA MAIS',
+                'btn' => 'MAIS NOVIDADES',
             ]
 
         ],

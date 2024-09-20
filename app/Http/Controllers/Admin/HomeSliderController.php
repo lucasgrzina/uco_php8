@@ -15,7 +15,7 @@ class HomeSliderController extends CrudAdminController
 {
     protected $routePrefix = 'home-sliders';
     protected $viewPrefix  = 'admin.home_sliders.';
-    protected $actionPerms = 'home-sliders';
+    protected $actionPerms = 'sliders';
 
     public function __construct(HomeSliderRepository $repo)
     {
@@ -76,6 +76,8 @@ class HomeSliderController extends CrudAdminController
                 'imagen_mobile_url' => null,
                 'imagen_desktop' => null,
                 'imagen_desktop_url' => null,
+                "titulo_align_desktop" => "left",
+                "titulo_align_mobile" => "left",
                 'video' => null,
                 'enabled' => true,
                 'orden' => HomeSlider::max('orden') + 1,
@@ -83,6 +85,7 @@ class HomeSliderController extends CrudAdminController
         ]);
 
         $this->data['info'] = [
+            "alineaciones" => config("constantes.combos.alineaciones"),
             'secciones' => array_keys(config('constantes.headers'))
         ];
 
@@ -99,6 +102,7 @@ class HomeSliderController extends CrudAdminController
     {
         parent::edit($id);
         $this->data['info'] = [
+            "alineaciones" => config("constantes.combos.alineaciones"),
             'secciones' => array_keys(config('constantes.headers'))
         ];
         return view($this->viewPrefix.'cu')->with('data',$this->data);
@@ -110,6 +114,7 @@ class HomeSliderController extends CrudAdminController
         parent::edit($id,$lang);
         $this->data['selectedItem'] = array_merge($this->data['selectedItem']->toArray(),['lang' => $lang]);
         $this->data['info'] = [
+            "alineaciones" => config("constantes.combos.alineaciones"),
             'secciones' => array_keys(config('constantes.headers'))
         ];
         //dd($this->data);

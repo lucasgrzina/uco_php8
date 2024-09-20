@@ -1652,7 +1652,7 @@ p{
 			top: 22px;
 			left: 18px;
 			z-index: 11;
-			padding-left: 20px;
+			padding-left: 0px;
 			&:not(.collapsed){
 				position: fixed;
 				left: auto;
@@ -1678,7 +1678,7 @@ p{
 				position: absolute;
 
 				top: 0;
-				left: 0;
+				left: -10000000px;
 				cursor: pointer;
 
 				.rect {
@@ -1704,6 +1704,7 @@ p{
 
 			&:not(.collapsed){
 				#nav-lines {
+                    left: -30px;
 					.cross-line {
 						stroke-width: 2;
 					}

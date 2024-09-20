@@ -20,12 +20,15 @@ class RegistradoController extends AppBaseController
     /** @var  registradoRepository */
     private $registradoRepository;
     private $routePrefix = 'registrados';
-    protected $actionPerms = 'usuarios';
+    protected $actionPerms = 'registrados';
     //private
 
     public function __construct(RegistradoRepository $registeredRepo)
     {
         $this->registradoRepository = $registeredRepo;
+        $this->middleware('permission:ver-'.$this->actionPerms, ['only' => ['index','filter','show']]);
+        $this->middleware('permission:editar-'.$this->actionPerms, ['only' => ['create','store','edit','update','destroy']]);
+
     }
 
     /**

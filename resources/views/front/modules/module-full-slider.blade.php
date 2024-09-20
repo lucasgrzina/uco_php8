@@ -20,17 +20,17 @@
                                 <div class="container" style="position: relative; z-index: 2;">
                                     @if(isset($item->titulo) && $item->titulo)
                                         @if (strEmpiezaCon($item->titulo,'_trans.'))
-                                            <h2>{!! trans(str_replace('_trans.','',$item->titulo)) !!}</h2>
+                                            <h2 class="alineado-titulo-desktop-{{isset($item->titulo_align_desktop) ? $item->titulo_align_desktop : "left"}} alineado-titulo-mobile-{{isset($item->titulo_align_mobile) ? $item->titulo_align_mobile : "left"}}">{!! trans(str_replace('_trans.','',$item->titulo)) !!}</h2>
                                         @else
-                                            <h2>{!! $item->titulo !!}</h2>
+                                            <h2 class="alineado-titulo-desktop-{{isset($item->titulo_align_desktop) ? $item->titulo_align_desktop : "left"}} alineado-titulo-mobile-{{isset($item->titulo_align_mobile) ? $item->titulo_align_mobile : "left"}}">{!! $item->titulo !!}</h2>
                                         @endif
 
                                     @endif
                                     @if(isset($item->subtitulo) && $item->subtitulo)
                                         @if (strEmpiezaCon($item->subtitulo,'_trans.'))
-                                            <p>{!! trans(str_replace('_trans.','',$item->subtitulo)) !!}</p>
+                                            <p class="alineado-subtitulo-desktop-{{isset($item->subtitulo_align_desktop) ? $item->subtitulo_align_desktop : "left"}} alineado-subtitulo-mobile-{{isset($item->subtitulo_align_mobile) ? $item->subtitulo_align_mobile : "left"}}">{!! trans(str_replace('_trans.','',$item->subtitulo)) !!}</p>
                                         @else
-                                            <p>{!! $item->subtitulo !!}</p>
+                                            <p class="alineado-subtitulo-desktop-{{isset($item->subtitulo_align_desktop) ? $item->subtitulo_align_desktop : "left"}} alineado-subtitulo-mobile-{{isset($item->subtitulo_align_mobile) ? $item->subtitulo_align_mobile : "left"}}">{!! $item->subtitulo !!}</p>
                                         @endif
                                     @endif
                                     @if(isset($item->boton_titulo) && $item->boton_titulo)
@@ -40,12 +40,12 @@
                                 </div>
                                 @endif
                                 @if (isset($item->video) && $item->video)
-                                    <video class="{{(isset($item->video_mobile) && $item->video_mobile) || (isset($item->imagen_mobile) && $item->imagen_mobile) ? 'd-none d-sm-block' : ''}}" loop autoplay muted style="position: absolute; z-index: -1;" playsinline>
+                                    <video class="{{(isset($item->video_mobile) && $item->video_mobile) || (isset($item->imagen_mobile) && $item->imagen_mobile) ? 'd-none d-md-block' : ''}}" loop autoplay muted style="position: absolute; z-index: -1;" playsinline>
                                         <source  src="{{$item->video_url}}" type="video/mp4">
                                     </video>
                                 @endif
                                 @if (isset($item->video_mobile) && $item->video_mobile)
-                                    <video class="d-block d-sm-none" loop autoplay muted style="position: absolute; z-index: -1;" playsinline>
+                                    <video class="d-block d-md-none" loop autoplay muted style="position: absolute; z-index: -1;" playsinline>
                                         <source  src="{{$item->video_mobile_url}}" type="video/mp4">
                                     </video>
                                 @endif

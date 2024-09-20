@@ -276,7 +276,7 @@ return [
             ],
             'novedades' => [
                 'titulo' => 'Novedades',
-                'btn' => 'CONOCÉ MÁS',
+                'btn' => 'MÁS NOVEDADES',
             ]
 
         ],
@@ -384,13 +384,13 @@ return [
                 'aniadas' => 'Añadas',
                 'fichaTecnica' => 'Ficha Técnica',
                 'porCantidades' => '*Por cantidades mayores a 18 botellas, por favor contactarnos a <a href="mailto:info@magiadeuco.com">info@magiadeuco.com</a>',
-                'porCompras' => 'Envio gratuito en compras superiores a AR$ _COMPRAS_SUPERIORES_.',
-                'btnAgregar' => 'Añadir al shop',
+                'porCompras' => 'ENVIO GRATUITO en compras superiores a AR$ _COMPRAS_SUPERIORES_.',
+                'btnAgregar' => 'AGREGAR AL CARRITO',
                 'sinStock' => 'Agotado',
                 'ultUnidades' => 'Últimas _CANT_ unidades disponibles',
                 'mayorCero' => 'Debe indicar una cantidad mayor a 0.',
                 'metodoPago' => 'Método de pago',
-                'btnDescubri' => 'Descubrí otras variedades'
+                'btnDescubri' => 'Descubrí más variedades'
             ],
             'root' => [
                 'titulo' => 'Colecciones',

@@ -96,6 +96,34 @@
           .v-cloak--inlineBlock {
             display: none!important;
           }
+
+          .alineado-titulo-desktop-left, .alineado-subtitulo-desktop-left{
+            text-align: left;
+          }
+          .alineado-titulo-desktop-center, .alineado-subtitulo-desktop-center{
+            text-align: center;
+          }
+          .alineado-titulo-desktop-justify, .alineado-subtitulo-desktop-justify {
+            text-align: justify;
+          }
+          .alineado-titulo-desktop-right,.alineado-subtitulo-desktop-right {
+            text-align:right;
+          }
+
+            @media (max-width: 769px) {
+                .alineado-titulo-mobile-left,.alineado-subtitulo-mobile-left {
+                    text-align: left!important;
+                }
+                .alineado-titulo-mobile-center,.alineado-subtitulo-mobile-center {
+                    text-align: center!important;
+                }
+                .alineado-titulo-mobile-justify,.alineado-subtitulo-mobile-justify {
+                    text-align: justify!important;
+                }
+                .alineado-titulo-mobile-right,.alineado-subtitulo-mobile-right {
+                    text-align:right!important;
+                }
+            }
         </style>
         <!-- Global site tag (gtag.js) - Google Analytics -->
 

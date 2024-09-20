@@ -158,8 +158,8 @@
 			<div class="row">
                 <div class="col-lg-12">
                     <div class="wrap-text fade_JS">
-                            <h2 class="text-center">{!! trans('front.paginas.home.novedades.titulo') !!}</h2>
-                            
+                            <h2 class="text-center text-uppercase">{!! trans('front.paginas.home.novedades.titulo') !!}</h2>
+
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -195,7 +195,7 @@
 
                 <div class="col-lg-12">
                     <div class="wrap-text fade_JS">
-                          
+
                             <a href="{{routeIdioma('novedades')}}" class="btn-primary m-auto d-table">{!! trans('front.paginas.home.novedades.btn') !!}</a>
                     </div>
                 </div>

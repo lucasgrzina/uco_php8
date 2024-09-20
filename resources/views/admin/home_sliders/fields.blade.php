@@ -142,19 +142,49 @@
 </div>
 <div class="clearfix"></div>
 <!-- Titulo Field -->
-<div class="form-group col-sm-12" :class="{'has-error': errors.has('titulo')}">
+<div class="form-group col-sm-8" :class="{'has-error': errors.has('titulo')}">
     {!! Form::label('titulo', 'Titulo') !!}
     {!! Form::text('titulo', null, ['class' => 'form-control','v-model' => 'selectedItem.titulo']) !!}
     <span class="help-block" v-show="errors.has('titulo')">(% errors.first('titulo') %)</span>
 </div>
-
+<div class="form-group col-sm-2">
+    {!! Form::label('alin_desk', 'Alineado Desktop') !!}
+    <select v-model="selectedItem.titulo_align_desktop" class="form-control" name="titulo_align_desktop" v-validate="'required'" data-vv-validate-on="'none'">
+        <!--option :value="null">Seleccione</option-->
+        <option v-for="(item) in info.alineaciones" :value="item.key">(% item.value %)</option>
+    </select>
+    <span class="help-block" v-show="errors.has('titulo_align_desktop')">(% errors.first('titulo_align_desktop') %)</span>
+</div>
+<div class="form-group col-sm-2">
+    {!! Form::label('alin_mobile', 'Alineado Mobile') !!}
+    <select v-model="selectedItem.titulo_align_mobile" class="form-control" name="titulo_align_mobile" v-validate="'required'" data-vv-validate-on="'none'">
+        <!--option :value="null">Seleccione</option-->
+        <option v-for="(item) in info.alineaciones" :value="item.key">(% item.value %)</option>
+    </select>
+    <span class="help-block" v-show="errors.has('titulo_align_mobile')">(% errors.first('titulo_align_mobile') %)</span>
+</div>
 <!-- Subtitulo Field -->
-<div class="form-group col-sm-12" :class="{'has-error': errors.has('subtitulo')}">
+<div class="form-group col-sm-8" :class="{'has-error': errors.has('subtitulo')}">
     {!! Form::label('subtitulo', 'Subtitulo') !!}
     {!! Form::text('subtitulo', null, ['class' => 'form-control','v-model' => 'selectedItem.subtitulo']) !!}
     <span class="help-block" v-show="errors.has('subtitulo')">(% errors.first('subtitulo') %)</span>
 </div>
-
+<div class="form-group col-sm-2">
+    {!! Form::label('subtitulo_align_desktop', 'Alineado Desktop') !!}
+    <select v-model="selectedItem.subtitulo_align_desktop" class="form-control" name="subtitulo_align_desktop" v-validate="'required'" data-vv-validate-on="'none'">
+        <!--option :value="null">Seleccione</option-->
+        <option v-for="(item) in info.alineaciones" :value="item.key">(% item.value %)</option>
+    </select>
+    <span class="help-block" v-show="errors.has('subtitulo_align_desktop')">(% errors.first('subtitulo_align_desktop') %)</span>
+</div>
+<div class="form-group col-sm-2">
+    {!! Form::label('subtitulo_align_mobile', 'Alineado Mobile') !!}
+    <select v-model="selectedItem.subtitulo_align_mobile" class="form-control" name="subtitulo_align_mobile" v-validate="'required'" data-vv-validate-on="'none'">
+        <!--option :value="null">Seleccione</option-->
+        <option v-for="(item) in info.alineaciones" :value="item.key">(% item.value %)</option>
+    </select>
+    <span class="help-block" v-show="errors.has('subtitulo_align_mobile')">(% errors.first('subtitulo_align_mobile') %)</span>
+</div>
 <!-- Boton Titulo Field -->
 <div class="form-group col-sm-4" :class="{'has-error': errors.has('boton_titulo')}">
     {!! Form::label('boton_titulo', 'Boton Titulo') !!}

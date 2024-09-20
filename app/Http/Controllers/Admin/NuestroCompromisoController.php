@@ -16,7 +16,7 @@ class NuestroCompromisoController extends CrudAdminController
 {
     protected $routePrefix = 'nuestro-compromiso';
     protected $viewPrefix  = 'admin.nuestro_compromiso.';
-    protected $actionPerms = 'nuestro_compromiso';
+    protected $actionPerms = 'nuestro-compromiso';
 
     public function __construct(NuestroCompromisoRepository $repo)
     {

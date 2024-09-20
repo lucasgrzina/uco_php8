@@ -10,7 +10,7 @@
 			padding: 15px 0;
 			.image{
 				width: 100%;
-				max-width: 40px;
+				max-width: 35px;
 				img{
 					width: 100%;
 				}
@@ -21,17 +21,18 @@
 				position: relative;
 				h1{
 					font-family: $f-bold;
-					font-size: 35px;
+					font-size: 28px;
 					margin-bottom: 5px;
 					line-height: normal;
+                    width: 90%;
 				}
 			}
 
 			.remove{
 				position: absolute;
-				right: 10px;
-				width: 31px;
-				height: 31px;
+                right: 0px;
+                width: 25px;
+                height: 25px;
 				border-width: 1px;
 				border-style: solid;
 				border-radius: 50%;
@@ -39,13 +40,13 @@
 				top: calc(50% - 43px);
 
 				&:before, &:after {
-					position: absolute;
-					left: 14px;
-					top: 5px;
-					content: ' ';
-					height: 19px;
-					width: 1px;
-					background-color: #363126;
+                    position: absolute;
+                    left: 11px;
+                    top: 4px;
+                    content: " ";
+                    height: 15px;
+                    width: 1px;
+                    background-color: #363126;
 				}
 				&:before {
 					transform: rotate(45deg);

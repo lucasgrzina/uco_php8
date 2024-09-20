@@ -254,7 +254,7 @@ return [
             ],
             'novedades' => [
                 'titulo' => 'News',
-                'btn' => 'LEARN MORE',
+                'btn' => 'MORE NEWS',
             ]
 
         ],
@@ -355,7 +355,7 @@ return [
                 'aniadas' => 'Vintage',
                 'fichaTecnica' => 'Explore more',
                 'porCantidades' => '*For orders over 18 bottles, please contact us at <a href="mailto:info@magiadeuco.com">info@magiadeuco.com</a>',
-                'porCompras' => 'Free Shipping on orders over AR$ _COMPRAS_SUPERIORES_.',
+                'porCompras' => 'FREE SHIPPING on orders over AR$ _COMPRAS_SUPERIORES_.',
                 'btnAgregar' => 'Add to bag',
                 'sinStock' => 'Sin stock',
                 'ultUnidades' => 'Last _CANT_ units available',

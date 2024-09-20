@@ -16,7 +16,7 @@
         }
         .dropdown-country .dropdown-menu {
             height: auto;
-            
+
 
         }
         .dropdown-country .dropdown-menu li .dropdown-item.active,
@@ -48,6 +48,7 @@
             }
 
             _this.form.tel_prefijo = iti.getSelectedCountryData().dialCode;
+            _this.form.pais = document.getElementById('selectedCountry').textContent;
             _this.form.submitted = true;
             _this.loading = true;
 
@@ -112,7 +113,7 @@
             document.getElementById('selectedCountry').textContent = country;
 
             // Cambiar el país inicial en el input de teléfono
-            iti.setCountry(flag);  // Esto actualiza el país en el input de teléfono
+            //iti.setCountry(flag);  // Esto actualiza el país en el input de teléfono
         });
     });
 });
@@ -174,15 +175,15 @@
                               <span id="selectedCountry">Argentina</span>
                             </button>
                             <ul class="dropdown-menu iti__country-list" id="countryList" aria-labelledby="dropdownMenuButton" >
-                               
+
                             </ul>
-                            
+
                           </div>
 						<!--input type="text" class="form-control" id="paisInput" placeholder="{!! trans('front.paginas.contacto.form.placeholderPais') !!}" v-model="form.pais" required-->
 
 					</div>
 
-                    
+
 
 					<div class="input-group  mb-form">
                         <input type="hidden" name="tel_prefijo" id="tel_prefijo" v-model="form.tel_prefijo">
