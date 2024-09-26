@@ -1,4 +1,12 @@
 @extends('layouts.front')
+@section('css')
+    @parent
+    <style>
+        .seleccionada {
+            font-weight: 800!important;
+        }
+    </style>
+@endsection
 @section('scripts')
     @parent
     <script type="text/javascript">
@@ -16,6 +24,8 @@
                     console.debug(this.checkout.direcciones.listado.length);
                     if (this.checkout.direcciones.listado.length > 0) {
                         this.seleccionarDireccion(0);
+                    } else if (this.esAnonimo) {
+                        this.agregarDireccion();
                     }
                     break;
                 case 'envioRetiro':
@@ -39,6 +49,9 @@
 
             if (seccion === 'confirmarPedido') {
                 Vue.set(_this.checkout.form,'envio_retiro_id',_this.checkout.direcciones.listado[0].id);
+                if (_this.esAnonimo) {
+                    _this.checkout.form.envio_retiro_anonimo = _this.checkout.direcciones.listado[0];
+                }
                 _this.checkoutConfirmar();
             } else {
                 this.checkout.seccionActual = siguiente;
@@ -111,6 +124,33 @@
             });
         }
 
+        _methods.eliminarDireccion = function (item, index) {
+            var _seccion = this.checkout.direcciones;
+			var _this = this;
+			var _errorMsg = null;
+
+            _seccion.enviando = true;
+            _this._call(_seccion.url_eliminar,'POST',item).then(function(data) {
+                _seccion.listado.splice(index, 1);
+                console.debug(data);
+                _seccion.enviando = false;
+            }, function(error) {
+                _seccion.enviando = false;
+                if (error.status != 422) {
+                    //console.debug(error.data.message);
+                    alert2(error.data.message);
+                } else {
+                    var mensaje = [];
+                    _.forEach(error.fields, function(msj,campo) {
+                        mensaje.push(msj[0]);
+                    });
+                    alert2(mensaje[0]);
+                }
+
+
+            });
+        }
+
         _methods.seleccionarDireccion = function(index) {
             var _seccion = this.checkout.direcciones;
             var _this = this;
@@ -168,7 +208,15 @@
                 console.debug(data);
                 //Si es una edicion, reemplazo la primera posicion
                 if (_esEdicion) {
-                    Vue.set(_seccion.listado,0,_.cloneDeep(_seccion.itemSeleccionado));
+                    var index = _.findIndex(_seccion.listado,{id: _seccion.itemSeleccionado.id})
+                    console.debug("el index es ",index)
+                    Vue.set(_seccion.listado,index,_.cloneDeep(_seccion.itemSeleccionado));
+                    Vue.nextTick(function() {
+                        if (index == 0) {
+                            _this.cotizarEnvio(index);
+                        }
+
+                    });
                 } else {
                     _seccion.itemSeleccionado.id = data.id;
                     var _listado = _.cloneDeep(_seccion.listado);
@@ -269,6 +317,7 @@
         }
 
         this._mounted.push(function(_this) {
+            _this.esAnonimo = !_this.checkout.form.registrado_id;
             _this.checkout.form.total = _this.carrito.total;
             _this.checkout.form.total_usd = _this.carrito.total;
         });
@@ -321,16 +370,17 @@
                                 <h2>{{trans('front.paginas.checkout.datosEnvio.titulo')}}</h2>
                                 <form>
                                     <fieldset :disabled="checkout.seccionActual !== 'envioRetiro'">
-                                        <a href="javascript:void(0)" v-show="checkout.seccionActual === 'envioRetiro'" class="f-right mb-3 lnk-agregar" @click="agregarDireccion()">{{trans('front.paginas.checkout.btnAgregar')}}</a>
+                                        <a href="javascript:void(0)" v-show="checkout.seccionActual === 'envioRetiro' && !esAnonimo" class="f-right mb-3 lnk-agregar" @click="agregarDireccion()">{{trans('front.paginas.checkout.btnAgregar')}}</a>
                                         <template v-for="(item,index) in checkout.direcciones.listado">
                                             <div class="direccion" v-show="index === 0 || checkout.seccionActual === 'envioRetiro'">
-                                                <div class="info">
+                                                <div class="info" :class="{'seleccionada': index === 0}">
                                                     <i class="fa-solid fa-location-dot"></i>
                                                     <p><span>(% item.calle %)</span><span>(% item.cp %),(% item.ciudad %)</span><span>(% item.nombre.concat(' ').concat(item.apellido)%)</span></p>
                                                 </div>
                                                 <div class="actions" v-if="checkout.seccionActual == 'envioRetiro'">
                                                     <a href="javascript:void(0)" v-show="index > 0" class="f-right" @click="seleccionarDireccion(index)">{{trans('front.paginas.checkout.btnSeleccionar')}}</a>
-                                                    <a href="javascript:void(0)" v-show="index == 0" class="f-right" @click="editarDireccion(item,index)">{{trans('front.paginas.checkout.btnEditar')}}</a>
+                                                    <a href="javascript:void(0)" v-show="index >= 0" style="margin-left:5px;" class="f-right" @click="editarDireccion(item,index)">{{trans('front.paginas.checkout.btnEditar')}}</a>
+                                                    <a href="javascript:void(0)" v-show="index > 0" style="margin-left:5px;" class="f-right" @click="eliminarDireccion(item,index)">{{trans('front.paginas.checkout.btnEliminar')}}</a>
                                                     <!--button type="button" v-show="index > 0" class="btn btn-primary f-right" @click="seleccionarDireccion(index)">Seleccionar</button>
                                                     <button type="button" v-show="index == 0" class="btn btn-primary f-right" @click="editarDireccion(item,index)">Editar</button-->
                                                 </div>
@@ -359,7 +409,7 @@
 
                             <div id="formDomicilio" class="block-content" v-if="checkout.direcciones.itemSeleccionado">
 
-                                <h2>{{trans('front.paginas.checkout.datosEnvio.domicilioDest')}}</h2>
+                                <h2 v-if="!esAnonimo">{{trans('front.paginas.checkout.datosEnvio.domicilioDest')}}</h2>
                                 <form>
                                     <!-- Email input -->
                                     <div class="form-floating  mb-form">

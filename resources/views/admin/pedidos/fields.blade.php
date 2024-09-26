@@ -6,7 +6,7 @@
 <!-- Registrado Id Field -->
 <div class="form-group col-sm-5" :class="{'has-error': errors.has('registrado_id')}">
     {!! Form::label('registrado_id', 'Usuario') !!}
-    <span class="form-control">(% selectedItem.registrado.usuario %)</span>
+    <span class="form-control">(% selectedItem.nombre + ' ' + selectedItem.apellido %)</span>
 </div>
 
 <!-- Email Field -->

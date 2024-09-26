@@ -6,6 +6,7 @@ use Auth;
 use App\Registrado;
 
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Repositories\PedidoRepository;
 use App\Repositories\RegistradoRepository;
@@ -232,6 +233,19 @@ class MiCuentaController extends AppBaseController
             $direccion = $this->repoRegistrados->guardarDireccion($request->except(['pais','_token']));
             DB::commit();
             return $this->sendResponse($direccion,'');
+        } catch (\Exception $e) {
+            DB::rollback();
+            logger($e->getMessage());
+            $this->sendError($e->getMessage(),500);
+        }
+    }
+
+    public function eliminarDireccion(Request $request) {
+        try {
+            DB::beginTransaction();
+            $direccion = $this->repoRegistrados->eliminarDireccion($request->id);
+            DB::commit();
+            return $this->sendResponse([],'');
         } catch (\Exception $e) {
             DB::rollback();
             logger($e->getMessage());

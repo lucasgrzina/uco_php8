@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Repositories\PedidoRepository;
 use App\Http\Controllers\AppBaseController;
 use App\Http\Requests\Admin\CUNewslettersRequest;
+use App\Http\Requests\Front\GuardarDireccionRequest;
 
 class CheckoutController extends AppBaseController
 {
@@ -94,6 +95,7 @@ class CheckoutController extends AppBaseController
                 'itemSeleccionado' => null,
                 'listado' => auth()->user()->direcciones()->with('pais')->orderBy('principal','desc')->get(),
                 'url_guardar' => routeIdioma('miCuenta.direcciones.guardar'),
+                'url_eliminar' => routeIdioma('miCuenta.direcciones.eliminar'),
                 'enviando' => false
             ],
             'url_cotizar_envio' => routeIdioma('checkout.cotizarEnvio'),
@@ -120,6 +122,99 @@ class CheckoutController extends AppBaseController
             'data' => $this->data
         ]);
     }
+
+    public function anonimo($lang)
+    {
+        //$precio = precioLibroPorPais();
+        $configuraciones = Configuraciones::whereIn('clave',['MONTO_MIN_AFIP'])->pluck('valor','clave')->toArray();
+
+        $itemsCarrito = \Cart::getContent();
+
+        $this->data['checkout'] = [
+            'secciones' => [
+                'datosContacto' => true,
+                'envioRetiro' => false,
+                'datosDestinatario' => false,
+                'datosFacturacion' => false,
+                'comentarios' => false
+            ],
+            'seccionActual' => 'datosContacto',
+
+            'form' => [
+                'registrado_id' => null,
+                'email' => null,
+                'recibir' => true,
+                'envio_retiro' => 'E',
+                'envio_retiro_id' => null,
+                'tipo_factura' => null,
+                'tipo_factura_desc' => 'Datos de facturación',
+                'total_envio' => 0,
+                'total_envio_usd' => 0,
+                'cotizacion_usd' => 0,
+                'total' => 0,
+                'total_usd' => 0,
+                'comentarios' => null,
+                'pais_id_fc' => 3,
+                'usarDatosDest' => false
+            ],
+            'info' => [
+                'paises' => Pais::whereEnabled(true)->orderBy('nombre')->select('id','codigo','nombre')->get(),
+                'montoDatosFC' => isset($configuraciones['MONTO_MIN_AFIP']) ? $configuraciones['MONTO_MIN_AFIP'] : null
+            ],
+            'modelos' => [
+                'direccion' => [
+                    'id' => 0,
+                    'registrado_id' => null,
+                    'nombre' => null,
+                    'apellido' => null,
+                    'calle' => null,
+                    'ciudad' => null,
+                    'cp' => null,
+                    'provincia' => null,
+                    'departamento' => null,
+                    'info_adicional' => null,
+                    'pais_id' => 3,
+                    'pais' => null,
+                    'principal' => true
+                ],
+            ],
+            'direcciones' => [
+                'itemSeleccionado' => null,
+                'listado' => [],
+                'url_guardar' => routeIdioma('checkout.guardarDireccion'),
+                'enviando' => false
+            ],
+            'url_cotizar_envio' => routeIdioma('checkout.cotizarEnvio'),
+            'url_confirmar' => routeIdioma('checkout.confirmar'),
+            'enviando' => false,
+            'cotizando_envio' => false,
+            'confirmando' => false,
+
+            /*'listado' => [
+                'items' => $itemsCarrito,
+
+            ],
+            'url_quitar' => routeIdioma('carrito.quitar', ['_ID_']),
+            'url_checkout' => routeIdioma('carrito'),
+            'total' => \Cart::total(),
+            'cantidad' => \Cart::count(),
+            'agregando' => false,*/
+
+        ];
+
+        return view('front.checkout', [
+            'tituloPagina' => trans('front.paginas.checkout.titulo'),
+            'dataSection' => 'checkout',
+            'data' => $this->data
+        ]);
+    }
+
+    public function guardarDireccion(GuardarDireccionRequest $request) {
+        $data = $request->all();
+        $data["id"] = 1;
+        return $this->sendResponse($data,'');
+    }
+
 
     public function gracias($lang,$guid,Request $request, PedidoRepository $pedidosRepo,MPService $mpService) {
 
@@ -211,9 +306,11 @@ class CheckoutController extends AppBaseController
     {
 
         try {
+
+            $esAnonimo = !auth()->check();
             //throw new \Exception('No existe la dirección seleccionada');
             if (!auth()->check()) {
-                throw new \Exception('Debes iniciar sesion');
+                //throw new \Exception('Debes iniciar sesion');
             }
 
             DB::beginTransaction();
@@ -239,15 +336,21 @@ class CheckoutController extends AppBaseController
             $total = $totalCarrito + $totalEnvio;
             $totalUsd = $totalCarritoUsd + $totalEnvioUsd;
 
-            $direccionEnvio = RegistradoDireccion::find($request->envio_retiro_id);
+            if (!$esAnonimo) {
+                $direccionEnvio = RegistradoDireccion::find($request->envio_retiro_id);
+                $registradoId = auth()->user()->id;
+                if (!$direccionEnvio) {
+                    throw new \Exception('No existe la dirección seleccionada');
+                }
 
-            if (!$direccionEnvio) {
-                throw new \Exception('No existe la dirección seleccionada');
+            } else {
+                $direccionEnvio = (object)$request->envio_retiro_anonimo;
+                $registradoId = null;
             }
 
             //throw new \Exception('Debes iniciar sesion');
             $dataPedido = array_merge([], [
-                'registrado_id' => auth()->user()->id,
+                'registrado_id' => $registradoId,
                 'estado_id' => 0,
                 'total_carrito' => $totalCarrito,
                 'total_carrito_usd' => $totalCarritoUsd,
@@ -300,7 +403,12 @@ class CheckoutController extends AppBaseController
             if ($pedido->tipo_factura == 'A') {
                 //Es solo un pedido, no debo generar etiqueta de envio ni pagarlo
                 try {
-                    $pedido->registrado->enviarNotificacionPedido($pedido);
+                    if (!$esAnonimo) {
+                        $pedido->registrado->enviarNotificacionPedido($pedido);
+                    } else {
+                        $pedido->enviarNotificacionPedido($pedido);
+                    }
+
                 } catch (\Exception $e) {
                     logInfo('Checkout::confirmar: '.$e->getMessage());
                 }

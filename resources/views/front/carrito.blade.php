@@ -1,4 +1,5 @@
 @extends('layouts.front')
+
 @section('scripts')
     @parent
     <script type="text/javascript">
@@ -114,6 +115,9 @@
             </div>
             <div class="col-12">
                 <button v-if="carrito.cantidad > 0" class="btn btn-primary btn-finalizar" @click="goTo('{{routeIdioma('checkout')}}')">{{trans('front.paginas.carrito.finalizar')}}</button>
+                @if (auth()->guest())
+                <button class="btn btn-primary btn-finalizar" style="float: right;margin-right:5px;" v-if="carrito.cantidad > 0" href="{{routeIdioma('checkout.anonimo')}}" @click="goTo('{{routeIdioma('checkout.anonimo')}}')">{{trans('front.paginas.carrito.contSinRegistrarse')}}</button>
+                @endif
             </div>
             <div class="col-12">
                 <div class="shop">

@@ -63,7 +63,8 @@ class RegistradoDireccion extends Model
      * @var array
      */
     public static $rules = [
-        'registrado_id' => 'required',
+        //'registrado_id' => 'required',
+        'apellido' => 'required',
         'nombre' => 'required',
         'calle' => 'required',
         'ciudad' => 'required',

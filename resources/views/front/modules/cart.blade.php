@@ -26,8 +26,13 @@
 
         <div class="actions">
           <button class="btn-primary" v-if="carrito.cantidad > 0" @click="goTo('{{routeIdioma('checkout')}}')">Check-out</button>
+          @if (auth()->guest())
+          <button class="btn-white" v-if="carrito.cantidad > 0" href="{{routeIdioma('checkout.anonimo')}}" @click="goTo('{{routeIdioma('checkout.anonimo')}}')">{{trans('front.paginas.carrito.contSinRegistrarse')}}</button>
+          @endif
+
           <!--button class="btn-white" data-bs-dismiss="offcanvas">Continuar comprando</button-->
           <button class="btn-white" v-if="carrito.cantidad > 0" href="{{routeIdioma('carrito')}}" @click="goTo('{{routeIdioma('carrito')}}')">{{trans('front.paginas.carrito.editarCarrito')}}</button>
+
         </div>
       </div>
 

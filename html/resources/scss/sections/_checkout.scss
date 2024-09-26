@@ -105,6 +105,9 @@ body[data-section="checkout"] {
 			display: block;
 
 		}
+        @media(max-width: 950px){
+            padding: 10px;
+        }
 
 		.info{
 			display: flex;
@@ -140,6 +143,7 @@ body[data-section="checkout"] {
 		    justify-content: end;
 
 		    @media(max-width: 500px){
+                margin-top: 20px;
 				.btn{
 					margin:30px auto 0;
 				}

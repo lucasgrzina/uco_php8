@@ -289,9 +289,12 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|es|pt']],function 
     });
     Route::prefix(trans('front.rutas.checkout.root'))->group(function () {
         Route::get(trans('front.rutas.checkout.gracias').'/{guid}', 'Front\CheckoutController@gracias')->name('checkout.gracias');
+        Route::get('/anonimo', 'Front\CheckoutController@anonimo')->name('checkout.anonimo');
+        Route::post(trans('front.rutas.miCuenta.direcciones'), 'Front\CheckoutController@guardarDireccion')->name('checkout.guardarDireccion');
+        Route::post(trans('front.rutas.checkout.confirmar'), 'Front\CheckoutController@confirmar')->name('checkout.confirmar');
+        Route::post(trans('front.rutas.checkout.cotizarEnvio'),'Front\CheckoutController@cotizarEnvio')->name('checkout.cotizarEnvio');
+
         Route::middleware(['checkout'])->group(function () {
-            Route::post(trans('front.rutas.checkout.confirmar'), 'Front\CheckoutController@confirmar')->name('checkout.confirmar');
-            Route::post(trans('front.rutas.checkout.cotizarEnvio'),'Front\CheckoutController@cotizarEnvio')->name('checkout.cotizarEnvio');
             Route::get('/', 'Front\CheckoutController@index')->name('checkout');
         });
 
@@ -307,7 +310,9 @@ Route::group(['prefix' => '{lang}', 'where' => ['lang' => 'en|es|pt']],function 
 
             Route::get(trans('front.rutas.miCuenta.pedidos'), 'Front\MiCuentaController@pedidos')->name('miCuenta.pedidos');
             Route::get(trans('front.rutas.miCuenta.pedidos').'/{id}', 'Front\MiCuentaController@detallePedido')->name('miCuenta.pedidos.detalle');
+            Route::post(trans('front.rutas.miCuenta.direcciones').'/eliminar', 'Front\MiCuentaController@eliminarDireccion')->name('miCuenta.direcciones.eliminar');
             Route::post(trans('front.rutas.miCuenta.direcciones'), 'Front\MiCuentaController@guardarDireccion')->name('miCuenta.direcciones.guardar');
+
         });
         Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     });

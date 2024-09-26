@@ -2,11 +2,13 @@
 
 namespace App;
 
-use App\Traits\UploadableTrait;
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\Traits\UploadableTrait;
 use Yajra\Auditable\AuditableTrait;
+
+use Illuminate\Notifications\Notifiable;
+use App\Notifications\NotificacionPedido;
+use Illuminate\Database\Eloquent\SoftDeletes;
 //use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 //use Astrotomic\Translatable\Translatable;
 
@@ -23,7 +25,7 @@ use Yajra\Auditable\AuditableTrait;
 class Pedido extends Model
 {
     use SoftDeletes;
-
+    use Notifiable;
     use AuditableTrait;
     // use Translatable;
     //use UploadableTrait;
@@ -195,7 +197,14 @@ class Pedido extends Model
         return $this->hasMany('App\PedidoItem', 'pedido_id');
     }
 
-
+    public function enviarNotificacionPedido($pedido)
+    {
+        try {
+            $this->notify(new NotificacionPedido($this,$pedido));
+        } catch (\Exception $e) {
+            \Log::error('*******SEND EMAIL ERROR (enviarNotificacionPedido): ' . $e->getMessage());
+        }
+    }
 
     protected static function boot()
     {

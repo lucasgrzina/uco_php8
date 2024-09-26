@@ -521,6 +521,7 @@ return [
             'total' => 'Total',
             'btnConfirmar' => 'CONFIRMAR',
             'btnEditar' => 'EDITAR',
+            'btnEliminar' => 'ELIMINAR',
             'btnAgregar' => 'ADICIONAR',
             'btnSeleccionar' => 'SELECIONAR',
             'btnCancel' => 'CANCELAR',
@@ -624,7 +625,8 @@ return [
             'subtotal' => 'Subtotal',
             'eliminar' => 'Eliminar',
             'finalizar' => 'Finalizar ordem',
-            'editarCarrito' => 'Editar Carrinho'
+            'editarCarrito' => 'Editar Carrinho',
+            "contSinRegistrarse" => "Continuar sem registrar"
         ]
     ],
     'colecciones' => [

@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 
 use App\Registrado;
+use App\RegistradoDireccion;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
@@ -46,5 +47,15 @@ class RegistradoRepository extends BaseRepository
         }
 
         return $direccion;
+    }
+
+    public function eliminarDireccion($id) {
+        $direccion = RegistradoDireccion::find($id);
+        logger($direccion);
+        if ($direccion) {
+            $direccion = $direccion->delete();
+        }
+
+        return true;
     }
 }
