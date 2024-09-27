@@ -232,7 +232,11 @@ class CheckoutController extends AppBaseController
                 if ($request->has('preference_id')) {
                     $pedido = $pedidosRepo->actualizarPago($pedido, false);
                     try {
-                        $pedido->registrado->enviarNotificacionPedido($pedido);
+                        if ($pedido->registrado_id) {
+                            $pedido->registrado->enviarNotificacionPedido($pedido);
+                        } else {
+                            $pedido->enviarNotificacionPedido($pedido);
+                        }
                     } catch (\Exception $e) {
                         logInfo('Checkout::gracias: '.$e->getMessage());
                     }
@@ -423,25 +427,6 @@ class CheckoutController extends AppBaseController
                     'redirect' => $preferenciaPago->init_point
                 ];
             }
-
-            /*if (\Auth::user()->email === env('EMAIL_PEDIDO_PRUEBA','')) {
-                //$pedido->ult_estado_pago = 'aprobado';
-
-                $pedido->estado_id = 1;
-                $pedido->save();
-                $pedido->registrado->enviarNotificacionPedido($pedido);
-                //throw new \Exception("Error Processing Request", 1);
-
-                $salida = ['redirect' => routeIdioma('home')];
-                \Cart::clear();
-            } else {
-                try {
-                    $pedido->registrado->enviarNotificacionPedido($pedido);
-                } catch (\Exception $e) {
-                    logInfo('Checkout::confirmar: '.$e->getMessage());
-                }
-                $salida = $this->armarPreferenciaPago($pedido);
-            }*/
             DB::commit();
             return $this->sendResponse($salida, trans('admin.success'));
 

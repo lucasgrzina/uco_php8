@@ -121,7 +121,12 @@ class PedidoRepository extends BaseRepository
                 }
 
                 if ($notificarCliente) {
-                    $pedido->registrado->enviarNotificacionPedido($pedido);
+                    if ($pedido->registrado_id) {
+                        $pedido->registrado->enviarNotificacionPedido($pedido);
+                    } else {
+                        $pedido->enviarNotificacionPedido($pedido);
+                    }
+
                 }
             }else{
                 switch($mpPago->status) {
