@@ -546,16 +546,16 @@ class SAPService extends AppBaseController
                     }  catch (\GuzzleHttp\Exception\RequestException $ex) {
                         $error = json_decode($ex->getResponse()->getBody()->getContents());
                         \Log::channel('consola')->error("SAP - sincronizarPagos: ". $error->error->message->value);
-                        $pedido->error_sincronizacion_sap = $pedido->error_sincronizacion_sap . "||" . $error->error->message->value;
+                        $pedido->error_sincronizacion_sap = $error->error->message->value;
                         $pedido->save();
                     }  catch (\Exception $ex) {
                         \Log::channel('consola')->error("SAP - sincronizarPagos: ". $ex->getMessage());
-                        $pedido->error_sincronizacion_sap = $pedido->error_sincronizacion_sap . "||" . $ex->getMessage();
+                        $pedido->error_sincronizacion_sap = $ex->getMessage();
                         $pedido->save();
                     }
                 } catch (\Exception $ex) {
                     \Log::channel('consola')->error("SAP - sincronizarPagos - Al generar pago para subir: ". $ex->getMessage());
-                    $pedido->error_sincronizacion_sap = $pedido->error_sincronizacion_sap . "||" . $ex->getMessage();
+                    $pedido->error_sincronizacion_sap = $ex->getMessage();
                     $pedido->save();
                 }
                 //\Log::channel('consola')->info("SAP - Fin Pagos");
